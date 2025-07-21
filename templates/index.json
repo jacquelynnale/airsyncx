@@ -1,0 +1,425 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "airsyncx_hero": {
+      "type": "airsyncx-hero",
+      "settings": {
+        "background_image": "shopify://shop_images/ChatGPT_Image_Apr_13_2025_02_44_35_AM.jpg",
+        "carplay_image": "shopify://shop_images/Carplay.png",
+        "badge_text": "חדש",
+        "rating_text": "4.7/5",
+        "rating_customers": "מעל 1000 לקוחות מרוצים",
+        "title_line1": "נהיגה חכמה מתחילה",
+        "title_line2": "בחיבור חכם",
+        "subtitle": "מתאם אלחוטי ל-Apple CarPlay, פשוט, קל, ללא כבלים.",
+        "primary_cta_text": "הזמן עכשיו",
+        "cta_product": "wireless-carplay-adapter",
+        "primary_cta_action_type": "add_to_cart",
+        "primary_cta_link": "",
+        "primary_cta_scroll_target": "",
+        "primary_cta_popup_target": "",
+        "after_add_to_cart_action": "go_to_cart",
+        "success_message": "המוצר נוסף לסל בהצלחה!",
+        "secondary_button_text": "בדוק תאימות",
+        "secondary_button_link": "shopify://products/wireless-carplay-adapter",
+        "secondary_button_action_type": "scroll_to_section",
+        "secondary_button_scroll_target": "airsyncx-quick-compatibility",
+        "secondary_button_popup_target": "",
+        "stat1_number": "1000+",
+        "stat1_label": "לקוחות מרוצים",
+        "stat2_number": "30",
+        "stat2_label": "יום החזר כספי",
+        "stat3_number": "10",
+        "stat3_label": "שניות התקנה",
+        "trust_badge1_title": "רכישה מאובטחת",
+        "trust_badge1_desc": "תשלום מוצפן ובטוח",
+        "trust_badge2_title": "תמיכה מקצועית",
+        "trust_badge2_desc": "שירות לקוחות 24/7",
+        "trust_badge3_title": "משלוח מהיר",
+        "trust_badge3_desc": "משלוח תוך 24 שעות",
+        "trust_badge4_title": "דירוג מעולה",
+        "trust_badge4_desc": "4.7/5 כוכבים",
+        "visual_focus_title": "CarPlay אלחוטי",
+        "visual_focus_subtitle": "חיבור מיידי"
+      }
+    },
+    "airsyncx_about": {
+      "type": "airsyncx-about",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "תואם לכל רכב עם CarPlay קווי"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "חיבור Bluetooth מהיר ואמין"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "התקנה עצמית פשוטה"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "עדכוני תוכנה אוטומטיים"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "eyebrow_text": "גלה את החידוש",
+        "title_part1": "מה זה",
+        "title_part2": "AirSyncX",
+        "title_part3": "?",
+        "description": "AirSyncX הוא מתאם חכם וקומפקטי שמתחבר ליציאת ה-USB ברכב שלך והופך את CarPlay לאלחוטי - בפחות מ-10 שניות מרגע ההפעלה.",
+        "video_poster": "shopify://shop_images/Apple_CarPlay.png",
+        "hebrew_video_url": "https://cdn.shopify.com/videos/c/o/v/efc31e6a3ca54bde981b8ff5333fd80a.mov",
+        "english_video_url": "https://cdn.shopify.com/videos/c/o/v/82992a2e1f9d4da983a58e1e62d438e9.mp4",
+        "video_play_text": "לחץ לצפייה",
+        "video_not_supported_text": "הדפדפן שלך אינו תומך בהשמעת וידאו",
+        "video_alt_text": "AirSyncX Video",
+        "show_cta": true,
+        "primary_cta_text": "הזמן עכשיו",
+        "cta_product": "מתנה",
+        "primary_cta_action_type": "add_to_cart",
+        "primary_cta_link": "",
+        "primary_cta_scroll_target": "",
+        "primary_cta_popup_target": "",
+        "secondary_cta_text": "למד עוד",
+        "secondary_cta_link": ""
+      }
+    },
+    "airsyncx_why_us": {
+      "type": "airsyncx-why-us",
+      "blocks": {
+        "feature_1": {
+          "type": "feature_item",
+          "settings": {
+            "icon_type": "lightning",
+            "icon_style": "installation-icon",
+            "title": "התקנה מהירה",
+            "description": "חבר את המתאם ליציאת ה-USB ובתוך שניות תוכל להתחיל להשתמש בCarPlay אלחוטי ללא שום התקנה מסובכת."
+          }
+        },
+        "feature_2": {
+          "type": "feature_item",
+          "settings": {
+            "icon_type": "sync",
+            "icon_style": "connection-icon",
+            "title": "חיבור אוטומטי",
+            "description": "ברגע שאתה נכנס לרכב, המתאם מתחבר אוטומטית לטלפון שלך תוך שניות ומפעיל את CarPlay ללא מגע יד."
+          }
+        },
+        "feature_3": {
+          "type": "feature_item",
+          "settings": {
+            "icon_type": "chip",
+            "icon_style": "performance-icon",
+            "title": "ביצועים מעולים",
+            "description": "הודות למעבד חזק ולטכנולוגיה מתקדמת, המתאם מספק חיבור יציב ואמין עם השהייה מינימלית."
+          }
+        },
+        "feature_4": {
+          "type": "feature_item",
+          "settings": {
+            "icon_type": "shield",
+            "icon_style": "warranty-icon",
+            "title": "אחריות מלאה",
+            "description": "אנחנו מספקים אחריות לשנה מלאה על כל המוצרים שלנו, עם שירות לקוחות מקצועי וזמין."
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "eyebrow_text": "למה לבחור בנו",
+        "title_part1": "הפתרון המושלם",
+        "title_part2": "לרכב שלך",
+        "description": "המתאם היחיד לCarPlay אלחוטי שמספק פתרון פשוט, אמין ויעיל להפוך את חווית השימוש ברכב שלך",
+        "show_cta": true,
+        "primary_cta_text": "הזמן עכשיו",
+        "cta_product": "",
+        "primary_cta_action_type": "add_to_cart",
+        "primary_cta_link": "/products/airsyncx",
+        "primary_cta_scroll_target": "",
+        "primary_cta_popup_target": "",
+        "secondary_cta_text": "טבלת השוואה",
+        "secondary_cta_link": "#comparison"
+      }
+    },
+    "airsyncx_comparison": {
+      "type": "airsyncx-comparison",
+      "settings": {
+        "eyebrow": "השוואה מתקדמת",
+        "main_title": "למה <span class=\"highlight\">AirSyncX</span> עולה על כל המתחרים?",
+        "description": "השוואה מפורטת שמראה בדיוק למה AirSyncX הוא הבחירה הטובה ביותר בשוק",
+        "cta_primary_text": "הזמן עכשיו",
+        "cta_primary_link": "/products/airsyncx",
+        "cta_primary_action_type": "link",
+        "cta_primary_scroll_target": "",
+        "cta_primary_popup_target": ""
+      }
+    },
+    "airsyncx_tech_specs": {
+      "type": "airsyncx-tech-specs",
+      "blocks": {
+        "spec_1": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "קישוריות",
+            "spec_value": "Bluetooth 5.0 + WiFi 5G/2.4G"
+          }
+        },
+        "spec_2": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "מעבד",
+            "spec_value": "Quad-core 1.8GHz"
+          }
+        },
+        "spec_3": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "זיכרון",
+            "spec_value": "2GB RAM"
+          }
+        },
+        "spec_4": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "חשמל",
+            "spec_value": "5V/1A USB"
+          }
+        },
+        "spec_5": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "תאימות",
+            "spec_value": "iOS 13.0 ומעלה"
+          }
+        },
+        "spec_6": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "מידות ומשקל",
+            "spec_value": "7.5 x 5.2 x 2.0 ס״מ, 45 גרם"
+          }
+        }
+      },
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6"
+      ],
+      "settings": {
+        "title": "מפרט טכני",
+        "description": "המתאם החכם שלנו מגיע עם הטכנולוגיה המתקדמת ביותר להבטחת חוויית שימוש חלקה ואמינה",
+        "badge_text": "MagSafe תואם"
+      }
+    },
+    "airsyncx_gallery": {
+      "type": "airsyncx-gallery",
+      "blocks": {
+        "gallery_item_1": {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "עיצוב מינימליסטי",
+            "item_description": "עיצוב קומפקטי ואלגנטי שמשתלב בכל רכב"
+          }
+        },
+        "gallery_item_2": {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "קישוריות מתקדמת",
+            "item_description": "מנצל את טכנולוגיית ה-Bluetooth ו-WiFi המתקדמת ביותר לחיבור מהיר ואמין"
+          }
+        },
+        "gallery_item_3": {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "חוויה ללא כבלים",
+            "item_description": "אמרו שלום לסלט הכבלים ברכב שלכם והתחברו אוטומטית בכל נסיעה"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_item_1",
+        "gallery_item_2",
+        "gallery_item_3"
+      ],
+      "settings": {
+        "title": "גלריה",
+        "description": "התכוננו לחוויה חדשה לגמרי"
+      }
+    },
+    "airsyncx_reviews": {
+      "type": "airsyncx-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "\"המתאם עובד בצורה מושלמת ברכב שלי. חיפשתי דרך פשוטה להפוך את ה-CarPlay לאלחוטי וזה בדיוק מה שעשיתי. מתחבר באופן אוטומטי בכל פעם.\"",
+            "author_name": "יוסי",
+            "author_location": "תל אביב"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 4.5,
+            "review_text": "\"מוצר מדהים! התקנתי תוך שניות ומאז אני נהנית להשתמש בCarPlay האלחוטי. מאוד קל לשימוש ולא היו לי בעיות עם החיבור.\"",
+            "author_name": "מיכל",
+            "author_location": "חיפה"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "\"לגמרי שינה את החוויה ברכב שלי. אני אוהב את העובדה שאין יותר כבלים ושהטלפון מתחבר באופן אוטומטי. השקעה מעולה.\"",
+            "author_name": "דני",
+            "author_location": "ירושלים"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "eyebrow": "ביקורות לקוחות",
+        "main_title": "מה אומרים <span class=\"highlight\">הלקוחות שלנו</span> על AirSyncX?",
+        "description": "אלפי לקוחות מרוצים שכבר חווים את החופש של CarPlay אלחוטי",
+        "enable_autoplay": true,
+        "autoplay_speed": 5,
+        "social_proof_title_he": "הצטרף לאלפי הלקוחות המרוצים",
+        "social_proof_title_en": "Join thousands of satisfied customers",
+        "social_proof_description_he": "כל יום עוד לקוחות מגלים את החופש של CarPlay אלחוטי",
+        "social_proof_description_en": "Every day more customers discover the freedom of wireless CarPlay",
+        "cta_text": "הזמן עכשיו",
+        "cta_product": "מתנה",
+        "cta_action_type": "add_to_cart",
+        "cta_link": "",
+        "cta_scroll_target": "",
+        "cta_popup_target": "",
+        "trust_rating_number": "4.9",
+        "trust_rating_label_he": "דירוג ממוצע",
+        "trust_rating_label_en": "Average Rating",
+        "trust_customers_number": "15,000+",
+        "trust_customers_label_he": "לקוחות מרוצים",
+        "trust_customers_label_en": "Happy Customers",
+        "trust_satisfaction_number": "99%",
+        "trust_satisfaction_label_he": "שביעות רצון",
+        "trust_satisfaction_label_en": "Satisfaction Rate"
+      }
+    },
+    "airsyncx_quick_compatibility": {
+      "type": "airsyncx-quick-compatibility",
+      "settings": {
+        "title": "בדיקת תאימות מהירה",
+        "description": "בדוק אם הרכב שלך תואם ל-AirSyncX בקלות",
+        "buy_now_action_type": "link",
+        "buy_now_link": "",
+        "buy_now_scroll_target": "",
+        "buy_now_popup_target": ""
+      }
+    },
+    "airsyncx_faq": {
+      "type": "airsyncx-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם המתאם תואם לרכב שלי?",
+            "answer": "המתאם של AirSyncX תואם לכל רכב המצויד במערכת CarPlay חוטית מקורית. אם הרכב שלך כבר תומך ב-CarPlay באמצעות חיבור USB, המתאם שלנו יעבוד בצורה מושלמת ויהפוך את החיבור לאלחוטי."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "כמה זמן לוקח להתקין את המתאם?",
+            "answer": "ההתקנה אורכת פחות מדקה. פשוט חבר את המתאם לכניסת ה-USB של הרכב, התחבר אליו דרך הבלוטות׳ של הטלפון, והמערכת מוכנה לשימוש. אין צורך בהתקנה מקצועית או בשינויים ברכב."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם יש אחריות על המוצר?",
+            "answer": "כן, אנחנו מספקים אחריות לשנה מלאה על כל המוצרים שלנו. אם תיתקל בבעיה כלשהי עם המתאם, צוות התמיכה שלנו זמין לעזור לך ואנחנו נחליף את המוצר אם יימצא פגום."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "כמה זמן לוקח למתאם להתחבר אוטומטית?",
+            "answer": "לאחר ההגדרה הראשונית, המתאם יתחבר לטלפון שלך באופן אוטומטי תוך 5-15 שניות מרגע הכניסה לרכב והפעלת המערכת. החיבור המהיר מאפשר לך להתחיל להשתמש בCarPlay כמעט מיד."
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם המתאם תומך גם באנדרואיד אוטו?",
+            "answer": "כן, המתאם שלנו תומך הן בCarPlay והן באנדרואיד אוטו. הוא יכול לעבוד עם שני סוגי המכשירים, כך שכל הנוסעים ברכב יכולים להשתמש במערכת בקלות, בין אם הם משתמשים באייפון או במכשיר אנדרואיד."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "title": "שאלות נפוצות",
+        "description": "התשובות לכל השאלות הנפוצות על המתאם האלחוטי של AirSyncX",
+        "contact_title": "Still have questions?",
+        "contact_text": "If you couldn't find an answer to your question, our support team is here to help you with any issue.",
+        "contact_button_text": "Contact us",
+        "contact_button_link": "/pages/contact",
+        "contact_button_action_type": "link",
+        "contact_button_scroll_target": "",
+        "contact_button_popup_target": ""
+      }
+    }
+  },
+  "order": [
+    "airsyncx_hero",
+    "airsyncx_about",
+    "airsyncx_why_us",
+    "airsyncx_comparison",
+    "airsyncx_tech_specs",
+    "airsyncx_gallery",
+    "airsyncx_reviews",
+    "airsyncx_quick_compatibility",
+    "airsyncx_faq"
+  ]
+}

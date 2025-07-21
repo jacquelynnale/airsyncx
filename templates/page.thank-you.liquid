@@ -1,0 +1,514 @@
+{% layout 'theme.liquid' %}
+
+<div class="airsyncx-thank-you-page">
+  <div class="background-elements">
+    <div class="hero-bg">
+      <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ChatGPT_Image_Apr_13_2025_02_44_35_AM.jpg?v=1744644518" alt="AirSyncX Background" class="hero-bg-image">
+    </div>
+    <div class="overlay-bg"></div>
+    <div class="animated-gradient"></div>
+  </div>
+
+  <div class="thank-you-container">
+    <div class="thank-you-content">
+      <div class="thank-you-badge">
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#38d2d2" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="thank-you-title">
+        {% if request.locale.iso_code == 'he' %}
+          <span class="thank-you-title-line">תודה על הזמנתך!</span>
+          <span class="thank-you-title-line with-highlight">הרכישה בוצעה בהצלחה</span>
+        {% else %}
+          <span class="thank-you-title-line">Thank You for Your Order!</span>
+          <span class="thank-you-title-line with-highlight">Purchase Completed Successfully</span>
+        {% endif %}
+      </h1>
+
+      <div class="order-details">
+        {% if request.locale.iso_code == 'he' %}
+          <p class="order-details-text">פרטי ההזמנה נשלחו לכתובת האימייל שלך</p>
+          {% if checkout.order_number %}
+            <p class="order-number">מספר הזמנה: <strong>#{{ checkout.order_number }}</strong></p>
+          {% endif %}
+        {% else %}
+          <p class="order-details-text">Order details have been sent to your email address</p>
+          {% if checkout.order_number %}
+            <p class="order-number">Order number: <strong>#{{ checkout.order_number }}</strong></p>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      <div class="delivery-info">
+        {% if request.locale.iso_code == 'he' %}
+          <h2 class="delivery-title">משלוח ההזמנה שלך</h2>
+          <p class="delivery-text">אנו נארוז ונשלח את הזמנתך באופן מיידי.</p>
+          <p class="delivery-time">הזמנתך תגיע בתוך <strong>2-5 ימי עסקים</strong>.</p>
+        {% else %}
+          <h2 class="delivery-title">Your Order Delivery</h2>
+          <p class="delivery-text">We will package and ship your order immediately.</p>
+          <p class="delivery-time">Your order will arrive within <strong>2-5 business days</strong>.</p>
+        {% endif %}
+      </div>
+
+      <div class="thank-you-buttons">
+        <!-- Continue Shopping Button -->
+        <a href="/" class="thank-you-button thank-you-button-primary">
+          <div class="button-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span class="button-text">
+              {% if request.locale.iso_code == 'he' %}
+                המשך לחנות
+              {% else %}
+                Continue Shopping
+              {% endif %}
+            </span>
+          </div>
+        </a>
+
+        {% if checkout.order_id %}
+          <!-- View Order Button -->
+          <a href="/account/orders/{{ checkout.order_id }}" class="thank-you-button thank-you-button-secondary">
+            <div class="button-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span class="button-text">
+                {% if request.locale.iso_code == 'he' %}
+                  צפה בהזמנה
+                {% else %}
+                  View Order
+                {% endif %}
+              </span>
+            </div>
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Trust Badges Section -->
+      <div class="airsyncx-trust-badges">
+        <div class="trust-badges-container">
+          <div class="trust-badge">
+            <div class="trust-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="trust-badge-content">
+              <div class="trust-badge-title">
+                {% if request.locale.iso_code == 'he' %}
+                  אבטחת תשלום מלאה
+                {% else %}
+                  Secure Payment
+                {% endif %}
+              </div>
+              <div class="trust-badge-subtitle">
+                {% if request.locale.iso_code == 'he' %}
+                  כל העסקאות מוגנות ומאובטחות
+                {% else %}
+                  All transactions are protected and secure
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="trust-badge">
+            <div class="trust-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="trust-badge-content">
+              <div class="trust-badge-title">
+                {% if request.locale.iso_code == 'he' %}
+                  תמיכת לקוחות
+                {% else %}
+                  Customer Support
+                {% endif %}
+              </div>
+              <div class="trust-badge-subtitle">
+                {% if request.locale.iso_code == 'he' %}
+                  זמינים עבורך בכל שאלה
+                {% else %}
+                  Available for any questions
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="trust-badge">
+            <div class="trust-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+              </svg>
+            </div>
+            <div class="trust-badge-content">
+              <div class="trust-badge-title">
+                {% if request.locale.iso_code == 'he' %}
+                  אחריות מלאה
+                {% else %}
+                  Full Warranty
+                {% endif %}
+              </div>
+              <div class="trust-badge-subtitle">
+                {% if request.locale.iso_code == 'he' %}
+                  שנה אחריות על כל מוצרינו
+                {% else %}
+                  One year warranty on all our products
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* כללי */
+  .airsyncx-thank-you-page * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+  }
+
+  .airsyncx-thank-you-page {
+    position: relative;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    padding: 20px;
+    padding-top: 80px;
+  }
+
+  /* רקע */
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.3) blur(3px);
+  }
+
+  .overlay-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.95) 100%);
+  }
+
+  .animated-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(56, 210, 210, 0.08) 0%, transparent 70%);
+    opacity: 0.7;
+    animation: pulse 4s ease infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+  }
+
+  /* תוכן */
+  .thank-you-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .thank-you-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  /* כותרת וסמלים */
+  .thank-you-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(56, 210, 210, 0.1);
+    border: 2px solid rgba(56, 210, 210, 0.3);
+    margin-bottom: 10px;
+  }
+
+  .success-icon {
+    animation: scaleIn 0.5s ease-in-out;
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+
+  .thank-you-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .with-highlight {
+    color: #38d2d2;
+  }
+
+  /* פרטי הזמנה */
+  .order-details {
+    max-width: 600px;
+    margin-bottom: 10px;
+  }
+
+  .order-details-text {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .order-number {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    padding: 8px 20px;
+    background: rgba(56, 210, 210, 0.1);
+    display: inline-block;
+    border-radius: 8px;
+    border: 1px solid rgba(56, 210, 210, 0.2);
+  }
+
+  /* פרטי משלוח */
+  .delivery-info {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .delivery-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #38d2d2;
+  }
+
+  .delivery-time {
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+
+  /* כפתורים */
+  .thank-you-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .thank-you-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .thank-you-button-primary {
+    background: linear-gradient(90deg, #38d2d2 0%, #45e6e6 100%);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(56, 210, 210, 0.3);
+  }
+
+  .thank-you-button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(56, 210, 210, 0.4);
+  }
+
+  .thank-you-button-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .thank-you-button-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* אמון */
+  .airsyncx-trust-badges {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .trust-badges-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: {% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %};
+    padding: 10px;
+  }
+
+  .trust-badge-icon {
+    color: #38d2d2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .trust-badge-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .trust-badge-title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .trust-badge-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+  }
+
+  /* רספונסיביות */
+  @media (max-width: 768px) {
+    .thank-you-container {
+      padding: 30px 20px;
+    }
+    
+    .thank-you-title {
+      font-size: 1.8rem;
+    }
+    
+    .order-details-text {
+      font-size: 1rem;
+    }
+    
+    .thank-you-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .thank-you-button {
+      width: 100%;
+    }
+    
+    .trust-badges-container {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    
+    .trust-badge {
+      padding: 5px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Confetti Animation
+    const duration = 3000;
+    const colors = ['#38d2d2', '#ffffff', '#00b8d4', '#26c6da', '#00acc1'];
+    
+    // Only if confetti library is available
+    if (typeof confetti === 'function') {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: colors,
+        disableForReducedMotion: true
+      });
+      
+      setTimeout(() => {
+        confetti.reset();
+      }, duration);
+    }
+  });
+</script> 

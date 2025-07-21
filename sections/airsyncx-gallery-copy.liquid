@@ -1,0 +1,664 @@
+<!-- AirSyncX Gallery Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section id="gallery" class="airsyncx-gallery">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-lines"></div>
+  </div>
+  
+  <div class="gallery-container">
+    <div class="gallery-header" data-aos="fade-up" data-aos-duration="800">
+      <div class="gallery-eyebrow">{{ 'sections.airsyncx_gallery.eyebrow' | t }}</div>
+      <h2 class="gallery-title">{{ 'sections.airsyncx_gallery.title_part1' | t }}<span class="highlight">{{ 'sections.airsyncx_gallery.title_part2' | t }}</span></h2>
+      <p class="gallery-description">{{ 'sections.airsyncx_gallery.description' | t }}</p>
+    </div>
+    
+    <div class="gallery-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'gallery_item' %}
+          <div class="gallery-item" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+            <div class="gallery-image-wrapper">
+              <div class="image-container">
+                {% if block.settings.item_image != blank %}
+                  <img src="{{ block.settings.item_image | image_url: width: 800 }}" 
+                       alt="{{ block.settings.item_title }}" 
+                       loading="lazy" 
+                       class="gallery-image">
+                {% else %}
+                  {% assign current_title = block.settings.item_title %}
+                  {% if request.locale.iso_code == 'he' %}
+                    {% if current_title == "חוויה ללא כבלים" %}
+                      <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/cf42d2ae-9dce-4353-b254-bb16bb591b06.png?v=1744628067" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% elsif current_title == "קישוריות מתקדמת" %}
+                      <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/7d9c1bb6-5571-4f90-9657-f11895b22331.png?v=1744628583" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% elsif current_title == "עיצוב מינימליסטי" %}
+                      <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/8cd27d04-0e3b-4a3c-89c1-b6da37fc5133.png?v=1744502488" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% else %}
+                      <img src="{{ block.settings.item_image | image_url: width: 800 }}" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% endif %}
+                  {% else %}
+                    {% if current_title == "Wireless Experience" %}
+                      <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/cf42d2ae-9dce-4353-b254-bb16bb591b06.png?v=1744628067" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% elsif current_title == "Advanced Connectivity" %}
+                      <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/7d9c1bb6-5571-4f90-9657-f11895b22331.png?v=1744628583" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% elsif current_title == "Minimalist Design" %}
+                      <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/8cd27d04-0e3b-4a3c-89c1-b6da37fc5133.png?v=1744502488" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% else %}
+                      <img src="{{ block.settings.item_image | image_url: width: 800 }}" 
+                          alt="{{ current_title }}" loading="lazy" class="gallery-image">
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+                <div class="image-overlay">
+                  <div class="zoom-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      <line x1="11" y1="8" x2="11" y2="14"></line>
+                      <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-content">
+              <h3 class="item-title">{{ block.settings.item_title }}</h3>
+              <p class="item-description">{{ block.settings.item_description }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+    <!-- Popup Modal for Image Zoom -->
+    <div id="gallery-modal" class="gallery-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="">
+        <div class="modal-caption">
+          <h3 id="modal-title"></h3>
+          <p id="modal-description"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+    
+    // Gallery image modal functionality
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Variables to store scroll position
+    let scrollPosition = 0;
+    const isMobile = window.innerWidth <= 768;
+    
+    galleryItems.forEach(item => {
+      const imageContainer = item.querySelector('.image-container');
+      const image = item.querySelector('.gallery-image');
+      const title = item.querySelector('.item-title').textContent;
+      const description = item.querySelector('.item-description').textContent;
+      
+      imageContainer.addEventListener('click', function(e) {
+        // Prevent default behavior
+        e.preventDefault();
+        
+        // Store current scroll position
+        scrollPosition = window.pageYOffset;
+        
+        // Disable scroll jumping on mobile
+        if (isMobile) {
+          // Add a fixed position wrapper to prevent scroll
+          document.body.style.position = 'fixed';
+          document.body.style.width = '100%';
+          document.body.style.top = `-${scrollPosition}px`;
+        } else {
+          // Use the previous method on desktop
+          document.body.style.overflow = 'hidden';
+        }
+        
+        modal.style.display = 'flex';
+        modalImg.src = image.src;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        
+        // Animation
+        setTimeout(() => {
+          modal.classList.add('active');
+        }, 10);
+      });
+    });
+    
+    // Function to close the modal and restore scroll position
+    function closeGalleryModal() {
+      modal.classList.remove('active');
+      
+      setTimeout(() => {
+        modal.style.display = 'none';
+        
+        // Restore scroll based on device
+        if (isMobile) {
+          document.body.style.position = '';
+          document.body.style.width = '';
+          document.body.style.top = '';
+          // Restore scroll position
+          window.scrollTo(0, scrollPosition);
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+      }, 300);
+    }
+    
+    closeModal.addEventListener('click', closeGalleryModal);
+    
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeGalleryModal();
+      }
+    });
+    
+    // Hover effects for gallery items
+    galleryItems.forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        const overlay = this.querySelector('.image-overlay');
+        overlay.style.opacity = '1';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        const overlay = this.querySelector('.image-overlay');
+        overlay.style.opacity = '0';
+      });
+    });
+    
+    // Background parallax effect
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = index + 1;
+        circle.style.transform = `translate(${x * 30 * factor}px, ${y * 30 * factor}px)`;
+      });
+    });
+  });
+</script>
+
+<style>
+  .airsyncx-gallery * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-gallery {
+    padding: 120px 0;
+    background-color: #000000;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.05) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    left: -200px;
+    opacity: 0.4;
+  }
+  
+  .bg-circle-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -250px;
+    right: -150px;
+    opacity: 0.3;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+  }
+  
+  .gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .gallery-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .gallery-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #38d2d2;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .gallery-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .gallery-description {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .gallery-item {
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(15, 15, 15, 0.5));
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(56, 210, 210, 0.3);
+  }
+  
+  .gallery-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 66.66%; /* 3:2 Aspect Ratio */
+  }
+  
+  .image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .zoom-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(56, 210, 210, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .zoom-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: #ffffff;
+  }
+  
+  .gallery-item:hover .zoom-icon {
+    transform: scale(1);
+  }
+  
+  .gallery-content {
+    padding: 25px;
+  }
+  
+  .item-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .gallery-item:hover .item-title {
+    color: #38d2d2;
+  }
+  
+  .item-description {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+  }
+  
+  /* Modal Styles */
+  .gallery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gallery-modal.active {
+    opacity: 1;
+  }
+  
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .gallery-modal.active .modal-content {
+    transform: scale(1);
+  }
+  
+  #modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    color: #ffffff;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .close-modal:hover {
+    color: #38d2d2;
+    transform: rotate(90deg);
+  }
+  
+  .modal-caption {
+    margin-top: 20px;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  #modal-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #38d2d2;
+  }
+  
+  #modal-description {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  @media (max-width: 1200px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+    
+    .gallery-title {
+      font-size: 5.2rem;
+    }
+    
+    .gallery-description {
+      font-size: 2.2rem;
+    }
+    
+    .item-title {
+      font-size: 2.4rem;
+    }
+    
+    .item-description {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .airsyncx-gallery {
+      padding: 100px 0;
+    }
+    
+    .gallery-header {
+      margin-bottom: 60px;
+    }
+    
+    .gallery-title {
+      font-size: 4.8rem;
+    }
+    
+    .gallery-eyebrow {
+      font-size: 2rem;
+    }
+    
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .close-modal {
+      top: -40px;
+      right: 0;
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .gallery-title {
+      font-size: 4.2rem;
+    }
+    
+    .gallery-description {
+      font-size: 2rem;
+    }
+    
+    .gallery-content {
+      padding: 20px;
+    }
+    
+    .item-title {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    
+    .item-description {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.airsyncx_gallery.name",
+  "tag": "section",
+  "class": "airsyncx-gallery-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.airsyncx_gallery.settings.title.label",
+      "default": "Our Gallery"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_item",
+      "name": "t:sections.airsyncx_gallery.blocks.gallery_item.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "item_image",
+          "label": "t:sections.airsyncx_gallery.blocks.gallery_item.settings.item_image.label"
+        },
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "t:sections.airsyncx_gallery.blocks.gallery_item.settings.item_title.label",
+          "default": "Image Title"
+        },
+        {
+          "type": "textarea",
+          "id": "item_description",
+          "label": "t:sections.airsyncx_gallery.blocks.gallery_item.settings.item_description.label",
+          "default": "Image description goes here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX Gallery",
+      "blocks": [
+        {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "Minimalist Design",
+            "item_description": "Compact and elegant design that fits into any car"
+          }
+        },
+        {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "Advanced Connectivity",
+            "item_description": "Uses the most advanced Bluetooth and WiFi technology for fast and reliable connection"
+          }
+        },
+        {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "Wireless Experience",
+            "item_description": "Say goodbye to cable mess in your car and connect automatically on every ride"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

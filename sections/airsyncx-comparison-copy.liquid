@@ -1,0 +1,1689 @@
+{{ 'section-airsyncx-comparison.css' | asset_url | stylesheet_tag }}
+
+<!-- AirSyncX Comparison Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<section id="comparison" class="airsyncx-comparison">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+    <div class="bg-lines"></div>
+    <div class="floating-particles"></div>
+    <div class="comparison-glow"></div>
+  </div>
+
+  <div class="comparison-container">
+    <!-- Header Section -->
+    <div class="benefits-header" data-aos="fade-up" data-aos-duration="800">
+      <div class="section-eyebrow">{{ section.settings.eyebrow | default: 'השוואה מתקדמת' }}</div>
+      <h2 class="benefits-title">{{ section.settings.main_title | default: 'למה <span class="highlight">AirSyncX</span> עולה על כל המתחרים?' }}</h2>
+      <p class="section-description">{{ section.settings.description | default: 'השוואה מפורטת שמראה בדיוק למה AirSyncX הוא הבחירה הטובה ביותר בשוק' }}</p>
+    </div>
+    
+    <!-- Advanced Comparison Table - Hebrew Only -->
+    <div class="advanced-comparison-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="comparison-table-wrapper">
+        <div class="comparison-table">
+          <!-- Header Row -->
+          <div class="comparison-header-row">
+            <div class="feature-header">תכונות</div>
+            <div class="competitor-header generic">
+              <div class="competitor-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="#ff6b6b">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="15" y1="9" x2="9" y2="15"/>
+                  <line x1="9" y1="9" x2="15" y2="15"/>
+                </svg>
+                </div>
+              <span>מתאמים גנריים</span>
+                </div>
+            <div class="competitor-header airsyncx">
+              <div class="competitor-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="#38d2d2">
+                  <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+                </svg>
+              </div>
+              <span>AirSyncX PRO</span>
+              <div class="premium-badge">PREMIUM</div>
+            </div>
+        </div>
+        
+          <!-- Feature Rows -->
+          <div class="comparison-row" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-cell">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#38d2d2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"/>
+                </svg>
+                </div>
+              <span>זמן חיבור</span>
+                </div>
+            <div class="competitor-cell generic">
+              <span class="value poor">30+ שניות</span>
+              <div class="quality-indicator poor">איטי</div>
+            </div>
+            <div class="competitor-cell airsyncx">
+              <span class="value excellent">5 שניות</span>
+              <div class="quality-indicator excellent">מהיר פי 6</div>
+            </div>
+        </div>
+        
+          <div class="comparison-row" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-cell">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#38d2d2">
+                  <path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L10.91 8.26L12 2Z"/>
+                </svg>
+                </div>
+              <span>איכות חיבור</span>
+                </div>
+            <div class="competitor-cell generic">
+              <span class="value poor">בסיסית</span>
+              <div class="quality-indicator poor">ניתוקים תכופים</div>
+            </div>
+            <div class="competitor-cell airsyncx">
+              <span class="value excellent">יציבה 100%</span>
+              <div class="quality-indicator excellent">ללא ניתוקים</div>
+            </div>
+        </div>
+        
+          <div class="comparison-row" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-cell">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#38d2d2">
+                  <path d="M21 16V8A2 2 0 0 0 19 6H5A2 2 0 0 0 3 8V16A2 2 0 0 0 5 18H19A2 2 0 0 0 21 16Z"/>
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                </div>
+              <span>תאימות רכבים</span>
+                </div>
+            <div class="competitor-cell generic">
+              <span class="value poor">60-70%</span>
+              <div class="quality-indicator poor">מוגבלת</div>
+            </div>
+            <div class="competitor-cell airsyncx">
+              <span class="value excellent">100%</span>
+              <div class="quality-indicator excellent">כל הרכבים</div>
+            </div>
+        </div>
+        
+          <div class="comparison-row" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-cell">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#38d2d2">
+                  <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"/>
+                </svg>
+                </div>
+              <span>אחריות</span>
+                </div>
+            <div class="competitor-cell generic">
+              <span class="value poor">3-6 חודשים</span>
+              <div class="quality-indicator poor">מוגבלת</div>
+            </div>
+            <div class="competitor-cell airsyncx">
+              <span class="value excellent">שנה מלאה</span>
+              <div class="quality-indicator excellent">החזר מלא</div>
+            </div>
+        </div>
+        
+          <div class="comparison-row" data-aos="fade-up" data-aos-delay="700">
+            <div class="feature-cell">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#38d2d2">
+                  <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"/>
+                </svg>
+                </div>
+              <span>תמיכה טכנית</span>
+                </div>
+            <div class="competitor-cell generic">
+              <span class="value poor">אין</span>
+              <div class="quality-indicator poor">ללא תמיכה</div>
+            </div>
+            <div class="competitor-cell airsyncx">
+              <span class="value excellent">24/7</span>
+              <div class="quality-indicator excellent">תמיכה מלאה</div>
+            </div>
+        </div>
+        
+          <div class="comparison-row" data-aos="fade-up" data-aos-delay="800">
+            <div class="feature-cell">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#38d2d2">
+                  <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
+                </svg>
+                </div>
+              <span>עדכוני תוכנה</span>
+                </div>
+            <div class="competitor-cell generic">
+              <span class="value poor">ידניים</span>
+              <div class="quality-indicator poor">מורכב</div>
+            </div>
+            <div class="competitor-cell airsyncx">
+              <span class="value excellent">אוטומטיים</span>
+              <div class="quality-indicator excellent">תמיד מעודכן</div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        
+    <!-- Winner Section -->
+    <div class="winner-section" data-aos="fade-up" data-aos-delay="1000">
+      <div class="winner-card">
+        <div class="winner-icon">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="#38d2d2">
+            <path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L10.91 8.26L12 2Z"/>
+          </svg>
+                </div>
+        <h3 class="winner-title">הזוכה הברור: AirSyncX</h3>
+        <p class="winner-description">עולה על המתחרים בכל פרמטר - איכות, מהירות, תמיכה ואחריות</p>
+        <div class="winner-stats">
+          <div class="stat-item">
+            <span class="stat-number">6x</span>
+            <span class="stat-label">מהיר יותר</span>
+                </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">תאימות</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">תמיכה</span>
+          </div>
+        </div>
+      </div>
+        </div>
+        
+    <!-- CTA Section -->
+    <div class="comparison-cta" data-aos="fade-up" data-aos-delay="1200">
+      <div class="cta-content">
+        <h3 class="cta-title">מוכן לחוות את ההבדל?</h3>
+        <p class="cta-description">הזמן עכשיו את AirSyncX ותגלה למה הוא הבחירה הטובה ביותר</p>
+        <div class="cta-buttons">
+          <button 
+            type="button" 
+            class="hero-button hero-button-primary"
+            data-product-id="{% if section.settings.cta_product != blank %}{{ section.settings.cta_product.id }}{% endif %}"
+            data-variant-id="{% if section.settings.cta_product != blank %}{{ section.settings.cta_product.selected_or_first_available_variant.id }}{% endif %}"
+            data-action="{{ section.settings.cta_action | default: 'add_to_cart' }}"
+            data-redirect-url="{{ section.settings.cta_primary_link }}"
+          >
+            <div class="button-background-effect"></div>
+            <div class="button-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="button-text">{{ section.settings.cta_primary_text | default: 'הזמן עכשיו' }}</span>
+            </div>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .airsyncx-comparison * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-comparison {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 120px 0;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.08) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 800px;
+    height: 800px;
+    top: -400px;
+    left: -300px;
+    opacity: 0.6;
+  }
+  
+  .bg-circle-2 {
+    width: 600px;
+    height: 600px;
+    bottom: -300px;
+    right: -200px;
+    opacity: 0.4;
+  }
+  
+  .bg-circle-3 {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+  }
+  
+  .floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(56, 210, 210, 0.3), transparent),
+                      radial-gradient(2px 2px at 40px 70px, rgba(56, 210, 210, 0.2), transparent),
+                      radial-gradient(1px 1px at 90px 40px, rgba(56, 210, 210, 0.4), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    animation: float 20s linear infinite;
+  }
+  
+  .comparison-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.1) 0%, transparent 70%);
+    animation: comparisonPulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    33% { transform: translateY(-10px) translateX(10px); }
+    66% { transform: translateY(5px) translateX(-5px); }
+    100% { transform: translateY(0px) translateX(0px); }
+  }
+  
+  @keyframes comparisonPulse {
+    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
+  }
+  
+  .comparison-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .section-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .benefits-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #38d2d2, #2dd4bf);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.8s ease;
+  }
+  
+  .benefits-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .section-description {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Advanced Comparison Table */
+  .advanced-comparison-container {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    position: relative;
+  }
+  
+  .comparison-table-wrapper {
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    border-radius: 25px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  
+  .comparison-table-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.02), transparent);
+    z-index: 1;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .comparison-table-wrapper:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 210, 210, 0.4);
+    box-shadow: 0 20px 40px rgba(56, 210, 210, 0.15);
+  }
+  
+  .comparison-table {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .comparison-header-row {
+    display: grid;
+    grid-template-columns: minmax(200px, 2fr) 1fr 1fr;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.1), rgba(56, 210, 210, 0.05));
+    border-bottom: 2px solid rgba(56, 210, 210, 0.3);
+    position: relative;
+  }
+  
+  .comparison-header-row::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #38d2d2, transparent);
+  }
+  
+  .feature-header {
+    padding: 25px 30px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: {% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %};
+  }
+  
+  .competitor-header {
+    padding: 25px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .competitor-header.generic {
+    background: linear-gradient(145deg, rgba(255, 107, 107, 0.1), rgba(255, 107, 107, 0.05));
+    border-left: 1px solid rgba(255, 107, 107, 0.2);
+  }
+  
+  .competitor-header.airsyncx {
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.15), rgba(56, 210, 210, 0.1));
+    border-left: 1px solid rgba(56, 210, 210, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .competitor-header.airsyncx::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.05), transparent);
+    animation: premiumGlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes premiumGlow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  .competitor-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .competitor-header.generic .competitor-icon {
+    background: linear-gradient(145deg, rgba(255, 107, 107, 0.2), rgba(255, 107, 107, 0.1));
+    border: 1px solid rgba(255, 107, 107, 0.3);
+  }
+  
+  .competitor-header.airsyncx .competitor-icon {
+    background: linear-gradient(145deg, #38d2d2, #2dd4bf);
+    border: 1px solid rgba(56, 210, 210, 0.5);
+    animation: iconPulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  .competitor-header span {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .premium-badge {
+    background: linear-gradient(145deg, #38d2d2, #2dd4bf);
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    animation: badgeGlow 2s ease-in-out infinite;
+  }
+  
+  @keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(56, 210, 210, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(56, 210, 210, 0.6); }
+  }
+  
+  .comparison-row {
+    display: grid;
+    grid-template-columns: minmax(200px, 2fr) 1fr 1fr;
+    border-bottom: 1px solid rgba(56, 210, 210, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+  
+  .comparison-row:hover {
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.05), rgba(56, 210, 210, 0.02));
+  }
+  
+  .feature-cell {
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    min-width: 0;
+  }
+  
+  .feature-cell span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.3;
+  }
+  
+  .feature-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.1), rgba(56, 210, 210, 0.05));
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .comparison-row:hover .feature-icon {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #38d2d2, #2dd4bf);
+  }
+  
+  .comparison-row:hover .feature-icon svg {
+    fill: #000000;
+  }
+  
+  .competitor-cell {
+    padding: 20px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-left: 1px solid rgba(56, 210, 210, 0.1);
+    position: relative;
+  }
+  
+  .competitor-cell.generic {
+    background: linear-gradient(145deg, rgba(255, 107, 107, 0.05), rgba(255, 107, 107, 0.02));
+  }
+  
+  .competitor-cell.airsyncx {
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.08), rgba(56, 210, 210, 0.04));
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .competitor-cell.airsyncx::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.05), transparent);
+    animation: cellShimmer 3s ease-in-out infinite;
+  }
+  
+  @keyframes cellShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .value.poor {
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+  }
+  
+  .value.excellent {
+    color: #38d2d2;
+    text-shadow: 0 0 10px rgba(56, 210, 210, 0.5);
+  }
+  
+  .quality-indicator {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .quality-indicator.poor {
+    background: linear-gradient(145deg, rgba(255, 107, 107, 0.2), rgba(255, 107, 107, 0.1));
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+  }
+  
+  .quality-indicator.excellent {
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.2), rgba(56, 210, 210, 0.1));
+    color: #38d2d2;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+  }
+  
+  /* Winner Section */
+  .winner-section {
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .winner-card {
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.5), rgba(0, 0, 0, 0.8));
+    border: 2px solid rgba(56, 210, 210, 0.3);
+    border-radius: 25px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .winner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    z-index: 1;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  
+  .winner-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #38d2d2, #2dd4bf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    position: relative;
+    z-index: 2;
+    animation: winnerPulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes winnerPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(56, 210, 210, 0.3); }
+    50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(56, 210, 210, 0.6); }
+  }
+  
+  .winner-icon svg {
+    fill: #000000;
+  }
+  
+  .winner-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .winner-description {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .winner-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .stat-item {
+    text-align: center;
+    }
+    
+  .stat-number {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #38d2d2;
+    text-shadow: 0 0 15px rgba(56, 210, 210, 0.5);
+    margin-bottom: 5px;
+  }
+  
+  .stat-label {
+      font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+  
+  /* CTA Section */
+  .comparison-cta {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.5), rgba(0, 0, 0, 0.8));
+    border: 2px solid rgba(56, 210, 210, 0.2);
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .comparison-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    z-index: 1;
+    animation: shimmer 4s ease-in-out infinite;
+    }
+    
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #ffffff;
+    }
+    
+  .cta-description {
+      font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 18px 35px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    }
+    
+  /* Hero Button Styles */
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 32px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 200px;
+  }
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .button-icon {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+
+  /* PRIMARY BUTTON - Call to Action */
+  .hero-button-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4500 100%);
+    color: #ffffff;
+    box-shadow: 
+      0 12px 35px rgba(255, 107, 53, 0.5),
+      0 6px 18px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 107, 53, 0.7);
+    transform: scale(1.05);
+    transition: all 0.4s ease;
+  }
+
+  /* Background Effect for Primary Button */
+  .button-background-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+
+  .hero-button-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff8c5a 0%, #ff6b35 50%, #f7931e 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 2;
+  }
+
+  .hero-button-primary::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 12px;
+    background: linear-gradient(90deg, rgba(255,107,53,0) 0%, rgba(255,107,53,0.9) 50%, rgba(255,107,53,0) 100%);
+    border-radius: 50%;
+    filter: blur(6px);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+    z-index: 0;
+  }
+
+  .hero-button-primary:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 
+      0 20px 50px rgba(255, 107, 53, 0.7),
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    animation: none;
+  }
+
+  .hero-button-primary:hover::before {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover::after {
+    opacity: 1;
+    width: 95%;
+    height: 16px;
+    filter: blur(8px);
+  }
+
+  .hero-button-primary:hover .button-background-effect {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover .button-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .hero-button-primary:active {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 
+      0 8px 20px rgba(255, 107, 53, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+    
+  .cta-button.secondary {
+    background: transparent;
+    color: #38d2d2;
+    border: 2px solid #38d2d2;
+  }
+  
+  .cta-button.secondary:hover {
+    background: #38d2d2;
+    color: #000000;
+    transform: translateY(-3px);
+    }
+    
+  .button-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .cta-button:hover .button-glow {
+    transform: translateX(100%);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .benefits-title {
+      font-size: 4rem;
+    }
+    
+    .advanced-comparison-container {
+      max-width: 100%;
+      margin: 0 20px 60px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .airsyncx-comparison {
+      padding: 80px 0;
+    }
+    
+    .comparison-container {
+      padding: 0 15px;
+    }
+    
+    .benefits-title {
+      font-size: 3.2rem;
+    }
+    
+    .section-description {
+      font-size: 1.6rem;
+    }
+    
+    .advanced-comparison-container {
+      margin: 0 15px 40px;
+    }
+    
+    .comparison-table-wrapper {
+      border-radius: 15px;
+    }
+    
+    .comparison-header-row,
+    .comparison-row {
+      grid-template-columns: minmax(180px, 1.5fr) 1fr 1fr;
+      gap: 0;
+    }
+    
+    .feature-header {
+      font-size: 1.3rem;
+      padding: 20px 15px;
+    }
+    
+    .competitor-header {
+      padding: 20px 10px;
+      gap: 8px;
+    }
+    
+    .competitor-header span {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    
+    .competitor-icon {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .premium-badge {
+      font-size: 0.9rem;
+      padding: 2px 8px;
+    }
+    
+    .feature-cell {
+      font-size: 1.1rem;
+      padding: 15px 15px;
+      gap: 10px;
+    }
+    
+    .feature-icon {
+      width: 25px;
+      height: 25px;
+    }
+    
+    .competitor-cell {
+      padding: 15px 8px;
+      gap: 5px;
+    }
+    
+    .value {
+      font-size: 1.2rem;
+    }
+    
+    .quality-indicator {
+      font-size: 0.9rem;
+      padding: 2px 6px;
+    }
+    
+    .winner-stats {
+      gap: 25px;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .benefits-title {
+      font-size: 2.8rem;
+    }
+    
+    .section-description {
+      font-size: 1.4rem;
+    }
+    
+    .advanced-comparison-container {
+      margin: 0 10px 30px;
+    }
+    
+    .comparison-header-row,
+    .comparison-row {
+      grid-template-columns: minmax(150px, 1fr) 1fr 1fr;
+    }
+    
+    .feature-header {
+      font-size: 1.1rem;
+      padding: 15px 10px;
+    }
+    
+    .competitor-header {
+      padding: 15px 5px;
+    }
+    
+    .competitor-header span {
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+    
+    .feature-cell {
+      font-size: 1rem;
+      padding: 12px 10px;
+      flex-direction: column;
+      text-align: center;
+      gap: 5px;
+    }
+    
+    .feature-icon {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .competitor-cell {
+      padding: 12px 5px;
+    }
+    
+    .value {
+      font-size: 1rem;
+    }
+    
+    .quality-indicator {
+      font-size: 0.8rem;
+      padding: 2px 4px;
+    }
+    
+    .premium-badge {
+      font-size: 0.75rem;
+      padding: 1px 5px;
+    }
+    
+    .winner-card {
+      padding: 30px 20px;
+    }
+    
+    .winner-title {
+      font-size: 2.2rem;
+    }
+    
+    .winner-stats {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .cta-title {
+      font-size: 2.2rem;
+    }
+    
+    .cta-description {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Stack vertically for very small screens */
+    .comparison-header-row,
+    .comparison-row {
+      display: block;
+    }
+    
+    .feature-cell,
+    .competitor-cell {
+      border-left: none;
+      border-bottom: 1px solid rgba(56, 210, 210, 0.1);
+    }
+    
+    .competitor-header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 15px;
+    }
+    
+    .feature-cell {
+      flex-direction: row;
+      justify-content: flex-start;
+      text-align: left;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animations
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+    
+    // Parallax background effect
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    const comparisonGlow = document.querySelector('.comparison-glow');
+    
+    window.addEventListener('mousemove', function(e) {
+      let x = e.clientX / window.innerWidth;
+      let y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = (index + 1) * 0.3;
+        circle.style.transform = `translate(${x * 20 * factor}px, ${y * 20 * factor}px)`;
+      });
+      
+      if (comparisonGlow) {
+        comparisonGlow.style.transform = `translate(calc(-50% + ${x * 30}px), calc(-50% + ${y * 30}px))`;
+      }
+    });
+    
+    // Comparison table hover effects
+    const comparisonRows = document.querySelectorAll('.comparison-row');
+    
+    comparisonRows.forEach(row => {
+      row.addEventListener('mouseenter', function() {
+        // Add glow effect to the row
+        this.style.boxShadow = '0 5px 20px rgba(56, 210, 210, 0.1)';
+        
+        // Animate feature icon
+        const featureIcon = this.querySelector('.feature-icon');
+        if (featureIcon) {
+          featureIcon.style.transform = 'scale(1.2) rotate(5deg)';
+    }
+    
+        // Animate values
+        const values = this.querySelectorAll('.value');
+        values.forEach((value, index) => {
+          setTimeout(() => {
+            value.style.transform = 'scale(1.1)';
+            value.style.textShadow = value.classList.contains('excellent') 
+              ? '0 0 15px rgba(56, 210, 210, 0.8)' 
+              : '0 0 15px rgba(255, 107, 107, 0.6)';
+          }, index * 100);
+        });
+      });
+      
+      row.addEventListener('mouseleave', function() {
+        this.style.boxShadow = 'none';
+        
+        const featureIcon = this.querySelector('.feature-icon');
+        if (featureIcon) {
+          featureIcon.style.transform = 'scale(1) rotate(0deg)';
+    }
+    
+        const values = this.querySelectorAll('.value');
+        values.forEach(value => {
+          value.style.transform = 'scale(1)';
+          value.style.textShadow = value.classList.contains('excellent') 
+            ? '0 0 10px rgba(56, 210, 210, 0.5)' 
+            : '0 0 10px rgba(255, 107, 107, 0.3)';
+        });
+      });
+    });
+    
+    // Winner section animation on scroll
+    const winnerSection = document.querySelector('.winner-section');
+    
+    const winnerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const winnerCard = entry.target.querySelector('.winner-card');
+          const stats = entry.target.querySelectorAll('.stat-item');
+          
+          // Animate winner card
+          winnerCard.style.animation = 'winnerReveal 1s ease-out forwards';
+          
+          // Animate stats with delay
+          stats.forEach((stat, index) => {
+            setTimeout(() => {
+              const number = stat.querySelector('.stat-number');
+              const label = stat.querySelector('.stat-label');
+              
+              number.style.animation = 'countUp 0.8s ease-out forwards';
+              label.style.animation = 'slideInUp 0.6s ease-out forwards';
+            }, index * 200);
+          });
+          
+          winnerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    if (winnerSection) {
+      winnerObserver.observe(winnerSection);
+    }
+    
+    // CTA buttons interaction
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    
+    ctaButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        // Create ripple effect
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+      
+      // Add hover sound effect (optional)
+      button.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px) scale(1.02)';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+    
+    // Comparison table wrapper scroll effect
+    const tableWrapper = document.querySelector('.comparison-table-wrapper');
+    
+    const tableObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const rows = entry.target.querySelectorAll('.comparison-row');
+          
+          rows.forEach((row, index) => {
+            setTimeout(() => {
+              row.style.animation = 'slideInFromLeft 0.6s ease-out forwards';
+            }, index * 100);
+          });
+          
+          tableObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    if (tableWrapper) {
+      tableObserver.observe(tableWrapper);
+    }
+    
+    // Premium badge pulse effect
+    const premiumBadge = document.querySelector('.premium-badge');
+    
+    if (premiumBadge) {
+      setInterval(() => {
+        premiumBadge.style.animation = 'none';
+        setTimeout(() => {
+          premiumBadge.style.animation = 'badgeGlow 2s ease-in-out infinite';
+        }, 10);
+      }, 5000);
+    }
+    
+    // Competitor icons rotation on hover
+    const competitorIcons = document.querySelectorAll('.competitor-icon');
+    
+    competitorIcons.forEach(icon => {
+      icon.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.2) rotate(10deg)';
+      });
+      
+      icon.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+    
+    // Quality indicators animation
+    const qualityIndicators = document.querySelectorAll('.quality-indicator');
+    
+    qualityIndicators.forEach(indicator => {
+      indicator.addEventListener('mouseenter', function() {
+        if (this.classList.contains('excellent')) {
+          this.style.boxShadow = '0 0 20px rgba(56, 210, 210, 0.6)';
+        } else {
+          this.style.boxShadow = '0 0 20px rgba(255, 107, 107, 0.6)';
+        }
+      });
+      
+      indicator.addEventListener('mouseleave', function() {
+        this.style.boxShadow = 'none';
+      });
+    });
+    
+    // Smooth scroll to comparison when clicking internal links
+    const comparisonLinks = document.querySelectorAll('a[href*="#comparison"]');
+    comparisonLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const comparisonSection = document.querySelector('.airsyncx-comparison');
+        if (comparisonSection) {
+          comparisonSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Performance optimization: Throttle mouse move events
+    let ticking = false;
+    
+    function updateParallax(e) {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // Parallax logic here
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    
+    // Add loading state to CTA buttons
+    ctaButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        if (!this.classList.contains('loading')) {
+          this.classList.add('loading');
+          this.style.opacity = '0.7';
+          this.style.cursor = 'wait';
+          
+          setTimeout(() => {
+            this.classList.remove('loading');
+            this.style.opacity = '1';
+            this.style.cursor = 'pointer';
+          }, 2000);
+        }
+      });
+    });
+  });
+  
+  // Add additional CSS animations
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes winnerReveal {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+  }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(0);
+      animation: rippleEffect 0.6s linear;
+      pointer-events: none;
+  }
+  
+    @keyframes rippleEffect {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    
+    .cta-button.loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+  }
+  
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Enhanced hover effects */
+    .comparison-row:hover .competitor-cell.airsyncx {
+      background: linear-gradient(145deg, rgba(56, 210, 210, 0.15), rgba(56, 210, 210, 0.08));
+    }
+    
+    .comparison-row:hover .competitor-cell.generic {
+      background: linear-gradient(145deg, rgba(255, 107, 107, 0.1), rgba(255, 107, 107, 0.05));
+    }
+    
+    /* Mobile optimizations */
+  @media (max-width: 768px) {
+      .floating-particles {
+        display: none;
+    }
+      
+      .comparison-glow {
+        display: none;
+      }
+      
+      .bg-circle {
+        opacity: 0.3;
+    }
+  }
+  `;
+  document.head.appendChild(style);
+</script>
+
+{% schema %}
+{
+  "name": "השוואה מתקדמת",
+  "tag": "section",
+  "class": "airsyncx-comparison-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "כותרת עליונה",
+      "default": "השוואה מתקדמת"
+    },
+    {
+      "type": "html",
+      "id": "main_title",
+      "label": "כותרת ראשית",
+      "default": "למה <span class=\"highlight\">AirSyncX</span> עולה על כל המתחרים?"
+        },
+        {
+      "type": "textarea",
+      "id": "description",
+      "label": "תיאור",
+      "default": "השוואה מפורטת שמראה בדיוק למה AirSyncX הוא הבחירה הטובה ביותר בשוק"
+        },
+        {
+          "type": "text",
+      "id": "cta_primary_text",
+      "label": "טקסט כפתור ראשי",
+              "default": "הזמן עכשיו"
+        },
+        {
+          "type": "product",
+          "id": "cta_product",
+          "label": "מוצר להוספה לסל",
+          "info": "בחר את המוצר שיתווסף לסל בלחיצה על הכפתור הראשי"
+        },
+        {
+          "type": "select",
+          "id": "cta_action",
+          "label": "פעולת הכפתור הראשי",
+          "options": [
+            {
+              "value": "add_to_cart",
+              "label": "הוספה לסל"
+            },
+            {
+              "value": "redirect",
+              "label": "הפניה לקישור"
+            }
+          ],
+          "default": "add_to_cart"
+        },
+        {
+      "type": "url",
+      "id": "cta_primary_link",
+      "label": "קישור כפתור ראשי",
+      "info": "יופעל רק אם נבחרה פעולת 'הפניה לקישור'"
+        },
+        {
+          "type": "text",
+      "id": "cta_secondary_text",
+      "label": "טקסט כפתור משני",
+      "default": "טבלת השוואה"
+        },
+        {
+      "type": "url",
+      "id": "cta_secondary_link",
+      "label": "קישור כפתור משני"
+    }
+  ],
+  "presets": [
+    {
+      "name": "השוואה מתקדמת",
+          "settings": {
+        "eyebrow": "השוואה מתקדמת",
+        "main_title": "למה <span class=\"highlight\">AirSyncX</span> עולה על כל המתחרים?",
+        "description": "השוואה מפורטת שמראה בדיוק למה AirSyncX הוא הבחירה הטובה ביותר בשוק",
+        "cta_primary_text": "הזמן עכשיו",
+        "cta_secondary_text": "טבלת השוואה"
+          }
+    }
+  ]
+}
+{% endschema %}

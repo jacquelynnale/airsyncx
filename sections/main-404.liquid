@@ -1,0 +1,427 @@
+<!-- AirSyncX Custom 404 Page -->
+<script>
+  // Automatically redirect to homepage after 404 error
+  window.location.href = '/'; // Redirect to homepage
+</script>
+
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+  /* AirSyncX 404 Page Styles */
+  .airsyncx-404-container {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Assistant', sans-serif;
+    margin-top: 0; /* Removed top margin to eliminate gap */
+    z-index: 1; /* Ensure proper stacking context */
+  }
+  
+  /* Background Animation */
+  .airsyncx-404-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .circuit-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #38d2d2, transparent);
+    animation: circuit-animation 8s infinite linear;
+    opacity: 0.5;
+  }
+  
+  .circuit-line:nth-child(1) {
+    top: 15%;
+    width: 80%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .circuit-line:nth-child(2) {
+    top: 35%;
+    width: 60%;
+    right: 5%;
+    animation-delay: 2s;
+  }
+  
+  .circuit-line:nth-child(3) {
+    bottom: 45%;
+    width: 75%;
+    left: 5%;
+    animation-delay: 1s;
+  }
+  
+  .circuit-line:nth-child(4) {
+    bottom: 25%;
+    width: 85%;
+    right: 10%;
+    animation-delay: 3s;
+  }
+  
+  .circuit-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #38d2d2;
+    animation: pulse 2s infinite;
+  }
+  
+  .circuit-dot:nth-child(5) {
+    top: 15%;
+    left: 25%;
+    animation-delay: 0.5s;
+  }
+  
+  .circuit-dot:nth-child(6) {
+    top: 35%;
+    right: 20%;
+    animation-delay: 1.5s;
+  }
+  
+  .circuit-dot:nth-child(7) {
+    bottom: 45%;
+    left: 20%;
+    animation-delay: 0.7s;
+  }
+  
+  .circuit-dot:nth-child(8) {
+    bottom: 25%;
+    right: 30%;
+    animation-delay: 2.5s;
+  }
+  
+  @keyframes circuit-animation {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+  }
+  
+  /* Content Styles */
+  .airsyncx-404-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .error-code {
+    font-size: 10rem;
+    font-weight: 800;
+    margin: 0;
+    color: #38d2d2;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(56, 210, 210, 0.4);
+    position: relative;
+  }
+  
+  .error-code::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: #38d2d2;
+    box-shadow: 0 0 10px #38d2d2;
+  }
+  
+  .error-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .error-message {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+  
+  /* Navigation Section */
+  .airsyncx-404-nav {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .nav-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #38d2d2;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .nav-link {
+    background-color: rgba(56, 210, 210, 0.1);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(56, 210, 210, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.2);
+  }
+  
+  .nav-link svg {
+    flex-shrink: 0;
+  }
+  
+  /* Back Button */
+  .back-button {
+    margin-top: 1.5rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #38d2d2;
+    color: #000000;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 210, 210, 0.4);
+  }
+  
+  .back-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+  }
+  
+  .back-button:hover::before {
+    left: 100%;
+  }
+  
+  .search-form {
+    position: relative;
+    max-width: 500px;
+    margin: 2rem auto;
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    padding-right: 3.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(56, 210, 210, 0.6);
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.2);
+  }
+  
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .search-button {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: #38d2d2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .search-button:hover {
+    color: #ffffff;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .error-code {
+      font-size: 7rem;
+    }
+    
+    .error-title {
+      font-size: 2rem;
+      color: #ffffff;
+    }
+    
+    .error-message {
+      font-size: 1rem;
+    }
+    
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .nav-link {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .error-code {
+      font-size: 5rem;
+    }
+    
+    .error-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+    }
+  }
+</style>
+
+<div class="airsyncx-404-container">
+  <!-- Animated Background -->
+  <div class="airsyncx-404-bg">
+    <div class="circuit-line"></div>
+    <div class="circuit-line"></div>
+    <div class="circuit-line"></div>
+    <div class="circuit-line"></div>
+    <div class="circuit-dot"></div>
+    <div class="circuit-dot"></div>
+    <div class="circuit-dot"></div>
+    <div class="circuit-dot"></div>
+  </div>
+
+  <div class="airsyncx-404-content">
+    <!-- Error Info -->
+    <h1 class="error-code" data-aos="fade-down" data-aos-duration="800">404</h1>
+    <h2 class="error-title" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">העמוד לא נמצא</h2>
+    <p class="error-message" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+      אופס! נראה שהקישור שביקשת לא קיים. הדף שחיפשת הוסר, שונה, או שמעולם לא היה קיים.
+    </p>
+    
+    <!-- Search Form -->
+    <form action="/search" method="get" class="search-form" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+      <input type="search" name="q" class="search-input" placeholder="חפש באתר..." aria-label="חיפוש">
+      <button type="submit" class="search-button" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+    
+    <!-- Navigation Help -->
+    <div class="airsyncx-404-nav" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+      <h3 class="nav-title">אולי אחד מהדפים הבאים יעזור?</h3>
+      <div class="nav-links">
+        <a href="/" class="nav-link">
+          <i class="fa-solid fa-house"></i>
+          <span>דף הבית</span>
+        </a>
+        <a href="/products/airsyncx" class="nav-link">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <span>המוצר</span>
+        </a>
+        <a href="/pages/faq" class="nav-link">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>שאלות נפוצות</span>
+        </a>
+        <a href="/pages/contact" class="nav-link">
+          <i class="fa-solid fa-headset"></i>
+          <span>יצירת קשר</span>
+        </a>
+      </div>
+      <a href="/" class="back-button">חזרה לדף הבית</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "404 לא נמצא",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "דף 404 בעיצוב מותאם לAirSyncX"
+    }
+  ],
+  "presets": [
+    {
+      "name": "404 לא נמצא"
+    }
+  ]
+}
+{% endschema %}

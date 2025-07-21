@@ -1,0 +1,714 @@
+<!-- AirSyncX FAQ Section -->
+<!-- Fonts and CSS handled in theme.liquid for better performance -->
+
+<section id="faq" class="airsyncx-faq">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-lines"></div>
+  </div>
+  
+  <div class="faq-container">
+    <div class="faq-header">
+      <div class="faq-eyebrow">{{ 'sections.airsyncx_faq.quick_answer' | t }}</div>
+      <h2 class="faq-title">{{ 'sections.airsyncx_faq.questions' | t }} <span class="highlight">{{ 'sections.airsyncx_faq.highlighted' | t }}</span></h2>
+      <p class="faq-description">{{ 'sections.airsyncx_faq.faq_title' | t }}</p>
+    </div>
+    
+    <div class="faq-content">
+      {% for block in section.blocks %}
+        {% if block.type == 'faq_item' %}
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>{{ block.settings.question }}</h3>
+              <span class="faq-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer">
+              <p>{{ block.settings.answer }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+    <div class="faq-contact{% if template contains 'index' %} aos-init aos-animate{% endif %}">
+      <div class="contact-info">
+        <h3>{{ 'sections.airsyncx_faq.still_have_questions' | t }}</h3>
+        <p>{{ 'sections.airsyncx_faq.support_text' | t }}</p>
+        {% liquid
+          assign button_tag = 'a'
+          assign button_attrs = 'href="' | append: section.settings.contact_button_link | append: '"'
+          assign data_attributes = ''
+
+          if section.settings.contact_button_action_type == 'scroll_to_section'
+            assign button_tag = 'button'
+            assign button_attrs = 'type="button" data-action-type="scroll_to_section" data-scroll-target="#' | append: section.settings.contact_button_scroll_target | append: '"'
+          elsif section.settings.contact_button_action_type == 'open_popup'
+            assign button_tag = 'button'
+            assign button_attrs = 'type="button" data-action-type="open_popup" data-popup-target="#' | append: section.settings.contact_button_popup_target | append: '"'
+          endif
+        %}
+        <{{ button_tag }} {{ button_attrs }} class="contact-button">
+          {{ 'sections.airsyncx_faq.contact_us' | t }}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </{{ button_tag }}>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AOS handled globally for better performance -->
+
+<style>
+  .airsyncx-faq * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-faq {
+    padding: 120px 0;
+    background-color: #000000;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(25, 25, 25, 0.05) 0%, rgba(15, 15, 15, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    right: -200px;
+    opacity: 0.4;
+  }
+  
+  .bg-circle-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -250px;
+    left: -150px;
+    opacity: 0.3;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+  }
+  
+  .faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .faq-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .faq-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .faq-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #38d2d2;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .faq-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .faq-description {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .faq-content {
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(15, 15, 15, 0.5));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .faq-item:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    border-color: rgba(56, 210, 210, 0.3);
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .faq-question::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #38d2d2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .faq-item.active .faq-question::before {
+    opacity: 1;
+  }
+  
+  .faq-question h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+  
+  .faq-item.active .faq-question h3,
+  .faq-item:hover .faq-question h3 {
+    color: #38d2d2;
+  }
+  
+  .faq-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38d2d2;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .faq-answer p {
+    padding: 0 30px 25px;
+    margin: 0;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+  
+  .faq-item.active .faq-answer {
+    max-height: 1000px;
+  }
+  
+  .faq-contact {
+    text-align: center;
+    padding: 50px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(15, 15, 15, 0.5));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .contact-info h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info p {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background-color: #38d2d2;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(56, 210, 210, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: skewX(-25deg);
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(56, 210, 210, 0.4);
+  }
+  
+  .contact-button:hover::before {
+    width: 140%;
+  }
+  
+  .contact-button svg {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .contact-button:hover svg {
+    transform: translateX(5px);
+  }
+  
+  .contact-button span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .faq-contact {
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    
+    .contact-info h3 {
+      font-size: 2.5rem;
+    }
+    
+    .contact-info p {
+      font-size: 1.6rem;
+    }
+    
+    .contact-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .faq-title {
+      font-size: 5rem;
+    }
+    
+    .faq-description {
+      font-size: 1.8rem;
+    }
+    
+    .faq-question h3 {
+      font-size: 1.8rem;
+    }
+    
+    .faq-answer p {
+      font-size: 1.6rem;
+    }
+    
+    .contact-info h3 {
+      font-size: 2.5rem;
+    }
+    
+    .contact-info p {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .airsyncx-faq {
+      padding: 100px 0;
+    }
+    
+    .faq-header {
+      margin-bottom: 60px;
+    }
+    
+    .faq-title {
+      font-size: 4rem;
+    }
+    
+    .faq-eyebrow {
+      font-size: 1.8rem;
+    }
+    
+    .faq-description {
+      font-size: 1.6rem;
+    }
+    
+    .faq-question h3 {
+      font-size: 1.6rem;
+    }
+    
+    .faq-answer p {
+      font-size: 1.5rem;
+      padding: 0 25px 20px;
+    }
+    
+    .faq-contact {
+      padding: 40px 25px;
+    }
+    
+    .contact-info h3 {
+      font-size: 2.2rem;
+    }
+    
+    .contact-info p {
+      font-size: 1.5rem;
+    }
+    
+    .contact-button {
+      padding: 12px 25px;
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .faq-title {
+      font-size: 3.5rem;
+    }
+    
+    .faq-description {
+      font-size: 1.4rem;
+    }
+    
+    .faq-question {
+      padding: 20px 25px;
+    }
+    
+    .faq-question h3 {
+      font-size: 1.5rem;
+    }
+    
+    .faq-answer p {
+      font-size: 1.4rem;
+      padding: 0 25px 20px;
+    }
+    
+    .contact-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-question');
+    
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        const isActive = parent.classList.contains('active');
+        
+        // Close all items with smooth animation
+        document.querySelectorAll('.faq-item').forEach(el => {
+          if (el !== parent && el.classList.contains('active')) {
+            el.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item with delay for smooth transition
+        setTimeout(() => {
+          parent.classList.toggle('active');
+        }, isActive ? 0 : 200);
+      });
+    });
+    
+    // Add hover effects
+    const faqItem = document.querySelectorAll('.faq-item');
+    faqItem.forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        if (!this.classList.contains('active')) {
+          this.style.transform = 'translateY(0)';
+        } else {
+          this.style.transform = 'translateY(-5px)';
+        }
+      });
+    });
+    
+    // Add parallax effect to background elements
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = index + 1;
+        circle.style.transform = `translate(${x * 30 * factor}px, ${y * 30 * factor}px)`;
+      });
+    });
+
+    // Contact Button Logic
+    const contactButton = document.querySelector('.faq-contact .contact-button');
+
+    if (contactButton) {
+      contactButton.addEventListener('click', function(event) {
+        const actionType = this.dataset.actionType;
+
+        if (actionType === 'scroll_to_section') {
+          event.preventDefault();
+          const target = this.dataset.scrollTarget;
+          const targetElement = document.querySelector(target);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            console.warn(`Scroll target element not found: ${target}`);
+          }
+        } else if (actionType === 'open_popup') {
+          event.preventDefault();
+          const target = this.dataset.popupTarget;
+          const popupElement = document.querySelector(target);
+          if (popupElement) {
+            popupElement.classList.add('is-active');
+            popupElement.addEventListener('click', (e) => {
+              if (e.target === popupElement) {
+                popupElement.classList.remove('is-active');
+              }
+            });
+          } else {
+            console.warn(`Popup target element not found: ${target}`);
+          }
+        }
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "AirSyncX FAQ",
+  "tag": "section",
+  "class": "airsyncx-faq-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Questions"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Answers to all the frequently asked questions about the AirSyncX wireless adapter"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Title",
+      "default": "Still have questions?"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_text",
+      "label": "Contact Text",
+      "default": "If you couldn't find the answer to your question, our support team is here to help you with any issue."
+    },
+    {
+      "type": "text",
+      "id": "contact_button_text",
+      "label": "Contact Button Text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "contact_button_link",
+      "label": "Contact Button Link"
+    },
+    {
+      "type": "select",
+      "id": "contact_button_action_type",
+      "label": "Button Action Type",
+      "options": [
+        {
+          "value": "link",
+          "label": "Link to URL"
+        },
+        {
+          "value": "scroll_to_section",
+          "label": "Scroll to section"
+        },
+        {
+          "value": "open_popup",
+          "label": "Open popup"
+        }
+      ],
+      "default": "link",
+      "info": "Select the action type for the 'Contact Us' button."
+    },
+    {
+      "type": "text",
+      "id": "contact_button_scroll_target",
+      "label": "Scroll Target (section ID)",
+      "info": "Enter the ID of the section to scroll to (e.g., 'my-section-id'). Used if 'Scroll to section' action type is selected."
+    },
+    {
+      "type": "text",
+      "id": "contact_button_popup_target",
+      "label": "Popup Target (popup ID)",
+      "info": "Enter the ID of the popup to open (e.g., 'my-popup-id'). Used if 'Open popup' action type is selected."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Question and Answer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Is the adapter compatible with my car?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "The AirSyncX adapter is compatible with any car equipped with original wired CarPlay. If your car already supports CarPlay via USB connection, our adapter will work perfectly and make the connection wireless."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "{{ 'sections.airsyncx_faq.faq_items.compatibility_question' | t }}",
+            "answer": "{{ 'sections.airsyncx_faq.faq_items.compatibility_answer' | t }}"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "{{ 'sections.airsyncx_faq.faq_items.installation_question' | t }}",
+            "answer": "{{ 'sections.airsyncx_faq.faq_items.installation_answer' | t }}"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "{{ 'sections.airsyncx_faq.faq_items.warranty_question' | t }}",
+            "answer": "{{ 'sections.airsyncx_faq.faq_items.warranty_answer' | t }}"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "{{ 'sections.airsyncx_faq.faq_items.connection_time_question' | t }}",
+            "answer": "{{ 'sections.airsyncx_faq.faq_items.connection_time_answer' | t }}"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "{{ 'sections.airsyncx_faq.faq_items.android_auto_question' | t }}",
+            "answer": "{{ 'sections.airsyncx_faq.faq_items.android_auto_answer' | t }}"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1032 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "Enter store using password:",
+      "login_password_button": "Enter using password",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_error": "Wrong password!",
+      "login_form_submit": "Enter",
+      "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link underlined-link\">Log in here</a>",
+      "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Share on Facebook",
+        "share_on_twitter": "Tweet on Twitter",
+        "share_on_pinterest": "Pin on Pinterest"
+      },
+      "links": {
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo",
+        "tiktok": "TikTok"
+      }
+    },
+    "continue_shopping": "Continue shopping",
+    "pagination": {
+      "label": "Pagination",
+      "page": "Page {{ number }}",
+      "next": "Next page",
+      "previous": "Previous page"
+    },
+    "search": {
+      "search": "Search",
+      "reset": "Clear search term"
+    },
+    "cart": {
+      "view": "View my cart ({{ count }})",
+      "view_empty_cart": "View my cart",
+      "item_added": "Item added to your cart"
+    },
+    "share": {
+      "close": "Close share",
+      "copy_to_clipboard": "Copy link",
+      "share_url": "Link",
+      "success_message": "Link copied to clipboard"
+    },
+    "slider": {
+      "of": "of",
+      "next_slide": "Slide right",
+      "previous_slide": "Slide left",
+      "name": "Slider"
+    }
+  },
+  "newsletter": {
+    "label": "Email",
+    "success": "Thanks for subscribing",
+    "button_label": "Subscribe"
+  },
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "skip_to_product_info": "Skip to product information",
+    "close": "Close",
+    "unit_price_separator": "per",
+    "vendor": "Vendor:",
+    "error": "Error",
+    "refresh_page": "Choosing a selection results in a full page refresh.",
+    "link_messages": {
+      "new_window": "Opens in a new window.",
+      "external": "Opens external website."
+    },
+    "loading": "Loading...",
+    "total_reviews": "total reviews",
+    "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars",
+    "collapsible_content_title": "Collapsible content",
+    "complementary_products": "Complementary products"
+  },
+  "blogs": {
+    "article": {
+      "blog": "Blog",
+      "read_more_title": "Read more: {{ title }}",
+      "comments": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      },
+      "moderated": "Please note, comments need to be approved before they are published.",
+      "comment_form_title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "back_to_blog": "Back to blog",
+      "share": "Share this article",
+      "success": "Your comment was posted successfully! Thank you!",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
+    }
+  },
+  "onboarding": {
+    "product_title": "Example product title",
+    "collection_title": "Your collection's name"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "choose_options": "Choose options",
+      "choose_product_options": "Choose options for {{ product_name }}",
+      "description": "Description",
+      "inventory_in_stock": "In stock",
+      "inventory_in_stock_show_count": "{{ quantity }} in stock",
+      "inventory_low_stock": "Low stock",
+      "inventory_low_stock_show_count": "Low stock: {{ quantity }} left",
+      "inventory_out_of_stock": "Out of stock",
+      "inventory_out_of_stock_continue_selling": "In stock",
+      "sku": "SKU",
+      "on_sale": "Sale",
+      "product_variants": "Product variants",
+      "media": {
+        "gallery_viewer": "Gallery Viewer",
+        "load_image": "Load image {{ index }} in gallery view",
+        "load_model": "Load 3D Model {{ index }} in gallery view",
+        "load_video": "Play video {{ index }} in gallery view",
+        "image_available": "Image {{ index }} is now available in gallery view",
+        "open_media": "Open media {{ index }} in modal",
+        "play_model": "Play 3D Viewer",
+        "play_video": "Play video"
+      },
+      "quantity": {
+        "label": "Quantity",
+        "input_label": "Quantity for {{ product }}",
+        "increase": "Increase quantity for {{ product }}",
+        "decrease": "Decrease quantity for {{ product }}",
+        "minimum_of": "Minimum of {{ quantity }}",
+        "maximum_of": "Maximum of {{ quantity }}",
+        "multiples_of": "Increments of {{ quantity }}",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> in cart"
+      },
+      "pickup_availability": {
+        "view_store_info": "View store information",
+        "check_other_stores": "Check availability at other stores",
+        "pick_up_available": "Pickup available",
+        "pick_up_available_at_html": "Pickup available at <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{ location_name }}</span>",
+        "unavailable": "Couldn't load pickup availability",
+        "refresh": "Refresh"
+      },
+      "price": {
+        "from_price_html": "From {{ price }}",
+        "regular_price": "Price",
+        "sale_price": "Sale price",
+        "unit_price": "Unit price"
+      },
+      "share": "Share this product",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "vendor": "Vendor",
+      "value_unavailable": "{{ option_value }} - Unavailable",
+      "variant_sold_out_or_unavailable": "Variant sold out or unavailable",
+      "video_exit_message": "{{ title }} opens full screen video in same window.",
+      "view_full_details": "View full details",
+      "xr_button": "View in your space",
+      "xr_button_label": "View in your space, loads item in augmented reality window",
+      "include_taxes": "Tax included.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+    },
+    "modal": {
+      "label": "Media gallery"
+    },
+    "facets": {
+      "apply": "Apply",
+      "clear": "Clear",
+      "clear_all": "Remove all",
+      "from": "From",
+      "filter_and_sort": "Filter and sort",
+      "filter_by_label": "Filter:",
+      "filter_button": "Filter",
+      "filters_selected": {
+        "one": "{{ count }} selected",
+        "other": "{{ count }} selected"
+      },
+      "filter_selected_accessibility": "{{ type }} ({{ count }} filters selected)",
+      "show_more": "Show more",
+      "show_less": "Show less",
+      "max_price": "The highest price is {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} of {{ count }} product",
+        "other": "{{ product_count }} of {{ count }} products"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "reset": "Reset",
+      "sort_button": "Sort",
+      "sort_by_label": "Sort by:",
+      "to": "To",
+      "clear_filter": "Remove filter"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "Page not found",
+      "subtext": "404"
+    },
+    "search": {
+      "no_results": "No results found for \"{{ terms }}\". Check the spelling or use a different word or phrase.",
+      "page": "Page",
+      "products": "Products",
+      "results_pages_with_count": {
+        "one": "{{ count }} page",
+        "other": "{{ count }} pages"
+      },
+      "results_suggestions_with_count": {
+        "one": "{{ count }} suggestion",
+        "other": "{{ count }} suggestions"
+      },
+      "results_products_with_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "results_with_count": {
+        "one": "{{ count }} result",
+        "other": "{{ count }} results"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} result found for \"{{ terms }}\"",
+        "other": "{{ count }} results found for \"{{ terms }}\""
+      },
+      "title": "Search results",
+      "search_for": "Search for \"{{ terms }}\"",
+      "suggestions": "Suggestions",
+      "pages": "Pages"
+    },
+    "cart": {
+      "cart": "Cart"
+    },
+    "contact": {
+      "form": {
+        "title": "Contact form",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone number",
+        "comment": "Comment",
+        "send": "Send",
+        "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "error_heading": "Please adjust the following:"
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "announcement": "Announcement",
+      "menu": "Menu",
+      "cart_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      }
+    },
+    "cart": {
+      "title": "Your cart",
+      "caption": "Cart items",
+      "remove_title": "Remove {{ title }}",
+      "subtotal": "Subtotal",
+      "new_subtotal": "New subtotal",
+      "note": "Order special instructions",
+      "checkout": "Check out",
+      "empty": "Your cart is empty",
+      "cart_error": "There was an error while updating your cart. Please try again.",
+      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
+      "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
+      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
+      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
+      "headings": {
+        "product": "Product",
+        "price": "Price",
+        "total": "Total",
+        "quantity": "Quantity",
+        "image": "Product image"
+      },
+      "update": "Update",
+      "login": {
+        "title": "Have an account?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
+      },
+      "order_summary": "Order Summary",
+      "product_price": "Product price:",
+      "discounts": "Discounts:",
+      "shipping": "Shipping:",
+      "free": "Free",
+      "vat_included": "VAT (included):",
+      "total_payment": "Total payment:",
+      "secure_checkout": "Secure Checkout",
+      "continue_shopping": "Continue shopping",
+      "taxes_included": "Prices include taxes",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout",
+      "saved": "You saved {{ amount }} with multiple purchase!",
+      "stock_warning": "{{ quantity }} units left in stock",
+      "free_shipping_message": "Just {{ amount }} more and you'll unlock free shipping! 🚚💰",
+      "free_shipping_achieved": "You've unlocked free shipping! 🎉",
+      "free_shipping_celebrate": "You've unlocked free shipping! 🎉",
+      "item_remove": "Remove from cart",
+      "empty_cart": {
+        "title": "Your cart is empty",
+        "subtitle": "You haven't added any products to your cart yet. Browse our products and start a smooth and enjoyable shopping experience.",
+        "button": "Home page"
+      },
+      "trust_badges": {
+        "secure": "Secure SSL",
+        "warranty": "1 Year Warranty",
+        "returns": "30-Day Returns"
+      }
+    },
+    "footer": {
+      "payment": "Payment methods"
+    },
+    "featured_blog": {
+      "view_all": "View all",
+      "onboarding_title": "Blog post",
+      "onboarding_content": "Give your customers a summary of your blog post"
+    },
+    "featured_collection": {
+      "view_all": "View all",
+      "view_all_label": "View all products in the {{ collection_name }} collection"
+    },
+    "collection_list": {
+      "view_all": "View all"
+    },
+    "collection_template": {
+      "empty": "No products found",
+      "title": "Collection",
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
+    },
+    "video": {
+      "load_video": "Load video: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "Load slide",
+      "previous_slideshow": "Previous slide",
+      "next_slideshow": "Next slide",
+      "pause_slideshow": "Pause slideshow",
+      "play_slideshow": "Play slideshow",
+      "carousel": "Carousel",
+      "slide": "Slide"
+    },
+    "page": {
+      "title": "Page title"
+    },
+    "main-cart-footer": {
+      "name": "Cart",
+      "blocks": {
+        "subtotal": {
+          "name": "Subtotal"
+        },
+        "buttons": {
+          "name": "Buttons"
+        }
+      }
+    },
+    "airsyncx_faq": {
+      "quick_answer": "For Quick Answers",
+      "faq_title": "Frequently Asked Questions",
+      "questions": "Questions",
+      "highlighted": "Frequently",
+      "still_have_questions": "Still have questions?",
+      "support_text": "If you couldn't find the answer to your question, our support team is here to help you with any issue.",
+      "contact_us": "Contact Us",
+      "faq_items": {
+        "compatibility_question": "Is the adapter compatible with my car?",
+        "compatibility_answer": "The AirSyncX adapter is compatible with any car equipped with original wired CarPlay. If your car already supports CarPlay via USB connection, our adapter will work perfectly and make the connection wireless.",
+        "installation_question": "How long does it take to install the adapter?",
+        "installation_answer": "Installation takes less than a minute. Simply connect the adapter to your car's USB port, connect to it via your phone's Bluetooth, and the system is ready to use. No professional installation or vehicle modifications are needed.",
+        "warranty_question": "Is there a warranty on the product?",
+        "warranty_answer": "Yes, we offer a full one-year warranty on all our products. If you encounter any issues with the adapter, our support team is available to help you and we will replace the product if found defective.",
+        "connection_time_question": "How long does it take for the adapter to connect automatically?",
+        "connection_time_answer": "After the initial setup, the adapter will automatically connect to your phone within 5-15 seconds from the moment you enter the car and turn on the system. The quick connection allows you to start using CarPlay almost immediately.",
+        "android_auto_question": "Does the adapter also support Android Auto?",
+        "android_auto_answer": "Yes, our adapter supports both CarPlay and Android Auto. It can work with both types of devices, so all passengers in the car can use the system easily, whether they're using an iPhone or an Android device."
+      }
+    },
+    "airsyncx_hero": {
+      "badge_text": "New",
+      "title_line1": "Upgrade Your Drive",
+      "title_line2": "Connect Without Limits",
+      "subtitle": "Wireless Apple CarPlay adapter - simple, easy, no cables.",
+      "check_compatibility": "Check compatibility with your car in 30 seconds 🚗",
+      "add_to_cart": "Order Now",
+      "satisfied_customers": "Satisfied Customers",
+      "day_money_back": "Day Money-Back Guarantee",
+      "seconds_installation": "Seconds Installation",
+      "background_alt": "Background",
+      "trust_badge_secure": "Secure Purchase",
+      "trust_badge_secure_desc": "SSL Encrypted & Safe Payment",
+      "trust_badge_support": "24/7 Support",
+      "trust_badge_support_desc": "Professional Customer Service",
+      "trust_badge_shipping": "Fast Shipping",
+      "trust_badge_shipping_desc": "Delivered in 3-5 Business Days",
+      "trust_badge_rating": "Excellent Rating",
+      "trust_badge_rating_desc": "4.9/5 Customer Reviews",
+      "wireless_carplay": "Wireless CarPlay",
+      "instant_connection": "Instant Connection Without Cables",
+      "rating_customers": "(Over 1000+ satisfied customers)",
+      "adding_to_cart": "Adding to cart...",
+      "carplay_interface": "CarPlay Interface",
+      "no_product_selected": "No product selected. Please select a product in the section settings.",
+      "error_adding_to_cart": "Error adding product to cart",
+      "product_added_successfully": "Product added to cart successfully!"
+    },
+    "airsyncx_why_us": {
+      "eyebrow": "Our Advantages",
+      "title_part1": "Why ",
+      "title_part2": "Choose Us",
+      "description": "The best user experience on the market, with easy and fast connection in any compatible car",
+      "feature1_title": "Quick Installation",
+      "feature1_description": "Connect the adapter to the USB port and within seconds you can start using wireless CarPlay without any complicated installation.",
+      "feature2_title": "Automatic Connection",
+      "feature2_description": "As soon as you enter your car, the adapter automatically connects to your phone within seconds and activates CarPlay without touching.",
+      "feature3_title": "Great Performance",
+      "feature3_description": "Thanks to a powerful processor and advanced technology, the adapter provides a stable and reliable connection with minimal delay.",
+      "feature4_title": "Full Warranty",
+      "feature4_description": "We provide a full one-year warranty on all our products, with professional and available customer service.",
+      "order_now": "Order Now",
+      "comparison_table": "Comparison Table"
+    },
+    "airsyncx_about": {
+      "eyebrow": "Discover Innovation",
+      "title_part1": "What is ",
+      "title_part2": "AirSyncX",
+      "title_part3": "?",
+      "description": "AirSyncX is a smart and compact adapter that connects to your car's USB port and turns CarPlay wireless - in under 10 seconds from startup.",
+      "features": {
+        "compatibility": "Compatible with every car with wired CarPlay",
+        "connection": "Fast and reliable Bluetooth connection",
+        "installation": "Simple self-installation"
+      },
+      "click_to_watch": "Click to watch",
+      "video_not_supported": "Your browser does not support video playback",
+      "video_alt_text": "AirSyncX Video",
+      "adding_to_cart": "Adding to cart..."
+    },
+    "airsyncx_comparison": {
+      "eyebrow": "Advanced comparison",
+      "title": "Why does <span class=\"highlight\">AirSyncX</span> outperform all competitors?",
+      "description": "Detailed comparison showing exactly why AirSyncX is the best choice in the market",
+      "button_text": "Order Now",
+      "price": "299",
+      "table": {
+        "features_header": "Features",
+        "generic_competitor": "Generic Adapters",
+        "airsyncx_pro": "AirSyncX PRO",
+        "premium_badge": "PREMIUM",
+        "connection_time": {
+          "feature": "Connection Time",
+          "generic_value": "30+ seconds",
+          "generic_quality": "Slow",
+          "airsyncx_value": "5 seconds",
+          "airsyncx_quality": "6x Faster"
+        },
+        "connection_quality": {
+          "feature": "Connection",
+          "generic_value": "Basic",
+          "generic_quality": "Frequent Disconnects",
+          "airsyncx_value": "100% Stable",
+          "airsyncx_quality": "No Disconnects"
+        },
+        "car_compatibility": {
+          "feature": "Compatibility",
+          "generic_value": "60-70%",
+          "generic_quality": "Limited",
+          "airsyncx_value": "100%",
+          "airsyncx_quality": "All Cars"
+        },
+        "warranty": {
+          "feature": "Warranty",
+          "generic_value": "3-6 months",
+          "generic_quality": "Limited",
+          "airsyncx_value": "Full Year",
+          "airsyncx_quality": "Full Refund"
+        },
+        "support": {
+          "feature": "Support",
+          "generic_value": "None",
+          "generic_quality": "No Support",
+          "airsyncx_value": "24/7",
+          "airsyncx_quality": "Full Support"
+        },
+        "updates": {
+          "feature": "Updates",
+          "generic_value": "Manual",
+          "generic_quality": "Complex",
+          "airsyncx_value": "Automatic",
+          "airsyncx_quality": "Always Updated"
+        }
+      },
+      "winner": {
+        "title": "Clear Winner: AirSyncX",
+        "description": "Outperforms competitors in every parameter - quality, speed, support and warranty",
+        "stats": {
+          "faster": "Faster",
+          "compatibility": "Compatibility",
+          "support": "Support"
+       }
+      },
+      "cta": {
+        "title": "Ready to Experience the Difference?",
+        "description": "Order AirSyncX now and discover why it's the best choice",
+        "button_text": "Order Now"
+      }
+    },
+    "airsyncx_reviews": {
+      "eyebrow": "Recommendations",
+      "title_part1": "What ",
+      "title_part2": "Customers",
+      "title_part3": " Say About Us",
+      "prev_review": "Previous review",
+      "next_review": "Next review",
+      "review_label": "Review",
+      "verified_purchase": "Verified Purchase",
+      "purchased_ago": "Purchased {{ time }} ago"
+    },
+    "airsyncx_gallery": {
+      "eyebrow": "Field Photos",
+      "title_part1": "Our ",
+      "title_part2": "Gallery",
+      "description": "Explore our wireless adapter in action across different car models and setups",
+      "name": "AirSyncX Gallery",
+      "settings": {
+        "title": {
+          "label": "Gallery Description"
+        }
+      },
+      "blocks": {
+        "gallery_item": {
+          "name": "Gallery Item",
+          "settings": {
+            "item_image": {
+              "label": "Image"
+            },
+            "item_title": {
+              "label": "Title"
+            },
+            "item_description": {
+              "label": "Description"
+            }
+          }
+        }
+      },
+      "presets": {
+        "blocks": {
+          "minimalist_design": {
+            "title": "Minimalist Design",
+            "description": "Compact and elegant design that fits into any car"
+          },
+          "advanced_connectivity": {
+            "title": "Advanced Connectivity",
+            "description": "Uses the most advanced Bluetooth and WiFi technology for fast and reliable connection"
+          },
+          "wireless_experience": {
+            "title": "Wireless Experience",
+            "description": "Say goodbye to cable mess in your car and connect automatically on every ride"
+          }
+        }
+      }
+    },
+    "airsyncx_tech_specs": {
+      "eyebrow": "Full Specifications",
+      "title_part1": "Technical ",
+      "title_part2": "Specifications",
+      "product_alt": "AirSyncX Product",
+      "presets": {
+        "blocks": {
+          "connectivity": {
+            "title": "Connectivity",
+            "value": "Bluetooth 5.0 + WiFi 5G/2.4G"
+          },
+          "processor": {
+            "title": "Processor",
+            "value": "Quad-core 1.8GHz"
+          },
+          "memory": {
+            "title": "Memory",
+            "value": "2GB RAM"
+          },
+          "power": {
+            "title": "Power",
+            "value": "5V/1A USB"
+          },
+          "compatibility": {
+            "title": "Compatibility",
+            "value": "iOS 13.0 and above"
+          },
+          "dimensions": {
+            "title": "Dimensions and Weight",
+            "value": "7.5 x 5.2 x 2.0 cm, 45g"
+          }
+        }
+      }
+    },
+    "airsyncx_quick_compatibility": {
+      "eyebrow": "For Immediate Use",
+      "title_part1": "Compatibility ",
+      "title_part2": "Check",
+      "compatibility_note": "The adapter is only compatible with cars that have built-in wired CarPlay from the manufacturer",
+      "car_brand_label": "Car Brand",
+      "car_model_label": "Car Model",
+      "car_year_label": "Year",
+      "select_brand": "Select brand...",
+      "select_brand_first": "Select brand first...",
+      "select_model_first": "Select model first...",
+      "check_button": "Check",
+      "compatible_details": "Cut the cables and make your CarPlay experience wireless today!",
+      "buy_now": "Buy Now",
+      "incompatible_result": "Unfortunately, the {model} from {year} is not compatible. <a href=\"/pages/contact\" class=\"result-cta\">Contact us</a> for more information."
+    }
+  },
+  "localization": {
+    "country_label": "Country/region",
+    "language_label": "Language",
+    "update_language": "Update language",
+    "update_country": "Update country/region"
+  },
+  "customer": {
+    "account": {
+      "title": "Account",
+      "details": "Account details",
+      "view_addresses": "View addresses",
+      "return": "Return to Account details"
+    },
+    "account_fallback": "Account",
+    "activate_account": {
+      "title": "Activate account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Activate account",
+      "cancel": "Decline invitation"
+    },
+    "addresses": {
+      "title": "Addresses",
+      "default": "Default",
+      "add_new": "Add a new address",
+      "edit_address": "Edit address",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "company": "Company",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country/region",
+      "province": "Province",
+      "zip": "Postal/ZIP code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add address",
+      "update": "Update address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you wish to delete this address?"
+    },
+    "log_in": "Log in",
+    "log_out": "Log out",
+    "login_page": {
+      "cancel": "Cancel",
+      "create_account": "Create account",
+      "email": "Email",
+      "forgot_password": "Forgot your password?",
+      "guest_continue": "Continue",
+      "guest_title": "Continue as a guest",
+      "password": "Password",
+      "title": "Login",
+      "sign_in": "Sign in",
+      "submit": "Submit",
+      "subtitle": "If you have an account, please log in."
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date_html": "Placed on {{ date }}",
+      "cancelled_html": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "total_refunded": "Refunded",
+      "fulfilled_at_html": "Fulfilled {{ date }}",
+      "track_shipment": "Track shipment",
+      "tracking_url": "Tracking link",
+      "tracking_company": "Carrier",
+      "tracking_number": "Tracking number",
+      "subtotal": "Subtotal",
+      "total_duties": "Duties"
+    },
+    "orders": {
+      "title": "Order history",
+      "order_number": "Order",
+      "order_number_link": "Order number {{ number }}",
+      "date": "Date",
+      "payment_status": "Payment status",
+      "fulfillment_status": "Fulfillment status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "recover_password": {
+      "title": "Reset your password",
+      "subtext": "We will send you an email to reset your password",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Reset password"
+    },
+    "sign_up": "Sign up"
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Your gift card",
+      "gift_card_code": "Gift card code",
+      "shop_link": "Continue shopping",
+      "remaining_html": "Remaining {{ balance }}",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "qr_image_alt": "QR code — scan to redeem gift card",
+      "copy_code": "Copy code",
+      "expired": "Expired",
+      "copy_code_success": "Code copied successfully",
+      "print_gift_card": "Print"
+    }
+  },
+  "airsyncx": {
+    "product": {
+      "main_title": "Wireless CarPlay & Android Auto Adapter",
+      "subtitle": "Transform your wired CarPlay into wireless with our premium adapter",
+      "tagline": "Fast Connection | Universal Compatibility | Easy Installation",
+      "features": {
+        "wireless_title": "Wireless Freedom",
+        "wireless_text": "Connect automatically to your car's system without cables",
+        "compatibility_title": "Universal Compatibility",
+        "compatibility_text": "Works with all cars equipped with original wired CarPlay",
+        "installation_title": "Plug & Play Installation",
+        "installation_text": "No technical knowledge required, connects in seconds",
+        "dual_system_title": "Supports Both Systems",
+        "dual_system_text": "Compatible with both Apple CarPlay and Android Auto"
+      },
+      "cta": {
+        "buy_now": "Buy Now",
+        "add_to_cart": "Add to Cart",
+        "learn_more": "Learn More"
+      },
+      "specs": {
+        "title": "Technical Specifications",
+        "connection": "Connection",
+        "connection_detail": "Bluetooth 5.0 & Wi-Fi",
+        "compatibility": "Compatibility",
+        "compatibility_detail": "CarPlay and Android Auto",
+        "input": "Input",
+        "input_detail": "USB Type-C",
+        "output": "Output",
+        "output_detail": "USB Type-A (to car)",
+        "dimensions": "Dimensions",
+        "dimensions_detail": "2.2\" x 1.8\" x 0.6\"",
+        "support": "Support",
+        "support_detail": "24/7 Customer Support"
+      }
+    },
+    "homepage": {
+      "hero": {
+        "title": "Cut the Cord",
+        "subtitle": "The Wireless CarPlay & Android Auto Adapter Your Car Deserves",
+        "cta": "Shop Now"
+      },
+      "benefits": {
+        "title": "Why Choose AirSyncX?",
+        "subtitle": "Experience the freedom of wireless connectivity"
+      },
+      "testimonials": {
+        "title": "What Our Customers Say",
+        "subtitle": "Trusted by thousands of drivers worldwide"
+      },
+      "compatibility": {
+        "title": "Compatible with Your Car",
+        "subtitle": "Works with all vehicles that have wired CarPlay or Android Auto",
+        "check_cta": "Check Compatibility"
+      }
+    },
+    "footer": {
+      "company": "Company",
+      "about_us": "About Us",
+      "contact": "Contact",
+      "careers": "Careers",
+      "support": "Support",
+      "faq": "FAQ",
+      "shipping": "Shipping & Returns",
+      "warranty": "Warranty",
+      "legal": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "refund": "Refund Policy",
+      "newsletter": {
+        "title": "Stay Updated",
+        "subtitle": "Subscribe to get the latest updates and offers",
+        "placeholder": "Your email address",
+        "button": "Subscribe"
+      },
+      "copyright": "© 2023 AirSyncX. All rights reserved."
+    },
+    "nav": {
+      "shop": "Shop",
+      "products": "Products",
+      "accessories": "Accessories",
+      "bundles": "Bundles",
+      "support": "Support",
+      "compatibility": "Compatibility",
+      "installation": "Installation Guide",
+      "faq": "FAQ",
+      "track_order": "Track Order",
+      "account": "Account",
+      "cart": "Cart"
+    }
+  },
+  "footer": {
+    "social": {
+      "follow_us": "Follow Us",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    },
+    "navigation": {
+      "search": "Search",
+      "about": "About",
+      "contact": "Contact Us",
+      "faq": "FAQ",
+      "shipping": "Shipping & Returns",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "refund": "Refund Policy",
+      "blog": "Blog",
+      "compatibility": "Compatibility",
+      "instructions": "Instructions",
+      "support": "Support"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "contact": {
+        "contact_method_title": "Email or Phone"
+      },
+      "marketing": {
+        "accept_marketing_checkbox_label": "Send me live tracking and order updates"
+      },
+      "general": {
+        "continue_to_payment_method": "Confirm Shipping Selection",
+        "pay_now_button_label": "Complete Purchase"
+      },
+      "shipping": {
+        "shipping_method_title": "Shipping method"
+      },
+      "payment": {
+        "title": "Secure Checkout",
+        "card_security_notice": "All transactions are secure and encrypted. Your order includes free returns and 24/7 access to our award-winning customer service"
+      },
+      "delivery_options": {
+        "shipping_address": "Shipping Address"
+      }
+    },
+    "sentence": {
+      "two_words_connector": " and ",
+      "last_word_connector": ", and "
+    }
+  },
+  "custom_privacy_policy": {
+    "title": "Privacy Policy",
+    "subtitle": "At AirSyncX we are committed to protecting your privacy. This policy explains how we collect, use and protect your personal information.",
+    "intro_content": "We at AirSyncX (\"we\", \"our\", \"the company\") respect your privacy and are committed to protecting the personal information you share with us. We explain in this privacy policy how we collect, use and protect your personal information when using our website and our services. We ask that you carefully read this privacy policy to understand our procedures regarding your information.",
+    "contact_title": "Questions about our Privacy Policy?",
+    "contact_content": "If you have any questions or concerns about our privacy policy, please do not hesitate to contact us. Our customer service team will answer all your questions.",
+    "sections": {
+      "info_collection": {
+        "title": "Information Collection",
+        "content": "We collect information you provide directly to us, such as when you create an account, make a purchase, subscribe to our newsletter, or contact us for support."
+      },
+      "info_use": {
+        "title": "Use of Information",
+        "content": "We use the information we collect to provide, maintain, and improve our services, process transactions, send communications, and comply with legal obligations."
+      },
+      "info_sharing": {
+        "title": "Information Sharing",
+        "content": "We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy."
+      },
+      "data_security": {
+        "title": "Data Security",
+        "content": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
+      },
+      "cookies": {
+        "title": "Cookies and Tracking",
+        "content": "We use cookies and similar tracking technologies to improve your browsing experience and analyze website traffic."
+      },
+      "updates": {
+        "title": "Policy Updates",
+        "content": "We may update our privacy policy from time to time. Any changes will be posted on our website, and when there are material changes, we will notify you via email or through a notice on our website."
+      }
+    }
+  },
+  "terms_service": {
+    "title": "Terms of Service",
+    "subtitle": "Terms of use and service on the AirSyncX website - please read carefully",
+    "intro_content": "Welcome to AirSyncX terms of service. Continued use of our website and services constitutes acceptance of these terms. This document details our and your rights, duties and obligations regarding the use of our website and the purchase of our products.",
+    "cta_text": "If you have any additional questions about our terms of service, please do not hesitate to contact us",
+    "cta_button_text": "Contact Us",
+    "sections": {
+      "user_agreement": {
+        "title": "User Agreement",
+        "content": "By accessing or using the AirSyncX store, you agree to comply with these terms. If you do not agree to all terms, you do not have permission to use our store."
+      },
+      "website_use": {
+        "title": "Website Use",
+        "content": "This website is intended for personal and non-commercial use. You may not copy, distribute, reproduce or use the website content for commercial purposes without explicit written permission."
+      },
+      "intellectual_property": {
+        "title": "Intellectual Property",
+        "content": "All content on this website, including text, graphics, logos, icons, images and software, is the exclusive property of AirSyncX and is protected by intellectual property laws."
+      },
+      "user_accounts": {
+        "title": "User Accounts",
+        "content": "When you create an account on our website, you are responsible for maintaining the confidentiality of your password and for all activities that occur under your account."
+      }
+    }
+  },
+  "airsyncx_faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about AirSyncX",
+    "questions": {
+      "compatibility": {
+        "question": "Is AirSyncX compatible with my car?",
+        "answer": "AirSyncX works with any car that has factory wired CarPlay or Android Auto. Use our compatibility checker to verify your specific vehicle."
+      },
+      "installation": {
+        "question": "How do I install AirSyncX?",
+        "answer": "Simply plug AirSyncX into your car's USB port where you normally connect your phone cable. The setup process is automatic and takes just a few seconds."
+      },
+      "connection": {
+        "question": "How fast does it connect?",
+        "answer": "AirSyncX typically connects within 3-8 seconds once you start your car. The first-time setup may take slightly longer."
+      },
+      "multiple_phones": {
+        "question": "Can I connect multiple phones?",
+        "answer": "Yes, AirSyncX can remember up to 3 different phones and will automatically connect to the last used device when you start your car."
+      },
+      "warranty": {
+        "question": "What warranty do you offer?",
+        "answer": "We offer a full 1-year warranty on all AirSyncX products, plus a 30-day money-back guarantee if you're not completely satisfied."
+      }
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
+  }
+}

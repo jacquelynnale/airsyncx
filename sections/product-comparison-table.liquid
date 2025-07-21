@@ -1,0 +1,160 @@
+{{ 'section-airsyncx-comparison.css' | asset_url | stylesheet_tag }}
+
+<div class="airsyncx-comparison page-width section-{{ section.id }}-padding">
+  <h2 class="airsyncx-comparison__heading h1">{{ section.settings.heading }}</h2>
+  
+  {% if section.settings.show_comparison_table %}
+    <div class="airsyncx-comparison__table">
+      <div class="airsyncx-comparison__header">
+        <div class="airsyncx-comparison__feature-cell"></div>
+        <div class="airsyncx-comparison__product-cell">Our Product</div>
+        <div class="airsyncx-comparison__competitor-cell">Competitor</div>
+      </div>
+      
+      {% for block in section.blocks %}
+        {% if block.type == 'comparison_row' %}
+          <div class="airsyncx-comparison__row" {{ block.shopify_attributes }}>
+            <div class="airsyncx-comparison__feature-cell">{{ block.settings.feature }}</div>
+            <div class="airsyncx-comparison__product-cell">
+              {% if block.settings.our_value %}
+                <span class="check-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.6666 5L7.49998 14.1667L3.33331 10" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              {% else %}
+                <span class="x-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 5L5 15M5 5L15 15" stroke="#F44336" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              {% endif %}
+            </div>
+            <div class="airsyncx-comparison__competitor-cell">
+              {% if block.settings.competitor_value %}
+                <span class="check-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.6666 5L7.49998 14.1667L3.33331 10" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              {% else %}
+                <span class="x-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 5L5 15M5 5L15 15" stroke="#F44336" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Comparison",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "What Makes Us Different",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_comparison_table",
+      "default": true,
+      "label": "Show Comparison Table"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature Name",
+          "default": "Premium Quality"
+        },
+        {
+          "type": "checkbox",
+          "id": "our_value",
+          "label": "Our Product Has This",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "competitor_value",
+          "label": "Competitor Has This",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Comparison",
+      "blocks": [
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "Premium Quality",
+            "our_value": true,
+            "competitor_value": false
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "Durable Material",
+            "our_value": true,
+            "competitor_value": true
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "Money-back Guarantee",
+            "our_value": true,
+            "competitor_value": false
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "Free Shipping",
+            "our_value": true,
+            "competitor_value": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

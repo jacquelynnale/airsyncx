@@ -1,0 +1,315 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "airsyncx_hero": {
+      "type": "airsyncx-hero-copy",
+      "settings": {
+        "subtitle": "ה-AirSyncX Pro Max הופך כל מערכת CarPlay קווית (דגמי 2016-הלאה) למרכז בידור חכם: הוא מוסיף CarPlay ו-Android Auto אלחוטיים, מערכת Android 13 מלאה וגישה לאלפי אפליקציות, וכל זאת במארז קומפקטי עם תאורת אמביינט הניתנת להתאמה אישית ויציאת HDMI לצגי נוסעים.",
+        "button_text": "הזמן עכשיו",
+        "button_link": "/products/airsyncx",
+        "secondary_button_text": "איך זה עובד",
+        "secondary_button_link": "#how-it-works"
+      }
+    },
+    "airsyncx_about": {
+      "type": "airsyncx-about-copy",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "קישוריות 3-ב-1: CarPlay אלחוטי, Android Auto אלחוטי ומערכת Android 13 מקורית"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "תאורת אמביינט: מצבי \"Breathing\", חד-צבע, \"Running Horse\" ולוחות צבע דינמיים"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "Google Play מובנה: הורדת Spotify, Netflix, YouTube, Waze, Google Maps ועוד"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "feature_text": "HDMI Out: שידור סרטים וסדרות למסכי מושבים/גג, עד 1080p ללא עיכוב מורגש"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "title": "מה זה AirSyncX Pro Max?",
+        "description": "AirSyncX Pro Max הוא מרכז בידור מתקדם 3-ב-1 שמשדרג כל מערכת CarPlay קווית למערכת חכמה עם CarPlay אלחוטי, Android Auto ו-Android 13 מלא - כולל גישה לאלפי אפליקציות וחוויית בידור מלאה לכל הנוסעים."
+      }
+    },
+    "airsyncx_why_us": {
+      "type": "airsyncx-why-us-copy",
+      "blocks": {
+        "feature_1": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "fas fa-bolt",
+            "title": "Plug-and-Play",
+            "description": "מחברים לשקע USB/USB-C של CarPlay, מתאמים לטלפון בפעם הראשונה והחיבור האלחוטי קבוע לתמיד."
+          }
+        },
+        "feature_2": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "fas fa-sync",
+            "title": "בידור ללא גבולות",
+            "description": "סטרימינג אונליין (Wi-Fi/4G) או אופליין (TF Card/USB) לכל הנוסעים. צפיה ב-Netflix, YouTube והאזנה ל-Spotify בזמן ניווט."
+          }
+        },
+        "feature_3": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "fas fa-microchip",
+            "title": "מולטיטאסקינג אמיתי",
+            "description": "הרצת שתי אפליקציות במקביל + שמירת פריסטים זוגיים לשילובים מועדפים. לדוגמה: ניווט Google Maps לצד YouTube Music."
+          }
+        },
+        "feature_4": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "fas fa-shield-alt",
+            "title": "התאמה אישית",
+            "description": "רקע מערכת, ווידג'טים, ואפילו צבעי תאורת האמביינט מתאימים למצב הרוח. הגנה על סוללת הטלפון - חיבור אלחוטי חוסך כבלים."
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "title": "למה לבחור ב-AirSyncX Pro Max",
+        "description": "מרכז הבידור המתקדם היחיד שמשלב CarPlay אלחוטי, Android Auto ומערכת Android 13 מלאה - חוויה מקצועית לכל הנוסעים"
+      }
+    },
+    "airsyncx_comparison": {
+      "type": "airsyncx-comparison-copy",
+      "settings": {}
+    },
+    "airsyncx_tech_specs": {
+      "type": "airsyncx-tech-specs-copy",
+      "blocks": {
+        "spec_1": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "מערכת הפעלה",
+            "spec_value": "Android 13"
+          }
+        },
+        "spec_2": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "מעבד",
+            "spec_value": "Qualcomm QCM6225 Octa-core"
+          }
+        },
+        "spec_3": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "RAM/ROM",
+            "spec_value": "8 GB LPDDR4 + 128 GB UFS"
+          }
+        },
+        "spec_4": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "אלחוט וסלולר",
+            "spec_value": "Wi-Fi ac (2.4 & 5 GHz), Bluetooth 5.0, 4G LTE"
+          }
+        },
+        "spec_5": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "כניסות/יציאות",
+            "spec_value": "USB-C 5V/1.5A, Mini-HDMI Out, TF Slot, Nano-SIM Tray"
+          }
+        },
+        "spec_6": {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "תאורת אמביינט",
+            "spec_value": "RGB 28-LED עם שליטה באפליקציה (נייד/On-Screen)"
+          }
+        }
+      },
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6"
+      ],
+      "settings": {
+        "title": "מפרט טכני מקוצר",
+        "description": "AirSyncX Pro Max מגיע עם חומרה מתקדמת ומערכת Android 13 מלאה לחוויית בידור ללא פשרות"
+      }
+    },
+    "airsyncx_gallery": {
+      "type": "airsyncx-gallery-copy",
+      "blocks": {
+        "gallery_item_1": {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "מערכת Android 13 מלאה",
+            "item_description": "גישה לאלפי אפליקציות דרך Google Play - Netflix, Spotify, YouTube, Waze ועוד"
+          }
+        },
+        "gallery_item_2": {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "תאורת אמביינט חכמה",
+            "item_description": "28 נוריות LED עם מצבי Breathing, Running Horse ושליטה מלאה באפליקציה להתאמת אווירה ברכב"
+          }
+        },
+        "gallery_item_3": {
+          "type": "gallery_item",
+          "settings": {
+            "item_title": "HDMI Out ומסכים נוספים",
+            "item_description": "שידור סרטים וסדרות למסכי מושבים או גג עד 1080p ללא עיכוב - בידור מלא לכל הנוסעים"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_item_1",
+        "gallery_item_2",
+        "gallery_item_3"
+      ],
+      "settings": {
+        "title": "מה מקבלים עם AirSyncX Pro Max"
+      }
+    },
+    "airsyncx_reviews": {
+      "type": "airsyncx-reviews-copy",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "\"AirSyncX Pro Max שינה לי את הנסיעות! יש לי CarPlay אלחוטי, אנדרואיד מלא עם נטפליקס לילדים, ותאורה שמתאימה למצב רוח. מדהים!\"",
+            "author_name": "יוסי",
+            "author_location": "תל אביב"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 4.5,
+            "review_text": "\"התקנה של דקה וקיבלתי מרכז בידור מלא! אפשר לראות יוטיוב בזמן ניווט, וה-Split Screen חוסך זמן. תאורת האמביינט נותנת אווירה מיוחדת.\"",
+            "author_name": "מיכל",
+            "author_location": "חיפה"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "\"מעבר ממתאם רגיל ל-Pro Max היה צעד מדהים! יציאת ה-HDMI מושלמת למסך האחורי, וה-4G מאפשר סטרימינג גם באזורים ללא WiFi.\"",
+            "author_name": "דני",
+            "author_location": "ירושלים"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "title": "מה אומרים הלקוחות שלנו"
+      }
+    },
+    "airsyncx_quick_compatibility": {
+      "type": "airsyncx-quick-compatibility-copy",
+      "settings": {
+        "title": "בדיקת תאימות מהירה",
+        "description": "בדוק אם הרכב שלך תואם ל-AirSyncX Pro Max - תומך בכל דגמי 2016 ומעלה עם CarPlay קווי"
+      }
+    },
+    "airsyncx_faq": {
+      "type": "airsyncx-faq-copy",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם AirSyncX Pro Max תואם לרכב שלי?",
+            "answer": "AirSyncX Pro Max תואם לכל רכב מדגמי 2016 ומעלה המצויד במערכת CarPlay חוטית מקורית. אם הרכב שלך כבר תומך ב-CarPlay באמצעות חיבור USB, המכשיר שלנו יהפוך אותו למרכז בידור מתקדם עם Android 13 מלא."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "מה כלול באריזה של AirSyncX Pro Max?",
+            "answer": "באריזה תמצאו: יחידת GT7H, כבל USB-C ל-USB-A/-C, אנטנה GPS מודבקת, מתאם Mini-HDMI ➜ HDMI (קצר), ומדריך התקנה מהירה בעברית/אנגלית. כל מה שצריך להתקנה מלאה."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "מה ההבדל בין AirSyncX רגיל ל-Pro Max?",
+            "answer": "Pro Max מציע מערכת Android 13 מלאה עם גישה ל-Google Play, תאורת אמביינט RGB 28-LED, יציאת HDMI למסכים נוספים, מעבד Qualcomm מתקדם, תמיכה ב-4G LTE, ו-Split Screen לריבוי משימות - לעומת גרסה רגילה שהיא רק מתאם CarPlay."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "איך עובדת תאורת האמביינט?",
+            "answer": "28 נוריות LED מובנות במכשיר מציעות מצבי תאורה מגוונים: Breathing (נשימה), חד-צבע, Running Horse (סוס רץ) ולוחות צבע דינמיים. השליטה מתבצעת דרך אפליקציה בטלפון או ישירות על המסך, ומתאימה את האווירה ברכב למצב הרוח."
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "מה זה Split-Screen ואיך זה עובד?",
+            "answer": "Split-Screen מאפשר הרצת שתי אפליקציות במקביל על המסך - למשל ניווט Google Maps לצד YouTube Music, או Waze לצד נטפליקס. המערכת שומרת פריסטים זוגיים לשילובים מועדפים ומאפשרת מעבר מהיר בין מצבים לחוויה אופטימלית."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "title": "שאלות נפוצות",
+        "description": "התשובות לכל השאלות הנפוצות על מרכז הבידור המתקדם AirSyncX Pro Max"
+      }
+    }
+  },
+  "order": [
+    "airsyncx_hero",
+    "airsyncx_about",
+    "airsyncx_why_us",
+    "airsyncx_comparison",
+    "airsyncx_tech_specs",
+    "airsyncx_gallery",
+    "airsyncx_reviews",
+    "airsyncx_quick_compatibility",
+    "airsyncx_faq"
+  ]
+} 

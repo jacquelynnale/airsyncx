@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_faq": {
+      "type": "custom_faq_page",
+      "blocks": {
+        "item_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "מהו AirSyncX?",
+            "answer": "AirSyncX הוא מתאם אלחוטי ל-Apple CarPlay אשר מאפשר לך להשתמש ב-CarPlay ללא צורך בחיבור כבל. פשוט הכנס את המתאם ליציאת ה-USB ברכב שלך, והפוך את חוויית ה-CarPlay שלך לאלחוטית.",
+            "category": "product",
+            "show_image": false
+          }
+        },
+        "item_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם AirSyncX יעבוד ברכב שלי?",
+            "answer": "AirSyncX מתאים לכל רכב שכבר תומך ב-CarPlay קווי. אם הרכב שלך תומך בחיבור CarPlay באמצעות כבל USB, אז AirSyncX יעבוד עבורך. המתאם שלנו מקיים תאימות גבוהה עם מגוון רחב של דגמי רכב מיצרנים שונים.",
+            "category": "product",
+            "show_image": false
+          }
+        },
+        "item_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם אצטרך להתקין תוכנה מיוחדת?",
+            "answer": "לא, AirSyncX אינו דורש התקנת תוכנה מיוחדת. המתאם משתמש בטכנולוגיה מובנית ב-iPhone שלך, כך שאינך צריך להתקין אפליקציות נוספות. פשוט חבר את המתאם, התאם אותו ל-iPhone שלך דרך Bluetooth, והכל מוכן.",
+            "category": "product",
+            "show_image": false
+          }
+        },
+        "item_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "כמה זמן לוקח המשלוח?",
+            "answer": "אנו שולחים הזמנות בתוך 1-2 ימי עסקים. זמן המשלוח הרגיל בישראל הוא 1-3 ימי עסקים. אנו מציעים גם משלוח אקספרס של יום עסקים אחד באזורים מסוימים. תוכל לעקוב אחר ההזמנה שלך באמצעות מספר המעקב שישלח אליך במייל.",
+            "category": "shipping",
+            "show_image": false
+          }
+        },
+        "item_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "איך מתקינים את AirSyncX?",
+            "answer": "ההתקנה פשוטה מאוד: \n1. חבר את AirSyncX ליציאת ה-USB ברכב שלך\n2. הפעל את הרכב והמתן כ-30 שניות להפעלת המתאם\n3. הפעל את Bluetooth ב-iPhone שלך וחפש את 'AirSyncX' ברשימת המכשירים\n4. התחבר ל-AirSyncX\n5. לאחר החיבור הראשוני, CarPlay יופעל אוטומטית בעת הכניסה לרכב",
+            "category": "installation",
+            "show_image": true
+          }
+        },
+        "item_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם יש אחריות למוצר?",
+            "answer": "כן, כל מוצרי AirSyncX מגיעים עם אחריות מלאה למשך שנה מיום הרכישה. האחריות מכסה כל פגם ייצור ובעיות טכניות. אם תיתקל בבעיה כלשהי, צוות התמיכה שלנו יעזור לך להחליף את המוצר או לקבל החזר כספי מלא.",
+            "category": "warranty",
+            "show_image": false
+          }
+        },
+        "item_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "איך יוצרים קשר עם התמיכה?",
+            "answer": "ניתן ליצור קשר עם צוות התמיכה שלנו במספר דרכים:\n1. דרך דף 'צור קשר' באתר\n2. במייל: support@airsyncx.com\n3. בטלפון: 03-1234567\n\nשעות הפעילות שלנו: א'-ה' 9:00-18:00, ו' 9:00-13:00",
+            "category": "warranty",
+            "show_image": false
+          }
+        },
+        "item_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "אילו אמצעי תשלום מקבלים?",
+            "answer": "אנו מקבלים מגוון רחב של אמצעי תשלום, כולל כרטיסי אשראי (ויזה, מאסטרקארד, אמריקן אקספרס, ישראכרט), PayPal, Apple Pay, ותשלום בהעברה בנקאית. ניתן גם לשלם בתשלומים (עד 12 תשלומים ללא ריבית בכרטיסי אשראי נבחרים).",
+            "category": "payment",
+            "show_image": false
+          }
+        },
+        "item_9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "מהי מדיניות ההחזרים שלכם?",
+            "answer": "אנו מציעים מדיניות החזרים של 30 יום עם החזר כספי מלא. אם אינך מרוצה מהמוצר מכל סיבה שהיא, תוכל להחזיר אותו תוך 30 יום מיום הרכישה ולקבל החזר כספי מלא. המוצר צריך להיות במצב טוב וכל האביזרים המקוריים צריכים להיות כלולים בהחזרה.",
+            "category": "payment",
+            "show_image": false
+          }
+        },
+        "item_10": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם AirSyncX משפיע על ביצועי הרכב או הטלפון?",
+            "answer": "לא, AirSyncX הוא מתאם חיצוני שאינו משפיע על מערכות הרכב או ביצועי הטלפון. הוא מתחבר דרך יציאת USB ומשתמש בBluetooth ו-WiFi להעברת נתונים. צריכת הסוללה של הטלפון היא דומה לשימוש ב-CarPlay רגיל, ובמקרים רבים אף נמוכה יותר כיוון שהטלפון ממשיך להיטען כרגיל.",
+            "category": "product",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6",
+        "item_7",
+        "item_8",
+        "item_9",
+        "item_10"
+      ],
+      "settings": {
+        "page_description": "כל התשובות לשאלות הנפוצות לגבי מוצרי AirSyncX. לא מצאת את התשובה? צור איתנו קשר!",
+        "contact_description": "לא מצאת תשובה לשאלה שלך? צוות התמיכה שלנו זמין לכל שאלה או בעיה.",
+        "contact_button_text": "צור קשר",
+        "contact_link": "/pages/contact"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_faq"
+  ]
+}

@@ -1,0 +1,179 @@
+{% if section.settings.display_id %}
+  <copy-button class='section-id-btn button' data-content="#shopify-section-{{ section.id }}" data-success="false">
+    <span class="copy-text">Click to copy section ID</span>
+    <span class="copy-success">ID copied successfully!</span>
+  </copy-button>
+{% endif %}
+
+<div class="page-width custom-page-builder-section {{ section.settings.visibility }}">
+  {% if section.settings.title != blank %}
+    <h2 class="h1 section-heading{{ section.settings.heading_size }}">
+      {{ section.settings.title }}
+    </h2>
+  {% endif %}
+  
+  {% if section.settings.description != blank %}
+    <div class="section-description rte">
+      {{ section.settings.description }}
+    </div>
+  {% endif %}
+  
+  <div class="custom-page-builder__content">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'shopify_section' %}
+          <div class="shopify-section-wrapper" {{ block.shopify_attributes }}>
+            {% render block.settings.section_handle %}
+          </div>
+        {% when 'app' %}
+          <div class="app-block-wrapper" {{ block.shopify_attributes }}>
+            {% render block %}
+          </div>
+        {% when 'custom_liquid' %}
+          <div class="custom-liquid-wrapper" {{ block.shopify_attributes }}>
+            {{ block.settings.custom_liquid }}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "דף בית בהתאמה אישית",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "display_id",
+      "label": "הצג מזהה סקציה",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "visibility",
+      "options": [
+        {
+          "value": "desktop-hidden",
+          "label": "מובייל בלבד"
+        },
+        {
+          "value": "mobile-hidden",
+          "label": "דסקטופ בלבד"
+        },
+        {
+          "value": "",
+          "label": "כל המכשירים"
+        }
+      ],
+      "label": "הצג על",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "כותרת",
+      "default": "דף בית מותאם אישית"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": " h2",
+          "label": "קטן"
+        },
+        {
+          "value": " h1",
+          "label": "בינוני"
+        },
+        {
+          "value": " h0",
+          "label": "גדול"
+        }
+      ],
+      "default": " h1",
+      "label": "גודל כותרת"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "תיאור"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "shopify_section",
+      "name": "סקציה מובנית",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_handle",
+          "label": "מזהה הסקציה",
+          "info": "הזינו את מזהה הסקציה שתרצו להציג"
+        }
+      ]
+    },
+    {
+      "type": "app",
+      "name": "אפליקציה",
+      "settings": []
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Liquid מותאם אישית",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Liquid מותאם אישית",
+          "info": "הוסיפו קוד Liquid מותאם אישית"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "דף בית מותאם אישית",
+      "blocks": [
+        {
+          "type": "shopify_section"
+        },
+        {
+          "type": "app"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .custom-page-builder-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .section-description {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .custom-page-builder__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .shopify-section-wrapper,
+  .app-block-wrapper,
+  .custom-liquid-wrapper {
+    width: 100%;
+  }
+</style> 

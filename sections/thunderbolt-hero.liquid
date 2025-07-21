@@ -1,0 +1,1235 @@
+<!-- Thunderbolt 4 PRO USB-C Cable Hero Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<div class="thunderbolt-hero">
+  <div class="hero-background">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+    <div class="bg-lines"></div>
+    <div class="floating-particles"></div>
+    <div class="hero-gradient-overlay"></div>
+  </div>
+
+  <div class="hero-container">
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <!-- Rating Badge -->
+      <div class="rating-badge" data-aos="fade-down" data-aos-duration="800">
+        <div class="badge-inner">
+        <div class="rating-stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
+          <span class="rating-text">{{ section.settings.rating | default: '4.9/5' }}</span>
+          <span class="rating-customers">{{ section.settings.rating_text | default: '(מעל 500+ לקוחות מרוצים)' }}</span>
+        </div>
+        <div class="badge-glow"></div>
+      </div>
+      
+      <!-- Main Title -->
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <span class="title-line">{{ section.settings.title_line1 | default: 'כבל Thunderbolt 4 PRO' }}</span>
+        <span class="title-line highlight">{{ section.settings.title_line2 | default: 'USB-C' }}</span>
+        <span class="title-line">{{ section.settings.title_line3 | default: 'המתקדם ביותר' }}</span>
+      </h1>
+      
+      <!-- Subtitle -->
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+        {{ section.settings.subtitle | default: 'העברת נתונים במהירות 40Gbps, טעינה 100W, ותמיכה ב-8K בכבל קלוע אחד מעוצב במיוחד עבור מקצוענים' }}
+      </p>
+
+      <!-- Key Features -->
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" fill="#38d2d2"/>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">40</div>
+            <div class="stat-label">Gbps</div>
+          </div>
+        </div>
+        <div class="stat-separator"></div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" stroke="currentColor" stroke-width="2">
+              <rect x="6" y="4" width="12" height="16" rx="2" stroke="#38d2d2" stroke-width="2"/>
+              <rect x="8" y="2" width="8" height="2" rx="1" fill="#38d2d2"/>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">100</div>
+            <div class="stat-label">W</div>
+          </div>
+        </div>
+        <div class="stat-separator"></div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="14" rx="2" stroke="#38d2d2" stroke-width="2"/>
+              <text x="12" y="12" text-anchor="middle" fill="#38d2d2" font-size="4" font-weight="bold">8K</text>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">8K</div>
+            <div class="stat-label">@60Hz</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
+        <button class="hero-btn primary" id="add-to-cart-hero">
+          <div class="btn-background"></div>
+          <div class="btn-content">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="21" r="1" fill="currentColor"/>
+              <circle cx="20" cy="21" r="1" fill="currentColor"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>{{ section.settings.primary_button | default: 'הזמן עכשיו' }}</span>
+          </div>
+          <div class="btn-ripple"></div>
+        </button>
+        
+        <button class="hero-btn secondary">
+          <div class="btn-content">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>{{ section.settings.secondary_button | default: 'מפרט טכני' }}</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="trust-indicators" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="1000">
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="1300" data-aos-duration="800">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#38d2d2" stroke-width="2"/>
+              <path d="M9 12l2 2 4-4" stroke="#38d2d2" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="trust-content">
+            <div class="trust-number">{{ section.settings.warranty_period | default: '2' }}</div>
+            <div class="trust-label">{{ section.settings.warranty_text | default: 'שנות אחריות' }}</div>
+          </div>
+        </div>
+        
+        <div class="trust-separator" data-aos="fade-in" data-aos-delay="1400" data-aos-duration="600"></div>
+        
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="1500" data-aos-duration="800">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="#38d2d2" stroke-width="2"/>
+              <circle cx="9" cy="7" r="4" stroke="#38d2d2" stroke-width="2"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="#38d2d2" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="trust-content">
+            <div class="trust-number">{{ section.settings.customers_count | default: '500+' }}</div>
+            <div class="trust-label">{{ section.settings.customers_text | default: 'לקוחות מרוצים' }}</div>
+          </div>
+        </div>
+        
+        <div class="trust-separator" data-aos="fade-in" data-aos-delay="1600" data-aos-duration="600"></div>
+        
+        <div class="trust-item" data-aos="zoom-in" data-aos-delay="1700" data-aos-duration="800">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="#38d2d2" stroke-width="2"/>
+              <polyline points="12,6 12,12 16,14" stroke="#38d2d2" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="trust-content">
+            <div class="trust-number">{{ section.settings.shipping_days | default: '1-2' }}</div>
+            <div class="trust-label">{{ section.settings.shipping_text | default: 'ימי משלוח' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .thunderbolt-hero * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .thunderbolt-hero {
+    background-color: #000000;
+    background-image: url('https://cdn.shopify.com/s/files/1/0931/3724/0362/files/background.jpg?v=1748897113');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+  }
+  
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.08) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+
+  .bg-circle-1 {
+    width: 800px;
+    height: 800px;
+    top: -400px;
+    left: -300px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .bg-circle-2 {
+    width: 600px;
+    height: 600px;
+    bottom: -300px;
+    right: -200px;
+    animation: float 25s ease-in-out infinite reverse;
+  }
+
+  .bg-circle-3 {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    right: 10%;
+    animation: float 30s ease-in-out infinite;
+  }
+
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.4;
+  }
+
+  .floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(56, 210, 210, 0.3), transparent),
+                      radial-gradient(2px 2px at 40px 70px, rgba(56, 210, 210, 0.2), transparent),
+                      radial-gradient(1px 1px at 90px 40px, rgba(56, 210, 210, 0.4), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    animation: float 20s linear infinite;
+  }
+
+  .hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 30%, rgba(56, 210, 210, 0.1) 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.85) 100%);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(10px) rotate(240deg); }
+  }
+  
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .rating-badge {
+    position: relative;
+    display: inline-flex;
+    margin-bottom: 20px;
+  }
+
+  .badge-inner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.8), rgba(0, 0, 0, 0.9));
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    border-radius: 50px;
+    padding: 15px 25px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(56, 210, 210, 0.2);
+    border-radius: 50px;
+    filter: blur(10px);
+    z-index: 1;
+  }
+  
+  .rating-stars {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .star {
+    color: #ffd700;
+    font-size: 18px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+  
+  .rating-text {
+    color: #38d2d2;
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+  
+  .rating-customers {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.4rem;
+  }
+  
+  .hero-title {
+    font-size: 5.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  
+  .title-line {
+    display: block;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .title-line.highlight {
+    background: linear-gradient(135deg, #38d2d2 0%, #2dd4bf 50%, #38d2d2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    text-shadow: 0 0 30px rgba(56, 210, 210, 0.5);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 30, 0.9) 50%, rgba(0, 0, 0, 0.8) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 18px;
+    padding: 25px 20px;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    box-shadow: 
+      0 15px 30px rgba(0, 0, 0, 0.4),
+      0 5px 15px rgba(56, 210, 210, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animated gradient background */
+  .hero-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(56, 210, 210, 0.05) 25%, 
+      rgba(56, 210, 210, 0.1) 50%, 
+      rgba(56, 210, 210, 0.05) 75%, 
+      transparent 100%);
+    animation: statsShimmer 4s infinite ease-in-out;
+    border-radius: 25px;
+  }
+
+  @keyframes statsShimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+  }
+  
+  .hero-stats:hover {
+    border-color: rgba(56, 210, 210, 0.6);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 8px 20px rgba(56, 210, 210, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 0 25px rgba(56, 210, 210, 0.2);
+  }
+
+  .stat-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: {% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %};
+    padding: 20px 18px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.02), rgba(0, 0, 0, 0.1));
+    margin: 0 5px;
+    overflow: hidden;
+  }
+
+  /* Individual stat item glow effect */
+  .stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(56, 210, 210, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 15px;
+  }
+
+  .stat-item:hover::before {
+    opacity: 1;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.08), rgba(0, 0, 0, 0.2));
+    box-shadow: 
+      0 8px 15px rgba(56, 210, 210, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Stat Icon Styles */
+  .stat-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: rgba(56, 210, 210, 0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .stat-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.3), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .stat-item:hover .stat-icon::before {
+    left: 100%;
+  }
+
+  .stat-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(56, 210, 210, 0), rgba(56, 210, 210, 0.8), rgba(56, 210, 210, 0));
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .stat-item:hover .stat-icon {
+    background: rgba(56, 210, 210, 0.25);
+    border-color: rgba(56, 210, 210, 0.5);
+    transform: scale(1.1);
+  }
+
+  .stat-item:hover .stat-icon::after {
+    opacity: 1;
+  }
+
+  .stat-icon svg {
+    color: #38d2d2;
+    filter: drop-shadow(0 2px 4px rgba(56, 210, 210, 0.3));
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Stat Content */
+  .stat-content {
+    flex: 1;
+    text-align: {% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %};
+  }
+  
+  .stat-number {
+    font-size: 3.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38d2d2 0%, #4dfafa 50%, #38d2d2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+    position: relative;
+    display: inline-block;
+    filter: drop-shadow(0 0 15px rgba(56, 210, 210, 0.4));
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+  }
+  
+  .stat-item:hover .stat-label {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(56, 210, 210, 0.6);
+  }
+  
+  .stat-separator {
+    width: 1px;
+    height: 55px;
+    background: linear-gradient(to bottom, 
+      rgba(56, 210, 210, 0) 0%, 
+      rgba(56, 210, 210, 0.3) 25%, 
+      rgba(56, 210, 210, 0.6) 50%, 
+      rgba(56, 210, 210, 0.3) 75%, 
+      rgba(56, 210, 210, 0) 100%);
+    border-radius: 1px;
+    position: relative;
+    margin: 0 12px;
+    box-shadow: 0 0 8px rgba(56, 210, 210, 0.3);
+  }
+
+  .stat-separator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #4dfafa 0%, #38d2d2 70%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(56, 210, 210, 0.7);
+    opacity: 0.8;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .hero-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .hero-btn.primary {
+    background: linear-gradient(135deg, #38d2d2 0%, #2dd4bf 100%);
+    color: #000000;
+    box-shadow: 0 15px 35px rgba(56, 210, 210, 0.4);
+  }
+
+  .hero-btn.primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(56, 210, 210, 0.6);
+  }
+
+  .hero-btn.secondary {
+    background: transparent;
+    color: #38d2d2;
+    border: 2px solid #38d2d2;
+  }
+
+  .hero-btn.secondary:hover {
+    background: #38d2d2;
+    color: #000000;
+    transform: translateY(-5px);
+  }
+
+  .btn-background {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+  }
+  
+  .hero-btn:hover .btn-background {
+    left: 100%;
+  }
+  
+  .btn-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .btn-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .trust-indicators {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 30, 0.8) 50%, rgba(0, 0, 0, 0.6) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 25px 30px;
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.3),
+      0 5px 10px rgba(56, 210, 210, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .trust-indicators::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(56, 210, 210, 0.03) 25%, 
+      rgba(56, 210, 210, 0.06) 50%, 
+      rgba(56, 210, 210, 0.03) 75%, 
+      transparent 100%);
+    animation: trustShimmer 6s infinite ease-in-out;
+    border-radius: 20px;
+  }
+
+  @keyframes trustShimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  .trust-indicators:hover {
+    transform: translateY(-3px) scale(1.01);
+    border-color: rgba(56, 210, 210, 0.4);
+    box-shadow: 
+      0 15px 35px rgba(0, 0, 0, 0.4),
+      0 8px 15px rgba(56, 210, 210, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 0 20px rgba(56, 210, 210, 0.15);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 8px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .trust-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(56, 210, 210, 0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .trust-item:hover::before {
+    opacity: 1;
+  }
+
+  .trust-item:hover {
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .trust-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.12), rgba(56, 210, 210, 0.08));
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    border-radius: 12px;
+    color: #38d2d2;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .trust-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.3), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .trust-item:hover .trust-icon::before {
+    left: 100%;
+  }
+
+  .trust-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(56, 210, 210, 0), rgba(56, 210, 210, 0.8), rgba(56, 210, 210, 0));
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .trust-item:hover .trust-icon {
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.25), rgba(56, 210, 210, 0.15));
+    border-color: rgba(56, 210, 210, 0.6);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px rgba(56, 210, 210, 0.4);
+  }
+
+  .trust-item:hover .trust-icon::after {
+    opacity: 1;
+  }
+
+  .trust-icon svg {
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(0 2px 4px rgba(56, 210, 210, 0.3));
+    transition: all 0.3s ease;
+  }
+
+  .trust-item:hover .trust-icon svg {
+    filter: drop-shadow(0 0 8px rgba(56, 210, 210, 0.6));
+    transform: scale(1.1);
+  }
+
+  .trust-content {
+    text-align: {% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %};
+    transition: all 0.3s ease;
+  }
+
+  .trust-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38d2d2 0%, #4dfafa 50%, #38d2d2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    filter: drop-shadow(0 0 10px rgba(56, 210, 210, 0.3));
+    transition: all 0.3s ease;
+  }
+
+  .trust-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .trust-item:hover .trust-number {
+    filter: drop-shadow(0 0 15px rgba(56, 210, 210, 0.6));
+    transform: scale(1.05);
+  }
+
+  .trust-item:hover .trust-label {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(56, 210, 210, 0.4);
+  }
+
+  .trust-separator {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+      rgba(56, 210, 210, 0) 0%, 
+      rgba(56, 210, 210, 0.4) 25%, 
+      rgba(56, 210, 210, 0.8) 50%, 
+      rgba(56, 210, 210, 0.4) 75%, 
+      rgba(56, 210, 210, 0) 100%);
+    border-radius: 1px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(56, 210, 210, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .trust-separator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #4dfafa 0%, #38d2d2 70%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.8);
+    opacity: 0.9;
+    animation: separatorPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes separatorPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .hero-title {
+      font-size: 4.5rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .hero-stats {
+      flex-direction: column;
+      gap: 15px;
+      padding: 25px 20px;
+    }
+    
+    .stat-item {
+      padding: 20px;
+      margin: 0;
+      width: 100%;
+    }
+    
+    .stat-separator {
+      width: 80%;
+      height: 1px;
+      margin: 0 auto;
+    }
+    
+    .stat-separator::before {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .thunderbolt-hero {
+      background-attachment: scroll;
+      background-position: center top;
+    }
+    
+    .hero-container {
+      padding: 20px;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.6rem;
+    }
+    
+    .hero-stats {
+      padding: 20px 15px;
+      margin-bottom: 25px;
+    }
+    
+    .stat-item {
+      padding: 18px 15px;
+      gap: 10px;
+    }
+    
+    .stat-number {
+      font-size: 2.8rem;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .hero-btn {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+    
+    .trust-indicators {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .trust-separator {
+      width: 30px;
+      height: 1px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.4rem;
+    }
+    
+    .hero-stats {
+      padding: 18px 12px;
+    }
+    
+    .stat-item {
+      padding: 16px 12px;
+    }
+    
+    .stat-number {
+      font-size: 2.4rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+    }
+    
+    .hero-btn {
+      padding: 14px 28px;
+      font-size: 1.4rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animations
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+
+    // Parallax effect for background elements
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      let x = e.clientX / window.innerWidth;
+      let y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = (index + 1) * 0.5;
+        circle.style.transform = `translate(${x * 30 * factor}px, ${y * 30 * factor}px)`;
+      });
+    });
+
+    // Button ripple effect
+    const buttons = document.querySelectorAll('.hero-btn');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Add to cart functionality
+    const addToCartBtn = document.getElementById('add-to-cart-hero');
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', function() {
+        // Add your cart functionality here
+        console.log('Add to cart clicked');
+        
+        // Visual feedback
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    }
+  });
+
+  // Add ripple CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(0);
+      animation: ripple-animation 0.6s linear;
+      pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+{% schema %}
+{
+  "name": "Thunderbolt Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Rating",
+      "default": "4.9/5"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating Text",
+      "default": "(מעל 500+ לקוחות מרוצים)"
+    },
+    {
+      "type": "text",
+      "id": "title_line1",
+      "label": "Title Line 1",
+      "default": "כבל Thunderbolt 4 PRO"
+    },
+    {
+      "type": "text",
+      "id": "title_line2",
+      "label": "Title Line 2 (Highlighted)",
+      "default": "USB-C"
+    },
+    {
+      "type": "text",
+      "id": "title_line3",
+      "label": "Title Line 3",
+      "default": "המתקדם ביותר"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "העברת נתונים במהירות 40Gbps, טעינה 100W, ותמיכה ב-8K בכבל קלוע אחד מעוצב במיוחד עבור מקצוענים"
+    },
+    {
+      "type": "text",
+      "id": "original_price",
+      "label": "Original Price",
+      "default": "₪199"
+    },
+    {
+      "type": "text",
+      "id": "current_price",
+      "label": "Current Price",
+      "default": "₪149"
+    },
+    {
+      "type": "text",
+      "id": "discount",
+      "label": "Discount Badge",
+      "default": "25% הנחה"
+    },
+    {
+      "type": "text",
+      "id": "limited_text",
+      "label": "Limited Offer Text",
+      "default": "מבצע מוגבל - עד גמר המלאי"
+    },
+    {
+      "type": "text",
+      "id": "primary_button",
+      "label": "Primary Button Text",
+      "default": "הזמן עכשיו"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button",
+      "label": "Secondary Button Text",
+      "default": "מפרט טכני"
+    },
+    {
+      "type": "text",
+      "id": "warranty_period",
+      "label": "Warranty Period",
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "warranty_text",
+      "label": "Warranty Text",
+      "default": "שנות אחריות"
+    },
+    {
+      "type": "text",
+      "id": "customers_count",
+      "label": "Customers Count",
+      "default": "500+"
+    },
+    {
+      "type": "text",
+      "id": "customers_text",
+      "label": "Customers Text",
+      "default": "לקוחות מרוצים"
+    },
+    {
+      "type": "text",
+      "id": "shipping_days",
+      "label": "Shipping Days",
+      "default": "1-2"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping Text",
+      "default": "ימי משלוח"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Thunderbolt Hero",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

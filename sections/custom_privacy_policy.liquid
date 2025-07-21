@@ -1,0 +1,652 @@
+<!-- AirSyncX Privacy Policy Page -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<div class="airsyncx-privacy-policy">
+  <!-- Animated Background -->
+  <div class="privacy-policy-background">
+    <div class="bg-line line-1"></div>
+    <div class="bg-line line-2"></div>
+    <div class="bg-line line-3"></div>
+    <div class="bg-line line-4"></div>
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+  </div>
+  
+  <div class="page-width">
+    <!-- Header Section -->
+    <div class="privacy-policy-header" data-aos="fade-up" data-aos-duration="800">
+      <div class="header-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h1 class="privacy-policy-title">{{ 'custom_privacy_policy.title' | t }}</h1>
+      <p class="privacy-policy-subtitle">{{ 'custom_privacy_policy.subtitle' | t }}</p>
+      <p class="last-updated">עודכן לאחרונה: {{ section.settings.last_updated }}</p>
+    </div>
+    
+    <!-- Introduction -->
+    <div class="privacy-policy-intro" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+      <div class="intro-content">
+        <p>{{ 'custom_privacy_policy.intro_content' | t }}</p>
+      </div>
+    </div>
+    
+    <!-- Policy Content -->
+    <div class="privacy-policy-content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+      <!-- Policy Sections -->
+      <div class="policy-sections-container">
+        <div class="policy-navigation">
+          <div class="sticky-nav">
+            <h3 class="nav-title">תוכן עניינים</h3>
+            <ul class="policy-nav-list">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'policy_section' -%}
+                  <li class="policy-nav-item">
+                    <a href="#section-{{ forloop.index }}" class="policy-nav-link">{{ block.settings.section_title }}</a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+        <div class="policy-sections">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'policy_section' -%}
+              <div id="section-{{ forloop.index }}" class="policy-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ forloop.index | times: 100 }}">
+                <div class="section-header">
+                  <div class="section-number"><span>{{ forloop.index }}</span></div>
+                  <h2 class="section-title">{{ block.settings.section_title }}</h2>
+                </div>
+                <div class="section-content">
+                  {{ block.settings.section_content }}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact CTA -->
+    <div class="privacy-policy-contact" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+      <div class="contact-content">
+        <h3 class="contact-title">{{ 'custom_privacy_policy.contact_title' | t }}</h3>
+        <p class="contact-text">{{ 'custom_privacy_policy.contact_content' | t }}</p>
+        <a href="{{ section.settings.contact_link }}" class="contact-button">
+          <span class="button-text">{{ section.settings.contact_button_text }}</span>
+          <span class="button-icon">
+            <i class="fa-solid fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      once: true
+    });
+    
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.policy-nav-link');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+          // Add some offset for the sticky header
+          const offset = 100;
+          const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update active state in navigation
+          navLinks.forEach(navLink => navLink.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // Set active section on scroll
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      
+      // Get all policy sections
+      const sections = document.querySelectorAll('.policy-section');
+      
+      sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          navLinks.forEach(navLink => navLink.classList.remove('active'));
+          navLinks[index].classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Base Styles */
+  .airsyncx-privacy-policy {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Assistant', sans-serif;
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+    direction: rtl;
+  }
+  
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Animated Background */
+  .privacy-policy-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .bg-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.3), transparent);
+    animation: line-animation 15s infinite linear;
+    opacity: 0.3;
+  }
+  
+  .line-1 {
+    top: 10%;
+    width: 80%;
+    right: 5%;
+    animation-delay: 0s;
+  }
+  
+  .line-2 {
+    top: 30%;
+    width: 60%;
+    left: 10%;
+    animation-delay: 3s;
+  }
+  
+  .line-3 {
+    bottom: 40%;
+    width: 70%;
+    right: 15%;
+    animation-delay: 6s;
+  }
+  
+  .line-4 {
+    bottom: 15%;
+    width: 55%;
+    left: 20%;
+    animation-delay: 9s;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    animation: pulse 10s infinite;
+  }
+  
+  .circle-1 {
+    top: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    animation-delay: 0s;
+  }
+  
+  .circle-2 {
+    bottom: 20%;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    animation-delay: 3s;
+  }
+  
+  .circle-3 {
+    top: 40%;
+    right: 30%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 6s;
+  }
+  
+  @keyframes line-animation {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+  }
+  
+  /* Header Styles */
+  .privacy-policy-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .header-icon {
+    font-size: 3rem;
+    color: #38d2d2;
+    margin-bottom: 1.5rem;
+  }
+  
+  .privacy-policy-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+  }
+  
+  .privacy-policy-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    opacity: 0.8;
+  }
+  
+  .last-updated {
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+  
+  /* Introduction Styles */
+  .privacy-policy-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: rgba(56, 210, 210, 0.05);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .intro-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* Policy Content Styles */
+  .policy-sections-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .policy-navigation {
+    flex: 0 0 250px;
+  }
+  
+  .sticky-nav {
+    position: sticky;
+    top: 100px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: rgba(15, 15, 15, 0.5);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .nav-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    color: #38d2d2;
+  }
+  
+  .nav-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #38d2d2;
+  }
+  
+  .policy-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .policy-nav-item {
+    margin-bottom: 0.8rem;
+  }
+  
+  .policy-nav-link {
+    color: #ffffff;
+    opacity: 0.7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.5rem 0;
+    border-right: 2px solid transparent;
+    padding-right: 10px;
+  }
+  
+  .policy-nav-link:hover,
+  .policy-nav-link.active {
+    opacity: 1;
+    color: #38d2d2;
+    border-right-color: #38d2d2;
+    padding-right: 15px;
+  }
+  
+  .policy-sections {
+    flex: 1;
+  }
+  
+  .policy-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .policy-section:last-child {
+    border-bottom: none;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #38d2d2;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-left: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  .section-content {
+    line-height: 1.7;
+  }
+  
+  .section-content p {
+    margin-bottom: 1rem;
+  }
+  
+  .section-content ul,
+  .section-content ol {
+    margin-bottom: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .section-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Contact CTA Styles */
+  .privacy-policy-contact {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(56, 210, 210, 0.1), rgba(56, 210, 210, 0.02));
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-text {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.8;
+  }
+  
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    background-color: #38d2d2;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 210, 210, 0.3);
+  }
+  
+  .button-text {
+    margin-left: 0.5rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .policy-sections-container {
+      flex-direction: column;
+    }
+    
+    .policy-navigation {
+      flex: auto;
+      margin-bottom: 2rem;
+    }
+    
+    .sticky-nav {
+      position: relative;
+      top: 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .privacy-policy-title {
+      font-size: 2.5rem;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+    }
+    
+    .contact-title {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .privacy-policy-title {
+      font-size: 2rem;
+    }
+    
+    .privacy-policy-subtitle {
+      font-size: 1rem;
+    }
+    
+    .section-title {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "מדיניות פרטיות",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "כותרת משנה",
+      "default": "אנו בAirSyncX מחויבים להגנה על הפרטיות שלך. מדיניות זו מסבירה כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך."
+    },
+    {
+      "type": "text",
+      "id": "last_updated",
+      "label": "תאריך עדכון אחרון",
+      "default": "15 באפריל, 2025"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "טקסט מבוא",
+      "default": "אנו ב-AirSyncX (\"אנחנו\", \"שלנו\", \"החברה\") מכבדים את פרטיותך ומחויבים להגן על המידע האישי שאתה משתף איתנו. אנו מסבירים במדיניות פרטיות זו כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך בעת שימוש באתר שלנו ובשירותים שלנו. אנו מבקשים ממך לקרוא בעיון את מדיניות הפרטיות הזו כדי להבין את הנהלים שלנו לגבי המידע שלך."
+    },
+    {
+      "type": "textarea",
+      "id": "contact_text",
+      "label": "טקסט יצירת קשר",
+      "default": "אם יש לך שאלות או דאגות לגבי מדיניות הפרטיות שלנו, אל תהסס ליצור איתנו קשר. צוות שירות הלקוחות שלנו יענה על כל שאלותיך."
+    },
+    {
+      "type": "text",
+      "id": "contact_button_text",
+      "label": "טקסט כפתור יצירת קשר",
+      "default": "צור קשר"
+    },
+    {
+      "type": "text",
+      "id": "contact_link",
+      "label": "קישור ליצירת קשר",
+      "default": "/pages/contact"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_section",
+      "name": "סעיף במדיניות",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_title",
+          "label": "כותרת הסעיף",
+          "default": "איסוף מידע"
+        },
+        {
+          "type": "html",
+          "id": "section_content",
+          "label": "תוכן הסעיף",
+          "default": "<p>אנו אוספים מידע ממך כאשר אתה:</p><ul><li>רוכש מוצרים באתר שלנו</li><li>נרשם לחשבון באתר שלנו</li><li>נרשם לניוזלטר שלנו</li><li>משתתף בסקר או בתחרות</li><li>יוצר איתנו קשר דרך טופס יצירת הקשר שלנו</li></ul><p>המידע שאנו אוספים עשוי לכלול:</p><ul><li>שם מלא</li><li>כתובת דואר אלקטרוני</li><li>מספר טלפון</li><li>כתובת משלוח וכתובת חיוב</li><li>פרטי תשלום (אנו לא שומרים פרטי כרטיס אשראי)</li><li>פרטים על הרכב שלך (לצורך התאמת מוצרים)</li></ul>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "מדיניות פרטיות",
+      "blocks": [
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "איסוף מידע",
+            "section_content": "<p>אנו אוספים מידע ממך כאשר אתה:</p><ul><li>רוכש מוצרים באתר שלנו</li><li>נרשם לחשבון באתר שלנו</li><li>נרשם לניוזלטר שלנו</li><li>משתתף בסקר או בתחרות</li><li>יוצר איתנו קשר דרך טופס יצירת הקשר שלנו</li></ul><p>המידע שאנו אוספים עשוי לכלול:</p><ul><li>שם מלא</li><li>כתובת דואר אלקטרוני</li><li>מספר טלפון</li><li>כתובת משלוח וכתובת חיוב</li><li>פרטי תשלום (אנו לא שומרים פרטי כרטיס אשראי)</li><li>פרטים על הרכב שלך (לצורך התאמת מוצרים)</li></ul>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "שימוש במידע",
+            "section_content": "<p>אנו משתמשים במידע שאנו אוספים כדי:</p><ul><li>לעבד את הזמנתך ולספק שירות לקוחות</li><li>לשלוח לך עדכונים לגבי הזמנתך</li><li>לשפר את האתר והחוויה שלך</li><li>לשלוח לך חומרים שיווקיים (אם נרשמת לקבל אותם)</li><li>לבצע סקרי שביעות רצון</li><li>למנוע הונאות ולהגן על האבטחה</li></ul>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "שיתוף מידע",
+            "section_content": "<p>אנו לא מוכרים, סוחרים או משכירים את המידע האישי שלך לצדדים שלישיים. אנו עשויים לשתף את המידע שלך עם:</p><ul><li>שותפי המשלוח שלנו (לצורך משלוח הזמנות)</li><li>ספקי שירותי תשלום (לצורך עיבוד תשלומים)</li><li>ספקי שירות הענן והאחסון שלנו</li><li>רשויות חוק, אם נדרש לפי חוק</li></ul>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "אבטחת מידע",
+            "section_content": "<p>אנו מיישמים מגוון אמצעי אבטחה כדי לשמור על בטיחות המידע האישי שלך, כולל:</p><ul><li>הצפנת SSL לכל העברות המידע</li><li>גישה מוגבלת למידע אישי</li><li>אמצעי הגנה פיזיים למערכות המאחסנות מידע</li><li>בדיקות אבטחה תקופתיות</li></ul><p>עם זאת, אף שיטת העברה באינטרנט או אחסון אלקטרוני אינה בטוחה ב-100%. לכן, בעוד שאנו שואפים להשתמש באמצעים מקובלים להגנה על המידע האישי שלך, איננו יכולים להבטיח את ביטחונו המוחלט.</p>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "עוגיות",
+            "section_content": "<p>אנו משתמשים בעוגיות (cookies) כדי לשפר את החוויה שלך באתר שלנו. עוגיות הן קבצי טקסט קטנים המאוחסנים במכשיר שלך אשר מאפשרים לאתר לזכור את העדפותיך ולהציע לך חוויה מותאמת אישית.</p><p>אנו משתמשים בסוגי העוגיות הבאים:</p><ul><li><strong>עוגיות חיוניות:</strong> נדרשות לפעולת האתר</li><li><strong>עוגיות ביצועים:</strong> עוזרות לנו להבין כיצד משתמשים באתר</li><li><strong>עוגיות פונקציונליות:</strong> מאפשרות תכונות משופרות</li><li><strong>עוגיות פרסום:</strong> משמשות להצגת מודעות רלוונטיות</li></ul><p>אתה יכול לנהל את העדפות העוגיות שלך דרך הגדרות הדפדפן שלך.</p>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "זכויותיך",
+            "section_content": "<p>בהתאם לחוקי הגנת המידע החלים, יש לך זכויות מסוימות לגבי המידע האישי שלך, כולל:</p><ul><li>הזכות לגשת למידע האישי שלך</li><li>הזכות לתקן מידע לא מדויק</li><li>הזכות למחוק את המידע שלך (\"הזכות להישכח\")</li><li>הזכות להגביל את העיבוד של המידע שלך</li><li>הזכות להתנגד לעיבוד המידע שלך</li><li>הזכות לניידות נתונים</li></ul><p>כדי לממש את זכויותיך, אנא צור איתנו קשר באמצעות פרטי הקשר המופיעים בחלק \"צור קשר\".</p>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "שינויים במדיניות",
+            "section_content": "<p>אנו עשויים לעדכן את מדיניות הפרטיות שלנו מעת לעת. כל שינויים יפורסמו באתר שלנו, וכאשר יש שינויים מהותיים, אנו נודיע לך באמצעות הודעת דוא\"ל או באמצעות הודעה באתר שלנו.</p><p>מומלץ לבדוק באופן תקופתי אם יש עדכונים למדיניות הפרטיות שלנו.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

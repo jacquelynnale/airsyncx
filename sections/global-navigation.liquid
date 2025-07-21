@@ -1,0 +1,646 @@
+<!-- AirSyncX Global Navigation - Universal Menu for all pages except homepage -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<style>
+  /* Reset and Base Styles */
+  .airsyncx-header {
+    position: relative;
+    padding: 8px 0 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(80, 80, 80, 0.15);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .airsyncx-header.scrolled {
+    padding: 5px 0;
+    background-color: rgba(0, 0, 0, 0.98);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .airsyncx-header * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .airsyncx-top-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .airsyncx-actions {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+  }
+  
+  .airsyncx-logo {
+    margin: 4px 0;
+  }
+  
+  .airsyncx-logo-image {
+    max-height: 25px;
+    width: auto;
+    filter: brightness(1.05);
+  }
+  
+  .airsyncx-nav-container {
+    position: relative;
+    border-top: 1px solid rgba(80, 80, 80, 0.15);
+    padding: 6px 40px;
+    max-width: 1200px;
+    margin: 4px auto 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .airsyncx-nav-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    pointer-events: none;
+  }
+  
+  .airsyncx-nav-container::after {
+    display: none;
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(56, 210, 210, 0), rgba(56, 210, 210, 0.5), rgba(56, 210, 210, 0));
+  }
+  
+  .airsyncx-nav-list {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+  }
+  
+  .airsyncx-nav-list::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.2), transparent);
+  }
+  
+  /* Logo */
+  .airsyncx-logo-link {
+    display: block;
+  }
+  
+  /* Navigation */
+  .airsyncx-nav {
+    position: relative;
+  }
+  
+  .airsyncx-nav-item {
+    position: relative;
+  }
+  
+  .airsyncx-nav-item a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+    padding: 4px 0;
+    position: relative;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .airsyncx-nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgba(56, 210, 210, 0.7);
+    transition: width 0.25s ease;
+  }
+  
+  .airsyncx-nav-item a:hover::after,
+  .airsyncx-nav-item.active a::after {
+    width: 100%;
+  }
+  
+  .airsyncx-nav-item a:hover,
+  .airsyncx-nav-item.active a {
+    color: rgba(56, 210, 210, 0.9);
+    font-weight: 500;
+  }
+  
+  /* Actions */
+  .airsyncx-action-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 8px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    position: relative;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .airsyncx-action-btn:hover {
+    color: #fff;
+  }
+  
+  .airsyncx-cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: rgba(255, 123, 145, 0.85);
+    color: white;
+    font-size: 9px;
+    font-weight: 500;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Mobile Toggle */
+  .airsyncx-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 101;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .airsyncx-mobile-toggle-line {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .airsyncx-header.mobile-menu-active .airsyncx-mobile-toggle-line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  
+  .airsyncx-header.mobile-menu-active .airsyncx-mobile-toggle-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .airsyncx-header.mobile-menu-active .airsyncx-mobile-toggle-line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+  
+  /* Mobile Menu */
+  .airsyncx-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 99;
+    padding: 20px;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    visibility: hidden;
+  }
+  
+  .airsyncx-header.mobile-menu-active .airsyncx-mobile-menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  .airsyncx-mobile-list {
+    list-style: none;
+    padding: 20px 0;
+  }
+  
+  .airsyncx-mobile-item {
+    margin-bottom: 15px;
+  }
+  
+  .airsyncx-mobile-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 10px 0;
+    display: block;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .airsyncx-mobile-link:hover,
+  .airsyncx-mobile-item.active .airsyncx-mobile-link {
+    color: #38d2d2;
+  }
+  
+  /* Header Background Elements */
+  .header-background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  .header-bg-line {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(56, 210, 210, 0) 0%, rgba(56, 210, 210, 0.2) 50%, rgba(56, 210, 210, 0) 100%);
+    height: 1px;
+    width: 100%;
+  }
+  
+  .header-bg-line-1 {
+    top: 30%;
+    animation: float-line 15s infinite ease-in-out;
+  }
+  
+  .header-bg-line-2 {
+    bottom: 20%;
+    animation: float-line 20s infinite ease-in-out reverse;
+  }
+  
+  .header-bg-particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.2);
+    filter: blur(5px);
+  }
+  
+  .header-particle-1 {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    right: 10%;
+    animation: float-particle 20s infinite ease-in-out;
+  }
+  
+  .header-particle-2 {
+    width: 150px;
+    height: 150px;
+    bottom: -80px;
+    left: 5%;
+    animation: float-particle 25s infinite ease-in-out reverse;
+  }
+  
+  .header-particle-3 {
+    width: 60px;
+    height: 60px;
+    top: 30%;
+    left: 30%;
+    animation: float-particle 15s infinite ease-in-out;
+  }
+  
+  @keyframes float-line {
+    0%, 100% {
+      transform: translateY(0) scaleX(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translateY(10px) scaleX(0.95);
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes float-particle {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 0.2;
+    }
+    25% {
+      transform: translate(15px, 15px);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translate(0, 30px);
+      opacity: 0.2;
+    }
+    75% {
+      transform: translate(-15px, 15px);
+      opacity: 0.3;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 991px) {
+    .airsyncx-nav {
+      display: none;
+    }
+    
+    .airsyncx-mobile-toggle {
+      display: flex;
+    }
+    
+    .airsyncx-mobile-menu {
+      display: block;
+    }
+    
+    .airsyncx-top-container {
+      padding: 15px 20px;
+    }
+    
+    .airsyncx-nav-container {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .airsyncx-top-container {
+      padding: 12px 15px;
+    }
+    
+    .airsyncx-logo-image {
+      height: 25px;
+    }
+    
+    .airsyncx-actions {
+      gap: 10px;
+    }
+  }
+</style>
+
+{% if template.name != 'index' %}
+<div class="airsyncx-header">
+  <div class="header-background-elements">
+    <div class="header-bg-line header-bg-line-1"></div>
+    <div class="header-bg-line header-bg-line-2"></div>
+    <div class="header-bg-particle header-particle-1"></div>
+    <div class="header-bg-particle header-particle-2"></div>
+    <div class="header-bg-particle header-particle-3"></div>
+  </div>
+  
+  <!-- Top Bar with Logo and Actions -->
+  <div class="airsyncx-top-container" data-aos="fade-down" data-aos-duration="800">
+    <!-- Logo -->
+    <div class="airsyncx-logo">
+      <a href="/" class="airsyncx-logo-link">
+        {% if section.settings.logo != blank %}
+          <img 
+            src="{{ section.settings.logo | image_url: width: 150 }}"
+            alt="{{ section.settings.logo.alt | default: shop.name }}"
+            width="{{ section.settings.logo.width }}"
+            height="{{ section.settings.logo.height }}"
+            loading="lazy"
+            class="airsyncx-logo-image"
+          >
+        {% else %}
+          <img src="{{ 'airsyncx-logo.png' | asset_url }}" alt="{{ shop.name }}" class="airsyncx-logo-image">
+        {% endif %}
+      </a>
+    </div>
+    
+    <!-- Actions -->
+    <div class="airsyncx-actions">
+      <!-- Search Button -->
+      <button class="airsyncx-action-btn airsyncx-search-btn js-toggle-search-modal" aria-label="חיפוש">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" fill="currentColor"/>
+        </svg>
+      </button>
+      
+      <!-- Account Button -->
+      <button class="airsyncx-action-btn airsyncx-account-btn js-toggle-account-modal" aria-label="חשבון">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+        </svg>
+      </button>
+      
+      <!-- Cart Button -->
+      <button class="airsyncx-action-btn airsyncx-cart-btn js-open-cart-drawer" aria-label="עגלת קניות">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 18C5.9 18 5.01 18.9 5.01 20C5.01 21.1 5.9 22 7 22C8.1 22 9 21.1 9 20C9 18.9 8.1 18 7 18ZM17 18C15.9 18 15.01 18.9 15.01 20C15.01 21.1 15.9 22 17 22C18.1 22 19 21.1 19 20C19 18.9 18.1 18 17 18ZM7.17 14.75L7.2 14.63L8.1 13H15.55C16.3 13 16.96 12.59 17.3 11.97L21.16 4.96L19.42 4H19.41L18.31 6L15.55 11H8.53L8.4 10.73L6.16 6L5.21 4L4.27 2H1V4H3L6.6 11.59L5.25 14.04C5.09 14.32 5 14.65 5 15C5 16.1 5.9 17 7 17H19V15H7.42C7.29 15 7.17 14.89 7.17 14.75Z" fill="currentColor"/>
+        </svg>
+        <span class="airsyncx-cart-count">{{ cart.item_count }}</span>
+      </button>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="airsyncx-mobile-toggle" aria-label="תפריט" aria-expanded="false">
+        <span class="airsyncx-mobile-toggle-line"></span>
+        <span class="airsyncx-mobile-toggle-line"></span>
+        <span class="airsyncx-mobile-toggle-line"></span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Bottom Bar with Navigation -->
+  <div class="airsyncx-nav-container" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100">
+    <!-- Navigation -->
+    <nav class="airsyncx-nav" aria-label="תפריט ראשי">
+      <ul class="airsyncx-nav-list">
+        <li class="airsyncx-nav-item {% if template contains 'product' %}active{% endif %}">
+          <a href="/products/airsyncx">המוצר</a>
+        </li>
+        <li class="airsyncx-nav-item {% if template contains 'page' and page.handle == 'about-us' %}active{% endif %}">
+          <a href="/pages/about-us">אודות</a>
+        </li>
+        <li class="airsyncx-nav-item {% if template contains 'page' and page.handle == 'contact' %}active{% endif %}">
+          <a href="/pages/contact">צור קשר</a>
+        </li>
+        <li class="airsyncx-nav-item {% if template contains 'page' and page.handle == 'faq' %}active{% endif %}">
+          <a href="/pages/faq">שאלות נפוצות</a>
+        </li>
+        <li class="airsyncx-nav-item {% if template contains 'page' and page.handle == 'terms-of-service' %}active{% endif %}">
+          <a href="/pages/terms-of-service">תנאי שימוש</a>
+        </li>
+        <li class="airsyncx-nav-item {% if template contains 'page' and page.handle == 'refund-policy' %}active{% endif %}">
+          <a href="/pages/refund-policy">מדיניות החזרות</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div class="airsyncx-mobile-menu">
+    <nav class="airsyncx-mobile-nav">
+      <ul class="airsyncx-mobile-list">
+        <li class="airsyncx-mobile-item {% if template contains 'product' %}active{% endif %}">
+          <a href="/products/airsyncx" class="airsyncx-mobile-link">המוצר</a>
+        </li>
+        <li class="airsyncx-mobile-item {% if template contains 'page' and page.handle == 'about-us' %}active{% endif %}">
+          <a href="/pages/about-us" class="airsyncx-mobile-link">אודות</a>
+        </li>
+        <li class="airsyncx-mobile-item {% if template contains 'page' and page.handle == 'contact' %}active{% endif %}">
+          <a href="/pages/contact" class="airsyncx-mobile-link">צור קשר</a>
+        </li>
+        <li class="airsyncx-mobile-item {% if template contains 'page' and page.handle == 'faq' %}active{% endif %}">
+          <a href="/pages/faq" class="airsyncx-mobile-link">שאלות נפוצות</a>
+        </li>
+        <li class="airsyncx-mobile-item {% if template contains 'page' and page.handle == 'terms-of-service' %}active{% endif %}">
+          <a href="/pages/terms-of-service" class="airsyncx-mobile-link">תנאי שימוש</a>
+        </li>
+        <li class="airsyncx-mobile-item {% if template contains 'page' and page.handle == 'refund-policy' %}active{% endif %}">
+          <a href="/pages/refund-policy" class="airsyncx-mobile-link">מדיניות החזרות</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 1000
+    });
+    
+    // Mobile Menu Toggle
+    const header = document.querySelector('.airsyncx-header');
+    const mobileToggle = document.querySelector('.airsyncx-mobile-toggle');
+    
+    if (mobileToggle && header) {
+      mobileToggle.addEventListener('click', function() {
+        header.classList.toggle('mobile-menu-active');
+        mobileToggle.setAttribute('aria-expanded', 
+          mobileToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+        );
+      });
+    }
+    
+    // Scroll Effect
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Connect to existing modals
+    const searchBtn = document.querySelector('.airsyncx-search-btn');
+    const accountBtn = document.querySelector('.airsyncx-account-btn');
+    const cartBtn = document.querySelector('.js-open-cart-drawer');
+    
+    // Search Modal
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function() {
+        const searchModal = document.querySelector('.airsyncx-search-modal');
+        if (searchModal) {
+          searchModal.classList.add('active');
+        }
+      });
+    }
+    
+    // Account Modal
+    if (accountBtn) {
+      accountBtn.addEventListener('click', function() {
+        const accountModal = document.querySelector('.airsyncx-account-modal');
+        if (accountModal) {
+          accountModal.classList.add('active');
+        }
+      });
+    }
+    
+    // Cart Drawer
+    if (cartBtn) {
+      cartBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Try different ways to open the cart drawer
+        if (typeof window.openCartDrawer === 'function') {
+          window.openCartDrawer();
+        } else {
+          // Try to trigger the cart drawer using the existing button
+          const existingCartBtn = document.querySelector('.js-drawer-open-cart');
+          if (existingCartBtn) {
+            existingCartBtn.click();
+          }
+        }
+      });
+    }
+  });
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Global Navigation",
+  "class": "section-airsyncx-header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "לוגו והגדרות עיצוב"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "לוגו"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "הדבק את הכותרת בראש העמוד",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "צבע הדגשה",
+      "default": "#38d2d2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Global Navigation",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %}

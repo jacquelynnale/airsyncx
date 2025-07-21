@@ -1,0 +1,772 @@
+<!-- AirSyncX FAQ Page -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+  :root {
+    --page-background: #000000;
+    --accent-color: #38d2d2;
+    --text-color: #ffffff;
+    --card-background: rgba(25, 25, 25, 0.4);
+    --border-color: rgba(56, 210, 210, 0.1);
+  }
+  
+  .airsyncx-faq-page {
+    padding: 120px 0 80px;
+    background-color: var(--page-background);
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+    direction: rtl;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Animated Background Elements */
+  .animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .animated-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: particles-float 120s linear infinite;
+  }
+  
+  .animated-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.03) 1px, transparent 1px);
+    background-size: 25px 25px;
+    opacity: 0.3;
+  }
+  
+  .animated-gradient {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: radial-gradient(circle at center, rgba(56, 210, 210, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: rotate 60s linear infinite;
+    opacity: 0.4;
+  }
+  
+  @keyframes particles-float {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100px 100px;
+    }
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Header Styling */
+  .faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .faq-heading {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  
+  .highlight {
+    color: var(--accent-color);
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .faq-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .faq-subheading {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Search Styling */
+  .faq-search-container {
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+  
+  .faq-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 20px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 18px 60px 18px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background: rgba(25, 25, 25, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.15);
+  }
+  
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Category Buttons */
+  .faq-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .category-button {
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: rgba(25, 25, 25, 0.4);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .category-button:hover {
+    background: rgba(56, 210, 210, 0.1);
+    border-color: rgba(56, 210, 210, 0.3);
+  }
+  
+  .category-button.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000000;
+  }
+  
+  /* FAQ Items */
+  .faq-content {
+    margin-bottom: 60px;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: var(--card-background);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(56, 210, 210, 0.2);
+  }
+  
+  .faq-question {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .faq-question h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    padding-left: 40px;
+    transition: color 0.3s ease;
+  }
+  
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+  }
+  
+  .faq-icon svg {
+    color: var(--accent-color);
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    padding: 0 30px;
+  }
+  
+  .faq-answer p {
+    margin: 0;
+    padding: 0 0 25px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .faq-answer-image {
+    margin-bottom: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .faq-answer-image img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  .faq-item.active .faq-question {
+    border-bottom: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+  }
+  
+  .faq-item.active .faq-question h3 {
+    color: var(--accent-color);
+  }
+  
+  .faq-item.active .faq-answer {
+    max-height: 1000px;
+    transition: max-height 1s ease-in-out;
+  }
+  
+  /* No Results */
+  .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .no-results i {
+    color: var(--accent-color);
+    opacity: 0.5;
+    margin-bottom: 20px;
+  }
+  
+  .no-results h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+  }
+  
+  .no-results p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .no-results a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+  }
+  
+  .no-results a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Still Have Questions Card */
+  .still-have-questions {
+    margin-top: 60px;
+  }
+  
+  .question-card {
+    background: linear-gradient(145deg, rgba(22, 22, 22, 0.8), rgba(10, 10, 10, 0.9));
+    border-radius: 20px;
+    padding: 60px 40px;
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .question-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(56, 210, 210, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+  }
+  
+  .question-card-content {
+    position: relative;
+    text-align: center;
+  }
+  
+  .question-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(56, 210, 210, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+  }
+  
+  .question-icon i {
+    font-size: 32px;
+    color: var(--accent-color);
+  }
+  
+  .question-card h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+  
+  .question-card p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+  
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: var(--accent-color);
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .contact-button:hover {
+    background: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .airsyncx-faq-page {
+      padding: 80px 0 50px;
+    }
+    
+    .faq-heading {
+      font-size: 3.2rem;
+    }
+    
+    .faq-subheading {
+      font-size: 1.3rem;
+    }
+    
+    .faq-question {
+      padding: 20px;
+    }
+    
+    .faq-question h3 {
+      font-size: 1.1rem;
+      padding-left: 25px;
+    }
+    
+    .faq-answer {
+      padding: 0 20px;
+    }
+    
+    .faq-answer p {
+      font-size: 1rem;
+    }
+    
+    .category-button {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+    }
+    
+    .question-card {
+      padding: 40px 20px;
+    }
+    
+    .question-card h3 {
+      font-size: 1.8rem;
+    }
+    
+    .question-card p {
+      font-size: 1.1rem;
+    }
+    
+    .contact-button {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="airsyncx-faq-page">
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="animated-particles"></div>
+    <div class="animated-lines"></div>
+    <div class="animated-gradient"></div>
+  </div>
+  
+  <!-- FAQ header -->
+  <div class="page-width">
+    <div class="faq-header" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="faq-heading">שאלות <span class="highlight">נפוצות</span></h1>
+      <p class="faq-subheading">{{ section.settings.page_description }}</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="faq-search-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="faq-search">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="faqSearch" placeholder="חפש שאלה..." class="search-input">
+      </div>
+    </div>
+
+    <!-- FAQ Categories -->
+    <div class="faq-categories" data-aos="fade-up" data-aos-delay="300">
+      <button class="category-button active" data-category="all">הכל</button>
+      <button class="category-button" data-category="product">המוצר</button>
+      <button class="category-button" data-category="shipping">משלוח והתקנה</button>
+      <button class="category-button" data-category="warranty">אחריות ותמיכה</button>
+      <button class="category-button" data-category="payment">תשלום והזמנה</button>
+    </div>
+
+    <!-- Main FAQ Content -->
+    <div class="faq-content" data-aos="fade-up" data-aos-delay="400">
+      {% for block in section.blocks %}
+        {% if block.type == 'faq_item' %}
+          <div class="faq-item" data-category="{{ block.settings.category }}" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+            <div class="faq-question">
+              <h3>{{ block.settings.question }}</h3>
+              <span class="faq-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer">
+              <p>{{ block.settings.answer }}</p>
+              {% if block.settings.show_image %}
+                <div class="faq-answer-image">
+                  <img src="{{ block.settings.image | img_url: 'medium' }}" alt="FAQ Illustration">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results" style="display: none;" data-aos="fade-up">
+      <i class="fas fa-search fa-3x"></i>
+      <h3>לא נמצאו תוצאות</h3>
+      <p>נסה לחפש משהו אחר או <a href="{{ section.settings.contact_link }}">צור קשר</a> לקבלת עזרה.</p>
+    </div>
+
+    <!-- Still have questions -->
+    <div class="still-have-questions" data-aos="fade-up" data-aos-delay="500">
+      <div class="question-card">
+        <div class="question-card-content">
+          <div class="question-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>יש לך שאלות נוספות?</h3>
+          <p>{{ section.settings.contact_description }}</p>
+          <a href="{{ section.settings.contact_link }}" class="contact-button">
+            {{ section.settings.contact_button_text }}
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+    
+    // FAQ accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close other open items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+    
+    // Search functionality
+    const searchInput = document.getElementById('faqSearch');
+    const noResults = document.querySelector('.no-results');
+    
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      let resultsFound = false;
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('h3').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+          resultsFound = true;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Show/hide no results message
+      if (resultsFound) {
+        noResults.style.display = 'none';
+      } else {
+        noResults.style.display = 'flex';
+      }
+    });
+    
+    // Category filtering
+    const categoryButtons = document.querySelectorAll('.category-button');
+    
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const category = this.getAttribute('data-category');
+        let resultsFound = false;
+        
+        faqItems.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+            resultsFound = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Show/hide no results message
+        if (resultsFound) {
+          noResults.style.display = 'none';
+        } else {
+          noResults.style.display = 'flex';
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom FAQ Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "page_description",
+      "label": "Page Description",
+      "default": "כל התשובות לשאלות הנפוצות לגבי מוצרי AirSyncX. לא מצאת את התשובה? צור איתנו קשר!"
+    },
+    {
+      "type": "text",
+      "id": "contact_description",
+      "label": "Contact Description",
+      "default": "לא מצאת תשובה לשאלה שלך? צוות התמיכה שלנו זמין לכל שאלה או בעיה."
+    },
+    {
+      "type": "text",
+      "id": "contact_button_text",
+      "label": "Contact Button Text",
+      "default": "צור קשר"
+    },
+    {
+      "type": "text",
+      "id": "contact_link",
+      "label": "Contact Page Link",
+      "default": "/pages/contact"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "מהו AirSyncX?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "AirSyncX הוא מתאם אלחוטי ל-Apple CarPlay אשר מאפשר לך להשתמש ב-CarPlay ללא צורך בחיבור כבל. פשוט הכנס את המתאם ליציאת ה-USB ברכב שלך, והפוך את חוויית ה-CarPlay שלך לאלחוטית."
+        },
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Category",
+          "options": [
+            {
+              "value": "product",
+              "label": "Product"
+            },
+            {
+              "value": "shipping",
+              "label": "Shipping & Installation"
+            },
+            {
+              "value": "warranty",
+              "label": "Warranty & Support"
+            },
+            {
+              "value": "payment",
+              "label": "Payment & Orders"
+            }
+          ],
+          "default": "product"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "Show Image",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom FAQ Page",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

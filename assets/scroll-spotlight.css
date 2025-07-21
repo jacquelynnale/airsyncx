@@ -1,0 +1,312 @@
+/* אפקט זרקור מבוסס גלילה */
+.scroll-spotlight {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* זוהר הרקע עבור כל הסקציות הפעילות - טורקיז נראה ועדין */
+.scroll-spotlight.spotlight-active {
+  background: linear-gradient(
+    135deg,
+    rgba(72, 209, 204, 0.06) 0%,
+    rgba(72, 209, 204, 0.04) 25%,
+    rgba(72, 209, 204, 0.08) 50%,
+    rgba(72, 209, 204, 0.04) 75%,
+    rgba(72, 209, 204, 0.06) 100%
+  );
+  box-shadow: 
+    inset 0 0 80px rgba(72, 209, 204, 0.08),
+    0 0 40px rgba(72, 209, 204, 0.04);
+}
+
+/* אפקט זוהר נוסף עם אנימציה - טורקיז נראה */
+.scroll-spotlight.spotlight-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(72, 209, 204, 0.09) 0%,
+    rgba(72, 209, 204, 0.05) 30%,
+    rgba(72, 209, 204, 0.03) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: spotlight-pulse 4s ease-in-out infinite;
+}
+
+/* זוהר רך לקצוות - טורקיז נראה */
+.scroll-spotlight.spotlight-active::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(72, 209, 204, 0.08),
+    transparent 40%,
+    transparent 60%,
+    rgba(72, 209, 204, 0.08)
+  );
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* אנימציית הזוהר הנראית */
+@keyframes spotlight-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+/* תוכן הסקציה יישאר מעל הזוהר */
+.scroll-spotlight > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* אפקט מעבר חלק בין סקציות */
+.scroll-spotlight:not(.spotlight-active) {
+  background: transparent;
+  box-shadow: none;
+}
+
+.scroll-spotlight:not(.spotlight-active)::before,
+.scroll-spotlight:not(.spotlight-active)::after {
+  opacity: 0;
+}
+
+/* רספונסיבי - אפקט נראה במובייל */
+@media screen and (max-width: 749px) {
+  .scroll-spotlight.spotlight-active {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.07) 0%,
+      rgba(72, 209, 204, 0.05) 25%,
+      rgba(72, 209, 204, 0.09) 50%,
+      rgba(72, 209, 204, 0.05) 75%,
+      rgba(72, 209, 204, 0.07) 100%
+    );
+    box-shadow: 
+      inset 0 0 70px rgba(72, 209, 204, 0.09),
+      0 0 35px rgba(72, 209, 204, 0.05);
+  }
+  
+  .scroll-spotlight.spotlight-active::before {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(72, 209, 204, 0.10) 0%,
+      rgba(72, 209, 204, 0.06) 30%,
+      rgba(72, 209, 204, 0.03) 60%,
+      transparent 100%
+    );
+    animation: spotlight-pulse 3s ease-in-out infinite;
+  }
+  
+  .scroll-spotlight.spotlight-active::after {
+    background: linear-gradient(
+      45deg,
+      rgba(72, 209, 204, 0.07),
+      transparent 35%,
+      transparent 65%,
+      rgba(72, 209, 204, 0.07)
+    );
+    filter: blur(8px);
+    opacity: 0.6;
+  }
+}
+
+/* מצב כהה - נראה ואחיד */
+@media (prefers-color-scheme: dark) {
+  .scroll-spotlight.spotlight-active {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.08) 0%,
+      rgba(72, 209, 204, 0.06) 25%,
+      rgba(72, 209, 204, 0.10) 50%,
+      rgba(72, 209, 204, 0.06) 75%,
+      rgba(72, 209, 204, 0.08) 100%
+    );
+    box-shadow: 
+      inset 0 0 85px rgba(72, 209, 204, 0.10),
+      0 0 45px rgba(72, 209, 204, 0.06);
+  }
+
+  .scroll-spotlight.spotlight-active::before {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(72, 209, 204, 0.12) 0%,
+      rgba(72, 209, 204, 0.07) 30%,
+      rgba(72, 209, 204, 0.04) 60%,
+      transparent 100%
+    );
+  }
+  
+  /* הבטחת תמיכה במצב כהה גם לסקציית quick-compatibility */
+  .quick-compatibility-section.spotlight-active,
+  section[id*="quick-compatibility"].spotlight-active {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.08) 0%,
+      rgba(72, 209, 204, 0.06) 25%,
+      rgba(72, 209, 204, 0.10) 50%,
+      rgba(72, 209, 204, 0.06) 75%,
+      rgba(72, 209, 204, 0.08) 100%
+    ) !important;
+    box-shadow: 
+      inset 0 0 85px rgba(72, 209, 204, 0.10),
+      0 0 45px rgba(72, 209, 204, 0.06) !important;
+  }
+}
+
+/* נגישות - הפחתת אנימציות למי שמעדיף */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-spotlight {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .scroll-spotlight.spotlight-active::before {
+    animation: none;
+  }
+}
+
+/* מובייל - הבטחת הופעה נראית בכל הסקשנים */
+@media screen and (max-width: 749px) {
+  /* כל הסקשנים של AirSyncX יקבלו אפקט נראה ואחיד */
+  section[class*="airsyncx-"].spotlight-active,
+  [class*="airsyncx-"].spotlight-active,
+  section[id*="comparison"].spotlight-active,
+  section[id*="hero"].spotlight-active,
+  section[id*="about"].spotlight-active,
+  section[id*="features"].spotlight-active,
+  section[id*="tech"].spotlight-active,
+  section[id*="gallery"].spotlight-active,
+  section[id*="reviews"].spotlight-active,
+  section[id*="faq"].spotlight-active,
+  .quick-compatibility-section.spotlight-active,
+  section[id*="quick-compatibility"].spotlight-active {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.07) 0%,
+      rgba(72, 209, 204, 0.05) 25%,
+      rgba(72, 209, 204, 0.09) 50%,
+      rgba(72, 209, 204, 0.05) 75%,
+      rgba(72, 209, 204, 0.07) 100%
+    ) !important;
+    box-shadow: 
+      inset 0 0 70px rgba(72, 209, 204, 0.09),
+      0 0 35px rgba(72, 209, 204, 0.05) !important;
+  }
+  
+  /* אפקט התחלתי חלש שמתחזק בהדרגה */
+  .scroll-spotlight {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.02) 0%,
+      rgba(72, 209, 204, 0.01) 50%,
+      rgba(72, 209, 204, 0.02) 100%
+    );
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+/* מובייל קטן - אפקט נראה ואחיד */
+@media screen and (max-width: 480px) {
+  .scroll-spotlight.spotlight-active {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.08) 0%,
+      rgba(72, 209, 204, 0.06) 25%,
+      rgba(72, 209, 204, 0.10) 50%,
+      rgba(72, 209, 204, 0.06) 75%,
+      rgba(72, 209, 204, 0.08) 100%
+    );
+    box-shadow: 
+      inset 0 0 75px rgba(72, 209, 204, 0.10),
+      0 0 40px rgba(72, 209, 204, 0.06);
+  }
+  
+  .scroll-spotlight.spotlight-active::before {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(72, 209, 204, 0.11) 0%,
+      rgba(72, 209, 204, 0.07) 30%,
+      rgba(72, 209, 204, 0.04) 60%,
+      transparent 100%
+    );
+    opacity: 0.8;
+  }
+  
+  .scroll-spotlight.spotlight-active::after {
+    opacity: 0.6;
+  }
+  
+  /* סקשן השוואה במובייל - גוון אחיד עם שאר הסקשנים */
+  .scroll-spotlight.spotlight-comparison.spotlight-active {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.08) 0%,
+      rgba(72, 209, 204, 0.06) 25%,
+      rgba(72, 209, 204, 0.10) 50%,
+      rgba(72, 209, 204, 0.06) 75%,
+      rgba(72, 209, 204, 0.08) 100%
+    );
+    box-shadow: 
+      inset 0 0 75px rgba(72, 209, 204, 0.10),
+      0 0 40px rgba(72, 209, 204, 0.06);
+  }
+}
+
+/* טאבלט - אפקט נראה */
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+  .scroll-spotlight.spotlight-active {
+    box-shadow: 
+      inset 0 0 75px rgba(72, 209, 204, 0.09),
+      0 0 38px rgba(72, 209, 204, 0.05);
+  }
+  
+  .scroll-spotlight.spotlight-active::before {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(72, 209, 204, 0.10) 0%,
+      rgba(72, 209, 204, 0.06) 30%,
+      rgba(72, 209, 204, 0.03) 60%,
+      transparent 100%
+    );
+  }
+  
+  /* הבטחת תמיכה גם בסקציית quick-compatibility בטאבלט */
+  .quick-compatibility-section.spotlight-active,
+  section[id*="quick-compatibility"].spotlight-active {
+    background: linear-gradient(
+      135deg,
+      rgba(72, 209, 204, 0.06) 0%,
+      rgba(72, 209, 204, 0.04) 25%,
+      rgba(72, 209, 204, 0.08) 50%,
+      rgba(72, 209, 204, 0.04) 75%,
+      rgba(72, 209, 204, 0.06) 100%
+    ) !important;
+    box-shadow: 
+      inset 0 0 75px rgba(72, 209, 204, 0.09),
+      0 0 38px rgba(72, 209, 204, 0.05) !important;
+  }
+} 

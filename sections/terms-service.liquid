@@ -1,0 +1,595 @@
+<!-- AirSyncX Terms of Service Page -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<div class="airsyncx-terms-page">
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="animated-particles"></div>
+    <div class="animated-lines"></div>
+    <div class="animated-gradient"></div>
+  </div>
+  
+  <!-- Terms header -->
+  <div class="page-width">
+    <div class="terms-header" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="terms-heading">{{ 'terms_service.title' | t }}</h1>
+      <p class="terms-subheading">{{ 'terms_service.subtitle' | t }}</p>
+      <p class="terms-date">עדכון אחרון: {{ section.settings.last_updated }}</p>
+    </div>
+
+    <!-- Terms Content -->
+    <div class="terms-content-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="terms-content rte">
+        {{ 'terms_service.intro_content' | t }}
+      </div>
+      
+      {% if section.settings.show_sections %}
+        <div class="terms-sections">
+          <div class="terms-section" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="terms-section-title">{{ 'terms_service.sections.user_agreement.title' | t }}</h2>
+            <div class="terms-section-content rte">
+              <p>{{ 'terms_service.sections.user_agreement.content' | t }}</p>
+            </div>
+          </div>
+          <div class="terms-section" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="terms-section-title">{{ 'terms_service.sections.website_use.title' | t }}</h2>
+            <div class="terms-section-content rte">
+              <p>{{ 'terms_service.sections.website_use.content' | t }}</p>
+            </div>
+          </div>
+          <div class="terms-section" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="terms-section-title">{{ 'terms_service.sections.intellectual_property.title' | t }}</h2>
+            <div class="terms-section-content rte">
+              <p>{{ 'terms_service.sections.intellectual_property.content' | t }}</p>
+            </div>
+          </div>
+          <div class="terms-section" data-aos="fade-up" data-aos-delay="400">
+            <h2 class="terms-section-title">{{ 'terms_service.sections.user_accounts.title' | t }}</h2>
+            <div class="terms-section-content rte">
+              <p>{{ 'terms_service.sections.user_accounts.content' | t }}</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- CTA Container -->
+    <div class="cta-container" data-aos="fade-up">
+      <div class="cta-content">
+        <h3 class="cta-title"><span class="white-text">שאלות</span> <span class="highlight">נוספות?</span></h3>
+        <p class="cta-text">{{ 'terms_service.cta_text' | t }}</p>
+        
+        <div class="cta-buttons">
+          <a href="{{ section.settings.cta_button_link }}" class="hero-button hero-button-primary">
+            <span class="button-text">{{ 'terms_service.cta_button_text' | t }}</span>
+            <span class="button-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 1000
+    });
+    
+    // Create and animate particles
+    const particlesContainer = document.querySelector('.animated-particles');
+    if (particlesContainer) {
+      for (let i = 0; i < 50; i++) {
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        let posX = Math.random() * 100;
+        let posY = Math.random() * 100;
+        
+        // Random size
+        let size = Math.random() * 5 + 1;
+        
+        // Random opacity
+        let opacity = Math.random() * 0.5 + 0.1;
+        
+        // Random animation delay
+        let delay = Math.random() * 5;
+        
+        // Apply styles
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.opacity = opacity;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+  });
+</script>
+
+<style>
+  :root {
+    --page-background: #000000;
+  }
+  
+  body {
+    background-color: var(--page-background);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .airsyncx-terms-page {
+    background-color: var(--page-background);
+    color: #ffffff;
+    position: relative;
+    font-family: 'Assistant', sans-serif;
+    overflow: hidden;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Animated Background */
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: var(--page-background);
+    overflow: hidden;
+  }
+  
+  /* Background Elements */
+  .animated-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .particle {
+    position: absolute;
+    background-color: #38d2d2;
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+  }
+  
+  .animated-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+  }
+  
+  .animated-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(56, 210, 210, 0.1), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(56, 210, 210, 0.1), transparent 60%);
+    mix-blend-mode: screen;
+  }
+  
+  /* Header Styling */
+  .terms-header {
+    text-align: center;
+    padding: 5rem 0 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .terms-heading {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+  }
+  
+  .white-text {
+    color: #ffffff;
+  }
+  
+  .terms-subheading {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  
+  .terms-date {
+    font-size: 1.2rem;
+    margin: 1.5rem auto 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+  }
+  
+  /* Terms Content */
+  .terms-content-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding: 3rem;
+    border-radius: 16px;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .terms-content,
+  .terms-section-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  
+  .terms-content h1,
+  .terms-content h2,
+  .terms-content h3,
+  .terms-content h4,
+  .terms-content h5,
+  .terms-content h6,
+  .terms-section-content h1,
+  .terms-section-content h2,
+  .terms-section-content h3,
+  .terms-section-content h4,
+  .terms-section-content h5,
+  .terms-section-content h6 {
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .terms-content p,
+  .terms-section-content p {
+    margin-bottom: 1.2rem;
+  }
+  
+  .terms-content ul,
+  .terms-content ol,
+  .terms-section-content ul,
+  .terms-section-content ol {
+    margin-bottom: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .terms-content li,
+  .terms-section-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .terms-content a,
+  .terms-section-content a {
+    color: #38d2d2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .terms-content a:hover,
+  .terms-section-content a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+  
+  /* Terms Sections */
+  .terms-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .terms-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  
+  .terms-section-title {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  
+  /* CTA Container */
+  .cta-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 16px;
+    padding: 3.5rem;
+    margin: 6rem 0 0 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    overflow: hidden;
+  }
+  
+  .cta-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(56, 210, 210, 0.15), transparent 60%);
+    z-index: -1;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .cta-text {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #38d2d2;
+    color: #000000;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .hero-button:hover {
+    background-color: #2ab8b8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.3);
+  }
+  
+  .hero-button-primary {
+    background-color: #38d2d2;
+    color: #000000;
+  }
+  
+  .hero-button-primary:hover {
+    background-color: #2ab8b8;
+  }
+  
+  .button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.4rem;
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(0) translateX(20px);
+    }
+    75% {
+      transform: translateY(20px) translateX(10px);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .terms-heading {
+      font-size: 4rem;
+    }
+    
+    .terms-subheading {
+      font-size: 1.4rem;
+    }
+    
+    .terms-content-container {
+      padding: 2rem;
+    }
+    
+    .terms-content,
+    .terms-section-content {
+      font-size: 1.1rem;
+    }
+    
+    .terms-section-title {
+      font-size: 1.8rem;
+    }
+    
+    .cta-title {
+      font-size: 3rem;
+    }
+    
+    .cta-text {
+      font-size: 1.4rem;
+    }
+    
+    .cta-container {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Terms Page",
+  "class": "custom-terms-page-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "אנא קראו בעיון את תנאי השירות שלנו לפני השימוש באתר ובמוצרים שלנו"
+    },
+    {
+      "type": "text",
+      "id": "last_updated",
+      "label": "Last Updated Date",
+      "default": "15 באפריל, 2025"
+    },
+    {
+      "type": "richtext",
+      "id": "terms_content",
+      "label": "Terms Content",
+      "default": "<p>ברוכים הבאים לתנאי השירות של AirSyncX. המשך השימוש באתר שלנו ובשירותים שלנו מהווה הסכמה לתנאים אלה.</p><p>מסמך זה מפרט את הזכויות, החובות והמחויבויות שלנו ושלכם בכל הנוגע לשימוש באתר שלנו ולרכישת המוצרים שלנו.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sections",
+      "label": "Show Separate Sections",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "אם יש לכם שאלות נוספות לגבי תנאי השירות שלנו, אל תהססו ליצור איתנו קשר"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button Text",
+      "default": "צור קשר"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "terms_section",
+      "name": "Terms Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_title",
+          "label": "Section Title",
+          "default": "כותרת סעיף"
+        },
+        {
+          "type": "richtext",
+          "id": "section_content",
+          "label": "Section Content",
+          "default": "<p>תוכן הסעיף יופיע כאן. ניתן להוסיף פסקאות, רשימות, קישורים ועוד באמצעות עורך הטקסט העשיר.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Terms Page",
+      "category": "Legal",
+      "blocks": [
+        {
+          "type": "terms_section",
+          "settings": {
+            "section_title": "הגבלת אחריות",
+            "section_content": "<p>המוצרים שלנו מסופקים 'כמות שהם' ו'כפי שהם זמינים' ללא אחריות מכל סוג שהוא, בין אם מפורשת או משתמעת.</p>"
+          }
+        },
+        {
+          "type": "terms_section",
+          "settings": {
+            "section_title": "מדיניות החזרות",
+            "section_content": "<p>אנו מציעים החזר כספי מלא בתוך 30 יום מהרכישה אם המוצר אינו פועל כמצופה.</p>"
+          }
+        },
+        {
+          "type": "terms_section",
+          "settings": {
+            "section_title": "קניין רוחני",
+            "section_content": "<p>כל התוכן באתר שלנו, לרבות טקסט, גרפיקה, לוגואים וקוד, הוא רכושנו הבלעדי ומוגן על ידי חוקי זכויות יוצרים.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

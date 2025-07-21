@@ -1,0 +1,90 @@
+window.carData = {
+      toyota: {
+        models: {% if request.locale.iso_code == 'he' %}['קורולה', 'קאמרי', 'יאריס', 'ראב 4', 'לנד קרוזר', 'פריוס', 'C-HR', 'אוונסיס', 'הילקס', 'פרודו', 'וורסו', 'אייגו']{% else %}['Corolla', 'Camry', 'Yaris', 'RAV4', 'Land Cruiser', 'Prius', 'C-HR', 'Avensis', 'Hilux', 'Prado', 'Verso', 'Aygo']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      honda: {
+        models: {% if request.locale.iso_code == 'he' %}['סיוויק', 'אקורד', 'ג׳אז', 'CR-V', 'HR-V', 'סיטי', 'CR-Z', 'אינסייט', 'פיילוט', 'אודיסיאה', 'לג׳נד']{% else %}['Civic', 'Accord', 'Jazz', 'CR-V', 'HR-V', 'City', 'CR-Z', 'Insight', 'Pilot', 'Odyssey', 'Legend']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      hyundai: {
+        models: {% if request.locale.iso_code == 'he' %}['i10', 'i20', 'i30', 'i40', 'אלנטרה', 'סונטה', 'טוסון', 'סנטה פה', 'קונה', 'איוניק', 'ולוסטר', 'גנסיס', 'אקסנט', 'H1']{% else %}['i10', 'i20', 'i30', 'i40', 'Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Kona', 'Ioniq', 'Veloster', 'Genesis', 'Accent', 'H1']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      kia: {
+        models: {% if request.locale.iso_code == 'he' %}['פיקנטו', 'ריו', 'סיד', 'ספורטאג׳', 'סורנטו', 'אופטימה', 'סטוניק', 'נירו', 'סלטוס', 'קרניבל', 'סטינגר', 'K5', 'סול']{% else %}['Picanto', 'Rio', 'Ceed', 'Sportage', 'Sorento', 'Optima', 'Stonic', 'Niro', 'Seltos', 'Carnival', 'Stinger', 'K5', 'Soul']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      mazda: {
+        models: {% if request.locale.iso_code == 'he' %}['2', '3', '6', 'CX-3', 'CX-30', 'CX-5', 'CX-9', 'MX-5', 'BT-50', 'MX-30']{% else %}['Mazda2', 'Mazda3', 'Mazda6', 'CX-3', 'CX-30', 'CX-5', 'CX-9', 'MX-5', 'BT-50', 'MX-30']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      bmw: {
+        models: {% if request.locale.iso_code == 'he' %}['סדרה 1', 'סדרה 2', 'סדרה 3', 'סדרה 4', 'סדרה 5', 'סדרה 6', 'סדרה 7', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4', 'i3', 'i4', 'i8', 'iX']{% else %}['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4', 'i3', 'i4', 'i8', 'iX']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      mercedes: {
+        models: {% if request.locale.iso_code == 'he' %}['A קלאס', 'B קלאס', 'C קלאס', 'E קלאס', 'S קלאס', 'CLA', 'CLS', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'G קלאס', 'EQA', 'EQB', 'EQC', 'EQS', 'V קלאס']{% else %}['A-Class', 'B-Class', 'C-Class', 'E-Class', 'S-Class', 'CLA', 'CLS', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'G-Class', 'EQA', 'EQB', 'EQC', 'EQS', 'V-Class']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      audi: {
+        models: {% if request.locale.iso_code == 'he' %}['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'TT', 'R8', 'e-tron', 'E-Tron GT']{% else %}['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'TT', 'R8', 'e-tron', 'E-Tron GT']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      volkswagen: {
+        models: {% if request.locale.iso_code == 'he' %}['פולו', 'גולף', 'פאסאט', 'ארטאון', 'טיגואן', 'טוארג', 'T-רוק', 'T-קרוס', 'ID.3', 'ID.4', 'ID.5', 'ג׳טה', 'שירוקו', 'אפ!', 'קאדי', 'טרנספורטר']{% else %}['Polo', 'Golf', 'Passat', 'Arteon', 'Tiguan', 'Touareg', 'T-Roc', 'T-Cross', 'ID.3', 'ID.4', 'ID.5', 'Jetta', 'Scirocco', 'Up!', 'Caddy', 'Transporter']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      skoda: {
+        models: {% if request.locale.iso_code == 'he' %}['פאביה', 'אוקטביה', 'סופרב', 'קודיאק', 'קארוק', 'קאמיק', 'סקאלה', 'אניאק', 'רפיד']{% else %}['Fabia', 'Octavia', 'Superb', 'Kodiaq', 'Karoq', 'Kamiq', 'Scala', 'Enyaq', 'Rapid']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      ford: {
+        models: {% if request.locale.iso_code == 'he' %}['פיאסטה', 'פוקוס', 'מונדיאו', 'פומה', 'קוגה', 'אקספלורר', 'מוסטנג', 'אקוספורט', 'אדג׳', 'רנג׳ר', 'טרנזיט', 'F150']{% else %}['Fiesta', 'Focus', 'Mondeo', 'Puma', 'Kuga', 'Explorer', 'Mustang', 'EcoSport', 'Edge', 'Ranger', 'Transit', 'F-150']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      chevrolet: {
+        models: {% if request.locale.iso_code == 'he' %}['ספארק', 'אבאו', 'קרוז', 'מאליבו', 'אימפלה', 'קמארו', 'קורבט', 'טראקס', 'אקווינוקס', 'בלייזר', 'טראברס', 'טאהו', 'סילברדו']{% else %}['Spark', 'Aveo', 'Cruze', 'Malibu', 'Impala', 'Camaro', 'Corvette', 'Trax', 'Equinox', 'Blazer', 'Traverse', 'Tahoe', 'Silverado']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      nissan: {
+        models: {% if request.locale.iso_code == 'he' %}['מיקרה', 'ג׳וק', 'קשקאי', 'אקס-טרייל', 'פטרול', 'נאוארה', 'ליף', 'אלטימה', 'מקסימה', 'GT-R', '370Z', 'מורנו']{% else %}['Micra', 'Juke', 'Qashqai', 'X-Trail', 'Patrol', 'Navara', 'Leaf', 'Altima', 'Maxima', 'GT-R', '370Z', 'Murano']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      mitsubishi: {
+        models: {% if request.locale.iso_code == 'he' %}['ספייס סטאר', 'ASX', 'אאוטלנדר', 'פאג׳רו', 'L200', 'אקליפס קרוס', 'לנסר']{% else %}['Space Star', 'ASX', 'Outlander', 'Pajero', 'L200', 'Eclipse Cross', 'Lancer']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      subaru: {
+        models: {% if request.locale.iso_code == 'he' %}['אימפרזה', 'XV', 'פורסטר', 'אאוטבק', 'לגאסי', 'WRX', 'BRZ', 'אסנט']{% else %}['Impreza', 'XV', 'Forester', 'Outback', 'Legacy', 'WRX', 'BRZ', 'Ascent']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      lexus: {
+        models: {% if request.locale.iso_code == 'he' %}['CT', 'IS', 'ES', 'GS', 'LS', 'UX', 'NX', 'RX', 'GX', 'LX', 'RC', 'LC']{% else %}['CT', 'IS', 'ES', 'GS', 'LS', 'UX', 'NX', 'RX', 'GX', 'LX', 'RC', 'LC']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      volvo: {
+        models: {% if request.locale.iso_code == 'he' %}['S60', 'S90', 'V40', 'V60', 'V90', 'XC40', 'XC60', 'XC90', 'C40']{% else %}['S60', 'S90', 'V40', 'V60', 'V90', 'XC40', 'XC60', 'XC90', 'C40']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      peugeot: {
+        models: {% if request.locale.iso_code == 'he' %}['108', '208', '308', '508', '2008', '3008', '5008', 'ריפטר', 'טרוולר', 'פרטנר']{% else %}['108', '208', '308', '508', '2008', '3008', '5008', 'Rifter', 'Traveller', 'Partner']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      renault: {
+        models: {% if request.locale.iso_code == 'he' %}['קליאו', 'מגאן', 'קדג׳אר', 'קולאוס', 'קפצ׳ור', 'סניק', 'טליסמן', 'זואי', 'טוויזי', 'קנגו']{% else %}['Clio', 'Megane', 'Kadjar', 'Koleos', 'Captur', 'Scenic', 'Talisman', 'Zoe', 'Twizy', 'Kangoo']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      citroen: {
+        models: {% if request.locale.iso_code == 'he' %}['C1', 'C3', 'C4', 'C5', 'C3 איירקרוס', 'C4 קאקטוס', 'C5 איירקרוס', 'ברלינגו']{% else %}['C1', 'C3', 'C4', 'C5', 'C3 Aircross', 'C4 Cactus', 'C5 Aircross', 'Berlingo']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      suzuki: {
+        models: {% if request.locale.iso_code == 'he' %}['אלטו', 'סוויפט', 'בלנו', 'איגניס', 'ויטארה', 'SX4', 'ג׳ימני', 'קרוסאובר']{% else %}['Alto', 'Swift', 'Baleno', 'Ignis', 'Vitara', 'SX4', 'Jimny', 'S-Cross']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      seat: {
+        models: {% if request.locale.iso_code == 'he' %}['איביזה', 'לאון', 'אטקה', 'ארונה', 'טראקו', 'מיי', 'טולדו', 'אלהמברה']{% else %}['Ibiza', 'Leon', 'Ateca', 'Arona', 'Tarraco', 'Mii', 'Toledo', 'Alhambra']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      }
+    };

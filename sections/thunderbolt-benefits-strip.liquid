@@ -1,0 +1,643 @@
+<!-- Thunderbolt 4 PRO USB-C Cable Quick Benefits Strip -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<div class="thunderbolt-benefits-strip">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-lines"></div>
+  </div>
+  
+  <div class="benefits-container">
+    <div class="benefits-header" data-aos="fade-up" data-aos-duration="800">
+      <div class="section-eyebrow">{{ section.settings.eyebrow | default: 'כבל Thunderbolt 4 PRO' }}</div>
+      <h2 class="benefits-title">{{ section.settings.main_title | default: 'הכבל הטוב ביותר <span class="highlight">למקצוענים</span>' }}</h2>
+      <p class="section-description">{{ section.settings.description | default: 'כבל Thunderbolt 4 מתקדם עם מהירות 40Gbps, טעינה 100W ועיצוב שריון צבאי לעמידות מקסימלית' }}</p>
+    </div>
+    
+    <div class="benefits-grid">
+      <!-- Benefit 1: 40Gbps Transfer -->
+      <div class="benefit-item">
+        <div class="benefit-icon-wrapper">
+          <div class="benefit-icon speed-icon">
+            <svg viewBox="0 0 24 24" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" fill="#38d2d2" stroke="#38d2d2" stroke-width="0.5"/>
+              <circle cx="10" cy="16" r="1" fill="white"/>
+              <circle cx="14" cy="6" r="1" fill="white"/>
+              <path class="speed-line1" d="M2 8L6 8" stroke="#38d2d2" stroke-width="2" stroke-linecap="round"/>
+              <path class="speed-line2" d="M18 16L22 16" stroke="#38d2d2" stroke-width="2" stroke-linecap="round"/>
+              <path class="speed-line3" d="M1 12L5 12" stroke="#38d2d2" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="icon-glow speed-glow"></div>
+        </div>
+        <h3 class="benefit-title">{{ section.settings.benefit1_title }}</h3>
+        <p class="benefit-description">{{ section.settings.benefit1_description }}</p>
+      </div>
+      
+      <!-- Benefit 2: 100W Charging -->
+      <div class="benefit-item">
+        <div class="benefit-icon-wrapper">
+          <div class="benefit-icon charging-icon">
+            <svg viewBox="0 0 24 24" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="4" width="12" height="16" rx="2" fill="none" stroke="#38d2d2" stroke-width="1.5"/>
+              <rect x="8" y="2" width="8" height="2" rx="1" fill="#38d2d2"/>
+              <path class="charging-bolt" d="M10 8L14 8L11 12L13 12L9 16L12 12L10 12L10 8Z" fill="#38d2d2"/>
+              <rect x="7" y="18" width="10" height="1" rx="0.5" fill="#38d2d2" opacity="0.8"/>
+              <rect x="7" y="17" width="8" height="1" rx="0.5" fill="#38d2d2" opacity="0.6"/>
+              <rect x="7" y="16" width="6" height="1" rx="0.5" fill="#38d2d2" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="icon-glow charging-glow"></div>
+        </div>
+        <h3 class="benefit-title">{{ section.settings.benefit2_title }}</h3>
+        <p class="benefit-description">{{ section.settings.benefit2_description }}</p>
+      </div>
+      
+      <!-- Benefit 3: Bidirectional Compatibility -->
+      <div class="benefit-item">
+        <div class="benefit-icon-wrapper">
+          <div class="benefit-icon compatibility-icon">
+            <svg viewBox="0 0 24 24" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="#38d2d2" stroke-width="1.5"/>
+              <circle cx="7" cy="12" r="2" fill="#38d2d2"/>
+              <circle cx="17" cy="12" r="2" fill="#38d2d2"/>
+              <path class="sync-arrow1" d="M9 10C11 10 11 12 11 12" stroke="#38d2d2" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="sync-arrow2" d="M15 14C13 14 13 12 13 12" stroke="#38d2d2" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M9 12H15" stroke="#38d2d2" stroke-width="1" stroke-dasharray="1 1"/>
+              <polygon points="10,9 12,10 10,11" fill="#38d2d2"/>
+              <polygon points="14,13 12,14 14,15" fill="#38d2d2"/>
+            </svg>
+          </div>
+          <div class="icon-glow compatibility-glow"></div>
+        </div>
+        <h3 class="benefit-title">{{ section.settings.benefit3_title }}</h3>
+        <p class="benefit-description">{{ section.settings.benefit3_description }}</p>
+      </div>
+      
+      <!-- Benefit 4: Braided Armor Design -->
+      <div class="benefit-item">
+        <div class="benefit-icon-wrapper">
+          <div class="benefit-icon armor-icon">
+            <svg viewBox="0 0 24 24" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="#38d2d2" fill-opacity="0.2" stroke="#38d2d2" stroke-width="1.5"/>
+              <path class="shield-pattern1" d="M8 8L16 8" stroke="#38d2d2" stroke-width="1" opacity="0.7"/>
+              <path class="shield-pattern2" d="M7 10L17 10" stroke="#38d2d2" stroke-width="1" opacity="0.7"/>
+              <path class="shield-pattern3" d="M8 12L16 12" stroke="#38d2d2" stroke-width="1" opacity="0.7"/>
+              <path class="shield-pattern4" d="M9 14L15 14" stroke="#38d2d2" stroke-width="1" opacity="0.7"/>
+              <path class="shield-pattern5" d="M10 16L14 16" stroke="#38d2d2" stroke-width="1" opacity="0.7"/>
+              <circle cx="12" cy="10" r="1.5" fill="#38d2d2"/>
+            </svg>
+          </div>
+          <div class="icon-glow armor-glow"></div>
+        </div>
+        <h3 class="benefit-title">{{ section.settings.benefit4_title }}</h3>
+        <p class="benefit-description">{{ section.settings.benefit4_description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .thunderbolt-benefits-strip * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .thunderbolt-benefits-strip {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 120px 0;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.05) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    left: -200px;
+    opacity: 0.4;
+  }
+  
+  .bg-circle-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -250px;
+    right: -150px;
+    opacity: 0.3;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+  }
+  
+  .benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .section-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .benefits-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .benefits-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #38d2d2;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .benefits-header:hover .benefits-title::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .section-description {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  
+  .benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 25px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.1), rgba(0, 0, 0, 0.5));
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .benefit-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    z-index: -1;
+    transition: all 0.5s ease;
+  }
+  
+  .benefit-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 35px rgba(56, 210, 210, 0.2);
+    border-color: rgba(56, 210, 210, 0.3);
+  }
+  
+  .benefit-item:hover::before {
+    transform: translateX(100%);
+  }
+  
+  .benefit-icon-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .benefit-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+  
+  .benefit-icon.hover {
+    background-color: #38d2d2;
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  .benefit-icon.hover svg path[stroke="#38d2d2"],
+  .benefit-icon.hover svg circle[stroke="#38d2d2"],
+  .benefit-icon.hover svg rect[stroke="#38d2d2"] {
+    stroke: #ffffff;
+  }
+  
+  .benefit-icon.hover svg path[fill="#38d2d2"],
+  .benefit-icon.hover svg circle[fill="#38d2d2"],
+  .benefit-icon.hover svg rect[fill="#38d2d2"] {
+    fill: #ffffff;
+  }
+  
+  .icon-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .speed-glow {
+    background: radial-gradient(circle at center, rgba(56, 210, 210, 0.6) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .charging-glow {
+    background: radial-gradient(circle at center, rgba(56, 210, 210, 0.3) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .compatibility-glow {
+    background: radial-gradient(circle at center, rgba(56, 210, 210, 0.4) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .armor-glow {
+    background: radial-gradient(ellipse at center, rgba(56, 210, 210, 0.5) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  /* Icon Animations */
+  .speed-line1, .speed-line2, .speed-line3, 
+  .charging-bolt, 
+  .sync-arrow1, .sync-arrow2,
+  .shield-pattern1, .shield-pattern2, .shield-pattern3, .shield-pattern4, .shield-pattern5 {
+    transition: all 0.8s ease;
+  }
+  
+  .benefit-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .benefit-item:hover .benefit-title {
+    color: #38d2d2;
+  }
+  
+  .benefit-description {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    transition: all 0.3s ease;
+  }
+  
+  .benefit-item:hover .benefit-description {
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  @media (max-width: 1200px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    
+    .benefits-title {
+      font-size: 5.2rem;
+    }
+    
+    .section-description {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .thunderbolt-benefits-strip {
+      padding: 100px 0;
+    }
+    
+    .benefits-header {
+      margin-bottom: 60px;
+    }
+    
+    .benefits-title {
+      font-size: 4.8rem;
+    }
+    
+    .section-eyebrow {
+      font-size: 2rem;
+    }
+    
+    .benefit-title {
+      font-size: 2.6rem;
+    }
+    
+    .benefit-description {
+      font-size: 1.9rem;
+    }
+    
+    .benefit-icon {
+      width: 110px;
+      height: 110px;
+    }
+    
+    .icon-glow {
+      width: 110px;
+      height: 110px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .benefits-title {
+      font-size: 4.2rem;
+    }
+    
+    .section-description {
+      font-size: 2rem;
+    }
+    
+    .benefit-item {
+      padding: 30px 20px;
+    }
+    
+    .benefit-title {
+      font-size: 2.4rem;
+    }
+    
+    .benefit-description {
+      font-size: 1.8rem;
+    }
+    
+    .benefit-icon {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .icon-glow {
+      width: 100px;
+      height: 100px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animations
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+    
+    // Speed icon animation
+    const speedIcon = document.querySelector('.speed-icon');
+    if (speedIcon) {
+      const speedLines = speedIcon.querySelectorAll('.speed-line1, .speed-line2, .speed-line3');
+      let currentSpeedLine = 0;
+      
+      setInterval(() => {
+        speedLines.forEach(line => line.style.opacity = '0.3');
+        speedLines[currentSpeedLine].style.opacity = '1';
+        currentSpeedLine = (currentSpeedLine + 1) % speedLines.length;
+      }, 600);
+    }
+    
+    // Charging icon animation
+    const chargingIcon = document.querySelector('.charging-icon');
+    if (chargingIcon) {
+      const chargingBolt = chargingIcon.querySelector('.charging-bolt');
+      
+      setInterval(() => {
+        chargingBolt.style.opacity = '1';
+        chargingBolt.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          chargingBolt.style.opacity = '0.8';
+          chargingBolt.style.transform = 'scale(1)';
+        }, 800);
+      }, 2000);
+    }
+    
+    // Compatibility icon animation
+    const compatibilityIcon = document.querySelector('.compatibility-icon');
+    if (compatibilityIcon) {
+      const arrows = compatibilityIcon.querySelectorAll('.sync-arrow1, .sync-arrow2');
+      
+      setInterval(() => {
+        arrows.forEach(arrow => {
+          arrow.style.opacity = '0';
+          setTimeout(() => {
+            arrow.style.opacity = '1';
+          }, 500);
+        });
+      }, 3000);
+    }
+    
+    // Armor icon animation
+    const armorIcon = document.querySelector('.armor-icon');
+    if (armorIcon) {
+      const patterns = armorIcon.querySelectorAll('.shield-pattern1, .shield-pattern2, .shield-pattern3, .shield-pattern4, .shield-pattern5');
+      let currentPattern = 0;
+      
+      setInterval(() => {
+        patterns.forEach(pattern => pattern.style.opacity = '0.3');
+        patterns[currentPattern].style.opacity = '1';
+        currentPattern = (currentPattern + 1) % patterns.length;
+      }, 400);
+    }
+    
+    // Card hover effects
+    const benefitItems = document.querySelectorAll('.benefit-item');
+    
+    benefitItems.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const iconGlow = this.querySelector('.icon-glow');
+        if (iconGlow) {
+          iconGlow.style.opacity = '1';
+          iconGlow.style.transform = 'translate(-50%, -50%) scale(1.2)';
+        }
+        
+        const benefitIcon = this.querySelector('.benefit-icon');
+        if (benefitIcon) {
+          benefitIcon.classList.add('hover');
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const iconGlow = this.querySelector('.icon-glow');
+        if (iconGlow) {
+          iconGlow.style.opacity = '0.4';
+          iconGlow.style.transform = 'translate(-50%, -50%) scale(1)';
+        }
+        
+        const benefitIcon = this.querySelector('.benefit-icon');
+        if (benefitIcon) {
+          benefitIcon.classList.remove('hover');
+        }
+      });
+    });
+    
+    // Parallax background effect
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      let x = e.clientX / window.innerWidth;
+      let y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = index + 1;
+        circle.style.transform = `translate(${x * 25 * factor}px, ${y * 25 * factor}px)`;
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Benefits Strip",
+  "settings": [
+    {
+      "type": "text",
+      "id": "benefit1_title",
+      "label": "Benefit 1 Title",
+      "default": "העברת נתונים 40Gbps"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit1_description",
+      "label": "Benefit 1 Description",
+      "default": "מהירות העברת נתונים סופר-מהירה עד 40Gbps - מושלם לעריכת וידאו 4K והעברת קבצים גדולים"
+    },
+    {
+      "type": "text",
+      "id": "benefit2_title",
+      "label": "Benefit 2 Title",
+      "default": "טעינה חזקה 100W"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit2_description",
+      "label": "Benefit 2 Description",
+      "default": "ספק כוח חזק של 100W לטעינת לפטופים, טאבלטים וטלפונים במהירות מקסימלית"
+    },
+    {
+      "type": "text",
+      "id": "benefit3_title",
+      "label": "Benefit 3 Title",
+      "default": "תאימות דו-כיוונית"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit3_description",
+      "label": "Benefit 3 Description",
+      "default": "עובד בשני הכיוונים עם כל מכשירי USB-C ו-Thunderbolt 4 - רב-גוניות מושלמת"
+    },
+    {
+      "type": "text",
+      "id": "benefit4_title",
+      "label": "Benefit 4 Title",
+      "default": "עיצוב שריון קלוע"
+    },
+    {
+      "type": "textarea",
+      "id": "benefit4_description",
+      "label": "Benefit 4 Description",
+      "default": "בנייה קלועה בסטנדרט צבאי המספקת עמידות מעולה והגנה מפני בלאי יומיומי"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "כבל Thunderbolt 4 PRO"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "הכבל הטוב ביותר <span class=\"highlight\">למקצוענים</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "כבל Thunderbolt 4 מתקדם עם מהירות 40Gbps, טעינה 100W ועיצוב שריון צבאי לעמידות מקסימלית"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Strip",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

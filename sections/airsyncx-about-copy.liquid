@@ -1,0 +1,1053 @@
+<!-- AirSyncX About Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section id="about" class="airsyncx-about" dir="{% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %}">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-lines"></div>
+  </div>
+
+  <div class="about-container">
+    <div class="about-content mobile-order-1" data-aos="{% if request.locale.iso_code == 'he' %}fade-right{% else %}fade-left{% endif %}" data-aos-duration="1000">
+      <div class="section-eyebrow">{{ 'sections.airsyncx_about.eyebrow' | t }}</div>
+      <h2 class="about-title">{{ 'sections.airsyncx_about.title_part1' | t }}<span class="highlight">{{ 'sections.airsyncx_about.title_part2' | t }}</span><span class="title-question">{{ 'sections.airsyncx_about.title_part3' | t }}</span></h2>
+      <p class="about-description">
+        {{ 'sections.airsyncx_about.description' | t }}
+      </p>
+      
+      <div class="about-features">
+        <div class="about-feature" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 13L10 16L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>{{ 'sections.airsyncx_about.features.compatibility' | t }}</span>
+        </div>
+        
+        <div class="about-feature" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 13L10 16L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>{{ 'sections.airsyncx_about.features.connection' | t }}</span>
+        </div>
+        
+        <div class="about-feature" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 13L10 16L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>{{ 'sections.airsyncx_about.features.installation' | t }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-image mobile-order-2" data-aos="{% if request.locale.iso_code == 'he' %}fade-left{% else %}fade-right{% endif %}" data-aos-duration="1000">
+      <div class="video-container">
+        {% if request.locale.iso_code == 'he' %}
+          <div class="video-overlay">
+            <div class="play-button-large">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="#ffffff">
+                <circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.5)"/>
+                <path d="M10 8l6 4-6 4V8z" fill="#ffffff"/>
+              </svg>
+            </div>
+            <div class="video-text-prompt">{{ 'sections.airsyncx_about.click_to_watch' | t }}</div>
+          </div>
+          <video id="heVideo" class="device-video" playsinline poster="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ba94e7bc-b2b4-48c1-b5fa-c5d6ef9afc41.png?v=1748440493">
+            <source src="https://cdn.shopify.com/videos/c/o/v/efc31e6a3ca54bde981b8ff5333fd80a.mov" type="video/mp4">
+            {{ 'sections.airsyncx_about.video_not_supported' | t }}
+          </video>
+        {% else %}
+          <div class="video-overlay">
+            <div class="play-button-large">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="#ffffff">
+                <circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.5)"/>
+                <path d="M10 8l6 4-6 4V8z" fill="#ffffff"/>
+              </svg>
+            </div>
+            <div class="video-text-prompt">{{ 'sections.airsyncx_about.click_to_watch' | t }}</div>
+          </div>
+          <video id="enVideo" class="device-video" playsinline poster="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ba94e7bc-b2b4-48c1-b5fa-c5d6ef9afc41.png?v=1748440493">
+            <source src="https://cdn.shopify.com/videos/c/o/v/82992a2e1f9d4da983a58e1e62d438e9.mp4" type="video/mp4">
+            {{ 'sections.airsyncx_about.video_not_supported' | t }}
+          </video>
+        {% endif %}
+      </div>
+      <div class="tech-circles">
+        <div class="tech-circle tech-circle-1"></div>
+        <div class="tech-circle tech-circle-2"></div>
+        <div class="tech-circle tech-circle-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- iOS Video Fix Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // הגדרות לזיהוי מכשירי אפל
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isMobile = window.innerWidth <= 767;
+    
+    // קבלת אלמנטים
+    const videos = document.querySelectorAll('video.device-video');
+    const overlays = document.querySelectorAll('.video-overlay');
+    
+    // טיפול בלחיצה על כפתור הניגון הגדול
+    overlays.forEach((overlay, index) => {
+      const video = videos[index];
+      
+      overlay.addEventListener('click', function() {
+        if (isIOS && isMobile) {
+          // במכשירי אפל ניידים - פתיחת הווידאו במסך מלא
+          if (video.webkitEnterFullscreen) {
+            // הסתרת השכבה העליונה
+            overlay.style.display = 'none';
+            
+            // הפעלת הווידאו ומעבר למסך מלא
+            video.play()
+              .then(() => {
+                video.webkitEnterFullscreen();
+              })
+              .catch(error => {
+                console.error('Error playing video:', error);
+                // החזרת השכבה העליונה במקרה של שגיאה
+                overlay.style.display = 'flex';
+              });
+          } else {
+            // גיבוי למקרה שאין תמיכה במסך מלא
+            video.play().catch(e => console.log('iOS play error:', e));
+            overlay.style.display = 'none';
+          }
+        } else {
+          // במכשירים אחרים - רק הפעלת הווידאו
+          video.play().catch(e => console.log('Play error:', e));
+          overlay.style.display = 'none';
+        }
+      });
+    });
+    
+    // החזרת השכבה העליונה כאשר הווידאו מסתיים או נעצר
+    videos.forEach((video, index) => {
+      const overlay = overlays[index];
+      
+      video.addEventListener('pause', function() {
+        // הצגת השכבה העליונה מחדש רק אם הווידאו לא במסך מלא
+        if (!document.webkitIsFullScreen && !document.fullscreenElement) {
+          overlay.style.display = 'flex';
+        }
+      });
+      
+      video.addEventListener('ended', function() {
+        overlay.style.display = 'flex';
+      });
+      
+      // יציאה ממסך מלא
+      video.addEventListener('webkitendfullscreen', function() {
+        overlay.style.display = 'flex';
+      });
+      
+      // הוספת תכונות נוספות לתמיכה באייפון
+      if (isIOS) {
+        video.setAttribute('webkit-playsinline', 'true');
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('x-webkit-airplay', 'allow');
+      }
+    });
+  });
+</script>
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+    
+    // Intersection Observer for Parallax effects - apply only to background elements
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      let x = e.clientX / window.innerWidth;
+      let y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = index + 1;
+        circle.style.transform = `translate(${x * 25 * factor}px, ${y * 25 * factor}px)`;
+      });
+    });
+    
+    // Fix for video playback issues on iOS devices
+    const videoElements = document.querySelectorAll('.device-video');
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    
+    videoElements.forEach(video => {
+      // Add a click handler to properly play/pause the video
+      video.addEventListener('click', function(e) {
+        // Only handle clicks on the video element itself, not controls
+        if (e.target === video) {
+          if (video.paused) {
+            // Promise helps handle iOS autoplay restrictions
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+              playPromise.then(_ => {
+                // Playback started successfully
+              })
+              .catch(error => {
+                // Auto-play was prevented, show a UI element to let the user start playback
+                console.log("Playback prevented by browser:", error);
+              });
+            }
+          } else {
+            video.pause();
+          }
+        }
+      });
+      
+      // For iOS devices, add special handling for the play button
+      if (iOS) {
+        const playButtons = video.querySelectorAll('.vjs-big-play-button, [class*="play-button"]');
+        playButtons.forEach(button => {
+          button.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          }, true);
+        });
+        
+        // Fix iOS issue with controls not working properly
+        video.addEventListener('loadedmetadata', function() {
+          // Force controls to be visible and interactive
+          video.controls = true;
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .airsyncx-about * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* RTL text alignment support */
+  [dir="rtl"] .airsyncx-about .about-content {
+    text-align: right;
+  }
+  
+  [dir="ltr"] .airsyncx-about .about-content {
+    text-align: left;
+  }
+  
+  .airsyncx-about {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 120px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.05) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    right: -100px;
+    opacity: 0.5;
+  }
+  
+  .bg-circle-2 {
+    width: 600px;
+    height: 600px;
+    bottom: -300px;
+    left: -200px;
+    opacity: 0.3;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+    direction: inherit;
+  }
+  
+  .about-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .section-eyebrow {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 25px;
+    opacity: 1;
+  }
+  
+  .about-title {
+    font-size: 5.5rem;
+    font-weight: 800;
+    margin-bottom: 45px;
+    color: #ffffff;
+    position: relative;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+    display: inline-block;
+    font-weight: 900;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #38d2d2;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .about-content:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  /* RTL support for highlight animation */
+  [dir="rtl"] .highlight::after {
+    transform-origin: left;
+  }
+  
+  [dir="rtl"] .about-content:hover .highlight::after {
+    transform-origin: right;
+  }
+  
+  .title-question {
+    color: #38d2d2;
+    display: inline-block;
+    opacity: 0.8;
+    animation: pulse-opacity 3s infinite;
+  }
+  
+  .about-description {
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 55px;
+    position: relative;
+    letter-spacing: 0.2px;
+    max-width: 95%;
+  }
+  
+  .about-description::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 60px;
+    height: 3px;
+    background-color: rgba(56, 210, 210, 0.5);
+  }
+  
+  /* RTL support for description accent line */
+  [dir="rtl"] .about-description::after {
+    right: auto;
+    left: 0;
+  }
+  
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .about-feature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    padding: 12px 0;
+    margin-bottom: 5px;
+  }
+  
+  .about-feature:hover {
+    transform: translateX(-10px);
+  }
+  
+  /* RTL support for hover effects */
+  [dir="rtl"] .about-feature:hover {
+    transform: translateX(10px);
+  }
+  
+  .feature-icon-circle {
+    width: 34px;
+    height: 34px;
+    background-color: #38d2d2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .about-feature:hover .feature-icon-circle {
+    transform: scale(1.2);
+  }
+  
+  .feature-icon-circle svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .about-feature span {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+  }
+  
+  .about-feature:hover span {
+    color: #38d2d2;
+  }
+  
+  .about-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+  }
+  
+  .device-wrapper {
+    position: relative;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  
+  .device-wrapper:hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+  
+  .device-highlight {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, rgba(56, 210, 210, 0) 0%, rgba(56, 210, 210, 0.3) 100%);
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+  }
+  
+  .device-wrapper:hover .device-highlight {
+    opacity: 1;
+  }
+  
+  .device-img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 210, 210, 0.3);
+    transition: all 0.5s ease;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 210, 210, 0.3);
+    z-index: 10;
+    pointer-events: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  .video-container::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    background: linear-gradient(45deg, #38d2d2, transparent, #38d2d2, transparent);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.5;
+    animation: rotate 4s linear infinite;
+  }
+  
+  .video-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 210, 210, 0.5);
+  }
+  
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 15;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-direction: column;
+  }
+  
+  .video-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .play-button-large {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+    position: relative;
+    animation: pulse-glow 2s infinite ease-in-out;
+  }
+  
+  .play-button-large::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.2);
+    z-index: -1;
+    animation: pulse-expand 2s infinite ease-in-out;
+  }
+  
+  .video-overlay:hover .play-button-large {
+    transform: scale(1);
+    background-color: rgba(56, 210, 210, 0.6);
+    box-shadow: 0 0 25px rgba(56, 210, 210, 0.7);
+  }
+  
+  .video-text-prompt {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 15px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+  
+  .video-overlay:hover .video-text-prompt {
+    opacity: 1;
+    transform: translateY(0);
+    display: none;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(56, 210, 210, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(56, 210, 210, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(56, 210, 210, 0.5);
+    }
+  }
+  
+  @keyframes pulse-expand {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+  
+  .device-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    z-index: 10;
+    pointer-events: auto;
+    position: relative;
+  }
+  
+  /* Ensure controls are clickable */
+  .device-video::-webkit-media-controls {
+    z-index: 20;
+    pointer-events: auto;
+  }
+  
+  .glow-effect {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.2) 0%, rgba(56, 210, 210, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 5s infinite ease-in-out;
+    filter: blur(20px);
+  }
+  
+  .tech-circles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .tech-circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.15);
+    border: 1px solid rgba(56, 210, 210, 0.3);
+  }
+  
+  .tech-circle-1 {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    right: -20px;
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .tech-circle-2 {
+    width: 25px;
+    height: 25px;
+    bottom: 30%;
+    right: 10%;
+    animation: float 8s infinite ease-in-out 1s;
+  }
+  
+  .tech-circle-3 {
+    width: 15px;
+    height: 15px;
+    top: 60%;
+    left: 5%;
+    animation: float 7s infinite ease-in-out 0.5s;
+  }
+  
+  /* Video Button Styles */
+  .tech-video-button {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(56, 210, 210, 0.2);
+    border: 1px solid rgba(56, 210, 210, 0.4);
+    border-radius: 30px;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px rgba(56, 210, 210, 0.2);
+  }
+  
+  .tech-video-button:hover {
+    background: rgba(56, 210, 210, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(56, 210, 210, 0.4);
+  }
+  
+  .video-icon {
+    background: rgba(56, 210, 210, 0.8);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    transition: all 0.3s ease;
+  }
+  
+  .video-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .tech-video-button:hover .video-icon {
+    transform: scale(1.2);
+    background: rgb(56, 210, 210);
+  }
+  
+  .video-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+  }
+  
+  .tech-video-button:hover .video-text {
+    color: #ffffff;
+  }
+  
+  /* Move video button for RTL/LTR layout */
+  html[dir="rtl"] .tech-video-button {
+    right: auto;
+    left: 10%;
+  }
+  
+  @media (max-width: 768px) {
+    .tech-video-button {
+      bottom: 20px;
+      right: 20px;
+      padding: 8px 12px;
+    }
+    
+    html[dir="rtl"] .tech-video-button {
+      right: auto;
+      left: 20px;
+    }
+    
+    .video-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .video-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+    
+    .video-text {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse-opacity {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .about-container {
+      flex-direction: column-reverse;
+    }
+    
+    .about-content {
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Override RTL/LTR alignment in mobile for center alignment */
+    [dir="rtl"] .about-content,
+    [dir="ltr"] .about-content {
+      text-align: center;
+    }
+    
+    .about-image {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .about-feature {
+      justify-content: center;
+    }
+    
+    .about-feature:hover {
+      transform: translateY(-5px);
+    }
+    
+    .about-title {
+      font-size: 4.5rem;
+    }
+    
+    .about-description {
+      font-size: 2rem;
+      max-width: 100%;
+    }
+    
+    .about-description::after {
+      right: 50%;
+      transform: translateX(50%);
+    }
+    
+    /* RTL support for mobile description accent line */
+    [dir="rtl"] .about-description::after {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+    }
+    
+    .section-eyebrow {
+      text-align: center;
+    }
+    
+    .about-feature span {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Mobile specific styles to show title above video */
+  @media (max-width: 767px) {
+    .about-container {
+      flex-direction: column;
+    }
+    
+    .mobile-order-1 {
+      order: 1 !important;
+    }
+    
+    .mobile-order-2 {
+      order: 2 !important;
+    }
+    
+    .about-content {
+      margin-bottom: 30px;
+    }
+    
+    .about-image {
+      margin-bottom: 0;
+    }
+    
+    .section-eyebrow {
+      margin-bottom: 15px;
+    }
+    
+    .about-title {
+      margin-bottom: 25px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .airsyncx-about {
+      padding: 80px 0;
+    }
+    
+    .about-title {
+      font-size: 3.8rem;
+    }
+    
+    .about-description {
+      font-size: 1.8rem;
+      line-height: 1.5;
+    }
+    
+    .about-feature span {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @keyframes rotate {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "AirSyncX About",
+  "tag": "section",
+  "class": "airsyncx-about-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "תמונת המוצר"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "כותרת",
+      "default": "מה זה AirSyncX?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "תיאור",
+      "default": "AirSyncX הוא מתאם חכם וקומפקטי שמתחבר ליציאת ה-USB ברכב שלך והופך את CarPlay לאלחוטי - בפחות מ-10 שניות מרגע ההפעלה."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "טקסט כותרת עליונה",
+      "default": "גלה את החידוש"
+    },
+    {
+      "type": "header",
+      "content": "הגדרות סרטונים"
+    },
+    {
+      "type": "url",
+      "id": "hebrew_video_url",
+      "label": "קישור לסרטון בעברית"
+    },
+    {
+      "type": "url",
+      "id": "english_video_url",
+      "label": "קישור לסרטון באנגלית"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "תכונה",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "טקסט תכונה",
+          "default": "תואם לכל רכב עם CarPlay קווי"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX About",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "תואם לכל רכב עם CarPlay קווי"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "חיבור Bluetooth מהיר ואמין"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "התקנה עצמית פשוטה"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

@@ -1,0 +1,287 @@
+<!-- AirSyncX How It Works Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<div class="airsyncx-how-it-works" id="how-it-works">
+  <div class="how-it-works-container">
+    <div class="how-it-works-header">
+      <h2 class="how-it-works-title">איך זה עובד</h2>
+    </div>
+    
+    <div class="steps-container">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 class="step-title">חבר את המתאם ליציאת ה-USB של הרכב</h3>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="currentColor"/>
+            <path d="M12 5V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 22V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 12H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="steps-connector">
+        <svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 12H100" stroke="#38d2d2" stroke-width="2" stroke-dasharray="4 4"/>
+          <path d="M93 5L100 12L93 19" stroke="#38d2d2" stroke-width="2"/>
+        </svg>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 class="step-title">צמד דרך Bluetooth פעם אחת</h3>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.34315 17.6569L17.6569 6.34315" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 22L12 16L16.9497 11.0503C17.3403 10.6597 17.3403 10.0266 16.9497 9.63604L13.3639 6.05025C12.9734 5.65973 12.3403 5.65973 11.9497 6.05025L7 11V17H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2L12 8L16.9497 12.9497C17.3403 13.3403 17.3403 13.9734 16.9497 14.364L13.3639 17.9497C12.9734 18.3403 12.3403 18.3403 11.9497 17.9497L7 13V7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="steps-connector">
+        <svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 12H100" stroke="#38d2d2" stroke-width="2" stroke-dasharray="4 4"/>
+          <path d="M93 5L100 12L93 19" stroke="#38d2d2" stroke-width="2"/>
+        </svg>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 class="step-title">CarPlay נפתח אוטומטית</h3>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="18" r="1" fill="currentColor"/>
+            <path d="M5 15.5H19" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 7H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 11V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <div class="how-it-works-illustration">
+      <img 
+        src="{{ section.settings.illustration_image | default: 'https://cdn.shopify.com/s/files/1/0931/3724/0362/files/carplay-process.png' }}" 
+        alt="How AirSyncX Works" 
+        class="illustration-img"
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .airsyncx-how-it-works * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-how-it-works {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 100px 0;
+    direction: rtl;
+    text-align: center;
+  }
+  
+  .how-it-works-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .how-it-works-header {
+    margin-bottom: 60px;
+  }
+  
+  .how-it-works-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .how-it-works-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 60px;
+    height: 3px;
+    background-color: #38d2d2;
+  }
+  
+  .steps-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    overflow-x: auto;
+    padding: 30px 0;
+  }
+  
+  .step-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 30px;
+    min-width: 250px;
+    max-width: 250px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .step-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .step-number {
+    position: absolute;
+    top: -20px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 40px;
+    height: 40px;
+    background-color: #38d2d2;
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  .step-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .step-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    color: #38d2d2;
+  }
+  
+  .steps-connector {
+    width: 100px;
+    height: 24px;
+    margin: 0 -10px;
+    color: #38d2d2;
+  }
+  
+  .how-it-works-illustration {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .illustration-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 992px) {
+    .steps-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+    
+    .steps-connector {
+      transform: rotate(90deg);
+      margin: 0;
+    }
+    
+    .step-card {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .step-title {
+      min-height: auto;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .how-it-works-title {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "AirSyncX How It Works",
+  "class": "section-airsyncx-how-it-works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "כותרת",
+      "default": "איך זה עובד"
+    },
+    {
+      "type": "image_picker",
+      "id": "illustration_image",
+      "label": "תמונת איור תהליך"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "שלב",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "כותרת השלב",
+          "default": "חבר את המתאם"
+        },
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "אייקון SVG",
+          "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX How It Works",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        },
+        {
+          "type": "step"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

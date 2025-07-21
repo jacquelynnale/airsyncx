@@ -1,0 +1,1312 @@
+<!-- AirSyncX Footer Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<footer id="footer" class="airsyncx-footer">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-lines"></div>
+    <div class="tech-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+  </div>
+  
+  <div class="footer-container">
+    <div class="footer-top" data-aos="fade-up" data-aos-duration="800">
+      <div class="footer-logo">
+        {% if section.settings.footer_logo != blank %}
+          <img src="{{ section.settings.footer_logo | img_url: 'master' }}" alt="{{ shop.name }}" class="footer-logo-img">
+        {% else %}
+          <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ChatGPT_Image_Apr_28_2025_08_28_33_PM_624c66dc-3a38-434d-97a3-656295f52514.png?v=1745861554" alt="{{ shop.name }}" class="footer-logo-img">
+        {% endif %}
+        
+        <p class="footer-tagline">{{ section.settings.tagline }}</p>
+      </div>
+      
+      <div class="footer-newsletter">
+        <h3 class="newsletter-title">{{ section.settings.newsletter_title }}</h3>
+        <p class="newsletter-text">{{ section.settings.newsletter_text }}</p>
+        
+        {% form 'customer', id: 'ContactFooter', class: 'footer-newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter-field-wrapper">
+            <div class="field">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                class="field__input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="ContactFooter-error"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="ContactFooter-success"
+                {% endif %}
+                placeholder="{{ section.settings.newsletter_placeholder }}"
+                required
+              >
+              <button
+                type="submit"
+                class="newsletter-button"
+                name="commit"
+                aria-label="הירשם לניוזלטר"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+            
+            {%- if form.errors -%}
+              <div class="newsletter-form-message form-error" id="ContactFooter-error">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="8" cy="8" r="7.5" stroke="currentColor"/>
+                  <path d="M8 4V9" stroke="currentColor" stroke-linecap="round"/>
+                  <path d="M8 11.5V12" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+                <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
+              </div>
+            {%- endif -%}
+            
+            {%- if form.posted_successfully? -%}
+              <div class="newsletter-form-message form-success" id="ContactFooter-success" tabindex="-1" autofocus>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>{{ section.settings.newsletter_success }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+        {% endform %}
+      </div>
+    </div>
+    
+    <div class="footer-middle" data-aos="fade-up" data-aos-delay="100">
+      <div class="footer-nav-columns">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'link_list' %}
+              <div class="footer-nav-column" {{ block.shopify_attributes }}>
+                <h3 class="footer-nav-title">{{ block.settings.title }}</h3>
+                {% if block.settings.menu != blank %}
+                  <ul class="footer-nav-list">
+                    {% for link in block.settings.menu.links %}
+                      <li class="footer-nav-item">
+                        <a href="{{ link.url }}" class="footer-nav-link">
+                          {% assign link_key = '' %}
+                          {% if link.title == 'Search' %}
+                            {% assign link_key = 'footer.navigation.search' %}
+                          {% elsif link.title == 'About Us' or link.title == 'About' %}
+                            {% assign link_key = 'footer.navigation.about' %}
+                          {% elsif link.title == 'Contact Us' or link.title == 'Contact' %}
+                            {% assign link_key = 'footer.navigation.contact' %}
+                          {% elsif link.title == 'FAQ' or link.title == 'FAQs' %}
+                            {% assign link_key = 'footer.navigation.faq' %}
+                          {% elsif link.title == 'Shipping & Returns' or link.title == 'Shipping' %}
+                            {% assign link_key = 'footer.navigation.shipping' %}
+                          {% elsif link.title == 'Terms of Service' or link.title == 'Terms' %}
+                            {% assign link_key = 'footer.navigation.terms' %}
+                          {% elsif link.title == 'Privacy Policy' or link.title == 'Privacy' %}
+                            {% assign link_key = 'footer.navigation.privacy' %}
+                          {% elsif link.title == 'Refund Policy' or link.title == 'Refunds' or link.url contains '/refund-return-policy' %}
+                            {% assign link_key = 'footer.navigation.refund' %}
+                          {% elsif link.title == 'Blog' %}
+                            {% assign link_key = 'footer.navigation.blog' %}
+                          {% elsif link.title == 'Compatibility' %}
+                            {% assign link_key = 'footer.navigation.compatibility' %}
+                          {% elsif link.title == 'Instructions' or link.title == 'Guide' %}
+                            {% assign link_key = 'footer.navigation.instructions' %}
+                          {% elsif link.title == 'Support' %}
+                            {% assign link_key = 'footer.navigation.support' %}
+                          {% endif %}
+                          
+                          {% if link_key != '' %}
+                            {{ link_key | t }}
+                          {% else %}
+                            {{ link.title }}
+                          {% endif %}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            {% when 'text' %}
+              <div class="footer-nav-column" {{ block.shopify_attributes }}>
+                <h3 class="footer-nav-title">{{ block.settings.title }}</h3>
+                <div class="footer-text-content">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+            {% when 'contact' %}
+              <div class="footer-nav-column" {{ block.shopify_attributes }}>
+                <h3 class="footer-nav-title">{{ block.settings.title }}</h3>
+                <ul class="footer-contact-list">
+                  {% if block.settings.phone != blank %}
+                    <li class="footer-contact-item">
+                      <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                      </div>
+                      <a href="tel:{{ block.settings.phone }}" class="contact-text">{{ block.settings.phone }}</a>
+                    </li>
+                  {% endif %}
+                  
+                  {% if block.settings.email != blank %}
+                    <li class="footer-contact-item">
+                      <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                          <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                      </div>
+                      <a href="mailto:{{ block.settings.email }}" class="contact-text">{{ block.settings.email }}</a>
+                    </li>
+                  {% endif %}
+                  
+                  {% if block.settings.address != blank %}
+                    <li class="footer-contact-item">
+                      <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <span class="contact-text">{{ block.settings.address }}</span>
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+      
+      {% if section.settings.show_social %}
+        <div class="footer-social" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="social-title">{{ 'footer.social.follow_us' | t }}</h3>
+          <ul class="social-links">
+            {% if settings.social_facebook_link != blank %}
+              <li class="social-item">
+                <a href="{{ settings.social_facebook_link }}" target="_blank" class="social-link" aria-label="{{ 'footer.social.facebook' | t }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </a>
+              </li>
+            {% else %}
+              <li class="social-item">
+                <a href="#" target="_blank" class="social-link" aria-label="{{ 'footer.social.facebook' | t }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </a>
+              </li>
+            {% endif %}
+            
+            {% if settings.social_instagram_link != blank %}
+              <li class="social-item">
+                <a href="{{ settings.social_instagram_link }}" target="_blank" class="social-link" aria-label="{{ 'footer.social.instagram' | t }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+            {% else %}
+              <li class="social-item">
+                <a href="#" target="_blank" class="social-link" aria-label="{{ 'footer.social.instagram' | t }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+            {% endif %}
+            
+            {% if settings.social_tiktok_link != blank %}
+              <li class="social-item">
+                <a href="{{ settings.social_tiktok_link }}" target="_blank" class="social-link" aria-label="{{ 'footer.social.tiktok' | t }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.321 5.562a5.123 5.123 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.849-1.286-1.709-1.358-2.681h.004C16.298 1.192 16.07.72 15.708.32a.813.813 0 0 0-.567-.243H12.14v14.09c0 .414-.123.82-.356 1.173-.232.352-.564.631-.954.804a2.52 2.52 0 0 1-1.092.243c-.706 0-1.383-.28-1.882-.78a2.668 2.668 0 0 1-.78-1.883c0-.706.28-1.383.78-1.882s1.176-.78 1.882-.78c.26 0 .517.05.758.147V8.28a5.492 5.492 0 0 0-.758-.052c-1.537 0-3.01.611-4.098 1.698C3.539 11.015 2.928 12.489 2.928 14.026s.61 3.01 1.698 4.097c1.088 1.088 2.562 1.698 4.098 1.698s3.01-.61 4.098-1.698c1.087-1.087 1.698-2.56 1.698-4.097V7.832a8.17 8.17 0 0 0 4.68 1.465v-2.91c-.896 0-1.745-.323-2.407-.915-.662-.592-1.077-1.405-1.177-2.303l.005-.607z"/>
+                  </svg>
+                </a>
+              </li>
+            {% else %}
+              <li class="social-item">
+                <a href="#" target="_blank" class="social-link" aria-label="{{ 'footer.social.tiktok' | t }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.321 5.562a5.123 5.123 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.849-1.286-1.709-1.358-2.681h.004C16.298 1.192 16.07.72 15.708.32a.813.813 0 0 0-.567-.243H12.14v14.09c0 .414-.123.82-.356 1.173-.232.352-.564.631-.954.804a2.52 2.52 0 0 1-1.092.243c-.706 0-1.383-.28-1.882-.78a2.668 2.668 0 0 1-.78-1.883c0-.706.28-1.383.78-1.882s1.176-.78 1.882-.78c.26 0 .517.05.758.147V8.28a5.492 5.492 0 0 0-.758-.052c-1.537 0-3.01.611-4.098 1.698C3.539 11.015 2.928 12.489 2.928 14.026s.61 3.01 1.698 4.097c1.088 1.088 2.562 1.698 4.098 1.698s3.01-.61 4.098-1.698c1.087-1.087 1.698-2.56 1.698-4.097V7.832a8.17 8.17 0 0 0 4.68 1.465v-2.91c-.896 0-1.745-.323-2.407-.915-.662-.592-1.077-1.405-1.177-2.303l.005-.607z"/>
+                  </svg>
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="footer-bottom" data-aos="fade-up" data-aos-delay="300">
+      <div class="footer-copyright">
+        <p>{{ section.settings.copyright_text | replace: '[year]', 'now' | date: '%Y' }}</p>
+      </div>
+      
+      {% if section.settings.show_payment_icons %}
+        <div class="footer-payment">
+          <ul class="payment-icons">
+            <!-- Add all popular payment methods -->
+            <li class="payment-icon">{{ 'visa' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'master' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'american_express' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'apple_pay' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'google_pay' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'diners_club' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'paypal' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'discover' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'jcb' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'shopify_pay' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'bitcoin' | payment_type_svg_tag }}</li>
+            <li class="payment-icon">{{ 'unionpay' | payment_type_svg_tag }}</li>
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<style>
+  .airsyncx-footer * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-footer {
+    padding: 100px 0 40px;
+    background-color: #000000;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    direction: rtl;
+    border-top: 1px solid rgba(56, 210, 210, 0.3);
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.15) 0%, rgba(56, 210, 210, 0) 70%);
+    animation: pulse-glow 8s infinite alternate ease-in-out;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+  }
+  
+  .bg-circle-1 {
+    width: 800px;
+    height: 800px;
+    top: -300px;
+    right: -200px;
+    opacity: 0.4;
+    animation-delay: 0s;
+  }
+  
+  .bg-circle-2 {
+    width: 600px;
+    height: 600px;
+    bottom: -250px;
+    left: -150px;
+    opacity: 0.3;
+    animation-delay: 2s;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(56, 210, 210, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 210, 210, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    animation: fade-lines 10s infinite alternate ease-in-out;
+  }
+  
+  @keyframes fade-lines {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+  
+  .tech-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(56, 210, 210, 0.3);
+    border-radius: 50%;
+    animation: float-particle 20s infinite linear;
+  }
+  
+  .particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-duration: 15s;
+    animation-delay: 0s;
+  }
+  
+  .particle:nth-child(2) {
+    top: 70%;
+    left: 20%;
+    animation-duration: 25s;
+    animation-delay: 2s;
+  }
+  
+  .particle:nth-child(3) {
+    top: 40%;
+    right: 15%;
+    animation-duration: 18s;
+    animation-delay: 5s;
+  }
+  
+  .particle:nth-child(4) {
+    top: 65%;
+    right: 25%;
+    animation-duration: 22s;
+    animation-delay: 7s;
+  }
+  
+  .particle:nth-child(5) {
+    top: 30%;
+    right: 35%;
+    animation-duration: 20s;
+    animation-delay: 10s;
+  }
+  
+  @keyframes float-particle {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(50px);
+      opacity: 0;
+    }
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .footer-logo {
+    flex: 1;
+    min-width: 280px;
+    padding: 25px;
+    background: linear-gradient(to left, rgba(56, 210, 210, 0.05), rgba(0, 0, 0, 0));
+    border-radius: 16px;
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .footer-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(56, 210, 210, 0.15);
+  }
+  
+  .footer-logo-img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 25px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 0 8px rgba(56, 210, 210, 0.3));
+  }
+  
+  .footer-logo-img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px rgba(56, 210, 210, 0.5));
+  }
+  
+  .footer-logo-text {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #38d2d2;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .footer-logo-text::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #38d2d2);
+    transition: width 0.3s ease;
+  }
+  
+  .footer-logo:hover .footer-logo-text::after {
+    width: 100%;
+  }
+  
+  .footer-tagline {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .footer-newsletter {
+    flex: 1;
+    min-width: 280px;
+    max-width: 450px;
+    padding: 30px;
+    background: linear-gradient(to left, rgba(56, 210, 210, 0.05), rgba(0, 0, 0, 0));
+    border-radius: 16px;
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .footer-newsletter:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(56, 210, 210, 0.15);
+  }
+  
+  .newsletter-title {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #38d2d2;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .newsletter-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #38d2d2);
+    transition: width 0.3s ease;
+  }
+  
+  .footer-newsletter:hover .newsletter-title::after {
+    width: 100%;
+  }
+  
+  .newsletter-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+  }
+  
+  .footer-newsletter-form {
+    width: 100%;
+  }
+  
+  .newsletter-field-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .field__input {
+    width: 100%;
+    padding: 16px 55px 16px 20px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(56, 210, 210, 0.3);
+    border-radius: 50px;
+    font-size: 1.3rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    direction: rtl;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .field__input:focus {
+    outline: none;
+    border-color: #38d2d2;
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.25), inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+  }
+  
+  .field__input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.3s ease;
+  }
+  
+  .field__input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .newsletter-button {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to left, #38d2d2, #30b5b5);
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(56, 210, 210, 0.3);
+  }
+  
+  .newsletter-button:hover {
+    background: linear-gradient(to left, #ffffff, #f0f0f0);
+    color: #38d2d2;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.5);
+  }
+
+  .newsletter-button svg {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .newsletter-button:hover svg {
+    transform: scale(1.3) translateX(2px);
+  }
+  
+  .newsletter-form-message {
+    margin-top: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    animation: fade-slide-up 0.5s;
+  }
+  
+  @keyframes fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-error {
+    background-color: rgba(255, 87, 87, 0.15);
+    color: #ff5757;
+    border: 1px solid rgba(255, 87, 87, 0.3);
+  }
+  
+  .form-success {
+    background-color: rgba(56, 210, 210, 0.15);
+    color: #38d2d2;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+  }
+  
+  .footer-middle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .footer-nav-columns {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 3;
+    gap: 40px;
+  }
+  
+  .footer-nav-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 25px;
+    background: linear-gradient(to left, rgba(56, 210, 210, 0.05), rgba(0, 0, 0, 0));
+    border-radius: 16px;
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .footer-nav-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(56, 210, 210, 0.15);
+  }
+  
+  .footer-nav-title {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #38d2d2;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .footer-nav-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #38d2d2);
+    transition: width 0.3s ease;
+  }
+  
+  .footer-nav-column:hover .footer-nav-title::after {
+    width: 60px;
+  }
+  
+  .footer-nav-list {
+    list-style: none;
+  }
+  
+  .footer-nav-item {
+    margin-bottom: 15px;
+  }
+  
+  .footer-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-right: -15px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  }
+  
+  .footer-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #38d2d2);
+    transition: width 0.3s ease;
+  }
+  
+  .footer-nav-link:hover {
+    color: #ffffff;
+    transform: translateX(-5px);
+    background: linear-gradient(to left, rgba(56, 210, 210, 0.1), rgba(255, 255, 255, 0));
+  }
+  
+  .footer-nav-link:hover::after {
+    width: calc(100% - 30px);
+  }
+  
+  .footer-text-content {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .footer-contact-list {
+    list-style: none;
+  }
+  
+  .footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-contact-item:hover {
+    transform: translateX(-5px);
+  }
+  
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(to left, rgba(56, 210, 210, 0.15), rgba(56, 210, 210, 0.05));
+    border-radius: 50%;
+    color: #38d2d2;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer-contact-item:hover .contact-icon {
+    background: linear-gradient(to left, rgba(56, 210, 210, 0.3), rgba(56, 210, 210, 0.1));
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.2);
+  }
+  
+  .contact-icon svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-contact-item:hover .contact-icon svg {
+    transform: scale(1.1);
+  }
+  
+  .contact-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a.contact-text:hover {
+    color: #38d2d2;
+  }
+  
+  .footer-social {
+    flex: 1;
+    min-width: 200px;
+    padding: 25px;
+    background: linear-gradient(to left, rgba(56, 210, 210, 0.05), rgba(0, 0, 0, 0));
+    border-radius: 16px;
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .footer-social:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(56, 210, 210, 0.15);
+  }
+  
+  .social-title {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #38d2d2;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .social-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #38d2d2);
+    transition: width 0.3s ease;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin-top: 25px;
+  }
+  
+  .social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, #38d2d2, #30b5b5);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+    z-index: 0;
+  }
+  
+  .social-link:hover::before {
+    transform: scale(1);
+  }
+  
+  .social-link:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(56, 210, 210, 0.3);
+  }
+  
+  .social-link svg {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    stroke-width: 2px;
+  }
+  
+  .social-link:hover svg {
+    stroke: #000000;
+    fill: #000000;
+    transform: scale(1.1);
+  }
+  
+  .footer-bottom {
+    padding-bottom: 120px;
+    border-top: 1px solid rgba(56, 210, 210, 0.15);
+    padding-top: 30px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .footer-copyright {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .footer-copyright p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+  
+  .footer-copyright:hover p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .payment-icons {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    gap: 15px;
+    list-style: none;
+  }
+  
+  .payment-icon {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    filter: grayscale(30%);
+  }
+  
+  .payment-icon:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: translateY(-3px);
+  }
+  
+  @media (max-width: 992px) {
+    .footer-top, 
+    .footer-middle {
+      flex-direction: column;
+      gap: 50px;
+    }
+    
+    .footer-nav-columns {
+      gap: 30px;
+    }
+    
+    .footer-logo,
+    .footer-newsletter,
+    .footer-nav-column,
+    .footer-social {
+      padding: 20px;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .airsyncx-footer {
+      padding: 80px 0 40px;
+    }
+    
+    .footer-nav-columns {
+      flex-direction: column;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 25px;
+    }
+    
+    .payment-icons {
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+    
+    .social-links {
+      justify-content: flex-start;
+    }
+    
+    .footer-logo-text,
+    .newsletter-title,
+    .footer-nav-title,
+    .social-title {
+      font-size: 1.7rem;
+    }
+    
+    .footer-tagline,
+    .newsletter-text,
+    .footer-text-content,
+    .contact-text,
+    .footer-nav-link {
+      font-size: 1.4rem;
+    }
+    
+    .footer-copyright p,
+    .policy-link {
+      font-size: 1.15rem;
+    }
+    
+    .footer-newsletter {
+      padding: 25px;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .newsletter-title {
+      font-size: 1.7rem;
+    }
+    
+    .newsletter-text {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-tagline,
+    .newsletter-text {
+      font-size: 1.3rem;
+    }
+    
+    .field__input {
+      font-size: 1.2rem;
+      padding: 16px 55px 16px 20px;
+    }
+    
+    .newsletter-button {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .footer-logo-text,
+    .newsletter-title,
+    .footer-nav-title,
+    .social-title {
+      font-size: 1.6rem;
+    }
+    
+    .footer-tagline,
+    .newsletter-text,
+    .footer-text-content,
+    .contact-text,
+    .footer-nav-link {
+      font-size: 1.3rem;
+    }
+    
+    .footer-newsletter {
+      padding: 20px;
+    }
+    
+    .newsletter-title {
+      font-size: 1.6rem;
+    }
+    
+    .newsletter-text {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 800
+    });
+    
+    // Parallax effect on background elements
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = index + 1;
+        circle.style.transform = `translate(${x * 20 * factor}px, ${y * 20 * factor}px)`;
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "AirSyncX פוטר",
+  "tag": "section",
+  "class": "airsyncx-footer-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "לוגו ותיאור"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "לוגו"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "תגלית התחתונה",
+      "default": "AirSyncX הופך את ה-CarPlay בכל רכב לאלחוטי באופן מיידי"
+    },
+    {
+      "type": "header",
+      "content": "רישום לניוזלטר"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "כותרת הניוזלטר",
+      "default": "הצטרפו לניוזלטר שלנו"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "טקסט הניוזלטר",
+      "default": "קבלו עדכונים, מבצעים ומידע בלעדי ישירות לתיבת הדואר"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "פלייסהולדר של תיבת המייל",
+      "default": "הזינו את כתובת המייל שלכם"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_success",
+      "label": "הודעת הצלחה",
+      "default": "תודה על ההרשמה לניוזלטר שלנו!"
+    },
+    {
+      "type": "header",
+      "content": "רשתות חברתיות"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "הצג אייקונים של רשתות חברתיות",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "כותרת רשתות חברתיות",
+      "default": "עקבו אחרינו"
+    },
+    {
+      "type": "header",
+      "content": "מידע בתחתית"
+    },
+    {
+      "type": "textarea",
+      "id": "copyright_text",
+      "label": "טקסט זכויות יוצרים",
+      "default": "© [year] AirSyncX. כל הזכויות שמורות."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "הצג אייקונים של אמצעי תשלום",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "רשימת קישורים",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "כותרת",
+          "default": "קישורים מהירים"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "תפריט",
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "טקסט",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "כותרת",
+          "default": "אודות AirSyncX"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "טקסט",
+          "default": "<p>AirSyncX מציעה פתרונות חדשניים להפיכת מערכת ה-CarPlay ברכב לאלחוטית, ללא צורך בהתקנה מורכבת או שינויים ברכב.</p>"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "פרטי יצירת קשר",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "כותרת",
+          "default": "יצירת קשר"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "מספר טלפון",
+          "default": "03-1234567"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "כתובת אימייל",
+          "default": "info@airsyncx.com"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "כתובת",
+          "default": "רח' ההגנה 15, תל אביב"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX פוטר",
+      "blocks": [
+        {
+          "type": "link_list"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "contact"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

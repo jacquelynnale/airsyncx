@@ -1,0 +1,696 @@
+<!-- AirSyncX Shipping Policy Page -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<div class="airsyncx-shipping-page">
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="animated-particles"></div>
+    <div class="animated-lines"></div>
+    <div class="animated-gradient"></div>
+  </div>
+  
+  <!-- Shipping Policy header -->
+  <div class="page-width">
+    <div class="shipping-header" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="shipping-heading">מדיניות <span class="highlight">משלוחים</span></h1>
+      <p class="shipping-subheading">{{ section.settings.subheading }}</p>
+    </div>
+
+    <!-- Shipping Policy Main Content -->
+    <div class="shipping-content-container" data-aos="fade-up" data-aos-delay="200">
+      <!-- זמני אספקה -->
+      <div class="shipping-section">
+        <h2 class="shipping-section-title"><span class="white-text">1. זמני</span> <span class="highlight">אספקה</span></h2>
+        <div class="shipping-section-content">
+          <p>{{ section.settings.processing_time }}</p>
+        </div>
+      </div>
+
+      <!-- עלויות משלוח -->
+      <div class="shipping-section">
+        <h2 class="shipping-section-title"><span class="white-text">2. עלויות</span> <span class="highlight">משלוח</span></h2>
+        <div class="shipping-section-content">
+          <p>{{ section.settings.shipping_methods }}</p>
+          
+          <!-- Shipping Methods Cards -->
+          <div class="shipping-methods-grid">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'shipping_method' -%}
+                <div class="shipping-method-card" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+                  <div class="shipping-method-icon">
+                    {% case block.settings.shipping_icon %}
+                      {% when 'standard' %}
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M16 3H1V16H16V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M16 8H20L23 11V16H16V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5.5 21C6.88071 21 8 19.8807 8 18.5C8 17.1193 6.88071 16 5.5 16C4.11929 16 3 17.1193 3 18.5C3 19.8807 4.11929 21 5.5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M18.5 21C19.8807 21 21 19.8807 21 18.5C21 17.1193 19.8807 16 18.5 16C17.1193 16 16 17.1193 16 18.5C16 19.8807 17.1193 21 18.5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      {% when 'express' %}
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M22 12H16L14 15H10L8 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5.45 5.11L2 12V15H22V12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M6 20H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M16 20H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                      {% when 'pickup' %}
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M12 21C12 21 19 16.5 19 10C19 6.13401 15.866 3 12 3C8.13401 3 5 6.13401 5 10C5 16.5 12 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      {% when 'international' %}
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M2 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      {% else %}
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M16 3H1V16H16V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M16 8H20L23 11V16H16V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5.5 21C6.88071 21 8 19.8807 8 18.5C8 17.1193 6.88071 16 5.5 16C4.11929 16 3 17.1193 3 18.5C3 19.8807 4.11929 21 5.5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M18.5 21C19.8807 21 21 19.8807 21 18.5C21 17.1193 19.8807 16 18.5 16C17.1193 16 16 17.1193 16 18.5C16 19.8807 17.1193 21 18.5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    {% endcase %}
+                  </div>
+                  <h3 class="shipping-method-title">{{ block.settings.method_name }}</h3>
+                  <p class="shipping-method-details">{{ block.settings.method_details }}</p>
+                  <p class="shipping-method-price">{{ block.settings.method_price }}</p>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+
+      <!-- טיפול בהזמנה -->
+      <div class="shipping-section">
+        <h2 class="shipping-section-title"><span class="white-text">3. טיפול</span> <span class="highlight">בהזמנה</span></h2>
+        <div class="shipping-section-content">
+          <p>{{ section.settings.delivery_time }}</p>
+        </div>
+      </div>
+
+      <!-- אישור הזמנה ומעקב -->
+      <div class="shipping-section">
+        <h2 class="shipping-section-title"><span class="white-text">4-5. אישור הזמנה ומעקב</span> <span class="highlight">וכתובת הלקוח</span></h2>
+        <div class="shipping-section-content">
+          <p>{{ section.settings.tracking_info }}</p>
+        </div>
+      </div>
+
+      <!-- הגבלת אחריות ועיכובים -->
+      <div class="shipping-section">
+        <h2 class="shipping-section-title"><span class="white-text">6-7. הגבלת אחריות</span> <span class="highlight">וטיפול במשלוחים</span></h2>
+        <div class="shipping-section-content">
+          <p>{{ section.settings.return_policy }}</p>
+        </div>
+      </div>
+      
+      <!-- מידע נוסף -->
+      <div class="shipping-section">
+        <h2 class="shipping-section-title"><span class="white-text">8-12. מידע</span> <span class="highlight">נוסף</span></h2>
+        <div class="shipping-section-content">
+          <p>{{ section.settings.cta_text }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Container -->
+    <div class="cta-container" data-aos="fade-up">
+      <div class="cta-content">
+        <h3 class="cta-title"><span class="white-text">יצירת</span> <span class="highlight">קשר</span></h3>
+        <p class="cta-text">{{ section.settings.cta_button_text }}</p>
+        
+        <div class="cta-buttons">
+          <a href="{{ section.settings.cta_button_link }}" class="hero-button hero-button-primary">
+            <span class="button-text">צור קשר</span>
+            <span class="button-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 1000
+    });
+    
+    // Create and animate particles
+    const particlesContainer = document.querySelector('.animated-particles');
+    if (particlesContainer) {
+      for (let i = 0; i < 50; i++) {
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        let posX = Math.random() * 100;
+        let posY = Math.random() * 100;
+        
+        // Random size
+        let size = Math.random() * 5 + 1;
+        
+        // Random opacity
+        let opacity = Math.random() * 0.5 + 0.1;
+        
+        // Random animation delay
+        let delay = Math.random() * 5;
+        
+        // Apply styles
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.opacity = opacity;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+  });
+</script>
+
+<style>
+  :root {
+    --page-background: #000000;
+  }
+  
+  body {
+    background-color: var(--page-background);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .airsyncx-shipping-page {
+    background-color: var(--page-background);
+    color: #ffffff;
+    position: relative;
+    font-family: 'Assistant', sans-serif;
+    overflow: hidden;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Animated Background */
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: var(--page-background);
+    overflow: hidden;
+  }
+  
+  /* Background Elements */
+  .animated-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .particle {
+    position: absolute;
+    background-color: #38d2d2;
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+  }
+  
+  .animated-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+  }
+  
+  .animated-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(56, 210, 210, 0.1), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(56, 210, 210, 0.1), transparent 60%);
+    mix-blend-mode: screen;
+  }
+  
+  /* Header Styling */
+  .shipping-header {
+    text-align: center;
+    padding: 5rem 0 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .shipping-heading {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+  }
+  
+  .shipping-subheading {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  /* Main Content */
+  .shipping-content-container {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 4rem;
+  }
+
+  .shipping-section {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+
+  .shipping-section-title {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .white-text {
+    color: #ffffff;
+  }
+
+  .shipping-section-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  /* Shipping Methods Grid */
+  .shipping-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .shipping-method-card {
+    background-color: rgba(17, 17, 17, 0.4);
+    border-radius: 12px;
+    padding: 1.8rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .shipping-method-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: rgba(56, 210, 210, 0.3);
+  }
+
+  .shipping-method-icon {
+    background-color: rgba(56, 210, 210, 0.1);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    color: #38d2d2;
+  }
+
+  .shipping-method-card:hover .shipping-method-icon {
+    background-color: rgba(56, 210, 210, 0.2);
+    transform: scale(1.1);
+  }
+
+  .shipping-method-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .shipping-method-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  .shipping-method-details {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .shipping-method-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #38d2d2;
+  }
+  
+  /* CTA Container */
+  .cta-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 16px;
+    padding: 3.5rem;
+    margin: 6rem 0 0 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    overflow: hidden;
+  }
+  
+  .cta-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(56, 210, 210, 0.15), transparent 60%);
+    z-index: -1;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .cta-text {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #38d2d2;
+    color: #000000;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .hero-button:hover {
+    background-color: #2ab8b8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.3);
+  }
+  
+  .hero-button-primary {
+    background-color: #38d2d2;
+    color: #000000;
+  }
+  
+  .hero-button-primary:hover {
+    background-color: #2ab8b8;
+  }
+  
+  .button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.4rem;
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(0) translateX(20px);
+    }
+    75% {
+      transform: translateY(20px) translateX(10px);
+    }
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .shipping-heading {
+      font-size: 4rem;
+    }
+    
+    .shipping-subheading {
+      font-size: 1.4rem;
+    }
+    
+    .shipping-section-title {
+      font-size: 2.3rem;
+    }
+    
+    .cta-title {
+      font-size: 3rem;
+    }
+    
+    .cta-text {
+      font-size: 1.4rem;
+    }
+    
+    .cta-container {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Shipping Policy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "מדיניות משלוחים מפורטת - כל מה שצריך לדעת על זמני אספקה, עלויות ותנאים"
+    },
+    {
+      "type": "textarea",
+      "id": "processing_time",
+      "label": "Processing Time Text",
+      "default": "כל הזמנה מטופלת תוך 1-2 ימי עסקים מרגע קבלתה במערכת. הזמנות שיבוצעו בסופי שבוع או בחגים יטופלו ביום העסקים הבא. אישור על קבלת ההזמנה יישלח בדוא״ל או SMS עם פרטי המשלוח, ומספר מעקב יישלח לאחר שליחת ההזמנה."
+    },
+    {
+      "type": "textarea",
+      "id": "shipping_methods",
+      "label": "Shipping Methods Intro Text",
+      "default": "זמן האספקה למשלוחים (בישראל ובינלאומי) הינו 5-14 ימי עסקים, ואינו כולל סופי שבוע, ערבי חג וחגים. עיכובים מעבר לטווח זה עשויים להתרחש בשל נסיבות שאינן תלויות בנו, לרבות עיכובים של חברות שילוח, עיכובים במכס, תנאי מזג אוויר, השבתות, מגבלות אזוריות ועוד."
+    },
+    {
+      "type": "textarea",
+      "id": "delivery_time",
+      "label": "Delivery Time Text",
+      "default": "משלוח רגיל חינם להזמנות מעל 199 ש״ח. עלות משלוח להזמנות מתחת ל-199 ש״ח – 30 ש״ח לכל יעד. AirSyncX שומרת לעצמה את הזכות לעדכן את מחירי המשלוח בכל עת, כאשר המחיר הסופי יוצג ללקוח לפני התשלום. במקרים חריגים (יעדים מרוחקים במיוחד) זמן האספקה או עלות המשלוח עשויים להשתנות."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_info",
+      "label": "Tracking Information Text",
+      "default": "על הלקוח לוודא כי פרטי הכתובת שמסר נכונים ומלאים. AirSyncX אינה אחראית לעיכובים או אי-אספקה עקב כתובת לא תקינה, חסרה, שגויה, או בלתי נגישה. במקרה שהמשלוח מוחזר עקב כתובת לא נכונה או אי-איסוף, יחויב הלקוח בעלות משלוח חוזר. מסירת החבילה תיעשה על פי נהלי חברות השילוח המקומיות, ייתכן ותידרש אסמכתא מזהה בעת המסירה."
+    },
+    {
+      "type": "textarea",
+      "id": "return_policy",
+      "label": "Return Policy Text",
+      "default": "AirSyncX אינה אחראית לעיכובים באספקה הנגרמים בשל גורמים שאינם בשליטתה הישירה, לרבות: שביתות, עיכובים במכס, מלחמות, מגפות, מגבלות בטחון, מזג אוויר קיצוני, תקלות טכניות של חברות השילוח, טעויות של צדדים שלישיים וכיוצא בזה. במידה והמוצר התקבל פגום או ניזוק – חובה לדווח תוך 48 שעות מקבלת המשלוח בצירוף תמונות ואישור מחברת השילוח. כל מס, מכס, עמלה או תשלום אחר הנדרש על פי דין במדינת היעד – יחולו על הלקוח בלבד."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "במקרה של משלוח שלא הגיע ליעדו בפרק הזמן הצפוי, יש לפנות לשירות הלקוחות עד 30 יום ממועד ביצוע ההזמנה. פתיחת בירור מול חברת השילוח תבוצע לאחר בדיקה ראשונית. AirSyncX שומרת לעצמה את הזכות לעדכן או לשנות את מדיניות המשלוחים בכל עת, והגרסה המחייבת היא זו שתוצג באתר במועד ביצוע ההזמנה."
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button Text",
+      "default": "צרו קשר - info@airsyncx.com"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "shipping_method",
+      "name": "Shipping Method",
+      "settings": [
+        {
+          "type": "select",
+          "id": "shipping_icon",
+          "label": "Shipping Icon",
+          "options": [
+            {
+              "value": "standard",
+              "label": "Standard Shipping"
+            },
+            {
+              "value": "express",
+              "label": "Express Shipping"
+            },
+            {
+              "value": "pickup",
+              "label": "Store Pickup"
+            },
+            {
+              "value": "international",
+              "label": "International Shipping"
+            }
+          ],
+          "default": "standard"
+        },
+        {
+          "type": "text",
+          "id": "method_name",
+          "label": "Method Name",
+          "default": "משלוח רגיל"
+        },
+        {
+          "type": "textarea",
+          "id": "method_details",
+          "label": "Method Details",
+          "default": "3-5 ימי עסקים לכל הארץ באמצעות חברת שליחויות מובילה"
+        },
+        {
+          "type": "text",
+          "id": "method_price",
+          "label": "Method Price",
+          "default": "₪25"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Shipping Policy",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "shipping_method",
+          "settings": {
+            "shipping_icon": "standard",
+            "method_name": "משלוח רגיל",
+            "method_details": "3-5 ימי עסקים לכל הארץ באמצעות חברת שליחויות מובילה",
+            "method_price": "₪25"
+          }
+        },
+        {
+          "type": "shipping_method",
+          "settings": {
+            "shipping_icon": "express",
+            "method_name": "משלוח אקספרס",
+            "method_details": "1-2 ימי עסקים לכל הארץ, כולל משלוחים עד הבית",
+            "method_price": "₪45"
+          }
+        },
+        {
+          "type": "shipping_method",
+          "settings": {
+            "shipping_icon": "pickup",
+            "method_name": "איסוף עצמי",
+            "method_details": "איסוף עצמי מהחנות שלנו בתל אביב בשעות הפעילות",
+            "method_price": "חינם"
+          }
+        },
+        {
+          "type": "shipping_method",
+          "settings": {
+            "shipping_icon": "international",
+            "method_name": "משלוח לחו\"ל",
+            "method_details": "7-14 ימי עסקים למרבית מדינות העולם, כולל מעקב מלא",
+            "method_price": "₪80-₪150"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

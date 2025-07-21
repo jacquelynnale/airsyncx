@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "airsyncx-footer": {
+      "type": "airsyncx-footer",
+      "blocks": {
+        "link_list": {
+          "type": "link_list",
+          "settings": {
+            "title": "קישורים מהירים",
+            "menu": "footer"
+          }
+        },
+        "text_info": {
+          "type": "text",
+          "settings": {
+            "title": "אודות AirSyncX",
+            "text": "<p>AirSyncX מציעה פתרונות חדשניים להפיכת מערכת ה-CarPlay ברכב לאלחוטית, ללא צורך בהתקנה מורכבת או שינויים ברכב.</p>"
+          }
+        },
+        "contact_info": {
+          "type": "contact",
+          "settings": {
+            "title": "יצירת קשר",
+            "phone": "03-1234567",
+            "email": "info@airsyncx.com",
+            "address": "רח' ההגנה 15, תל אביב"
+          }
+        }
+      },
+      "block_order": [
+        "link_list",
+        "text_info",
+        "contact_info"
+      ],
+      "settings": {
+        "footer_logo": "",
+        "tagline": "AirSyncX הופך את ה-CarPlay בכל רכב לאלחוטי באופן מיידי",
+        "newsletter_title": "הצטרפו לניוזלטר שלנו",
+        "newsletter_text": "קבלו עדכונים, מבצעים ומידע בלעדי ישירות לתיבת הדואר",
+        "newsletter_placeholder": "הזינו את כתובת המייל שלכם",
+        "newsletter_success": "תודה על ההרשמה לניוזלטר שלנו!",
+        "show_social": true,
+        "social_title": "עקבו אחרינו",
+        "copyright_text": "© [year] AirSyncX. כל הזכויות שמורות.",
+        "show_payment_icons": true
+      }
+    }
+  },
+  "order": [
+    "airsyncx-footer"
+  ]
+}

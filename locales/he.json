@@ -1,0 +1,1056 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "היכנס לחנות באמצעות סיסמה:",
+      "login_password_button": "היכנס באמצעות סיסמה",
+      "login_form_password_label": "סיסמה",
+      "login_form_password_placeholder": "הסיסמה שלך",
+      "login_form_error": "סיסמה שגויה!",
+      "login_form_submit": "היכנס",
+      "admin_link_html": "האם אתה בעל החנות? <a href=\"/admin\" class=\"link underlined-link\">התחבר כאן</a>",
+      "powered_by_shopify_html": "חנות זו תופעל על ידי {{ shopify }}"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "שתף בפייסבוק",
+        "share_on_twitter": "צייץ בטוויטר",
+        "share_on_pinterest": "פין בפינטרסט"
+      },
+      "links": {
+        "twitter": "טוויטר",
+        "facebook": "פייסבוק",
+        "pinterest": "פינטרסט",
+        "instagram": "אינסטגרם",
+        "tumblr": "טאמבלר",
+        "snapchat": "סנאפצ'אט",
+        "youtube": "יוטיוב",
+        "vimeo": "וימאו",
+        "tiktok": "טיקטוק"
+      }
+    },
+    "continue_shopping": "המשך קנייה",
+    "pagination": {
+      "label": "דפדוף",
+      "page": "דף {{ number }}",
+      "next": "הדף הבא",
+      "previous": "הדף הקודם"
+    },
+    "search": {
+      "search": "חיפוש",
+      "reset": "נקה את מונח החיפוש"
+    },
+    "cart": {
+      "view": "צפה בעגלה שלי ({{ count }})",
+      "view_empty_cart": "צפה בעגלה שלי",
+      "item_added": "פריט נוסף לעגלה שלך"
+    },
+    "share": {
+      "close": "סגור שיתוף",
+      "copy_to_clipboard": "העתק קישור",
+      "share_url": "קישור",
+      "success_message": "הקישור הועתק ללוח"
+    },
+    "slider": {
+      "of": "מתוך",
+      "next_slide": "החלק ימינה",
+      "previous_slide": "החלק שמאלה",
+      "name": "סליידר"
+    }
+  },
+  "newsletter": {
+    "label": "אימייל",
+    "success": "תודה שנרשמת",
+    "button_label": "הירשם"
+  },
+  "accessibility": {
+    "skip_to_text": "דלג לתוכן",
+    "skip_to_product_info": "דלג למידע על המוצר",
+    "close": "סגור",
+    "unit_price_separator": "ליחידה",
+    "vendor": "ספק:",
+    "error": "שגיאה",
+    "refresh_page": "בחירת אפשרות תגרום לרענון מלא של הדף.",
+    "link_messages": {
+      "new_window": "נפתח בחלון חדש.",
+      "external": "פותח אתר חיצוני."
+    },
+    "loading": "טוען...",
+    "total_reviews": "סך הביקורות",
+    "star_reviews_info": "{{ rating_value }} מתוך {{ rating_max }} כוכבים",
+    "collapsible_content_title": "תוכן מתקפל",
+    "complementary_products": "מוצרים משלימים"
+  },
+  "blogs": {
+    "article": {
+      "blog": "בלוג",
+      "read_more_title": "קרא עוד: {{ title }}",
+      "comments": {
+        "one": "{{ count }} תגובה",
+        "other": "{{ count }} תגובות"
+      },
+      "moderated": "שים לב, התגובות צריכות לקבל אישור לפני פרסומן.",
+      "comment_form_title": "השאר תגובה",
+      "name": "שם",
+      "email": "אימייל",
+      "message": "תגובה",
+      "post": "פרסם תגובה",
+      "back_to_blog": "חזרה לבלוג",
+      "share": "שתף מאמר זה",
+      "success": "התגובה שלך פורסמה בהצלחה! תודה!",
+      "success_moderated": "התגובה שלך פורסמה בהצלחה. אנו נפרסם אותה בקרוב, כיוון שהבלוג שלנו מנוהל."
+    }
+  },
+  "onboarding": {
+    "product_title": "דוגמה לכותרת מוצר",
+    "collection_title": "שם האוסף שלך"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "הוסף לעגלה",
+      "choose_options": "בחר אפשרויות",
+      "choose_product_options": "בחר אפשרויות עבור {{ product_name }}",
+      "description": "תיאור",
+      "inventory_in_stock": "במלאי",
+      "inventory_in_stock_show_count": "{{ quantity }} במלאי",
+      "inventory_low_stock": "מלאי נמוך",
+      "inventory_low_stock_show_count": "מלאי נמוך: נותרו {{ quantity }}",
+      "inventory_out_of_stock": "אזל מהמלאי",
+      "inventory_out_of_stock_continue_selling": "במלאי",
+      "sku": "מק\"ט",
+      "on_sale": "מבצע",
+      "product_variants": "וריאנטים של המוצר",
+      "media": {
+        "gallery_viewer": "צפייה בגלריה",
+        "load_image": "טען תמונה {{ index }} בתצוגת הגלריה",
+        "load_model": "טען מודל תלת מימדי {{ index }} בתצוגת הגלריה",
+        "load_video": "הפעל וידאו {{ index }} בתצוגת הגלריה",
+        "image_available": "תמונה {{ index }} זמינה כעת בתצוגת הגלריה",
+        "open_media": "פתח מדיה {{ index }} בחלונית",
+        "play_model": "הפעל צפייה בתלת מימד",
+        "play_video": "הפעל וידאו"
+      },
+      "quantity": {
+        "label": "כמות",
+        "input_label": "כמות עבור {{ product }}",
+        "increase": "הגדל כמות עבור {{ product }}",
+        "decrease": "הקטן כמות עבור {{ product }}",
+        "minimum_of": "מינימום של {{ quantity }}",
+        "maximum_of": "מקסימום של {{ quantity }}",
+        "multiples_of": "תוספות של {{ quantity }}",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> בעגלה"
+      },
+      "pickup_availability": {
+        "view_store_info": "צפה במידע על החנות",
+        "check_other_stores": "בדוק זמינות בחנויות אחרות",
+        "pick_up_available": "איסוף זמין",
+        "pick_up_available_at_html": "איסוף זמין ב <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "איסוף אינו זמין כרגע ב <span class=\"color-foreground\">{{ location_name }}</span>",
+        "unavailable": "לא ניתן לטעון זמינות איסוף",
+        "refresh": "רענן"
+      },
+      "price": {
+        "from_price_html": "החל מ {{ price }}",
+        "regular_price": "מחיר רגיל",
+        "sale_price": "מחיר מבצע",
+        "unit_price": "מחיר ליחידה"
+      },
+      "share": "שתף מוצר זה",
+      "sold_out": "אזל מהמלאי",
+      "unavailable": "לא זמין",
+      "vendor": "ספק",
+      "value_unavailable": "{{ option_value }} - לא זמין",
+      "variant_sold_out_or_unavailable": "וריאנט אזל או לא זמין",
+      "video_exit_message": "{{ title }} פותח וידאו במסך מלא באותו חלון.",
+      "view_full_details": "צפה בפרטים מלאים",
+      "xr_button": "צפה במרחב שלך",
+      "xr_button_label": "צפה במרחב שלך, טוען פריט בחלון מציאות רבודה",
+      "include_taxes": "מחיר כולל מע\"מ.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">משלוח</a> יחושב בקופה."
+    },
+    "modal": {
+      "label": "גלריית מדיה"
+    },
+    "facets": {
+      "apply": "החל",
+      "clear": "נקה",
+      "clear_all": "הסר הכל",
+      "from": "מ",
+      "filter_and_sort": "סינון ומיון",
+      "filter_by_label": "סנן לפי:",
+      "filter_button": "סנן",
+      "filters_selected": {
+        "one": "{{ count }} נבחר",
+        "other": "{{ count }} נבחרו"
+      },
+      "filter_selected_accessibility": "{{ type }} ({{ count }} מסננים נבחרו)",
+      "show_more": "הצג עוד",
+      "show_less": "הצג פחות",
+      "max_price": "המחיר הגבוה ביותר הוא {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} מתוך {{ count }} מוצר",
+        "other": "{{ product_count }} מתוך {{ count }} מוצרים"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} מוצר",
+        "other": "{{ count }} מוצרים"
+      },
+      "reset": "אפס",
+      "sort_button": "מיין",
+      "sort_by_label": "מיין לפי:",
+      "to": "עד",
+      "clear_filter": "הסר מסנן"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "דף לא נמצא",
+      "subtext": "404"
+    },
+    "search": {
+      "no_results": "לא נמצאו תוצאות עבור \"{{ terms }}\". בדוק את האיות או השתמש במילה או ביטוי אחר.",
+      "page": "דף",
+      "products": "מוצרים",
+      "results_pages_with_count": {
+        "one": "{{ count }} דף",
+        "other": "{{ count }} דפים"
+      },
+      "results_suggestions_with_count": {
+        "one": "{{ count }} הצעה",
+        "other": "{{ count }} הצעות"
+      },
+      "results_products_with_count": {
+        "one": "{{ count }} מוצר",
+        "other": "{{ count }} מוצרים"
+      },
+      "results_with_count": {
+        "one": "{{ count }} תוצאה",
+        "other": "{{ count }} תוצאות"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} תוצאה נמצאה עבור \"{{ terms }}\"",
+        "other": "{{ count }} תוצאות נמצאו עבור \"{{ terms }}\""
+      },
+      "title": "תוצאות חיפוש",
+      "search_for": "חפש \"{{ terms }}\"",
+      "suggestions": "הצעות",
+      "pages": "דפים"
+    },
+    "cart": {
+      "cart": "עגלה"
+    },
+    "contact": {
+      "form": {
+        "title": "טופס יצירת קשר",
+        "name": "שם",
+        "email": "אימייל",
+        "phone": "מספר טלפון",
+        "comment": "הערה",
+        "send": "שלח",
+        "post_success": "תודה שיצרת איתנו קשר. נחזור אליך בהקדם האפשרי.",
+        "error_heading": "אנא תקן את הבאים:"
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "announcement": "Announcement",
+      "menu": "Menu",
+      "cart_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      }
+    },
+    "cart": {
+      "title": "העגלה שלך",
+      "caption": "פריטים בעגלה",
+      "remove_title": "הסר {{ title }}",
+      "subtotal": "סיכום ביניים",
+      "new_subtotal": "סיכום ביניים חדש",
+      "note": "הוראות מיוחדות להזמנה",
+      "checkout": "לקופה",
+      "empty": "העגלה שלך ריקה",
+      "cart_error": "אירעה שגיאה בעת עדכון העגלה שלך. אנא נסה שוב.",
+      "cart_quantity_error_html": "ניתן להוסיף רק {{ quantity }} מפריט זה לעגלה שלך.",
+      "taxes_and_shipping_policy_at_checkout_html": "מסים ו<a href=\"{{ link }}\">דמי משלוח</a> מחושבים בקופה",
+      "taxes_included_but_shipping_at_checkout": "מס כלול ודמי משלוח מחושבים בקופה",
+      "taxes_included_and_shipping_policy_html": "מס כלול. <a href=\"{{ link }}\">דמי משלוח</a> מחושבים בקופה.",
+      "taxes_and_shipping_at_checkout": "מסים ודמי משלוח מחושבים בקופה",
+      "headings": {
+        "product": "מוצר",
+        "price": "מחיר",
+        "total": "סה\"כ",
+        "quantity": "כמות",
+        "image": "תמונת מוצר"
+      },
+      "update": "עדכן",
+      "login": {
+        "title": "יש לך חשבון?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">התחבר</a> כדי לסיים את הרכישה מהר יותר."
+      },
+      "order_summary": "סיכום הזמנה",
+      "product_price": "מחיר מוצרים:",
+      "discounts": "הנחות:",
+      "shipping": "משלוח:",
+      "free": "חינם",
+      "vat_included": "מע\"מ (כלול):",
+      "total_payment": "סה\"כ לתשלום:",
+      "secure_checkout": "לתשלום מאובטח",
+      "continue_shopping": "המשך בקניות",
+      "taxes_included": "מחירים כוללים מע\"מ",
+      "shipping_policy_html": "דמי <a href=\"{{ link }}\" class=\"link underlined-link\">משלוח</a> מחושבים בקופה",
+      "saved": "חסכת {{ amount }} ברכישה מרובה!",
+      "stock_warning": "נותרו {{ quantity }} יחידות במלאי",
+      "free_shipping_message": "עוד {{ amount }} בלבד וחסכת את דמי המשלוח! 🚚💰",
+      "free_shipping_achieved": "הגעת למשלוח חינם! 🎉",
+      "free_shipping_celebrate": "הגעת למשלוח חינם! 🎉",
+      "item_remove": "הסר מהעגלה",
+      "empty_cart": {
+        "title": "העגלה שלך ריקה",
+        "subtitle": "עדיין לא הוספת מוצרים לעגלה. מוזמנים לעיין במגוון המוצרים שלנו ולהתחיל בחוויית קנייה חלקה ומהנה.",
+        "button": "לדף הבית"
+      },
+      "trust_badges": {
+        "secure": "SSL מאובטח",
+        "warranty": "שנה אחריות",
+        "returns": "30 יום החזר כספי"
+      }
+    },
+    "footer": {
+      "payment": "Payment methods"
+    },
+    "featured_blog": {
+      "view_all": "View all",
+      "onboarding_title": "Blog post",
+      "onboarding_content": "Give your customers a summary of your blog post"
+    },
+    "featured_collection": {
+      "view_all": "View all",
+      "view_all_label": "View all products in the {{ collection_name }} collection"
+    },
+    "collection_list": {
+      "view_all": "View all"
+    },
+    "collection_template": {
+      "empty": "No products found",
+      "title": "Collection",
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
+    },
+    "video": {
+      "load_video": "Load video: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "Load slide",
+      "previous_slideshow": "Previous slide",
+      "next_slideshow": "Next slide",
+      "pause_slideshow": "Pause slideshow",
+      "play_slideshow": "Play slideshow",
+      "carousel": "Carousel",
+      "slide": "Slide"
+    },
+    "page": {
+      "title": "Page title"
+    },
+    "main-cart-footer": {
+      "name": "עגלה",
+      "blocks": {
+        "subtotal": {
+          "name": "סיכום ביניים"
+        },
+        "buttons": {
+          "name": "כפתורים"
+        }
+      }
+    },
+    "airsyncx_faq": {
+      "quick_answer": "למענה מהיר",
+      "faq_title": "שאלות נפוצות",
+      "questions": "שאלות",
+      "highlighted": "נפוצות",
+      "still_have_questions": "עדיין יש לך שאלות?",
+      "support_text": "אם לא מצאת תשובה לשאלתך, צוות התמיכה שלנו כאן כדי לעזור לך בכל בעיה.",
+      "contact_us": "צור קשר",
+      "faq_items": {
+        "compatibility_question": "האם המתאם תואם לרכב שלי?",
+        "compatibility_answer": "מתאם AirSyncX תואם לכל רכב המצויד ב-CarPlay מקורי וחוטי. אם הרכב שלך כבר תומך ב-CarPlay באמצעות חיבור USB, המתאם שלנו יעבוד בצורה מושלמת ויהפוך את החיבור לאלחוטי.",
+        "installation_question": "כמה זמן לוקח להתקין את המתאם?",
+        "installation_answer": "ההתקנה לוקחת פחות מדקה. פשוט חבר את המתאם ליציאת ה-USB של הרכב, התחבר אליו דרך הבלוטות' של הטלפון שלך והמערכת מוכנה לשימוש. אין צורך בהתקנה מקצועית או בשינויים ברכב.",
+        "warranty_question": "האם יש אחריות על המוצר?",
+        "warranty_answer": "כן, אנו מציעים אחריות מלאה לשנה על כל המוצרים שלנו. אם תיתקל בבעיה כלשהי עם המתאם, צוות התמיכה שלנו זמין לעזור לך ואנו נחליף את המוצר אם יימצא פגום.",
+        "connection_time_question": "כמה זמן לוקח למתאם להתחבר אוטומטית?",
+        "connection_time_answer": "לאחר ההגדרה הראשונית, המתאם יתחבר אוטומטית לטלפון שלך תוך 5-15 שניות מרגע הכניסה לרכב והפעלת המערכת. החיבור המהיר מאפשר לך להתחיל להשתמש ב-CarPlay כמעט באופן מיידי.",
+        "android_auto_question": "האם המתאם תומך גם ב-Android Auto?",
+        "android_auto_answer": "כן, המתאם שלנו תומך גם ב-CarPlay וגם ב-Android Auto. הוא יכול לעבוד עם שני סוגי המכשירים, כך שכל הנוסעים ברכב יכולים להשתמש במערכת בקלות, בין אם הם משתמשים באייפון או במכשיר אנדרואיד."
+      }
+    },
+    "airsyncx_hero": {
+      "badge_text": "חדש",
+      "title_line1": "שדרג את הנסיעה שלך",
+      "title_line2": "התחבר ללא גבולות",
+      "subtitle": "מתאם Apple CarPlay אלחוטי - פשוט, קל, ללא כבלים.",
+      "check_compatibility": "בדוק תאימות לרכב שלך ב-30 שניות 🚗",
+      "add_to_cart": "הזמן עכשיו",
+      "satisfied_customers": "לקוחות מרוצים",
+      "day_money_back": "יום החזר כספי",
+      "seconds_installation": "שניות התקנה",
+      "background_alt": "רקע",
+      "trust_badge_secure": "רכישה מאובטחת",
+      "trust_badge_secure_desc": "SSL מוצפן ותשלום בטוח",
+      "trust_badge_support": "תמיכה 24/7",
+      "trust_badge_support_desc": "שירות לקוחות מקצועי",
+      "trust_badge_shipping": "משלוח מהיר",
+      "trust_badge_shipping_desc": "מסירה תוך 3-5 ימי עסקים",
+      "trust_badge_rating": "דירוג מעולה",
+      "trust_badge_rating_desc": "4.9/5 חוות דעת לקוחות",
+      "wireless_carplay": "CarPlay אלחוטי",
+      "instant_connection": "חיבור מיידי ללא כבלים",
+      "rating_customers": "(מעל 1000+ לקוחות מרוצים)",
+      "adding_to_cart": "מוסיף לעגלה...",
+      "carplay_interface": "ממשק CarPlay",
+      "no_product_selected": "לא נבחר מוצר. אנא בחר מוצר בהגדרות הסקשן.",
+      "error_adding_to_cart": "שגיאה בהוספת המוצר לעגלה",
+      "product_added_successfully": "המוצר נוסף לעגלה בהצלחה!"
+    },
+    "airsyncx_why_us": {
+      "eyebrow": "היתרונות שלנו",
+      "title_part1": "למה ",
+      "title_part2": "לבחור בנו",
+      "description": "חווית המשתמש הטובה ביותר בשוק, עם חיבור קל ומהיר בכל רכב תואם",
+      "feature1_title": "התקנה מהירה",
+      "feature1_description": "חבר את המתאם ליציאת ה-USB ותוך שניות תוכל להתחיל להשתמש ב-CarPlay אלחוטי ללא כל התקנה מסובכת.",
+      "feature2_title": "חיבור אוטומטי",
+      "feature2_description": "ברגע שתיכנס לרכב, המתאם יתחבר אוטומטית לטלפון שלך תוך שניות ויפעיל את CarPlay ללא מגע.",
+      "feature3_title": "ביצועים מעולים",
+      "feature3_description": "בזכות מעבד חזק וטכנולוגיה מתקדמת, המתאם מספק חיבור יציב ואמין עם עיכוב מינימלי.",
+      "feature4_title": "אחריות מלאה",
+      "feature4_description": "אנו מספקים אחריות מלאה לשנה על כל המוצרים שלנו, עם שירות לקוחות מקצועי וזמין.",
+      "order_now": "הזמן עכשיו",
+      "comparison_table": "טבלת השוואה"
+    },
+    "airsyncx_about": {
+      "eyebrow": "גלה חדשנות",
+      "title_part1": "מה זה ",
+      "title_part2": "AirSyncX",
+      "title_part3": "?",
+      "description": "AirSyncX הוא מתאם חכם וקומפקטי שמתחבר ליציאת ה-USB של הרכב שלך והופך את CarPlay לאלחוטי - תוך פחות מ-10 שניות מההפעלה.",
+      "features": {
+        "compatibility": "תואם לכל רכב עם CarPlay חוטי",
+        "connection": "חיבור בלוטות' מהיר ואמין",
+        "installation": "התקנה עצמית פשוטה"
+      },
+      "click_to_watch": "לחץ לצפייה",
+      "video_not_supported": "הדפדפן שלך אינו תומך בהפעלת וידאו",
+      "video_alt_text": "סרטון AirSyncX",
+      "adding_to_cart": "מוסיף לעגלה..."
+    },
+    "airsyncx_comparison": {
+      "eyebrow": "השוואה מתקדמת",
+      "title": "למה <span class=\"highlight\">AirSyncX</span> עולה על כל המתחרים?",
+      "description": "השוואה מפורטת המציגה בדיוק מדוע AirSyncX הוא הבחירה הטובה ביותר בשוק",
+      "button_text": "הזמן עכשיו",
+      "price": "299",
+      "table": {
+        "features_header": "תכונות",
+        "generic_competitor": "מתאמים גנריים",
+        "airsyncx_pro": "AirSyncX PRO",
+        "premium_badge": "PREMIUM",
+        "connection_time": {
+          "feature": "זמן חיבור",
+          "generic_value": "30+ שניות",
+          "generic_quality": "איטי",
+          "airsyncx_value": "5 שניות",
+          "airsyncx_quality": "6x מהר יותר"
+        },
+        "connection_quality": {
+          "feature": "חיבור",
+          "generic_value": "בסיסי",
+          "generic_quality": "ניתוקים תכופים",
+          "airsyncx_value": "100% יציב",
+          "airsyncx_quality": "ללא ניתוקים"
+        },
+        "car_compatibility": {
+          "feature": "תאימות",
+          "generic_value": "60-70%",
+          "generic_quality": "מוגבל",
+          "airsyncx_value": "100%",
+          "airsyncx_quality": "כל הרכבים"
+        },
+        "warranty": {
+          "feature": "אחריות",
+          "generic_value": "3-6 חודשים",
+          "generic_quality": "מוגבלת",
+          "airsyncx_value": "שנה מלאה",
+          "airsyncx_quality": "החזר מלא"
+        },
+        "support": {
+          "feature": "תמיכה",
+          "generic_value": "אין",
+          "generic_quality": "ללא תמיכה",
+          "airsyncx_value": "24/7",
+          "airsyncx_quality": "תמיכה מלאה"
+        },
+        "updates": {
+          "feature": "עדכונים",
+          "generic_value": "ידני",
+          "generic_quality": "מסובך",
+          "airsyncx_value": "אוטומטי",
+          "airsyncx_quality": "תמיד מעודכן"
+        }
+      },
+      "winner": {
+        "title": "מנצח ברור: AirSyncX",
+        "description": "עולה על המתחרים בכל פרמטר - איכות, מהירות, תמיכה ואחריות",
+        "stats": {
+          "faster": "מהיר יותר",
+          "compatibility": "תאימות",
+          "support": "תמיכה"
+       }
+      },
+      "cta": {
+        "title": "מוכן לחוות את ההבדל?",
+        "description": "הזמן את AirSyncX עכשיו וגלה מדוע הוא הבחירה הטובה ביותר",
+        "button_text": "הזמן עכשיו"
+      }
+    },
+    "airsyncx_reviews": {
+      "eyebrow": "המלצות",
+      "title_part1": "מה ",
+      "title_part2": "לקוחות",
+      "title_part3": " אומרים עלינו",
+      "prev_review": "ביקורת קודמת",
+      "next_review": "ביקורת הבאה",
+      "review_label": "ביקורת",
+      "verified_purchase": "רכישה מאומתת",
+      "purchased_ago": "רכש לפני {{ time }}"
+    },
+    "airsyncx_gallery": {
+      "eyebrow": "תמונות מהשטח",
+      "title_part1": "הגלריה ",
+      "title_part2": "שלנו",
+      "description": "גלה את המתאם האלחוטי שלנו בפעולה בדגמי רכב והתקנות שונות",
+      "name": "גלריית AirSyncX",
+      "settings": {
+        "title": {
+          "label": "תיאור הגלריה"
+        }
+      },
+      "blocks": {
+        "gallery_item": {
+          "name": "פריט גלריה",
+          "settings": {
+            "item_image": {
+              "label": "תמונה"
+            },
+            "item_title": {
+              "label": "כותרת"
+            },
+            "item_description": {
+              "label": "תיאור"
+            }
+          }
+        }
+      },
+      "presets": {
+        "blocks": {
+          "minimalist_design": {
+            "title": "עיצוב מינימליסטי",
+            "description": "עיצוב קומפקטי ואלגנטי שמתאים לכל רכב"
+          },
+          "advanced_connectivity": {
+            "title": "קישוריות מתקדמת",
+            "description": "משתמש בטכנולוגיית הבלוטות' וה-WiFi המתקדמת ביותר לחיבור מהיר ואמין"
+          },
+          "wireless_experience": {
+            "title": "חוויה ללא כבלים",
+            "description": "תגידו שלום לבלגן הכבלים ברכב והתחברו אוטומטית בכל נסיעה"
+          }
+        }
+      }
+    },
+    "airsyncx_tech_specs": {
+      "eyebrow": "מפרט מלא",
+      "title_part1": "מפרט ",
+      "title_part2": "טכני",
+      "product_alt": "מוצר AirSyncX",
+      "presets": {
+        "blocks": {
+          "connectivity": {
+            "title": "קישוריות",
+            "value": "בלוטות' 5.0 + WiFi 5G/2.4G"
+          },
+          "processor": {
+            "title": "מעבד",
+            "value": "Quad-core 1.8GHz"
+          },
+          "memory": {
+            "title": "זיכרון",
+            "value": "2GB RAM"
+          },
+          "power": {
+            "title": "חשמל",
+            "value": "5V/1A USB"
+          },
+          "compatibility": {
+            "title": "תאימות",
+            "value": "iOS 13.0 ומעלה"
+          },
+          "dimensions": {
+            "title": "מידות ומשקל",
+            "value": "7.5 x 5.2 x 2.0 ס\"מ, 45 גרם"
+          }
+        }
+      }
+    },
+    "airsyncx_quick_compatibility": {
+      "eyebrow": "לשימוש מיידי",
+      "title_part1": "בדיקת ",
+      "title_part2": "תאימות",
+      "compatibility_note": "המתאם תואם רק לרכבים בעלי CarPlay חוטי מובנה מהיצרן",
+      "car_brand_label": "מותג רכב",
+      "car_model_label": "דגם רכב",
+      "car_year_label": "שנה",
+      "select_brand": "בחר מותג...",
+      "select_brand_first": "בחר מותג תחילה...",
+      "select_model_first": "בחר דגם תחילה...",
+      "check_button": "בדוק",
+      "verified_purchase": "רכישה מאומתת",
+      "previous_review": "ביקורת קודמת",
+      "next_review": "ביקורת הבאה",
+      "compatible_result": "הרכב שלך תואם למתאם AirSyncX!",
+      "incompatible_result": "הרכב שלך לא תואם למתאם AirSyncX",
+      "compatibility_check_error": "שגיאה בבדיקת התאימות",
+      "select_model": "בחר דגם...",
+      "select_year": "בחר שנה...",
+      "compatible_details": "השתחרר מהכבלים והפוך את חווית ה-CarPlay שלך לאלחוטית עוד היום!",
+      "buy_now": "קנה עכשיו",
+      "incompatible_result": "לצערנו, ה-{model} משנת {year} אינו תואם. <a href=\"/pages/contact\" class=\"result-cta\">צור קשר</a> למידע נוסף.",
+      "car_brands": {
+        "audi": "אאודי",
+        "bmw": "ב.מ.וו",
+        "ford": "פורד",
+        "honda": "הונדה",
+        "hyundai": "יונדאי",
+        "kia": "קיה",
+        "mazda": "מאזדה",
+        "mercedes": "מרצדס",
+        "nissan": "ניסאן",
+        "peugeot": "פיז'ו",
+        "skoda": "סקודה",
+        "toyota": "טויוטה",
+        "volkswagen": "פולקסווגן",
+        "volvo": "וולוו"
+      }
+    }
+  },
+  "localization": {
+    "country_label": "מדינה/אזור",
+    "language_label": "שפה",
+    "update_language": "עדכן שפה",
+    "update_country": "עדכן מדינה/אזור"
+  },
+  "customer": {
+    "account": {
+      "title": "חשבון",
+      "details": "פרטי חשבון",
+      "view_addresses": "צפה בכתובות",
+      "return": "חזור לפרטי חשבון"
+    },
+    "account_fallback": "חשבון",
+    "activate_account": {
+      "title": "הפעל חשבון",
+      "subtext": "צור את הסיסמה שלך להפעלת החשבון.",
+      "password": "סיסמה",
+      "password_confirm": "אשר סיסמה",
+      "submit": "הפעל חשבון",
+      "cancel": "דחה הזמנה"
+    },
+    "addresses": {
+      "title": "כתובות",
+      "default": "ברירת מחדל",
+      "add_new": "הוסף כתובת חדשה",
+      "edit_address": "ערוך כתובת",
+      "first_name": "שם פרטי",
+      "last_name": "שם משפחה",
+      "company": "חברה",
+      "address1": "כתובת 1",
+      "address2": "כתובת 2",
+      "city": "עיר",
+      "country": "מדינה/אזור",
+      "province": "מחוז",
+      "zip": "מיקוד",
+      "phone": "טלפון",
+      "set_default": "הגדר ככתובת ברירת מחדל",
+      "add": "הוסף כתובת",
+      "update": "עדכן כתובת",
+      "cancel": "בטל",
+      "edit": "ערוך",
+      "delete": "מחק",
+      "delete_confirm": "האם אתה בטוח שברצונך למחוק כתובת זו?"
+    },
+    "log_in": "התחבר",
+    "log_out": "התנתק",
+    "login_page": {
+      "cancel": "בטל",
+      "create_account": "צור חשבון",
+      "email": "אימייל",
+      "forgot_password": "שכחת את הסיסמה?",
+      "guest_continue": "המשך",
+      "guest_title": "המשך כאורח",
+      "password": "סיסמה",
+      "title": "התחברות",
+      "sign_in": "היכנס",
+      "submit": "שלח",
+      "subtitle": "אם יש לך חשבון, אנא התחבר."
+    },
+    "order": {
+      "title": "הזמנה {{ name }}",
+      "date_html": "בוצעה ב-{{ date }}",
+      "cancelled_html": "ההזמנה בוטלה ב-{{ date }}",
+      "cancelled_reason": "סיבה: {{ reason }}",
+      "billing_address": "כתובת לחיוב",
+      "payment_status": "סטטוס תשלום",
+      "shipping_address": "כתובת למשלוח",
+      "fulfillment_status": "סטטוס מילוי",
+      "discount": "הנחה",
+      "shipping": "משלוח",
+      "tax": "מס",
+      "product": "מוצר",
+      "sku": "מק\"ט",
+      "price": "מחיר",
+      "quantity": "כמות",
+      "total": "סה\"כ",
+      "total_refunded": "הוחזר",
+      "fulfilled_at_html": "מולא ב-{{ date }}",
+      "track_shipment": "עקוב אחר משלוח",
+      "tracking_url": "קישור מעקב",
+      "tracking_company": "מוביל",
+      "tracking_number": "מספר מעקב",
+      "subtotal": "סיכום ביניים",
+      "total_duties": "מכסים"
+    },
+    "orders": {
+      "title": "היסטוריית הזמנות",
+      "order_number": "הזמנה",
+      "order_number_link": "הזמנה מספר {{ number }}",
+      "date": "תאריך",
+      "payment_status": "סטטוס תשלום",
+      "fulfillment_status": "סטטוס מילוי",
+      "total": "סה\"כ",
+      "none": "עדיין לא ביצעת הזמנות."
+    },
+    "recover_password": {
+      "title": "אפס את הסיסמה שלך",
+      "subtext": "אנו נשלח לך אימייל לאיפוס הסיסמה שלך",
+      "success": "שלחנו לך אימייל עם קישור לעדכון הסיסמה שלך."
+    },
+    "register": {
+      "title": "צור חשבון",
+      "first_name": "שם פרטי",
+      "last_name": "שם משפחה",
+      "email": "אימייל",
+      "password": "סיסמה",
+      "submit": "צור"
+    },
+    "reset_password": {
+      "title": "אפס סיסמת חשבון",
+      "subtext": "הזן סיסמה חדשה",
+      "password": "סיסמה",
+      "password_confirm": "אשר סיסמה",
+      "submit": "אפס סיסמה"
+    },
+    "sign_up": "הירשם"
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "הנה כרטיס המתנה שלך בסך {{ value }} עבור {{ shop }}!",
+      "subtext": "כרטיס המתנה שלך",
+      "gift_card_code": "קוד כרטיס מתנה",
+      "shop_link": "המשך קנייה",
+      "remaining_html": "נותרו {{ balance }}",
+      "add_to_apple_wallet": "הוסף לארנק אפל",
+      "qr_image_alt": "קוד QR — סרוק למימוש כרטיס מתנה",
+      "copy_code": "העתק קוד",
+      "expired": "פג תוקף",
+      "copy_code_success": "הקוד הועתק בהצלחה",
+      "print_gift_card": "הדפס"
+    }
+  },
+  "airsyncx": {
+    "product": {
+      "main_title": "מתאם CarPlay ו-Android Auto אלחוטי",
+      "subtitle": "הפוך את ה-CarPlay החוטי שלך לאלחוטי עם המתאם הפרימיום שלנו",
+      "tagline": "חיבור מהיר | תאימות אוניברסלית | התקנה קלה",
+      "features": {
+        "wireless_title": "חופש אלחוטי",
+        "wireless_text": "התחבר אוטומטית למערכת הרכב שלך ללא כבלים",
+        "compatibility_title": "תאימות אוניברסלית",
+        "compatibility_text": "עובד עם כל הרכבים המצוידים ב-CarPlay חוטי מקורי",
+        "installation_title": "התקנת Plug & Play",
+        "installation_text": "אין צורך בידע טכני, מתחבר תוך שניות",
+        "dual_system_title": "תומך בשתי המערכות",
+        "dual_system_text": "תואם גם ל-Apple CarPlay וגם ל-Android Auto"
+      },
+      "cta": {
+        "buy_now": "קנה עכשיו",
+        "add_to_cart": "הוסף לעגלה",
+        "learn_more": "למד עוד"
+      },
+      "specs": {
+        "title": "מפרט טכני",
+        "connection": "חיבור",
+        "connection_detail": "בלוטות' 5.0 ו-Wi-Fi",
+        "compatibility": "תאימות",
+        "compatibility_detail": "CarPlay ו-Android Auto",
+        "input": "קלט",
+        "input_detail": "USB Type-C",
+        "output": "פלט",
+        "output_detail": "USB Type-A (לרכב)",
+        "dimensions": "מידות",
+        "dimensions_detail": "2.2\" x 1.8\" x 0.6\"",
+        "support": "תמיכה",
+        "support_detail": "שירות לקוחות 24/7"
+      }
+    },
+    "homepage": {
+      "hero": {
+        "title": "חתוך את הכבל",
+        "subtitle": "המתאם האלחוטי ל-CarPlay ו-Android Auto שהרכב שלך ראוי לו",
+        "cta": "קנה עכשיו"
+      },
+      "benefits": {
+        "title": "למה לבחור ב-AirSyncX?",
+        "subtitle": "חווה את החופש של קישוריות אלחוטית"
+      },
+      "testimonials": {
+        "title": "מה הלקוחות שלנו אומרים",
+        "subtitle": "אמון על ידי אלפי נהגים ברחבי העולם"
+      },
+      "compatibility": {
+        "title": "תואם לרכב שלך",
+        "subtitle": "עובד עם כל הרכבים שיש להם CarPlay חוטי או Android Auto",
+        "check_cta": "בדוק תאימות"
+      }
+    },
+    "footer": {
+      "company": "חברה",
+      "about_us": "עלינו",
+      "contact": "צור קשר",
+      "careers": "קריירה",
+      "support": "תמיכה",
+      "faq": "שאלות נפוצות",
+      "shipping": "משלוחים והחזרות",
+      "warranty": "אחריות",
+      "legal": "משפטי",
+      "privacy": "מדיניות פרטיות",
+      "terms": "תנאי שירות",
+      "refund": "מדיניות החזרים",
+      "newsletter": {
+        "title": "הישאר מעודכן",
+        "subtitle": "הירשם כדי לקבל את העדכונים וההצעות האחרונים",
+        "placeholder": "כתובת האימייל שלך",
+        "button": "הירשם"
+      },
+      "copyright": "© 2023 AirSyncX. כל הזכויות שמורות."
+    },
+    "nav": {
+      "shop": "חנות",
+      "products": "מוצרים",
+      "accessories": "אביזרים",
+      "bundles": "חבילות",
+      "support": "תמיכה",
+      "compatibility": "תאימות",
+      "installation": "מדריך התקנה",
+      "faq": "שאלות נפוצות",
+      "track_order": "עקוב אחר הזמנה",
+      "account": "חשבון",
+      "cart": "עגלה"
+    }
+  },
+  "footer": {
+    "social": {
+      "follow_us": "עקבו אחרינו",
+      "facebook": "פייסבוק",
+      "instagram": "אינסטגרם",
+      "tiktok": "טיקטוק"
+    },
+    "navigation": {
+      "search": "חיפוש",
+      "about": "אודות",
+      "contact": "צור קשר",
+      "faq": "שאלות נפוצות",
+      "shipping": "משלוחים והחזרות",
+      "terms": "תנאי שירות",
+      "privacy": "מדיניות פרטיות",
+      "refund": "מדיניות החזרים",
+      "blog": "בלוג",
+      "compatibility": "תאימות",
+      "instructions": "הוראות",
+      "support": "תמיכה"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "contact": {
+        "contact_method_title": "אימייל או טלפון"
+      },
+      "marketing": {
+        "accept_marketing_checkbox_label": "שלח לי מעקב חי ועדכוני הזמנה"
+      },
+      "general": {
+        "continue_to_payment_method": "אשר בחירת משלוח",
+        "pay_now_button_label": "השלם רכישה"
+      },
+      "shipping": {
+        "shipping_method_title": "שיטת משלוח"
+      },
+      "payment": {
+        "title": "תשלום מאובטח",
+        "card_security_notice": "כל העסקאות מאובטחות ומוצפנות. ההזמנה שלך כוללת החזרות חינם וגישה 24/7 לשירות הלקוחות עטור הפרסים שלנו"
+      },
+      "delivery_options": {
+        "shipping_address": "כתובת למשלוח"
+      }
+    },
+    "sentence": {
+      "two_words_connector": " ו-",
+      "last_word_connector": ", ו-"
+    }
+  },
+  "custom_privacy_policy": {
+    "title": "מדיניות פרטיות",
+    "subtitle": "ב-AirSyncX אנו מחויבים להגן על פרטיותך. מדיניות זו מסבירה כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך.",
+    "intro_content": "אנו ב-AirSyncX (\"אנו\", \"שלנו\", \"החברה\") מכבדים את פרטיותך ומחויבים להגן על המידע האישי שאתה חולק איתנו. אנו מסבירים במדיניות פרטיות זו כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך בעת שימוש באתר האינטרנט ובשירותים שלנו. אנו מבקשים שתקרא בעיון מדיניות פרטיות זו כדי להבין את הנהלים שלנו בנוגע למידע שלך.",
+    "contact_title": "שאלות לגבי מדיניות הפרטיות שלנו?",
+    "contact_content": "אם יש לך שאלות או חששות לגבי מדיניות הפרטיות שלנו, אנא אל תהסס לפנות אלינו. צוות שירות הלקוחות שלנו יענה על כל שאלותיך.",
+    "sections": {
+      "info_collection": {
+        "title": "איסוף מידע",
+        "content": "אנו אוספים מידע שאתה מספק לנו ישירות, כגון בעת יצירת חשבון, ביצוע רכישה, הרשמה לניוזלטר שלנו או פנייה אלינו לקבלת תמיכה."
+      },
+      "info_use": {
+        "title": "שימוש במידע",
+        "content": "אנו משתמשים במידע שאנו אוספים כדי לספק, לתחזק ולשפר את השירותים שלנו, לעבד עסקאות, לשלוח הודעות ולציית לחובות משפטיות."
+      },
+      "info_sharing": {
+        "title": "שיתוף מידע",
+        "content": "אנו לא מוכרים, סוחרים או מעבירים בדרך אחרת את המידע האישי שלך לצדדים שלישיים ללא הסכמתך, למעט כפי שמתואר במדיניות זו."
+      },
+      "data_security": {
+        "title": "אבטחת מידע",
+        "content": "אנו מיישמים אמצעי אבטחה מתאימים כדי להגן על המידע האישי שלך מפני גישה, שינוי, חשיפה או השמדה בלתי מורשים."
+      },
+      "cookies": {
+        "title": "עוגיות ומעקב",
+        "content": "אנו משתמשים בעוגיות ובטכנולוגיות מעקב דומות כדי לשפר את חווית הגלישה שלך ולנתח את תעבורת האתר."
+      },
+      "updates": {
+        "title": "עדכוני מדיניות",
+        "content": "אנו עשויים לעדכן את מדיניות הפרטיות שלנו מעת לעת. כל שינוי יפורסם באתר האינטרנט שלנו, וכאשר יהיו שינויים מהותיים, נודיע לך באמצעות דוא\"ל או באמצעות הודעה באתר שלנו."
+      }
+    }
+  },
+  "terms_service": {
+    "title": "תנאי שירות",
+    "subtitle": "תנאי שימוש ושירות באתר AirSyncX - אנא קרא בעיון",
+    "intro_content": "ברוכים הבאים לתנאי השירות של AirSyncX. המשך השימוש באתר ובשירותים שלנו מהווה הסכמה לתנאים אלה. מסמך זה מפרט את זכויותינו, חובותינו והתחייבויותינו בנוגע לשימוש באתר שלנו ולרכישת המוצרים שלנו.",
+    "cta_text": "אם יש לך שאלות נוספות לגבי תנאי השירות שלנו, אנא אל תהסס לפנות אלינו",
+    "cta_button_text": "צור קשר",
+    "sections": {
+      "user_agreement": {
+        "title": "הסכם משתמש",
+        "content": "על ידי גישה או שימוש בחנות AirSyncX, אתה מסכים לציית לתנאים אלה. אם אינך מסכים לכל התנאים, אין לך הרשאה להשתמש בחנות שלנו."
+      },
+      "website_use": {
+        "title": "שימוש באתר",
+        "content": "אתר זה מיועד לשימוש אישי ולא מסחרי. אינך רשאי להעתיק, להפיץ, לשכפל או להשתמש בתוכן האתר למטרות מסחריות ללא אישור מפורש בכתב."
+      },
+      "intellectual_property": {
+        "title": "קניין רוחני",
+        "content": "כל התוכן באתר זה, כולל טקסט, גרפיקה, לוגואים, אייקונים, תמונות ותוכנה, הוא רכושה הבלעדי של AirSyncX ומוגן על ידי חוקי הקניין הרוחני."
+      },
+      "user_accounts": {
+        "title": "חשבונות משתמשים",
+        "content": "בעת יצירת חשבון באתר שלנו, אתה אחראי לשמירה על סודיות הסיסמה שלך ועל כל הפעילויות המתרחשות תחת חשבונך."
+      }
+    }
+  },
+  "airsyncx_faq": {
+    "title": "שאלות נפוצות",
+    "subtitle": "מצא תשובות לשאלות נפוצות על AirSyncX",
+    "questions": {
+      "compatibility": {
+        "question": "האם AirSyncX תואם לרכב שלי?",
+        "answer": "AirSyncX עובד עם כל רכב שיש לו CarPlay חוטי או Android Auto מהמפעל. השתמש בבודק התאימות שלנו כדי לאמת את הרכב הספציפי שלך."
+      },
+      "installation": {
+        "question": "איך מתקינים את AirSyncX?",
+        "answer": "פשוט חבר את AirSyncX ליציאת ה-USB של הרכב שלך במקום שבו אתה מחבר בדרך כלל את כבל הטלפון. תהליך ההגדרה הוא אוטומטי ואורך מספר שניות בלבד."
+      },
+      "connection": {
+        "question": "כמה מהר הוא מתחבר?",
+        "answer": "AirSyncX מתחבר בדרך כלל תוך 3-8 שניות מרגע הפעלת הרכב. ההגדרה הראשונית עשויה לארוך מעט יותר."
+      },
+      "multiple_phones": {
+        "question": "האם ניתן לחבר מספר טלפונים?",
+        "answer": "כן, AirSyncX יכול לזכור עד 3 טלפונים שונים ויתחבר אוטומטית למכשיר האחרון שנעשה בו שימוש בעת הפעלת הרכב."
+      },
+      "warranty": {
+        "question": "איזו אחריות אתם מציעים?",
+        "answer": "אנו מציעים אחריות מלאה לשנה על כל מוצרי AirSyncX, בתוספת 30 יום החזר כספי אם אינך מרוצה לחלוטין."
+      }
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "מחיר רגיל",
+        "sold_out": "אזל מהמלאי",
+        "unavailable": "לא זמין",
+        "on_sale": "מבצע",
+        "quantity": "כמות",
+        "add_to_cart": "הוסף לעגלה",
+        "back_to_collection": "חזרה ל-{{ title }}",
+        "view_details": "צפה בפרטים"
+      }
+    },
+    "article": {
+      "tags": "תגיות:",
+      "all_topics": "כל הנושאים",
+      "by_author": "מאת {{ author }}",
+      "posted_in": "פורסם ב",
+      "read_more": "קרא עוד",
+      "back_to_blog": "חזרה ל-{{ title }}"
+    },
+    "comments": {
+      "title": "השאר תגובה",
+      "name": "שם",
+      "email": "אימייל",
+      "message": "הודעה",
+      "post": "פרסם תגובה",
+      "moderated": "שים לב, יש לאשר תגובות לפני פרסומן",
+      "success_moderated": "התגובה שלך פורסמה בהצלחה. אנו נפרסם אותה בקרוב, מכיוון שהבלוג שלנו מנוהל.",
+      "success": "התגובה שלך פורסמה בהצלחה! תודה!",
+      "comments_with_count": {
+        "one": "{{ count }} תגובה",
+        "other": "{{ count }} תגובות"
+      }
+    },
+    "password_page": {
+      "login_form_message": "היכנס לחנות באמצעות סיסמה:",
+      "login_form_password_label": "סיסמה",
+      "login_form_password_placeholder": "הסיסמה שלך",
+      "login_form_submit": "היכנס",
+      "signup_form_email_label": "אימייל",
+      "signup_form_success": "אנו נשלח לך אימייל ממש לפני שנפתח!",
+      "password_link": "היכנס באמצעות סיסמה"
+    }
+  }
+}

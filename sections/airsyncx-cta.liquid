@@ -1,0 +1,189 @@
+{% comment %}
+  AirSyncX CTA Section
+  Shows a call-to-action section with customizable content and button
+{% endcomment %}
+
+<div class="airsyncx-cta section-{{ section.id }}">
+  <div class="page-width">
+    <div class="cta-container">
+      {% if section.settings.heading != blank %}
+        <h2 class="cta-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <div class="cta-text">{{ section.settings.text }}</div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        {% liquid
+          assign button_tag = 'a'
+          assign button_attrs = 'href="' | append: section.settings.button_link | append: '"'
+          if section.settings.button_action_type == 'scroll_to_section'
+            assign button_tag = 'button'
+            assign button_attrs = 'type="button" data-action-type="scroll_to_section" data-scroll-target="#' | append: section.settings.button_scroll_target | append: '"'
+          elsif section.settings.button_action_type == 'open_popup'
+            assign button_tag = 'button'
+            assign button_attrs = 'type="button" data-action-type="open_popup" data-popup-target="#' | append: section.settings.button_popup_target | append: '"'
+          endif
+        %}
+        <{{ button_tag }} {{ button_attrs }} class="button{% if section.settings.button_style == 'secondary' %} button--secondary{% endif %}">
+          {{ section.settings.button_label }}
+        </{{ button_tag }}>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "AirSyncX CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Call to action"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Pair text with a call to action to encourage customer engagement.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop now"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "select",
+      "id": "button_action_type",
+      "label": "Button action type",
+      "options": [
+        {
+          "value": "link",
+          "label": "Link to URL"
+        },
+        {
+          "value": "scroll_to_section",
+          "label": "Scroll to section"
+        },
+        {
+          "value": "open_popup",
+          "label": "Open popup"
+        }
+      ],
+      "default": "link"
+    },
+    {
+      "type": "text",
+      "id": "button_scroll_target",
+      "label": "Scroll target (section ID)",
+      "info": "Enter the ID of the section to scroll to (e.g., 'my-section-id'). This will enable the button to scroll to a specific section on the page."
+    },
+    {
+      "type": "text",
+      "id": "button_popup_target",
+      "label": "Popup target (popup ID)",
+      "info": "Enter the ID of the popup to open (e.g., 'my-popup-id'). This will enable the button to open a specific popup."
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX CTA",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.airsyncx-cta {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-heading {
+  margin-bottom: 20px;
+}
+
+.cta-text {
+  margin-bottom: 30px;
+}
+{% endstylesheet %}
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.airsyncx-cta .button[data-action-type]').forEach(button => {
+      button.addEventListener('click', function(event) {
+        const actionType = this.dataset.actionType;
+        const target = this.dataset.scrollTarget || this.dataset.popupTarget;
+
+        if (!target) {
+          console.warn('Button action target is not defined.');
+          return;
+        }
+
+        switch (actionType) {
+          case 'scroll_to_section':
+            event.preventDefault();
+            const targetElement = document.querySelector(target);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              console.warn(`Scroll target element not found: ${target}`);
+            }
+            break;
+          case 'open_popup':
+            event.preventDefault();
+            const popupElement = document.querySelector(target);
+            if (popupElement) {
+              // Assuming a simple way to open a popup by adding/removing a class
+              // You might need to adjust this based on your theme's popup implementation
+              popupElement.classList.add('is-active');
+              // Add a mechanism to close the popup, e.g., clicking outside or a close button
+              popupElement.addEventListener('click', (e) => {
+                if (e.target === popupElement) {
+                  popupElement.classList.remove('is-active');
+                }
+              });
+            } else {
+              console.warn(`Popup target element not found: ${target}`);
+            }
+            break;
+          default:
+            // For 'link' type, the default href will handle navigation
+            break;
+        }
+      });
+    });
+  });
+{% endjavascript %}

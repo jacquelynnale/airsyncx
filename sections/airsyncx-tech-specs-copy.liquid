@@ -1,0 +1,659 @@
+<!-- AirSyncX Tech Specs Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section id="specs" class="airsyncx-specs">
+  <div class="background-shapes">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="wave-pattern"></div>
+  </div>
+
+  <div class="specs-container">
+    <div class="specs-header" data-aos="fade-up" data-aos-duration="800">
+      <div class="specs-eyebrow">{{ 'sections.airsyncx_tech_specs.eyebrow' | t }}</div>
+      <h2 class="specs-title">{{ 'sections.airsyncx_tech_specs.title_part1' | t }} <span class="highlight">{{ 'sections.airsyncx_tech_specs.title_part2' | t }}</span></h2>
+      <p class="specs-description">{{ section.settings.description }}</p>
+    </div>
+    
+    <div class="floating-product">
+      <div class="product-image">
+        <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/peoduct.png?v=1748800967" alt="AirSyncX Product" loading="lazy">
+      </div>
+    </div>
+    
+    <div class="specs-grid">
+      {% assign icons = 'memory,microchip,wifi,size_weight,compatibility,power' | split: ',' %}
+      {% assign icon_values = "memory,microchip,wifi,weight,mobile-alt,bolt" | split: "," %}
+      
+      {% for block in section.blocks %}
+        {% if block.type == 'spec_item' %}
+          <div class="specs-card" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+            <div class="specs-icon-wrapper">
+              <div class="specs-icon">
+                {% assign icon_type = block.settings.spec_title %}
+                {% assign icon_type_lower = icon_type | downcase | strip %}
+                {% case icon_type_lower %}
+                  {% when "memory" or "זיכרון" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                      <path d="M6 8h.01"></path>
+                      <path d="M10 8h.01"></path>
+                      <path d="M14 8h.01"></path>
+                      <path d="M18 8h.01"></path>
+                      <path d="M6 12h.01"></path>
+                      <path d="M10 12h.01"></path>
+                      <path d="M14 12h.01"></path>
+                      <path d="M18 12h.01"></path>
+                      <path d="M6 16h.01"></path>
+                      <path d="M10 16h.01"></path>
+                      <path d="M14 16h.01"></path>
+                      <path d="M18 16h.01"></path>
+                      <path d="M8 4v4"></path>
+                      <path d="M12 4v4"></path>
+                      <path d="M16 4v4"></path>
+                      <path d="M8 12v4"></path>
+                      <path d="M12 12v4"></path>
+                      <path d="M16 12v4"></path>
+                    </svg>
+                  {% when "processor" or "מעבד" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                      <rect x="9" y="9" width="6" height="6"></rect>
+                      <line x1="9" y1="2" x2="9" y2="4"></line>
+                      <line x1="15" y1="2" x2="15" y2="4"></line>
+                      <line x1="9" y1="20" x2="9" y2="22"></line>
+                      <line x1="15" y1="20" x2="15" y2="22"></line>
+                      <line x1="20" y1="9" x2="22" y2="9"></line>
+                      <line x1="20" y1="14" x2="22" y2="14"></line>
+                      <line x1="2" y1="9" x2="4" y2="9"></line>
+                      <line x1="2" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                  {% when "connectivity" or "קישוריות" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                      <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                      <circle cx="12" cy="20" r="1"></circle>
+                    </svg>
+                  {% when "dimensions and weight" or "מידות ומשקל" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 2H3a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+                      <path d="M4 9h2"/>
+                      <path d="M4 13h2"/>
+                      <path d="M4 17h2"/>
+                      <path d="M9 4v2"/>
+                      <path d="M13 4v2"/>
+                      <path d="M17 4v2"/>
+                    </svg>
+                  {% when "compatibility" or "תאימות" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12" y2="18.01"></line>
+                    </svg>
+                  {% when "power" or "חשמל" %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                  {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="8" x2="12" y2="16"></line>
+                      <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                {% endcase %}
+              </div>
+              <div class="icon-pulse"></div>
+            </div>
+            <div class="specs-content">
+              <h3>{{ block.settings.spec_title }}</h3>
+              <p>{{ block.settings.spec_value }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  
+  <!-- Removido o banner de compra conforme solicitado -->
+</section>
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+    
+    // Interactive effect for specs cards
+    const specsCards = document.querySelectorAll('.specs-card');
+    
+    specsCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.classList.add('active');
+        const iconPulse = this.querySelector('.icon-pulse');
+        if (iconPulse) {
+          iconPulse.style.opacity = '0.8';
+          iconPulse.style.transform = 'scale(1.2)';
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.classList.remove('active');
+        const iconPulse = this.querySelector('.icon-pulse');
+        if (iconPulse) {
+          iconPulse.style.opacity = '0.3';
+          iconPulse.style.transform = 'scale(1)';
+        }
+      });
+    });
+    
+    // Subtle movement for background elements
+    const circles = document.querySelectorAll('.circle');
+    window.addEventListener('mousemove', function(e) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      circles.forEach((circle, index) => {
+        const speed = index + 1;
+        const offsetX = (x - 0.5) * 30 * speed;
+        const offsetY = (y - 0.5) * 30 * speed;
+        circle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+    });
+  });
+</script>
+
+<style>
+  .airsyncx-specs * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-specs {
+    padding: 120px 0;
+    background-color: #000000;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+  }
+  
+  .background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 0.5s ease-out;
+  }
+  
+  .circle-1 {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.03) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .circle-2 {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.03) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .wave-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      repeating-linear-gradient(0deg, rgba(56, 210, 210, 0.02) 0px, rgba(56, 210, 210, 0.02) 1px, transparent 1px, transparent 20px),
+      repeating-linear-gradient(90deg, rgba(56, 210, 210, 0.02) 0px, rgba(56, 210, 210, 0.02) 1px, transparent 1px, transparent 20px);
+    opacity: 0.4;
+  }
+  
+  .specs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .specs-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+  }
+  
+  .specs-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .specs-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #38d2d2;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .specs-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .specs-description {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+  }
+  
+  .specs-card {
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(15, 15, 15, 0.5));
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+  }
+  
+  .specs-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.05), transparent);
+    transition: left 0.7s ease;
+  }
+  
+  .specs-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(56, 210, 210, 0.3);
+  }
+  
+  .specs-card:hover::before {
+    left: 100%;
+  }
+  
+  .specs-card.active {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.4), rgba(20, 20, 20, 0.6));
+  }
+  
+  .specs-icon-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .specs-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+  
+  .specs-card:hover .specs-icon {
+    background-color: #38d2d2;
+    transform: scale(1.1);
+  }
+  
+  .specs-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: #38d2d2;
+    transition: all 0.3s ease;
+  }
+  
+  .specs-card:hover .specs-icon svg {
+    stroke: #ffffff;
+    transform: scale(1.2);
+  }
+  
+  .icon-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.5) 0%, rgba(56, 210, 210, 0) 70%);
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .specs-content {
+    text-align: left;
+    flex-grow: 1;
+  }
+  
+  .specs-content h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .specs-card:hover .specs-content h3 {
+    color: #38d2d2;
+  }
+  
+  .specs-content p {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.3;
+    transition: all 0.3s ease;
+  }
+  
+  .specs-card:hover .specs-content p {
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  @media (max-width: 1200px) {
+    .specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    
+    .specs-title {
+      font-size: 5.2rem;
+    }
+    
+    .specs-description {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .airsyncx-specs {
+      padding: 100px 0;
+    }
+    
+    .specs-header {
+      margin-bottom: 60px;
+    }
+    
+    .specs-title {
+      font-size: 4.8rem;
+    }
+    
+    .specs-eyebrow {
+      font-size: 2rem;
+    }
+    
+    .specs-content h3 {
+      font-size: 2.6rem;
+    }
+    
+    .specs-content p {
+      font-size: 1.9rem;
+    }
+    
+    .specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .floating-product {
+      margin-bottom: 40px;
+    }
+    
+    .product-image img {
+      max-width: 160px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .specs-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .specs-title {
+      font-size: 4.2rem;
+    }
+    
+    .specs-description {
+      font-size: 2rem;
+    }
+    
+    .specs-card {
+      padding: 20px;
+      flex-direction: row;
+    }
+    
+    .specs-content h3 {
+      font-size: 2rem;
+    }
+    
+    .specs-content p {
+      font-size: 1.6rem;
+    }
+  }
+  
+  .floating-product {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  .product-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(56, 210, 210, 0.6));
+    animation: float 6s ease-in-out infinite;
+    background: transparent;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .magsafe-badge {
+    display: none;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.airsyncx_tech_specs.name",
+  "tag": "section",
+  "class": "airsyncx-tech-specs-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.airsyncx_tech_specs.settings.title.label",
+      "default": "Technical Specifications"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:sections.airsyncx_tech_specs.settings.description.label",
+      "default": "Our smart adapter comes with the most advanced technology to ensure a smooth and reliable user experience"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "t:sections.airsyncx_tech_specs.settings.product_image.label",
+      "info": "t:sections.airsyncx_tech_specs.settings.product_image.info"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "t:sections.airsyncx_tech_specs.settings.badge_text.label",
+      "default": "MagSafe תואם"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "spec_item",
+      "name": "t:sections.airsyncx_tech_specs.blocks.spec_item.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "spec_title",
+          "label": "t:sections.airsyncx_tech_specs.blocks.spec_item.settings.spec_title.label",
+          "default": "Connectivity"
+        },
+        {
+          "type": "text",
+          "id": "spec_value",
+          "label": "t:sections.airsyncx_tech_specs.blocks.spec_item.settings.spec_value.label",
+          "default": "Bluetooth 5.0 + WiFi 5G/2.4G"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX Tech Specs",
+      "blocks": [
+        {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "Connectivity",
+            "spec_value": "Bluetooth 5.0 + WiFi 5G/2.4G"
+          }
+        },
+        {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "Processor",
+            "spec_value": "Quad-core 1.8GHz"
+          }
+        },
+        {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "Memory",
+            "spec_value": "2GB RAM"
+          }
+        },
+        {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "Power",
+            "spec_value": "5V/1A USB"
+          }
+        },
+        {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "Compatibility",
+            "spec_value": "iOS 13.0 and above"
+          }
+        },
+        {
+          "type": "spec_item",
+          "settings": {
+            "spec_title": "Dimensions and Weight",
+            "spec_value": "7.5 x 5.2 x 2.0 cm, 45g"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

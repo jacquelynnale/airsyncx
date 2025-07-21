@@ -1,0 +1,1026 @@
+<!-- AirSyncX Header Component - Enhanced Version -->
+<!-- Preload logo image to prevent flash -->
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ChatGPT_Image_Apr_28_2025_08_28_33_PM_624c66dc-3a38-434d-97a3-656295f52514.png?v=1745861554" as="image">
+
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<style>
+  /* Reset and Base Styles */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    transition: opacity 0.25s;
+  }
+  
+  /* Force visibility of the header/logo during page load */
+  .airsyncx-header {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  .menu-loading .airsyncx-mobile-menu-fullscreen {
+    display: none !important;
+  }
+  
+  .airsyncx-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 1);
+  }
+  
+  .airsyncx-top-container {
+    position: relative;
+    height: 60px;
+    border-bottom: 1px solid rgba(56, 210, 210, 0.2);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Desktop Navigation Styles */
+  @media (min-width: 769px) {
+    .mobile-header {
+      display: none;
+    }
+  
+    .desktop-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 20px;
+    }
+  
+    .desktop-nav-left,
+    .desktop-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .desktop-nav-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+    .airsyncx-logo img {
+      height: 30px;
+      width: auto;
+    }
+  
+    .nav-cart {
+      color: #ffffff;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+  
+    .nav-cart:hover {
+      color: #38d2d2;
+    }
+  
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #38d2d2;
+      color: #000000;
+      font-size: 12px;
+      font-weight: 600;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .nav-search {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+  
+    .nav-search input {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 40px 8px 15px;
+      color: #ffffff;
+      font-size: 14px;
+      width: 200px;
+      transition: all 0.3s ease;
+    }
+  
+    .nav-search input:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      outline: none;
+    }
+  
+    .nav-search input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  
+    .nav-search button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+  
+    .nav-search button:hover {
+      color: #38d2d2;
+    }
+  }
+  
+  /* Mobile Navigation Styles */
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+  
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 15px;
+      background-color: rgba(0, 0, 0, 1);
+      height: 60px;
+      border-bottom: 1px solid rgba(56, 210, 210, 0.2);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+  
+    .mobile-logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      width: 50%;
+      max-width: 140px;
+      pointer-events: auto;
+    }
+    
+    .mobile-logo img {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+  
+    .mobile-cart-button {
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+  
+    .airsyncx-mobile-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      z-index: 2;
+    }
+  
+    .airsyncx-mobile-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+  
+    .mobile-cart-button svg {
+      width: 24px;
+      height: 24px;
+      transition: color 0.3s ease;
+    }
+  
+    .mobile-cart-button:hover svg {
+      color: #38d2d2;
+    }
+  
+    .mobile-cart-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #38d2d2;
+      color: #000000;
+      font-size: 12px;
+      font-weight: 600;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(30%, -30%);
+    }
+  }
+  
+  .airsyncx-nav-container {
+    position: relative;
+    border-top: 1px solid rgba(80, 80, 80, 0.15);
+    padding: 6px 40px;
+    max-width: 1200px;
+    margin: 4px auto 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .airsyncx-nav-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    pointer-events: none;
+  }
+  
+  .airsyncx-nav-list {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row-reverse; /* Change to right-to-left display */
+    justify-content: center;
+    gap: 35px;
+  }
+  
+  .airsyncx-nav-item {
+    position: relative;
+  }
+  
+  .airsyncx-nav-item a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+    padding: 4px 0;
+    position: relative;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .airsyncx-nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgba(56, 210, 210, 0.7);
+    transition: width 0.25s ease;
+  }
+  
+  .airsyncx-nav-item a:hover::after,
+  .airsyncx-nav-item.active a::after {
+    width: 100%;
+  }
+  
+  .airsyncx-nav-item a:hover,
+  .airsyncx-nav-item.active a {
+    color: rgba(56, 210, 210, 0.9);
+    font-weight: 500;
+  }
+
+  .airsyncx-logo,
+  .airsyncx-logo img,
+  .mobile-logo,
+  .mobile-logo img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+</style>
+
+<div class="airsyncx-header">
+  <div class="airsyncx-top-container">
+    <nav class="desktop-nav">
+      <div class="desktop-nav-left">
+        {% if section.settings.enable_search %}
+        <form action="/search" method="get" class="nav-search">
+          <input type="search" name="q" placeholder="{{ section.settings.search_placeholder | default: 'Search...' }}" aria-label="{% if request.locale.iso_code == 'he' %}חיפוש{% else %}Search{% endif %}">
+          <button type="submit" aria-label="{% if request.locale.iso_code == 'he' %}חיפוש{% else %}Search{% endif %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+        {% endif %}
+      </div>
+      <div class="desktop-nav-center">
+        <a href="/" class="airsyncx-logo">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}">
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ChatGPT_Image_Apr_28_2025_08_28_33_PM_624c66dc-3a38-434d-97a3-656295f52514.png?v=1745861554" alt="AirSyncX Logo">
+          {% endif %}
+        </a>
+      </div>
+      <div class="desktop-nav-right">
+        <a href="{{ routes.cart_url }}" class="nav-cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          {%- if cart.item_count > 0 -%}
+            <span class="cart-count">{{ cart.item_count }}</span>
+          {%- endif -%}
+        </a>
+      </div>
+    </nav>
+    
+    <div class="mobile-header">
+      <button class="airsyncx-mobile-toggle js-toggle-mobile-menu" aria-label="{% if request.locale.iso_code == 'he' %}תפריט{% else %}Menu{% endif %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="mobile-logo">
+        <a href="/">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}">
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ChatGPT_Image_Apr_28_2025_08_28_33_PM_624c66dc-3a38-434d-97a3-656295f52514.png?v=1745861554" alt="AirSyncX Logo">
+          {% endif %}
+        </a>
+      </div>
+      <a href="{{ routes.cart_url }}" class="mobile-cart-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        {%- if cart.item_count > 0 -%}
+          <span class="mobile-cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Menu Fullscreen -->
+<div class="airsyncx-mobile-menu-fullscreen" id="mobileMenu">
+  <div class="mobile-menu-container">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">
+        <a href="/">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}">
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0931/3724/0362/files/ChatGPT_Image_Apr_28_2025_08_28_33_PM_624c66dc-3a38-434d-97a3-656295f52514.png?v=1745861554" alt="AirSyncX Logo">
+          {% endif %}
+        </a>
+      </div>
+      <button class="mobile-menu-close js-close-mobile-menu" aria-label="{% if request.locale.iso_code == 'he' %}סגירה{% else %}Close{% endif %}">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <nav class="mobile-menu-nav">
+      <div class="mobile-menu-categories">
+        <div class="menu-category">
+          <div class="category-title">{% if request.locale.iso_code == 'he' %}ניווט ראשי{% else %}Main Navigation{% endif %}</div>
+          <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+              <a href="/" class="mobile-menu-link {% if template.name == 'index' %}active{% endif %}">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}בית{% else %}Home{% endif %}</span>
+              </a>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="/products/airsyncx" class="mobile-menu-link {% if template contains 'product' %}active{% endif %}">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                    <path d="M17 2l-5 5-5-5"></path>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}המוצר{% else %}Product{% endif %}</span>
+              </a>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="/pages/about-us" class="mobile-menu-link {% if page.handle == 'about-us' %}active{% endif %}">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12" y2="8"></line>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}אודות{% else %}About{% endif %}</span>
+              </a>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="/pages/faq" class="mobile-menu-link {% if page.handle == 'faq' %}active{% endif %}">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12" y2="17"></line>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}שאלות נפוצות{% else %}FAQ{% endif %}</span>
+              </a>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="/pages/contact" class="mobile-menu-link {% if page.handle == 'contact' %}active{% endif %}">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}צור קשר{% else %}Contact{% endif %}</span>
+              </a>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="/pages/terms-of-service" class="mobile-menu-link {% if page.handle == 'terms-of-service' %}active{% endif %}">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}תנאי שימוש{% else %}Terms of Service{% endif %}</span>
+              </a>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="/pages/refund-policy" class="mobile-menu-link {% if page.handle == 'refund-policy' %}active{% endif %}">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}מדיניות החזרות{% else %}Refund Policy{% endif %}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="menu-category">
+          <div class="category-title">{% if request.locale.iso_code == 'he' %}קטגוריות{% else %}Categories{% endif %}</div>
+          <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+              <a href="/pages/compatibility" class="mobile-menu-link">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}תאימות רכב{% else %}Vehicle Compatibility{% endif %}</span>
+              </a>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="/blogs/news" class="mobile-menu-link">
+                <span class="menu-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </span>
+                <span class="menu-text">{% if request.locale.iso_code == 'he' %}בלוג וחדשות{% else %}Blog & News{% endif %}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mobile-menu-featured">
+        <div class="featured-title">{% if request.locale.iso_code == 'he' %}מדריך התקנה{% else %}Installation Guide{% endif %}</div>
+        <div class="featured-banner">
+          <span class="featured-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <path d="M3.29 7L12 12l8.71-5"></path>
+              <line x1="12" y1="22" x2="12" y2="12"></line>
+            </svg>
+          </span>
+          <div class="featured-content">
+            <p>{% if request.locale.iso_code == 'he' %}התקנה פשוטה בדקות{% else %}Simple installation in minutes{% endif %}</p>
+            <a href="/pages/installation" class="featured-link">{% if request.locale.iso_code == 'he' %}צפה במדריך המלא{% else %}View Full Guide{% endif %}</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<style>
+  /* Mobile Menu Fullscreen Styles */
+  .airsyncx-mobile-menu-fullscreen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow-y: auto;
+  }
+  
+  .airsyncx-mobile-menu-fullscreen.open {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+  }
+  
+  .mobile-menu-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(56, 210, 210, 0.15);
+  }
+  
+  .mobile-menu-logo img {
+    height: 35px;
+    width: auto;
+  }
+  
+  .mobile-menu-close {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-close:hover {
+    color: #38d2d2;
+    transform: rotate(90deg);
+  }
+
+  .mobile-menu-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+
+  .mobile-menu-nav::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .mobile-menu-nav::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .mobile-menu-nav::-webkit-scrollbar-thumb {
+    background: rgba(56, 210, 210, 0.3);
+    border-radius: 10px;
+  }
+
+  .mobile-menu-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 210, 210, 0.5);
+  }
+    
+  /* Enhanced mobile menu styles */
+  .mobile-menu-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10px;
+  }
+    
+  .menu-category {
+    margin-bottom: 20px;
+  }
+    
+  .category-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(56, 210, 210, 0.9);
+    margin-bottom: 15px;
+    position: relative;
+    padding-right: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+    
+  .category-title:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #38d2d2;
+  }
+    
+  .mobile-menu-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+    
+  .mobile-menu-item {
+    margin-bottom: 12px;
+  }
+    
+  .mobile-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-align: {% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %};
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+    
+  .mobile-menu-link.active {
+    background-color: rgba(56, 210, 210, 0.12);
+    color: #38d2d2;
+  }
+    
+  .mobile-menu-link:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+    
+  .menu-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(56, 210, 210, 0.08);
+    border-radius: 8px;
+    color: rgba(56, 210, 210, 0.9);
+    transition: all 0.3s ease;
+    order: {% if request.locale.iso_code == 'he' %}1{% else %}0{% endif %};
+  }
+    
+  .mobile-menu-link:hover .menu-icon {
+    background-color: rgba(56, 210, 210, 0.15);
+    color: #38d2d2;
+    transform: scale(1.05);
+  }
+    
+  .mobile-menu-link.active .menu-icon {
+    background-color: rgba(56, 210, 210, 0.2);
+    color: #38d2d2;
+  }
+    
+  .menu-text {
+    font-weight: 500;
+    flex-grow: 1;
+  }
+    
+  /* Featured area styling */
+  .mobile-menu-featured {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+  }
+    
+  .featured-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(56, 210, 210, 0.9);
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+    
+  .featured-banner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: linear-gradient(to {% if request.locale.iso_code == 'he' %}left{% else %}right{% endif %}, rgba(56, 210, 210, 0.1), rgba(0, 0, 0, 0));
+    border-radius: 12px;
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    flex-direction: {% if request.locale.iso_code == 'he' %}row-reverse{% else %}row{% endif %};
+  }
+    
+  .featured-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(56, 210, 210, 0.15);
+    border-radius: 50%;
+    color: #38d2d2;
+    flex-shrink: 0;
+  }
+    
+  .featured-content {
+    flex-grow: 1;
+    text-align: {% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %};
+  }
+    
+  .featured-content p {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+    
+  .featured-link {
+    font-size: 14px;
+    color: #38d2d2;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+  }
+    
+  .featured-link:after {
+    content: '{% if request.locale.iso_code == 'he' %}←{% else %}→{% endif %}';
+    margin-{% if request.locale.iso_code == 'he' %}right{% else %}left{% endif %}: 5px;
+    transition: transform 0.3s ease;
+  }
+    
+  .featured-link:hover:after {
+    transform: translateX({% if request.locale.iso_code == 'he' %}-3px{% else %}3px{% endif %});
+  }
+</style>
+
+<script>
+  // Logo flicker prevention code on page load
+  (function() {
+    // Immediately on load - ensure header is always displayed
+    document.querySelector('.airsyncx-header').style.display = 'block';
+    document.querySelector('.airsyncx-header').style.opacity = '1';
+    document.querySelector('.airsyncx-header').style.visibility = 'visible';
+  })();
+  
+  // Simple and clean - mobile menu code
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 800
+    });
+    
+    // Header scroll effect
+    const header = document.querySelector('.airsyncx-header');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile menu - simple version
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleButton = document.querySelector('.js-toggle-mobile-menu');
+    const closeButton = document.querySelector('.js-close-mobile-menu');
+    const stickyAtcContainer = document.querySelector('.sticky-atc-container');
+    
+    console.log('Menu elements:', { 
+      menu: mobileMenu, 
+      toggleBtn: toggleButton, 
+      closeBtn: closeButton 
+    });
+    
+    // Function to hide sticky-atc-container
+    function hideStickyAtc() {
+      if (stickyAtcContainer) {
+        stickyAtcContainer.classList.remove('show');
+        stickyAtcContainer.style.display = 'none';
+      }
+    }
+    
+    // Function to show sticky-atc-container when needed
+    function showStickyAtc() {
+      if (stickyAtcContainer) {
+        stickyAtcContainer.style.display = '';
+        // Let its own logic control the 'show' class based on page scroll
+      }
+    }
+    
+    if (toggleButton && mobileMenu) {
+      // Open menu
+      toggleButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Toggle button clicked');
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        hideStickyAtc(); // Hide sticky-atc-container when opening menu
+      });
+      
+      // Open menu - touch event for mobile
+      toggleButton.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        console.log('Toggle button touched');
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        hideStickyAtc(); // Hide sticky-atc-container when opening menu
+      }, { passive: false });
+    }
+    
+    if (closeButton && mobileMenu) {
+      // Close menu
+      closeButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Close button clicked');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        showStickyAtc(); // Show sticky-atc-container when closing menu
+      });
+      
+      // Close menu - touch event for mobile
+      closeButton.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        console.log('Close button touched');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        showStickyAtc(); // Show sticky-atc-container when closing menu
+      }, { passive: false });
+    }
+    
+    // Default - ensure menu is closed
+    if (mobileMenu) {
+      mobileMenu.classList.remove('open');
+    }
+    
+    // Global - added as backup in case the listeners above don't work
+    document.addEventListener('click', function(event) {
+      // Check if click was on main button or one of its elements
+      if (event.target.closest('.js-toggle-mobile-menu') || 
+          event.target.closest('.airsyncx-mobile-toggle')) {
+        event.preventDefault();
+        console.log('Global toggle click handler activated');
+        if (mobileMenu) {
+          mobileMenu.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          hideStickyAtc(); // Hide sticky-atc-container when opening menu
+        }
+      }
+      
+      // Check if click was on close button
+      if (event.target.closest('.js-close-mobile-menu')) {
+        event.preventDefault();
+        console.log('Global close click handler activated');
+        if (mobileMenu) {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+          showStickyAtc(); // Show sticky-atc-container when closing menu
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "AirSyncX Header",
+  "class": "section-airsyncx-header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo and Design Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Stick header to top of page",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#38d2d2"
+    },
+    {
+      "type": "header",
+      "content": "Menu and Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mega_menu",
+      "label": "Show mega menu",
+      "default": true,
+      "info": "Mega menu displays sub-categories and more product information"
+    },
+    {
+      "type": "header",
+      "content": "Search"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_search",
+      "label": "Enable search",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search field placeholder text",
+      "default": "What would you like to search for?"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX Header",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %} 

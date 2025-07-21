@@ -1,0 +1,168 @@
+<!-- AirSyncX What Is Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<div class="airsyncx-what-is">
+  <div class="what-is-container">
+    <div class="what-is-content">
+      <div class="what-is-text">
+                  <h2 class="what-is-title">מה זה <span class="highlight">AirSyncX</span>?</h2>
+        <p class="what-is-description">
+          AirSyncX הוא מתאם חכם וקומפקטי שמתחבר ליציאת USB ברכב שלך והופך את CarPlay לאלחוטי<br>
+          בפחות מ-10 שניות מרגע ההפעלה.
+        </p>
+      </div>
+      
+      <div class="what-is-image">
+        <img src="{{ section.settings.device_image | default: 'https://cdn.shopify.com/s/files/1/0931/3724/0362/files/0d150390-a8e3-406d-978e-a903734178eb_1.png?v=1744614925' }}" alt="AirSyncX Device" class="device-img">
+        <div class="glow-effect"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .airsyncx-what-is * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-what-is {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 100px 0;
+    direction: rtl;
+    overflow: hidden;
+  }
+  
+  .what-is-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .what-is-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+  
+  .what-is-text {
+    flex: 1;
+  }
+  
+  .what-is-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .what-is-title .highlight {
+    color: #38d2d2;
+  }
+  
+  .what-is-description {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #aaa;
+    margin-bottom: 30px;
+  }
+  
+  .what-is-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .device-img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .glow-effect {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.2) 0%, rgba(56, 210, 210, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 3s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .what-is-content {
+      flex-direction: column-reverse;
+      gap: 40px;
+    }
+    
+    .what-is-text, .what-is-image {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .what-is-title {
+      font-size: 2.5rem;
+    }
+    
+    .what-is-description {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "AirSyncX What Is",
+  "class": "section-airsyncx-what-is",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "כותרת הסקשן",
+      "default": "מה זה AirSyncX?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "תיאור",
+      "default": "AirSyncX הוא מתאם חכם וקומפקטי שמתחבר ליציאת USB ברכב שלך והופך את CarPlay לאלחוטי בפחות מ-10 שניות מרגע ההפעלה."
+    },
+    {
+      "type": "image_picker",
+      "id": "device_image",
+      "label": "תמונת המכשיר"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX What Is",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %} 

@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_contact": {
+      "type": "custom_contact_page",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "מהו זמן המשלוח הצפוי?",
+            "answer": "<p>זמן האספקה הרגיל שלנו הוא 3-5 ימי עסקים בתוך ישראל. משלוחים בינלאומיים עשויים להימשך בין 7-14 ימי עסקים בהתאם למיקום.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם יש למוצר אחריות?",
+            "answer": "<p>כן, למוצר יש אחריות מלאה של שנה מיום הרכישה המכסה כל תקלה או פגם בייצור. אנו מחויבים לספק לכם את השירות והתמיכה הטובים ביותר.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "האם אפשר לבטל הזמנה?",
+            "answer": "<p>ניתן לבטל הזמנה עד 24 שעות לאחר ביצוע ההזמנה וכל עוד המוצר לא נשלח. לביטול הזמנה אנא צרו קשר עם שירות הלקוחות שלנו.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3"
+      ],
+      "settings": {
+        "subheading": "אנו כאן כדי לענות על כל שאלה או בקשה שיש לכם",
+        "phone_number": "03-1234567",
+        "email": "info@airsyncx.co.il",
+        "address": "רח' המלאכה 5, תל אביב",
+        "hours": "א'-ה' 9:00-18:00",
+        "hours_detail": "ו' 9:00-14:00",
+        "facebook_url": "https://facebook.com",
+        "twitter_url": "https://twitter.com",
+        "instagram_url": "https://instagram.com",
+        "youtube_url": "",
+        "map_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.1124068029283!2d34.78912771520228!3d32.06879868119136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b7dd953e3e7%3A0xc1fb72a2c0963924!2sHamlacha%20St%205%2C%20Tel%20Aviv-Yafo!5e0!3m2!1sen!2sil!4v1650000000000!5m2!1sen!2sil",
+        "cta_text": "הזמינו עכשיו ותהנו מחווית נהיגה חכמה יותר",
+        "cta_button_text": "קנה עכשיו",
+        "cta_button_link": "/products/airsyncx"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_contact"
+  ]
+}

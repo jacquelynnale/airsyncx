@@ -1,0 +1,988 @@
+<!-- Thunderbolt 4 PRO USB-C Cable Tech Specs Section -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<div class="thunderbolt-tech-specs">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+    <div class="bg-lines"></div>
+    <div class="floating-particles"></div>
+  </div>
+  
+  <div class="tech-specs-container">
+    <!-- Header Section -->
+    <div class="benefits-header" data-aos="fade-up" data-aos-duration="800">
+      <div class="section-eyebrow">{{ section.settings.eyebrow | default: 'מפרט טכני מתקדם' }}</div>
+      <h2 class="benefits-title">{{ section.settings.main_title | default: 'כל מה שצריך לדעת על <span class="highlight">Thunderbolt 4 PRO</span>' }}</h2>
+      <p class="section-description">{{ section.settings.description | default: 'מפרט טכני מפורט המציג את היכולות המתקדמות והביצועים יוצאי הדופן של הכבל המקצועי שלנו' }}</p>
+    </div>
+    
+    <!-- Tech Specs Grid -->
+    <div class="specs-grid" data-aos="fade-up" data-aos-delay="200">
+      <!-- Interface Spec -->
+      <div class="spec-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="spec-icon-wrapper">
+          <div class="spec-icon interface-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="6" width="20" height="12" rx="2" stroke="#38d2d2" stroke-width="1.5"/>
+              <circle cx="6" cy="12" r="1" fill="#38d2d2"/>
+              <circle cx="18" cy="12" r="1" fill="#38d2d2"/>
+              <path d="M8 12h8" stroke="#38d2d2" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="spec-glow"></div>
+        </div>
+        <h3 class="spec-title">ממשק חיבור</h3>
+        <div class="spec-details">
+          <div class="spec-item">Thunderbolt 4 / USB4</div>
+          <div class="spec-item">תואם USB-C</div>
+          <div class="spec-item">חיבור דו-כיווני</div>
+        </div>
+      </div>
+      
+      <!-- Data Transfer Spec -->
+      <div class="spec-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="spec-icon-wrapper">
+          <div class="spec-icon speed-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" fill="#38d2d2"/>
+              <circle cx="10" cy="16" r="1" fill="white"/>
+              <circle cx="14" cy="6" r="1" fill="white"/>
+            </svg>
+          </div>
+          <div class="spec-glow"></div>
+        </div>
+        <h3 class="spec-title">מהירות העברה</h3>
+        <div class="spec-details">
+          <div class="spec-item highlight">עד 40Gbps</div>
+          <div class="spec-item">פי 8 מהר מ-USB 3.0</div>
+          <div class="spec-item">העברת קבצים מיידית</div>
+        </div>
+      </div>
+      
+      <!-- Power Delivery Spec -->
+      <div class="spec-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="spec-icon-wrapper">
+          <div class="spec-icon power-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="4" width="12" height="16" rx="2" fill="none" stroke="#38d2d2" stroke-width="1.5"/>
+              <path d="M10 8L14 8L11 12L13 12L9 16L12 12L10 12L10 8Z" fill="#38d2d2"/>
+              <path d="M9 2h6" stroke="#38d2d2" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="spec-glow"></div>
+        </div>
+        <h3 class="spec-title">כוח טעינה</h3>
+        <div class="spec-details">
+          <div class="spec-item highlight">עד 100W</div>
+          <div class="spec-item">טעינה מהירה פי 5</div>
+          <div class="spec-item">תמיכה ב-PD 3.0</div>
+        </div>
+      </div>
+      
+      <!-- Video Support Spec -->
+      <div class="spec-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="spec-icon-wrapper">
+          <div class="spec-icon video-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="20" height="14" rx="2" stroke="#38d2d2" stroke-width="1.5"/>
+              <path d="M8 21H16" stroke="#38d2d2" stroke-width="1.5"/>
+              <path d="M12 17V21" stroke="#38d2d2" stroke-width="1.5"/>
+              <rect x="5" y="7" width="14" height="8" fill="#38d2d2" opacity="0.3"/>
+              <text x="12" y="12" text-anchor="middle" fill="#38d2d2" font-size="6" font-weight="bold">8K</text>
+            </svg>
+          </div>
+          <div class="spec-glow"></div>
+        </div>
+        <h3 class="spec-title">תמיכה בוידאו</h3>
+        <div class="spec-details">
+          <div class="spec-item highlight">8K @ 60Hz</div>
+          <div class="spec-item">2 מסכי 4K במקביל</div>
+          <div class="spec-item">DisplayPort 1.4</div>
+        </div>
+      </div>
+      
+      <!-- Construction Spec -->
+      <div class="spec-card" data-aos="fade-up" data-aos-delay="700">
+        <div class="spec-icon-wrapper">
+          <div class="spec-icon build-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="#38d2d2" fill-opacity="0.2" stroke="#38d2d2" stroke-width="1.5"/>
+              <path d="M8 8L16 8M7 10L17 10M8 12L16 12M9 14L15 14M10 16L14 16" stroke="#38d2d2" stroke-width="1" opacity="0.7"/>
+              <circle cx="12" cy="10" r="1.5" fill="#38d2d2"/>
+            </svg>
+          </div>
+          <div class="spec-glow"></div>
+        </div>
+        <h3 class="spec-title">בנייה מתקדמת</h3>
+        <div class="spec-details">
+          <div class="spec-item">שריון ניילון קלוע</div>
+          <div class="spec-item">מחברי אלומיניום</div>
+          <div class="spec-item">ציפוי זהב</div>
+        </div>
+      </div>
+      
+      <!-- Compatibility Spec -->
+      <div class="spec-card" data-aos="fade-up" data-aos-delay="800">
+        <div class="spec-icon-wrapper">
+          <div class="spec-icon compatibility-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.85 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="#38d2d2"/>
+              <rect x="16" y="16" width="6" height="4" rx="1" fill="#38d2d2" opacity="0.7"/>
+            </svg>
+          </div>
+          <div class="spec-glow"></div>
+        </div>
+        <h3 class="spec-title">תאימות</h3>
+        <div class="spec-details">
+          <div class="spec-item">MacBook Pro/Air</div>
+          <div class="spec-item">iPad Pro</div>
+          <div class="spec-item">Windows & Chrome</div>
+        </div>
+        </div>
+      </div>
+      
+    <!-- Advanced Features Section -->
+    <div class="advanced-features" data-aos="fade-up" data-aos-delay="1000">
+      <h3 class="features-title">תכונות מתקדמות</h3>
+      <div class="features-grid">
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="1100">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text">
+            <div class="feature-name">טעינה חכמה</div>
+            <div class="feature-desc">זיהוי אוטומטי של המכשיר</div>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="1200">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-text">
+            <div class="feature-name">הגנה מתקדמת</div>
+            <div class="feature-desc">נגד זרם יתר וחום</div>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="1300">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-text">
+            <div class="feature-name">חיבור הפיך</div>
+            <div class="feature-desc">בכל כיוון שתרצה</div>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="1400">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-text">
+            <div class="feature-name">אחריות לכל החיים</div>
+            <div class="feature-desc">ביטחון מלא לרכישה</div>
+          </div>
+        </div>
+        </div>
+      </div>
+      
+    <!-- Call to Action -->
+    <div class="specs-cta" data-aos="fade-up" data-aos-delay="1500">
+      <div class="cta-content">
+        <h3 class="cta-title">מוכן לחוות ביצועים מקצועיים?</h3>
+        <p class="cta-description">הזמן עכשיו את כבל Thunderbolt 4 PRO וקבל משלוח חינם + אחריות לכל החיים</p>
+        <div class="cta-buttons">
+          <button class="hero-button hero-button-primary">
+            <div class="button-background-effect"></div>
+            <div class="button-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="button-text">הזמן עכשיו</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .thunderbolt-tech-specs * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .thunderbolt-tech-specs {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 120px 0;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.08) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 800px;
+    height: 800px;
+    top: -400px;
+    left: -300px;
+    opacity: 0.6;
+  }
+  
+  .bg-circle-2 {
+    width: 600px;
+    height: 600px;
+    bottom: -300px;
+    right: -200px;
+    opacity: 0.4;
+  }
+  
+  .bg-circle-3 {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+  }
+  
+  .floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(56, 210, 210, 0.3), transparent),
+                      radial-gradient(2px 2px at 40px 70px, rgba(56, 210, 210, 0.2), transparent),
+                      radial-gradient(1px 1px at 90px 40px, rgba(56, 210, 210, 0.4), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    animation: float 20s linear infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    33% { transform: translateY(-10px) translateX(10px); }
+    66% { transform: translateY(5px) translateX(-5px); }
+    100% { transform: translateY(0px) translateX(0px); }
+  }
+  
+  .tech-specs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .section-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .benefits-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #38d2d2, #2dd4bf);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.8s ease;
+  }
+  
+  .benefits-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .section-description {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+  
+  .spec-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    border-radius: 20px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .spec-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.02), transparent);
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .spec-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(56, 210, 210, 0.15);
+    border-color: rgba(56, 210, 210, 0.4);
+  }
+  
+  .spec-card:hover::before {
+    transform: translateX(100%);
+  }
+  
+  .spec-icon-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+    z-index: 2;
+  }
+  
+  .spec-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.1), rgba(56, 210, 210, 0.05));
+    border: 2px solid rgba(56, 210, 210, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .spec-card:hover .spec-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(145deg, #38d2d2, #2dd4bf);
+  }
+  
+  .spec-card:hover .spec-icon svg path,
+  .spec-card:hover .spec-icon svg circle,
+  .spec-card:hover .spec-icon svg rect {
+    fill: #ffffff;
+    stroke: #ffffff;
+  }
+  
+  .spec-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.3) 0%, transparent 70%);
+    opacity: 0.5;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .spec-card:hover .spec-glow {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  
+  .spec-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+    z-index: 2;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .spec-card:hover .spec-title {
+    color: #38d2d2;
+  }
+  
+  .spec-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .spec-item {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 15px;
+    background: rgba(56, 210, 210, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(56, 210, 210, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .spec-item.highlight {
+    color: #38d2d2;
+    background: rgba(56, 210, 210, 0.1);
+    border-color: rgba(56, 210, 210, 0.3);
+    font-weight: 600;
+  }
+  
+  .spec-card:hover .spec-item {
+    color: rgba(255, 255, 255, 1);
+    background: rgba(56, 210, 210, 0.1);
+    border-color: rgba(56, 210, 210, 0.2);
+  }
+  
+  .advanced-features {
+    margin-bottom: 80px;
+  }
+  
+  .features-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 210, 210, 0.4);
+    box-shadow: 0 10px 30px rgba(56, 210, 210, 0.15);
+  }
+  
+  .feature-icon {
+    font-size: 2.4rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.1), rgba(56, 210, 210, 0.05));
+    border: 1px solid rgba(56, 210, 210, 0.3);
+  }
+  
+  .feature-text {
+    flex: 1;
+  }
+  
+  .feature-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+  }
+  
+  .feature-desc {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .specs-cta {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.5), rgba(0, 0, 0, 0.8));
+    border: 2px solid rgba(56, 210, 210, 0.2);
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .specs-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    z-index: 1;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  .cta-description {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Hero Button Styles */
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 32px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 200px;
+  }
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .button-icon {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+
+  /* PRIMARY BUTTON - Call to Action */
+  .hero-button-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4500 100%);
+    color: #ffffff;
+    box-shadow: 
+      0 12px 35px rgba(255, 107, 53, 0.5),
+      0 6px 18px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 107, 53, 0.7);
+    transform: scale(1.05);
+    transition: all 0.4s ease;
+  }
+
+  /* Background Effect for Primary Button */
+  .button-background-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+
+  .hero-button-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff8c5a 0%, #ff6b35 50%, #f7931e 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 2;
+  }
+
+  .hero-button-primary::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 12px;
+    background: linear-gradient(90deg, rgba(255,107,53,0) 0%, rgba(255,107,53,0.9) 50%, rgba(255,107,53,0) 100%);
+    border-radius: 50%;
+    filter: blur(6px);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+    z-index: 0;
+  }
+
+  .hero-button-primary:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 
+      0 20px 50px rgba(255, 107, 53, 0.7),
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    animation: none;
+  }
+
+  .hero-button-primary:hover::before {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover::after {
+    opacity: 1;
+    width: 95%;
+    height: 16px;
+    filter: blur(8px);
+  }
+
+  .hero-button-primary:hover .button-background-effect {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover .button-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .hero-button-primary:active {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 
+      0 8px 20px rgba(255, 107, 53, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+    .benefits-title {
+      font-size: 5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .thunderbolt-tech-specs {
+      padding: 80px 0;
+    }
+    
+    .tech-specs-container {
+      padding: 0 15px;
+    }
+    
+    .benefits-title {
+      font-size: 4rem;
+    }
+    
+    .section-description {
+      font-size: 2rem;
+    }
+    
+    .specs-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .spec-card {
+      padding: 30px 20px;
+    }
+    
+    .spec-icon {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .spec-glow {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .spec-title {
+      font-size: 1.8rem;
+    }
+    
+    .spec-item {
+      font-size: 1.2rem;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    
+    .feature-item {
+      padding: 15px;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .benefits-title {
+      font-size: 3rem;
+    }
+    
+    .section-description {
+      font-size: 1.8rem;
+    }
+    
+    .spec-card {
+      padding: 25px 15px;
+    }
+    
+    .spec-icon {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .spec-glow {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .spec-title {
+      font-size: 1.6rem;
+    }
+    
+    .features-title {
+      font-size: 2.5rem;
+    }
+    
+    .cta-title {
+      font-size: 2.5rem;
+    }
+    
+    .cta-description {
+      font-size: 1.6rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animations
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+    
+    // Parallax background effect
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      let x = e.clientX / window.innerWidth;
+      let y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = (index + 1) * 0.3;
+        circle.style.transform = `translate(${x * 20 * factor}px, ${y * 20 * factor}px)`;
+      });
+    });
+    
+    // Spec card hover effects
+    const specCards = document.querySelectorAll('.spec-card');
+    
+    specCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const glow = this.querySelector('.spec-glow');
+        if (glow) {
+          glow.style.opacity = '1';
+          glow.style.transform = 'translate(-50%, -50%) scale(1.3)';
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const glow = this.querySelector('.spec-glow');
+        if (glow) {
+          glow.style.opacity = '0.5';
+          glow.style.transform = 'translate(-50%, -50%) scale(1)';
+        }
+      });
+    });
+    
+    // CTA button effects
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    
+    ctaButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Add ripple effect
+        const ripple = document.createElement('span');
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s linear';
+        ripple.style.left = '50%';
+        ripple.style.top = '50%';
+        ripple.style.width = '20px';
+        ripple.style.height = '20px';
+        ripple.style.marginLeft = '-10px';
+        ripple.style.marginTop = '-10px';
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  });
+  
+  // Add ripple animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+    }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+{% schema %}
+{
+  "name": "Tech Specs Advanced",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "מפרט טכני מתקדם"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "כל מה שצריך לדעת על <span class=\"highlight\">Thunderbolt 4 PRO</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "מפרט טכני מפורט המציג את היכולות המתקדמות והביצועים יוצאי הדופן של הכבל המקצועי שלנו"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tech Specs Advanced",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

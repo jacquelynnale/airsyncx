@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "thunderbolt-hero": {
+      "type": "thunderbolt-hero",
+      "settings": {}
+    },
+    "thunderbolt-benefits-strip": {
+      "type": "thunderbolt-benefits-strip",
+      "settings": {}
+    },
+    "thunderbolt-why-airsyncx": {
+      "type": "thunderbolt-why-airsyncx",
+      "settings": {}
+    },
+    "thunderbolt-media-section": {
+      "type": "thunderbolt-media-section",
+      "settings": {
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/thunderbolt-demo.mp4"
+      }
+    },
+    "thunderbolt-performance-features": {
+      "type": "thunderbolt-performance-features",
+      "settings": {}
+    },
+    "thunderbolt-tech-specs": {
+      "type": "thunderbolt-tech-specs",
+      "settings": {}
+    },
+    "thunderbolt-customer-reviews": {
+      "type": "thunderbolt-customer-reviews",
+      "settings": {}
+    },
+    "thunderbolt-urgency": {
+      "type": "thunderbolt-urgency",
+      "settings": {
+        "stock_count": "37",
+        "stock_percentage": 25
+      }
+    },
+    "thunderbolt-faq": {
+      "type": "thunderbolt-faq",
+      "settings": {}
+    },
+    "thunderbolt-sticky-buy-bar": {
+      "type": "thunderbolt-sticky-buy-bar",
+      "settings": {
+        "product_title": "Thunderbolt 4 PRO",
+        "current_price": "$49.99",
+        "original_price": "$69.99",
+        "button_text": "Buy Now"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "thunderbolt-hero",
+    "thunderbolt-benefits-strip",
+    "thunderbolt-why-airsyncx",
+    "thunderbolt-media-section",
+    "thunderbolt-performance-features",
+    "thunderbolt-tech-specs",
+    "thunderbolt-customer-reviews",
+    "thunderbolt-urgency",
+    "thunderbolt-faq",
+    "thunderbolt-sticky-buy-bar"
+  ]
+}

@@ -1,0 +1,510 @@
+<!-- AirSyncX Refund & Return Policy Page -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<div class="airsyncx-refund-page">
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="animated-particles"></div>
+    <div class="animated-lines"></div>
+    <div class="animated-gradient"></div>
+  </div>
+  
+  <!-- Policy header -->
+  <div class="page-width">
+    <div class="policy-header" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="policy-heading">מדיניות <span class="highlight">החזרות</span></h1>
+      <p class="policy-subheading">{{ section.settings.subheading }}</p>
+    </div>
+
+    <!-- Policy Main Content -->
+    <div class="policy-main-content">
+      <div class="policy-container" data-aos="fade-up" data-aos-delay="200">
+        {% unless section.settings.show_sections %}
+          <div class="policy-content">
+            {{ section.settings.policy_content }}
+          </div>
+        {% else %}
+          {% for block in section.blocks %}
+            {% if block.type == 'policy_section' %}
+              <div class="policy-section" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+                <h3 class="policy-section-title">{{ block.settings.section_title }}</h3>
+                <div class="policy-section-content">
+                  {{ block.settings.section_content }}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endunless %}
+      </div>
+    </div>
+
+    <!-- CTA Container -->
+    <div class="cta-container" data-aos="fade-up">
+      <div class="cta-content">
+        <h3 class="cta-title"><span class="white-text">יש לכם</span> <span class="highlight">שאלות?</span></h3>
+        <p class="cta-text">{{ section.settings.cta_text }}</p>
+        
+        <div class="cta-buttons">
+          <a href="{{ section.settings.cta_button_link }}" class="hero-button hero-button-primary">
+            <span class="button-text">{{ section.settings.cta_button_text }}</span>
+            <span class="button-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 1000
+    });
+    
+    // Create and animate particles
+    const particlesContainer = document.querySelector('.animated-particles');
+    if (particlesContainer) {
+      for (let i = 0; i < 50; i++) {
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        let posX = Math.random() * 100;
+        let posY = Math.random() * 100;
+        
+        // Random size
+        let size = Math.random() * 5 + 1;
+        
+        // Random opacity
+        let opacity = Math.random() * 0.5 + 0.1;
+        
+        // Random animation delay
+        let delay = Math.random() * 5;
+        
+        // Apply styles
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.opacity = opacity;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+  });
+</script>
+
+<style>
+  :root {
+    --page-background: #000000;
+  }
+  
+  body {
+    background-color: var(--page-background);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .airsyncx-refund-page {
+    background-color: var(--page-background);
+    color: #ffffff;
+    position: relative;
+    font-family: 'Assistant', sans-serif;
+    overflow: hidden;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Animated Background */
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: var(--page-background);
+    overflow: hidden;
+  }
+  
+  /* Background Elements */
+  .animated-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .particle {
+    position: absolute;
+    background-color: #38d2d2;
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+  }
+  
+  .animated-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+  }
+  
+  .animated-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(56, 210, 210, 0.1), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(56, 210, 210, 0.1), transparent 60%);
+    mix-blend-mode: screen;
+  }
+  
+  /* Header Styling */
+  .policy-header {
+    text-align: center;
+    padding: 5rem 0 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .policy-heading {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+  }
+  
+  .white-text {
+    color: #ffffff;
+  }
+  
+  .policy-subheading {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  
+  /* Main Content */
+  .policy-main-content {
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .policy-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding: 3rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .policy-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  .policy-section {
+    margin-bottom: 3rem;
+  }
+  
+  .policy-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .policy-section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #38d2d2;
+  }
+  
+  .policy-section-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  /* CTA Container */
+  .cta-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 16px;
+    padding: 3.5rem;
+    margin: 6rem 0 0 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    overflow: hidden;
+  }
+  
+  .cta-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(56, 210, 210, 0.15), transparent 60%);
+    z-index: -1;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .cta-text {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #38d2d2;
+    color: #000000;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .hero-button:hover {
+    background-color: #2ab8b8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.3);
+  }
+  
+  .hero-button-primary {
+    background-color: #38d2d2;
+    color: #000000;
+  }
+  
+  .hero-button-primary:hover {
+    background-color: #2ab8b8;
+  }
+  
+  .button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.4rem;
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(0) translateX(20px);
+    }
+    75% {
+      transform: translateY(20px) translateX(10px);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .policy-heading {
+      font-size: 4rem;
+    }
+    
+    .policy-subheading {
+      font-size: 1.4rem;
+    }
+    
+    .policy-container {
+      padding: 2rem;
+    }
+    
+    .cta-title {
+      font-size: 3rem;
+    }
+    
+    .cta-text {
+      font-size: 1.4rem;
+    }
+    
+    .cta-container {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Refund Policy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "כל המידע על מדיניות ההחזרות והכספים של AirSyncX"
+    },
+    {
+      "type": "richtext",
+      "id": "policy_content",
+      "label": "Policy Content",
+      "default": "<p>מדיניות ההחזרות שלנו נועדה להבטיח את שביעות רצונכם המלאה. אנו גאים במוצרים שלנו ובטוחים באיכותם. המשך השימוש באתר שלנו ובשירותים שלנו מהווה הסכמה למדיניות זו.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sections",
+      "label": "Show Separate Sections",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "אם יש לכם שאלות נוספות לגבי מדיניות ההחזרות שלנו, אל תהססו ליצור איתנו קשר"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button Text",
+      "default": "צור קשר"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_section",
+      "name": "Policy Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_title",
+          "label": "Section Title",
+          "default": "תנאי החזר כספי"
+        },
+        {
+          "type": "richtext",
+          "id": "section_content",
+          "label": "Section Content",
+          "default": "<p>החזר כספי מלא יינתן בתנאים הבאים:</p><ul><li>המוצר מוחזר בתוך 14 ימים מתאריך הקבלה</li><li>המוצר במצב חדש, ללא נזק וכולל את כל האביזרים והאריזה המקורית</li><li>המוצר לא נפתח ולא נעשה בו שימוש</li></ul><p>החזר כספי חלקי עשוי להינתן במקרה של פגם או תקלה במוצר, אם הוחזר לאחר 14 ימים או אם חסרים חלקים מהאריזה המקורית.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Refund Policy",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "תנאי החזר כספי",
+            "section_content": "<p>החזר כספי מלא יינתן בתנאים הבאים:</p><ul><li>המוצר מוחזר בתוך 14 ימים מתאריך הקבלה</li><li>המוצר במצב חדש, ללא נזק וכולל את כל האביזרים והאריזה המקורית</li><li>המוצר לא נפתח ולא נעשה בו שימוש</li></ul><p>החזר כספי חלקי עשוי להינתן במקרה של פגם או תקלה במוצר, אם הוחזר לאחר 14 ימים או אם חסרים חלקים מהאריזה המקורית.</p>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "תהליך ההחזרה",
+            "section_content": "<p>להחזרת מוצר, אנא פעלו לפי השלבים הבאים:</p><ol><li>צרו קשר עם שירות הלקוחות שלנו בטלפון או בדוא\"ל לקבלת אישור החזרה</li><li>ארזו את המוצר באריזה המקורית עם כל האביזרים הנלווים</li><li>צרפו את חשבונית הקנייה המקורית</li><li>שלחו את המוצר לכתובת שתינתן לכם על ידי נציג שירות הלקוחות</li></ol><p>ההחזר הכספי יבוצע באמצעי התשלום המקורי בתוך 14 ימי עסקים מיום קבלת המוצר במחסנינו.</p>"
+          }
+        },
+        {
+          "type": "policy_section",
+          "settings": {
+            "section_title": "מקרים מיוחדים",
+            "section_content": "<p>מוצרים פגומים: אם קיבלתם מוצר פגום, אנא דווחו לנו תוך 48 שעות מקבלת המשלוח. אנו נספק החלפה או החזר כספי מלא, כולל עלויות המשלוח.</p><p>מוצרים שהוזמנו בטעות: אנו מבינים שטעויות קורות. אם הזמנתם מוצר בטעות, נשמח לקבל אותו בחזרה בהתאם לתנאי ההחזרה הרגילים.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

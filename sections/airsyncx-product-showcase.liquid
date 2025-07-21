@@ -1,0 +1,235 @@
+{{ 'section-airsyncx-product-showcase.css' | asset_url | stylesheet_tag }}
+
+<div class="airsyncx-product-showcase page-width section-{{ section.id }}-padding">
+  <div class="product-showcase__container">
+    <h2 class="product-showcase__heading">{{ section.settings.heading }}</h2>
+    
+    {% if section.settings.subheading != blank %}
+      <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+    
+    <div class="product-showcase__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'showcase_item' %}
+          <div class="product-showcase__item" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              <div class="product-showcase__image-wrapper">
+                <img 
+                  src="{{ block.settings.image | img_url: 'master' }}"
+                  alt="{{ block.settings.title | escape }}"
+                  loading="lazy"
+                  class="product-showcase__image"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+              </div>
+            {% endif %}
+            
+            {% if block.settings.title != blank %}
+              <h3 class="product-showcase__item-title">{{ block.settings.title }}</h3>
+            {% endif %}
+            
+            {% if block.settings.description != blank %}
+              <p class="product-showcase__item-description">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Maximize Your Space",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "See how our product can be used in different ways",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "grid_layout",
+      "options": [
+        {
+          "value": "grid-2",
+          "label": "2 per row"
+        },
+        {
+          "value": "grid-3",
+          "label": "3 per row"
+        },
+        {
+          "value": "grid-4",
+          "label": "4 per row"
+        }
+      ],
+      "default": "grid-3",
+      "label": "Grid Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "showcase_item",
+      "name": "Showcase Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Item Title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "default": "Brief description of this product variant or use case.",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase",
+      "blocks": [
+        {
+          "type": "showcase_item"
+        },
+        {
+          "type": "showcase_item"
+        },
+        {
+          "type": "showcase_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.airsyncx-product-showcase {
+  margin: 60px 0;
+}
+
+.product-showcase__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-showcase__heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.product-showcase__subheading {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+.product-showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.product-showcase__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-showcase__item:hover {
+  transform: translateY(-10px);
+}
+
+.product-showcase__image-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.product-showcase__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-showcase__item:hover .product-showcase__image {
+  transform: scale(1.05);
+}
+
+.product-showcase__item-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.product-showcase__item-description {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+@media screen and (max-width: 749px) {
+  .product-showcase__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .product-showcase__heading {
+    font-size: 1.8rem;
+  }
+  
+  .product-showcase__subheading {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-showcase__grid {
+    grid-template-columns: 1fr;
+  }
+}
+{% endstylesheet %}

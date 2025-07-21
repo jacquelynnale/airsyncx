@@ -1,0 +1,2092 @@
+<!-- CSS loading handled in theme.liquid for better performance -->
+<!-- AirSyncX Customer Reviews Section -->
+
+<section id="reviews" class="airsyncx-reviews">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+    <div class="bg-lines"></div>
+    <div class="floating-particles"></div>
+    <div class="reviews-glow"></div>
+  </div>
+  
+  <div class="reviews-container">
+    <!-- Enhanced Header Section -->
+    <div class="benefits-header">
+      <div class="section-eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 class="benefits-title">{{ section.settings.main_title }}</h2>
+      <p class="section-description">{{ section.settings.description }}</p>
+    </div>
+    
+    <!-- Trust Indicators -->
+    <div class="trust-indicators{% if template contains 'index' %} aos-init aos-animate{% endif %}">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#38d2d2">
+            <path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L10.91 8.26L12 2Z"/>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <span class="trust-number">{{ section.settings.trust_rating_number | default: '4.9' }}</span>
+          <span class="trust-label">
+            {% if request.locale.iso_code == 'he' %}
+              {{ section.settings.trust_rating_label_he | default: 'דירוג ממוצע' }}
+            {% else %}
+              {{ section.settings.trust_rating_label_en | default: 'Average Rating' }}
+            {% endif %}
+          </span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#38d2d2">
+            <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M12.5 7C12.5 9.20914 10.7091 11 8.5 11C6.29086 11 4.5 9.20914 4.5 7C4.5 4.79086 6.29086 3 8.5 3C10.7091 3 12.5 4.79086 12.5 7ZM20 8V14M23 11H17"/>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <span class="trust-number">{{ section.settings.trust_customers_number | default: '15,000+' }}</span>
+          <span class="trust-label">
+            {% if request.locale.iso_code == 'he' %}
+              {{ section.settings.trust_customers_label_he | default: 'לקוחות מרוצים' }}
+            {% else %}
+              {{ section.settings.trust_customers_label_en | default: 'Happy Customers' }}
+            {% endif %}
+          </span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#38d2d2">
+            <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"/>
+          </svg>
+        </div>
+        <div class="trust-content">
+          <span class="trust-number">{{ section.settings.trust_satisfaction_number | default: '99%' }}</span>
+          <span class="trust-label">
+            {% if request.locale.iso_code == 'he' %}
+              {{ section.settings.trust_satisfaction_label_he | default: 'שביעות רצון' }}
+            {% else %}
+              {{ section.settings.trust_satisfaction_label_en | default: 'Satisfaction Rate' }}
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Enhanced Reviews Slider -->
+    <div class="reviews-slider">
+      <div class="reviews-track">
+        {% for block in section.blocks %}
+          {% if block.type == 'review' %}
+            <div class="review-card" data-rating="{{ block.settings.rating }}">
+              <div class="card-glow"></div>
+              <div class="review-content">
+                <div class="quote-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                  </svg>
+                </div>
+                <div class="review-stars">
+                  {% assign stars = block.settings.rating | floor %}
+                  {% assign half_star = block.settings.rating | minus: stars | times: 10 | floor %}
+                  {% assign next_star = stars | plus: 1 %}
+                  
+                  {% for i in (1..5) %}
+                    {% if i <= stars %}
+                      <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                      </svg>
+                    {% elsif i == next_star and half_star >= 5 %}
+                      <svg class="star-icon" viewBox="0 0 24 24">
+                        <defs>
+                          <linearGradient id="half-star-{{ forloop.index }}-{{ forloop.parentloop.index }}" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="50%" stop-color="currentColor" />
+                            <stop offset="50%" stop-color="none" stop-opacity="1" />
+                          </linearGradient>
+                        </defs>
+                        <path fill="url(#half-star-{{ forloop.index }}-{{ forloop.parentloop.index }})" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" stroke-width="1"></path>
+                      </svg>
+                    {% else %}
+                      <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                      </svg>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                <p class="review-text">{{ block.settings.review_text }}</p>
+                <div class="verified-badge">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#38d2d2">
+                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+                  </svg>
+                  <span>{{ 'sections.airsyncx_reviews.verified_purchase' | t }}</span>
+                </div>
+              </div>
+              <div class="review-author">
+                <div class="author-image-container">
+                  {% if block.settings.author_image != blank %}
+                    <img src="{{ block.settings.author_image | image_url }}" alt="{{ block.settings.author_name }}" class="author-image">
+                  {% else %}
+                    <div class="author-initials">{{ block.settings.author_name | slice: 0 }}</div>
+                  {% endif %}
+                </div>
+                <div class="author-details">
+                  <h4 class="author-name">{{ block.settings.author_name }}</h4>
+                  <p class="author-location">{{ block.settings.author_location }}</p>
+                  <div class="purchase-date">{{ 'sections.airsyncx_reviews.purchased_ago' | t: time: block.settings.purchase_date | default: '3 חודשים' }}</div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      
+      <div class="slider-controls">
+        <button class="control-btn prev-btn" aria-label="{{ 'sections.airsyncx_reviews.prev_review' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <div class="button-glow"></div>
+        </button>
+        <div class="pagination-dots">
+          <!-- Dots will be inserted dynamically by JavaScript -->
+        </div>
+        <button class="control-btn next-btn" aria-label="{{ 'sections.airsyncx_reviews.next_review' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+          <div class="button-glow"></div>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Social Proof Section -->
+    <div class="social-proof{% if template contains 'index' %} aos-init aos-animate{% endif %}">
+      <div class="social-proof-content">
+        <h3 class="social-proof-title">
+          {% if request.locale.iso_code == 'he' %}
+            {{ section.settings.social_proof_title_he | default: 'הצטרף לאלפי הלקוחות המרוצים' }}
+          {% else %}
+            {{ section.settings.social_proof_title_en | default: 'Join thousands of satisfied customers' }}
+          {% endif %}
+        </h3>
+        <p class="social-proof-description">
+          {% if request.locale.iso_code == 'he' %}
+            {{ section.settings.social_proof_description_he | default: 'כל יום עוד לקוחות מגלים את החופש של CarPlay אלחוטי' }}
+          {% else %}
+            {{ section.settings.social_proof_description_en | default: 'Every day more customers discover the freedom of wireless CarPlay' }}
+          {% endif %}
+        </p>
+        <div class="cta-buttons">
+          {% liquid
+            assign button_tag = 'a'
+            assign button_attrs = 'href="' | append: section.settings.cta_link | append: '"'
+            assign button_id = ''
+            assign data_attributes = ''
+
+            if section.settings.cta_action_type == 'add_to_cart'
+              assign button_tag = 'button'
+              assign button_id = 'add-to-cart-reviews'
+              assign data_attributes = 'data-product-id="' | append: section.settings.cta_product.id | append: '" data-variant-id="' | append: section.settings.cta_product.selected_or_first_available_variant.id | append: '"'
+              assign button_attrs = 'type="button"'
+            elsif section.settings.cta_action_type == 'scroll_to_section'
+              assign button_tag = 'button'
+              assign button_attrs = 'type="button" data-action-type="scroll_to_section" data-scroll-target="#' | append: section.settings.cta_scroll_target | append: '"'
+            elsif section.settings.cta_action_type == 'open_popup'
+              assign button_tag = 'button'
+              assign button_attrs = 'type="button" data-action-type="open_popup" data-popup-target="#' | append: section.settings.cta_popup_target | append: '"'
+            endif
+          %}
+          <{{ button_tag }} {{ button_attrs }} class="hero-button hero-button-primary" {% if button_id != blank %}id="{{ button_id }}"{% endif %} {{ data_attributes }}>
+            <div class="button-background-effect"></div>
+            <div class="button-content">
+              {% if section.settings.cta_action_type == 'add_to_cart' %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              {% endif %}
+              <span class="button-text">{{ section.settings.cta_text | default: 'הזמן עכשיו' }}</span>
+            </div>
+          </{{ button_tag }}>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .airsyncx-reviews * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .airsyncx-reviews {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 120px 0;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.08) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 800px;
+    height: 800px;
+    top: -400px;
+    left: -300px;
+    opacity: 0.6;
+    animation: float 20s linear infinite;
+  }
+  
+  .bg-circle-2 {
+    width: 600px;
+    height: 600px;
+    bottom: -300px;
+    right: -200px;
+    opacity: 0.4;
+    animation: float 25s linear infinite reverse;
+  }
+  
+  .bg-circle-3 {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    animation: pulse 8s ease-in-out infinite;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+  }
+  
+  .floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(56, 210, 210, 0.3), transparent),
+                      radial-gradient(2px 2px at 40px 70px, rgba(56, 210, 210, 0.2), transparent),
+                      radial-gradient(1px 1px at 90px 40px, rgba(56, 210, 210, 0.4), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    animation: float 20s linear infinite;
+  }
+  
+  .reviews-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.1) 0%, transparent 70%);
+    animation: reviewsPulse 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    33% { transform: translateY(-10px) translateX(10px); }
+    66% { transform: translateY(5px) translateX(-5px); }
+    100% { transform: translateY(0px) translateX(0px); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.1); }
+  }
+  
+  @keyframes reviewsPulse {
+    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
+  }
+  
+  .reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .section-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .benefits-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #38d2d2, #2dd4bf);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.8s ease;
+  }
+  
+  .benefits-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .section-description {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Trust Indicators */
+  .trust-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+  }
+  
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    border-radius: 20px;
+    padding: 25px 35px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .trust-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.02), transparent);
+    z-index: 1;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  
+  .trust-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 210, 210, 0.4);
+    box-shadow: 0 20px 40px rgba(56, 210, 210, 0.15);
+  }
+  
+  .trust-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.1), rgba(56, 210, 210, 0.05));
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    animation: iconPulse 3s ease-in-out infinite;
+  }
+  
+  .trust-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .trust-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #38d2d2;
+    text-shadow: 0 0 15px rgba(56, 210, 210, 0.5);
+    margin-bottom: 5px;
+  }
+  
+  .trust-label {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  /* Enhanced Reviews Slider */
+  .reviews-slider {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    margin-bottom: 80px;
+  }
+  
+  .reviews-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    touch-action: pan-y;
+    will-change: transform;
+  }
+  
+  .review-card {
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    border-radius: 25px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    min-width: 380px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.7;
+    transform: scale(0.95) translateY(10px);
+    flex-shrink: 0;
+  }
+  
+  .review-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #38d2d2, transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    z-index: 1;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  
+  .review-card.active-card {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    border-color: rgba(56, 210, 210, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(56, 210, 210, 0.2);
+  }
+  
+  .review-card.active-card::before {
+    opacity: 1;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(56, 210, 210, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(56, 210, 210, 0.3);
+  }
+  
+  .review-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .quote-icon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.2;
+    color: #38d2d2;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .review-stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    color: #38d2d2;
+  }
+  
+  .star-icon {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 0 5px rgba(56, 210, 210, 0.4));
+    transition: all 0.3s ease;
+  }
+  
+  .review-card:hover .star-icon {
+    filter: drop-shadow(0 0 8px rgba(56, 210, 210, 0.6));
+    transform: scale(1.1);
+  }
+  
+  .review-text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.9);
+    min-height: 120px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .verified-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    color: #38d2d2;
+    margin-bottom: 25px;
+    padding: 8px 15px;
+    background: linear-gradient(145deg, rgba(56, 210, 210, 0.1), rgba(56, 210, 210, 0.05));
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    border-radius: 15px;
+    width: fit-content;
+  }
+  
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+  
+  .review-author::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 210, 210, 0.3));
+  }
+  
+  .author-image-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(145deg, #38d2d2, #2aa7a7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(56, 210, 210, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+  
+  .author-image-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #38d2d2, #2dd4bf);
+    z-index: -1;
+    animation: borderGlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes borderGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  
+  .author-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .author-initials {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  .author-details {
+    flex: 1;
+  }
+  
+  .author-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+  }
+  
+  .author-location {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .author-location::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338d2d2' width='24' height='24'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+  }
+  
+  .purchase-date {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+  
+  /* Enhanced Slider Controls */
+  .slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+  
+  .control-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(0, 0, 0, 0.8));
+    border: 2px solid rgba(56, 210, 210, 0.3);
+    color: #38d2d2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .control-btn svg {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+  
+  .button-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: 1;
+  }
+  
+  .control-btn:hover {
+    background: linear-gradient(145deg, #38d2d2, #2dd4bf);
+    color: #000000;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 15px 40px rgba(56, 210, 210, 0.4);
+  }
+  
+  .control-btn:hover .button-glow {
+    transform: translateX(100%);
+  }
+  
+  .control-btn:hover svg {
+    transform: scale(1.2);
+  }
+  
+  .control-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(0) scale(1);
+    box-shadow: none;
+  }
+  
+  .pagination-dots {
+    display: flex;
+    gap: 15px;
+    min-height: 20px;
+  }
+  
+  .pagination-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    min-width: 14px;
+    min-height: 14px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .pagination-dot::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0);
+    transition: background-color 0.3s ease;
+    z-index: -1;
+  }
+  
+  .pagination-dot:hover::before {
+    background-color: rgba(56, 210, 210, 0.1);
+  }
+  
+  .pagination-dot.active {
+    background: linear-gradient(145deg, #38d2d2, #2dd4bf);
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.6);
+  }
+  
+  /* Social Proof Section */
+  .social-proof {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(145deg, rgba(25, 25, 25, 0.3), rgba(0, 0, 0, 0.8));
+    border: 2px solid rgba(56, 210, 210, 0.2);
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-proof::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(56, 210, 210, 0.03), transparent);
+    z-index: 1;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  
+  .social-proof-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-proof-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  .social-proof-description {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 18px 35px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+  }
+  
+  /* Hero Button Styles */
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 32px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 200px;
+  }
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .button-icon {
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transform-origin: center;
+  }
+
+  /* PRIMARY BUTTON - Call to Action */
+  .hero-button-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4500 100%);
+    color: #ffffff;
+    box-shadow: 
+      0 12px 35px rgba(255, 107, 53, 0.5),
+      0 6px 18px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 107, 53, 0.7);
+    transform: scale(1.05);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Background Effect for Primary Button */
+  .button-background-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.15) 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+  }
+
+  .hero-button-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff8c5a 0%, #ff6b35 50%, #f7931e 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+  }
+
+  .hero-button-primary::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 12px;
+    background: linear-gradient(90deg, rgba(255,107,53,0) 0%, rgba(255,107,53,0.9) 50%, rgba(255,107,53,0) 100%);
+    border-radius: 50%;
+    filter: blur(6px);
+    opacity: 0.8;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 0;
+  }
+
+  .hero-button-primary:hover {
+    transform: translateY(-12px) scale(1.08);
+    box-shadow: 
+      0 25px 60px rgba(255, 107, 53, 0.8),
+      0 15px 40px rgba(0, 0, 0, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.5);
+    animation: none;
+    filter: brightness(1.1) saturate(1.2);
+  }
+
+  .hero-button-primary:hover::before {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover::after {
+    opacity: 1;
+    width: 95%;
+    height: 16px;
+    filter: blur(8px);
+  }
+
+  .hero-button-primary:hover .button-background-effect {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover .button-icon {
+    transform: scale(1.15) rotate(8deg);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .hero-button-primary:active {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 
+      0 12px 30px rgba(255, 107, 53, 0.6),
+      0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s ease-out;
+  }
+  
+  .cta-button.secondary {
+    background: transparent;
+    color: #38d2d2;
+    border: 2px solid #38d2d2;
+  }
+  
+  .cta-button.secondary:hover {
+    background: #38d2d2;
+    color: #000000;
+    transform: translateY(-3px) scale(1.05);
+  }
+  
+  .cta-button .button-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .cta-button:hover .button-glow {
+    transform: translateX(100%);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .benefits-title {
+      font-size: 5rem;
+    }
+    
+    .trust-indicators {
+      gap: 40px;
+    }
+    
+    .review-card {
+      min-width: 350px;
+      width: 350px;
+      padding: 35px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .airsyncx-reviews {
+      padding: 80px 0;
+    }
+    
+    .benefits-title {
+      font-size: 4rem;
+    }
+    
+    .section-description {
+      font-size: 2rem;
+    }
+    
+    .trust-indicators {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .review-card {
+      min-width: 320px;
+      width: 320px;
+      padding: 30px;
+    }
+    
+    .review-text {
+      font-size: 1.6rem;
+      min-height: 100px;
+    }
+    
+    .control-btn {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .social-proof-title {
+      font-size: 2.8rem;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .benefits-title {
+      font-size: 3rem;
+    }
+    
+    .section-description {
+      font-size: 1.8rem;
+    }
+    
+    .review-card {
+      min-width: calc(100vw - 60px);
+      width: calc(100vw - 60px);
+      padding: 25px;
+    }
+    
+    .review-text {
+      font-size: 1.5rem;
+      min-height: 120px;
+    }
+    
+    .social-proof {
+      padding: 40px 20px;
+    }
+    
+    .social-proof-title {
+      font-size: 2.5rem;
+    }
+    
+    .social-proof-description {
+      font-size: 1.6rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animations
+    AOS.init({
+      once: true,
+      disable: 'phone'
+    });
+    
+    // Reviews slider functionality
+    const track = document.querySelector('.reviews-track');
+    const cards = document.querySelectorAll('.review-card');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const paginationDots = document.querySelector('.pagination-dots');
+    
+    let currentIndex = 0;
+    let cardWidth = 0;
+    let visibleCards = 0;
+    let totalSlides = 0;
+    let autoplayInterval = null;
+    let isAutoplayEnabled = true;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    // Create pagination dots
+    function createPaginationDots() {
+      paginationDots.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('pagination-dot');
+        if (i === currentIndex) {
+          dot.classList.add('active');
+        }
+        dot.setAttribute('aria-label', `{{ 'sections.airsyncx_reviews.review_label' | t }} ${i + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(i);
+          resetAutoplay();
+        });
+        paginationDots.appendChild(dot);
+      }
+    }
+    
+    // Update slider calculations
+    function updateSlider() {
+      const containerWidth = track.parentElement.offsetWidth;
+      
+      // Adjust card sizing for mobile
+      const reviewCards = document.querySelectorAll('.review-card');
+      if (window.innerWidth <= 576) {
+        reviewCards.forEach(card => {
+          card.style.minWidth = Math.min(320, containerWidth - 40) + 'px';
+          card.style.width = Math.min(320, containerWidth - 40) + 'px';
+        });
+        cardWidth = Math.min(320, containerWidth - 40) + parseInt(window.getComputedStyle(reviewCards[0]).marginRight);
+      } else {
+        reviewCards.forEach(card => {
+          card.style.minWidth = '';
+          card.style.width = '';
+        });
+        cardWidth = reviewCards[0].offsetWidth + parseInt(window.getComputedStyle(reviewCards[0]).marginRight);
+      }
+      
+      // Calculate how many cards are visible
+      visibleCards = Math.max(1, Math.floor(containerWidth / cardWidth));
+      
+      // Calculate total number of slides
+      totalSlides = Math.max(1, cards.length - visibleCards + 1);
+      
+      // Update current index if it's out of bounds
+      currentIndex = Math.min(currentIndex, totalSlides - 1);
+      
+      // Create pagination dots
+      createPaginationDots();
+      
+      // Update slider position
+      goToSlide(currentIndex);
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+      currentIndex = index;
+      
+      // Update active pagination dot
+      const dots = document.querySelectorAll('.pagination-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+      
+      // Move slider
+      const translateX = currentIndex * cardWidth;
+      track.style.transform = `translateX(${translateX}px)`;
+      
+      // Update button states
+      prevBtn.disabled = currentIndex === totalSlides - 1;
+      nextBtn.disabled = currentIndex === 0;
+      
+      // Add active class to current cards
+      cards.forEach((card, i) => {
+        const isVisible = i >= (cards.length - currentIndex - visibleCards) && i < (cards.length - currentIndex);
+        card.classList.toggle('active-card', isVisible);
+      });
+    }
+    
+    // Start autoplay
+    function startAutoplay() {
+      if (isAutoplayEnabled && !autoplayInterval) {
+        autoplayInterval = setInterval(() => {
+          if (currentIndex < totalSlides - 1) {
+            goToSlide(currentIndex + 1);
+          } else {
+            goToSlide(0);
+          }
+        }, 5000);
+      }
+    }
+    
+    // Reset autoplay timer
+    function resetAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+      startAutoplay();
+    }
+    
+    // Go to next slide
+    function goToNext() {
+      if (currentIndex > 0) {
+        goToSlide(currentIndex - 1);
+      } else {
+        goToSlide(totalSlides - 1);
+      }
+      resetAutoplay();
+    }
+    
+    // Go to previous slide
+    function goToPrev() {
+      if (currentIndex < totalSlides - 1) {
+        goToSlide(currentIndex + 1);
+      } else {
+        goToSlide(0);
+      }
+      resetAutoplay();
+    }
+    
+    // Touch events for swipe on mobile
+    function handleTouchStart(e) {
+      touchStartX = e.touches[0].clientX;
+      e.preventDefault();
+    }
+    
+    function handleTouchMove(e) {
+      if (!touchStartX) return;
+      
+      const currentX = e.touches[0].clientX;
+      const diff = touchStartX - currentX;
+      
+      if (Math.abs(diff) > 10) {
+        e.preventDefault();
+      }
+    }
+    
+    function handleTouchEnd(e) {
+      if (!touchStartX) return;
+      
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
+      touchStartX = null;
+    }
+    
+    function handleSwipe() {
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 40) {
+        if (swipeDistance > 0) {
+          goToNext();
+        } else {
+          goToPrev();
+        }
+      }
+    }
+    
+    // Add event listeners
+    prevBtn.addEventListener('click', goToPrev);
+    nextBtn.addEventListener('click', goToNext);
+    window.addEventListener('resize', updateSlider);
+    track.addEventListener('touchstart', handleTouchStart, { passive: false });
+    track.addEventListener('touchmove', handleTouchMove, { passive: false });
+    track.addEventListener('touchend', handleTouchEnd, false);
+    
+    // Initialize slider
+    function initSlider() {
+      const cardsArray = Array.from(cards);
+      
+      while (track.firstChild) {
+        track.removeChild(track.firstChild);
+      }
+      
+      cardsArray.forEach(card => {
+        track.appendChild(card);
+      });
+      
+      updateSlider();
+      startAutoplay();
+    }
+    
+    initSlider();
+    
+    // Enhanced card hover effects
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-15px) scale(1.02)';
+        
+        // Animate stars
+        const stars = this.querySelectorAll('.star-icon');
+        stars.forEach((star, index) => {
+          setTimeout(() => {
+            star.style.transform = 'scale(1.2) rotate(10deg)';
+          }, index * 50);
+        });
+        
+        // Glow effect on author image
+        const authorImage = this.querySelector('.author-image-container');
+        if (authorImage) {
+          authorImage.style.boxShadow = '0 15px 30px rgba(56, 210, 210, 0.5)';
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        
+        // Reset stars
+        const stars = this.querySelectorAll('.star-icon');
+        stars.forEach(star => {
+          star.style.transform = 'scale(1) rotate(0deg)';
+        });
+        
+        // Reset author image glow
+        const authorImage = this.querySelector('.author-image-container');
+        if (authorImage) {
+          authorImage.style.boxShadow = '0 8px 20px rgba(56, 210, 210, 0.3)';
+        }
+      });
+    });
+    
+    // Parallax background effect
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    const reviewsGlow = document.querySelector('.reviews-glow');
+    
+    window.addEventListener('mousemove', function(e) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = (index + 1) * 0.3;
+        circle.style.transform = `translate(${x * 20 * factor}px, ${y * 20 * factor}px)`;
+      });
+      
+      if (reviewsGlow) {
+        reviewsGlow.style.transform = `translate(calc(-50% + ${x * 30}px), calc(-50% + ${y * 30}px))`;
+      }
+    });
+    
+    // Trust indicators animation on scroll
+    const trustItems = document.querySelectorAll('.trust-item');
+    
+    const trustObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const trustNumber = entry.target.querySelector('.trust-number');
+          const originalText = trustNumber.textContent;
+          
+          // Animate number counting
+          if (originalText.includes('.')) {
+            animateDecimal(trustNumber, parseFloat(originalText));
+          } else if (originalText.includes('+')) {
+            animateNumber(trustNumber, parseInt(originalText.replace(/[^0-9]/g, '')), originalText);
+          } else if (originalText.includes('%')) {
+            animatePercentage(trustNumber, parseInt(originalText.replace('%', '')));
+          }
+          
+          trustObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    trustItems.forEach(item => {
+      trustObserver.observe(item);
+    });
+    
+    // Number animation functions
+    function animateNumber(element, target, suffix) {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current).toLocaleString() + suffix.replace(/[0-9]/g, '');
+      }, 30);
+    }
+    
+    function animateDecimal(element, target) {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = current.toFixed(1);
+      }, 30);
+    }
+    
+    function animatePercentage(element, target) {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current) + '%';
+      }, 30);
+    }
+    
+    // CTA buttons interaction
+    const ctaButtons = document.querySelectorAll('.social-proof .hero-button');
+    
+    ctaButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const actionType = this.dataset.actionType;
+
+        if (actionType === 'add_to_cart') {
+          const variantId = this.getAttribute('data-variant-id');
+          
+          if (!variantId) {
+            alert('{{ "sections.airsyncx_hero.no_product_selected" | t }}');
+            return;
+          }
+          
+          // Show loading state
+          this.classList.add('loading');
+          const originalText = this.querySelector('.button-text').textContent;
+          const loadingText = '{{ "sections.airsyncx_hero.adding_to_cart" | t }}';
+          this.querySelector('.button-text').textContent = loadingText;
+          
+          // Add the product to cart using the variant ID
+          fetch(window.routes.cart_add_url || '/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              items: [{
+                id: parseInt(variantId),
+                quantity: 1
+              }]
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Reset button state
+            this.classList.remove('loading');
+            this.querySelector('.button-text').textContent = originalText;
+            
+            if (data.status && data.status !== 200) {
+              console.error('Error adding product to cart:', data);
+              alert('{{ "sections.airsyncx_hero.error_adding_to_cart" | t }}');
+              return;
+            }
+            
+            // Handle post-add-to-cart action based on settings
+            {% if section.settings.after_add_to_cart_action == 'go_to_cart' %}
+              window.location.href = window.routes.cart_url || '/cart';
+            {% else %}
+              // Show success message and stay on page
+              const successMessage = '{{ section.settings.success_message | default: "sections.airsyncx_hero.product_added_successfully" | t }}';
+              alert(successMessage);
+            {% endif %}
+          })
+          .catch(error => {
+            console.error('Error adding product to cart:', error);
+            this.classList.remove('loading');
+            this.querySelector('.button-text').textContent = originalText;
+            alert('{{ "sections.airsyncx_hero.error_adding_to_cart" | t }}');
+          });
+        } else if (actionType === 'scroll_to_section') {
+          e.preventDefault();
+          const target = this.dataset.scrollTarget;
+          const targetElement = document.querySelector(target);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            console.warn(`Scroll target element not found: ${target}`);
+          }
+        } else if (actionType === 'open_popup') {
+          e.preventDefault();
+          const target = this.dataset.popupTarget;
+          const popupElement = document.querySelector(target);
+          if (popupElement) {
+            popupElement.classList.add('is-active');
+            popupElement.addEventListener('click', (e) => {
+              if (e.target === popupElement) {
+                popupElement.classList.remove('is-active');
+              }
+            });
+          } else {
+            console.warn(`Popup target element not found: ${target}`);
+          }
+        } else {
+          // Create ripple effect for all buttons
+          const ripple = document.createElement('span');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = x + 'px';
+          ripple.style.top = y + 'px';
+          ripple.classList.add('ripple');
+          
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        }
+      });
+    });
+    
+    // Enhanced control button effects
+    const controlBtns = document.querySelectorAll('.control-btn');
+    
+    controlBtns.forEach(btn => {
+      btn.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.1)';
+        
+        // Rotate icon
+        const icon = this.querySelector('svg');
+        if (icon) {
+          icon.style.transform = 'scale(1.3) rotate(10deg)';
+        }
+      });
+      
+      btn.addEventListener('mouseleave', function() {
+        if (!this.disabled) {
+          this.style.transform = 'translateY(0) scale(1)';
+          
+          // Reset icon
+          const icon = this.querySelector('svg');
+          if (icon) {
+            icon.style.transform = 'scale(1) rotate(0deg)';
+          }
+        }
+      });
+    });
+    
+    // Verified badge animation
+    const verifiedBadges = document.querySelectorAll('.verified-badge');
+    
+    verifiedBadges.forEach(badge => {
+      badge.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('svg');
+        if (icon) {
+          icon.style.transform = 'scale(1.2) rotate(360deg)';
+        }
+      });
+      
+      badge.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('svg');
+        if (icon) {
+          icon.style.transform = 'scale(1) rotate(0deg)';
+        }
+      });
+    });
+    
+    // Performance optimization
+    let ticking = false;
+    
+    function updateParallax(e) {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // Parallax logic here
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    
+    // Pause autoplay when user interacts
+    const reviewsSection = document.querySelector('.airsyncx-reviews');
+    
+    reviewsSection.addEventListener('mouseenter', () => {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    });
+    
+    reviewsSection.addEventListener('mouseleave', () => {
+      startAutoplay();
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') {
+        goToPrev();
+      } else if (e.key === 'ArrowRight') {
+        goToNext();
+      }
+    });
+    
+    // Social proof section animation
+    const socialProof = document.querySelector('.social-proof');
+    
+    const socialObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const title = entry.target.querySelector('.social-proof-title');
+          const description = entry.target.querySelector('.social-proof-description');
+          const buttons = entry.target.querySelectorAll('.cta-button');
+          
+          // Animate elements with delay
+          setTimeout(() => {
+            title.style.animation = 'slideInUp 0.8s ease-out forwards';
+          }, 200);
+          
+          setTimeout(() => {
+            description.style.animation = 'slideInUp 0.8s ease-out forwards';
+          }, 400);
+          
+          buttons.forEach((button, index) => {
+            setTimeout(() => {
+              button.style.animation = 'slideInUp 0.8s ease-out forwards';
+            }, 600 + (index * 200));
+          });
+          
+          socialObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    if (socialProof) {
+      socialObserver.observe(socialProof);
+    }
+  });
+  
+  // Add additional CSS animations
+  const style = document.createElement('style');
+  style.textContent = `
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(0);
+      animation: rippleEffect 0.6s linear;
+      pointer-events: none;
+    }
+    
+    @keyframes rippleEffect {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Enhanced hover effects */
+    .review-card:hover .quote-icon {
+      transform: translateY(-8px) scale(1.1);
+      opacity: 0.4;
+    }
+    
+    .trust-item:hover .trust-icon {
+      transform: scale(1.2) rotate(10deg);
+    }
+    
+    .trust-item:hover .trust-number {
+      text-shadow: 0 0 20px rgba(56, 210, 210, 0.8);
+    }
+    
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .floating-particles {
+        display: none;
+      }
+      
+      .reviews-glow {
+        display: none;
+      }
+      
+      .bg-circle {
+        opacity: 0.3;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+{% schema %}
+{
+  "name": "AirSyncX - ביקורות לקוחות",
+  "tag": "section",
+  "class": "airsyncx-reviews-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "תוכן ראשי"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "טקסט כותרת עליונה",
+      "default": "ביקורות לקוחות"
+    },
+    {
+      "type": "html",
+      "id": "main_title",
+      "label": "כותרת ראשית",
+      "default": "מה אומרים <span class=\"highlight\">הלקוחות שלנו</span> על AirSyncX?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "תיאור הסקשן",
+      "default": "אלפי לקוחות מרוצים שכבר חווים את החופש של CarPlay אלחוטי"
+    },
+    {
+      "type": "header",
+      "content": "הגדרות סליידר"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "הפעל החלפה אוטומטית",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "שנ'",
+      "label": "מהירות החלפה אוטומטית",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "הגדרות Social Proof"
+    },
+    {
+      "type": "text",
+      "id": "social_proof_title_he",
+      "label": "כותרת Social Proof - עברית",
+      "default": "הצטרף לאלפי הלקוחות המרוצים"
+    },
+    {
+      "type": "text",
+      "id": "social_proof_title_en",
+      "label": "כותרת Social Proof - אנגלית",
+      "default": "Join thousands of satisfied customers"
+    },
+    {
+      "type": "textarea",
+      "id": "social_proof_description_he",
+      "label": "תיאור Social Proof - עברית",
+      "default": "כל יום עוד לקוחות מגלים את החופש של CarPlay אלחוטי"
+    },
+    {
+      "type": "textarea",
+      "id": "social_proof_description_en",
+      "label": "תיאור Social Proof - אנגלית",
+      "default": "Every day more customers discover the freedom of wireless CarPlay"
+    },
+    {
+      "type": "header",
+      "content": "הגדרות כפתור CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "טקסט כפתור",
+      "default": "הזמן עכשיו"
+    },
+    {
+      "type": "product",
+      "id": "cta_product",
+      "label": "מוצר להוספה לסל",
+      "info": "בחר את המוצר שיתווסף לסל בלחיצה על הכפתור"
+    },
+    {
+      "type": "select",
+      "id": "cta_action_type",
+      "label": "סוג פעולה לכפתור",
+      "options": [
+        {
+          "value": "add_to_cart",
+          "label": "הוספה לסל"
+        },
+        {
+          "value": "redirect",
+          "label": "הפניה לקישור"
+        },
+        {
+          "value": "scroll_to_section",
+          "label": "גלול למקטע"
+        },
+        {
+          "value": "open_popup",
+          "label": "פתח חלון קופץ"
+        }
+      ],
+      "default": "add_to_cart",
+      "info": "בחר את סוג הפעולה עבור הכפתור."
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "קישור כפתור",
+      "info": "יופעל רק אם נבחרה פעולת 'הפניה לקישור'"
+    },
+    {
+      "type": "text",
+      "id": "cta_scroll_target",
+      "label": "מזהה מקטע לגלילה",
+      "info": "הכנס את מזהה המקטע (ID) אליו יש לגלול (לדוגמה, 'my-section-id')."
+    },
+    {
+      "type": "text",
+      "id": "cta_popup_target",
+      "label": "מזהה חלון קופץ",
+      "info": "הכנס את מזהה החלון הקופץ (ID) אותו יש לפתוח (לדוגמה, 'my-popup-id')."
+    },
+    {
+      "type": "header",
+      "content": "הגדרות Trust Indicators"
+    },
+    {
+      "type": "text",
+      "id": "trust_rating_number",
+      "label": "מספר דירוג",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "trust_rating_label_he",
+      "label": "תווית דירוג - עברית",
+      "default": "דירוג ממוצע"
+    },
+    {
+      "type": "text",
+      "id": "trust_rating_label_en",
+      "label": "תווית דירוג - אנגלית",
+      "default": "Average Rating"
+    },
+    {
+      "type": "text",
+      "id": "trust_customers_number",
+      "label": "מספר לקוחות",
+      "default": "15,000+"
+    },
+    {
+      "type": "text",
+      "id": "trust_customers_label_he",
+      "label": "תווית לקוחות - עברית",
+      "default": "לקוחות מרוצים"
+    },
+    {
+      "type": "text",
+      "id": "trust_customers_label_en",
+      "label": "תווית לקוחות - אנגלית",
+      "default": "Happy Customers"
+    },
+    {
+      "type": "text",
+      "id": "trust_satisfaction_number",
+      "label": "מספר שביעות רצון",
+      "default": "99%"
+    },
+    {
+      "type": "text",
+      "id": "trust_satisfaction_label_he",
+      "label": "תווית שביעות רצון - עברית",
+      "default": "שביעות רצון"
+    },
+    {
+      "type": "text",
+      "id": "trust_satisfaction_label_en",
+      "label": "תווית שביעות רצון - אנגלית",
+      "default": "Satisfaction Rate"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "ביקורת",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 0.5,
+          "label": "דירוג",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "טקסט הביקורת",
+          "default": "המתאם עובד בצורה מושלמת ברכב שלי. חיפשתי דרך פשוטה להפוך את ה-CarPlay לאלחוטי וזה בדיוק מה שעשיתי. מתחבר באופן אוטומטי בכל פעם."
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "תמונת הכותב"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "שם הכותב",
+          "default": "יוסי"
+        },
+        {
+          "type": "text",
+          "id": "author_location",
+          "label": "מיקום הכותב",
+          "default": "תל אביב"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "review_text": "המתאם עובד בצורה מושלמת ברכב שלי. חיפשתי דרך פשוטה להפוך את ה-CarPlay לאלחוטי וזה בדיוק מה שעשיתי. מתחבר באופן אוטומטי בכל פעם.",
+            "author_name": "יוסי",
+            "author_location": "תל אביב"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 4.5,
+            "review_text": "מוצר מדהים! התקנתי תוך שניות ומאז אני נהנית להשתמש בCarPlay האלחוטי. מאוד קל לשימוש ולא היו לי בעיות עם החיבור.",
+            "author_name": "מיכל",
+            "author_location": "חיפה"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "review_text": "לגמרי שינה את החוויה ברכב שלי. אני אוהב את העובדה שאין יותר כבלים ושהטלפון מתחבר באופן אוטומטי. השקעה מעולה.",
+            "author_name": "דני",
+            "author_location": "ירושלים"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "מוצר מדהים! חסך לי את הטרחה של חיבור הטלפון בכל נסיעה. החיבור אוטומטי ומהיר, ועכשיו אני יכול להשתמש ב-CarPlay בצורה חלקה ביותר.",
+            "author_name": "רון",
+            "author_location": "רמת גן"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "לא האמנתי עד כמה זה ישנה את חווית הנהיגה שלי! התקנה פשוטה, חיבור מהיר, ופשוט עובד. אחד הגאדג'טים הכי שימושיים שקניתי לרכב.",
+            "author_name": "נועה",
+            "author_location": "באר שבע"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 4.5,
+            "review_text": "פתרון נהדר למי שרוצה לשדרג את מערכת ה-CarPlay הקיימת. השירות היה מעולה והמוצר הגיע במהירות. פועל בדיוק כפי שהובטח.",
+            "author_name": "אלון",
+            "author_location": "אשדוד"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

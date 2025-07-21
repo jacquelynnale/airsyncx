@@ -1,0 +1,2260 @@
+<!-- AirSyncX About Section -->
+<!-- Removed duplicate Google Fonts loading - already loaded in theme.liquid -->
+
+<section id="about" class="airsyncx-about" dir="{% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %}">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-lines"></div>
+  </div>
+
+  <div class="about-container">
+    <div class="about-content mobile-order-1" data-aos="{% if request.locale.iso_code == 'he' %}fade-right{% else %}fade-left{% endif %}" data-aos-duration="1000">
+      <div class="section-eyebrow">{{ section.settings.eyebrow_text }}</div>
+      <h2 class="about-title">{{ section.settings.title_part1 }} <span class="highlight">{{ section.settings.title_part2 }}</span><span class="title-question">{{ section.settings.title_part3 }}</span></h2>
+      <p class="about-description">
+        {{ section.settings.description }}
+      </p>
+      
+      <div class="about-features timeline-container">
+        <div class="timeline-line"></div>
+        {% for block in section.blocks %}
+          <div class="about-feature timeline-item" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 200 }}" data-timeline-item="{{ forloop.index }}">
+            <div class="timeline-marker">
+              <div class="feature-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 13L10 16L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-content">
+              <span>{{ block.settings.feature_text }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      
+      <!-- CTA Section -->
+      {% if section.settings.show_cta %}
+        <div class="about-cta">
+          {% if section.settings.primary_cta_text != blank %}
+            {% liquid
+              assign button_tag = 'a'
+              assign button_attrs = 'href="' | append: section.settings.primary_cta_link | append: '"'
+              assign button_id = ''
+              assign data_attributes = ''
+
+              if section.settings.primary_cta_action_type == 'add_to_cart'
+                assign button_tag = 'button'
+                assign button_id = 'add-to-cart-about'
+                assign data_attributes = 'data-product-id="' | append: section.settings.cta_product.id | append: '" data-variant-id="' | append: section.settings.cta_product.selected_or_first_available_variant.id | append: '"'
+                assign button_attrs = 'type="button"'
+              elsif section.settings.primary_cta_action_type == 'scroll_to_section'
+                assign button_tag = 'button'
+                assign button_attrs = 'type="button" data-action-type="scroll_to_section" data-scroll-target="#' | append: section.settings.primary_cta_scroll_target | append: '"'
+              elsif section.settings.primary_cta_action_type == 'open_popup'
+                assign button_tag = 'button'
+                assign button_attrs = 'type="button" data-action-type="open_popup" data-popup-target="#' | append: section.settings.primary_cta_popup_target | append: '"'
+              endif
+            %}
+            <{{ button_tag }} {{ button_attrs }} class="hero-button hero-button-primary" {% if button_id != blank %}id="{{ button_id }}"{% endif %} {{ data_attributes }}>
+              <div class="button-content">
+                {% if section.settings.primary_cta_action_type == 'add_to_cart' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                {% endif %}
+                <span class="button-text">{{ section.settings.primary_cta_text }}</span>
+              </div>
+            </{{ button_tag }}>
+          {% endif %}
+          
+          {% if section.settings.secondary_cta_text != blank %}
+            <a href="{{ section.settings.secondary_cta_link | default: '/pages/how-it-works' }}" class="hero-button hero-button-secondary">
+              <div class="button-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                  <path d="M9 12l2 2 4-4"></path>
+                  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.15 0 4.11.75 5.66 2"></path>
+                </svg>
+                <span class="button-text">{{ section.settings.secondary_cta_text }}</span>
+              </div>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="about-image mobile-order-2" data-aos="{% if request.locale.iso_code == 'he' %}fade-left{% else %}fade-right{% endif %}" data-aos-duration="1000">
+      <div class="video-container">
+        {% if section.settings.video_poster != blank %}
+          <div class="video-fallback-image">
+            <img 
+              src="{{ section.settings.video_poster | img_url: 'master' }}" 
+              alt="{{ section.settings.video_alt_text | default: 'sections.airsyncx_about.video_alt_text' | t }}"
+              loading="lazy"
+              width="600"
+              height="400"
+              decoding="async">
+          </div>
+        {% endif %}
+        
+        {% if request.locale.iso_code == 'he' %}
+          <div class="video-overlay">
+            <div class="play-button-large">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="#ffffff">
+                <circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.5)"/>
+                <path d="M10 8l6 4-6 4V8z" fill="#ffffff"/>
+              </svg>
+            </div>
+            <div class="video-text-prompt">{{ section.settings.video_play_text | default: 'sections.airsyncx_about.click_to_watch' | t }}</div>
+          </div>
+          {% if section.settings.hebrew_video_url != blank %}
+            <video id="heVideo" class="device-video" playsinline poster="{{ section.settings.video_poster | img_url: 'master' }}" preload="none">
+              <source src="{{ section.settings.hebrew_video_url }}" type="video/mp4">
+              {{ section.settings.video_not_supported_text | default: 'sections.airsyncx_about.video_not_supported' | t }}
+            </video>
+          {% endif %}
+        {% else %}
+          <div class="video-overlay">
+            <div class="play-button-large">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="#ffffff">
+                <circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.5)"/>
+                <path d="M10 8l6 4-6 4V8z" fill="#ffffff"/>
+              </svg>
+            </div>
+            <div class="video-text-prompt">{{ section.settings.video_play_text | default: 'sections.airsyncx_about.click_to_watch' | t }}</div>
+          </div>
+          {% if section.settings.english_video_url != blank %}
+            <video id="enVideo" class="device-video" playsinline poster="{{ section.settings.video_poster | img_url: 'master' }}" preload="none">
+              <source src="{{ section.settings.english_video_url }}" type="video/mp4">
+              {{ section.settings.video_not_supported_text | default: 'sections.airsyncx_about.video_not_supported' | t }}
+            </video>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="tech-circles">
+        <div class="tech-circle tech-circle-1"></div>
+        <div class="tech-circle tech-circle-2"></div>
+        <div class="tech-circle tech-circle-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- iOS Video Fix Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // הגדרות לזיהוי מכשירי אפל
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isMobile = window.innerWidth <= 767;
+    
+    // Video Playback Logic
+    const videos = document.querySelectorAll('video.device-video');
+    const overlays = document.querySelectorAll('.video-overlay');
+    
+    overlays.forEach((overlay, index) => {
+      const video = videos[index];
+      overlay.addEventListener('click', function() {
+        if (isIOS && isMobile) {
+          if (video.webkitEnterFullscreen) {
+            overlay.style.display = 'none';
+            video.play().then(() => {
+              video.webkitEnterFullscreen();
+            }).catch(error => {
+              console.error('Error playing video:', error);
+              overlay.style.display = 'flex';
+            });
+          } else {
+            video.play().catch(e => console.log('iOS play error:', e));
+            overlay.style.display = 'none';
+          }
+        } else {
+          video.play().catch(e => console.log('Play error:', e));
+          overlay.style.display = 'none';
+        }
+      });
+    });
+    
+    videos.forEach((video, index) => {
+      const overlay = overlays[index];
+      video.addEventListener('pause', function() {
+        if (!document.webkitIsFullScreen && !document.fullscreenElement) {
+          overlay.style.display = 'flex';
+        }
+      });
+      video.addEventListener('ended', function() {
+        overlay.style.display = 'flex';
+      });
+      video.addEventListener('webkitendfullscreen', function() {
+        overlay.style.display = 'flex';
+      });
+      if (isIOS) {
+        video.setAttribute('webkit-playsinline', 'true');
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('x-webkit-airplay', 'allow');
+      }
+    });
+
+    // Primary CTA Button Logic
+    const primaryCtaButton = document.querySelector('.about-cta .hero-button-primary');
+
+    if (primaryCtaButton) {
+      primaryCtaButton.addEventListener('click', function(event) {
+        const actionType = this.dataset.actionType;
+
+        if (actionType === 'add_to_cart') {
+          const variantId = this.getAttribute('data-variant-id');
+          
+          if (!variantId) {
+            alert('{{ "sections.airsyncx_hero.no_product_selected" | t }}');
+            return;
+          }
+          
+          // Show loading state
+          this.classList.add('loading');
+          const originalText = this.querySelector('.button-text').textContent;
+          const loadingText = '{{ "sections.airsyncx_about.adding_to_cart" | t }}';
+          this.querySelector('.button-text').textContent = loadingText;
+          
+          // Add the product to cart using the variant ID
+          fetch(window.routes.cart_add_url || '/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              items: [{
+                id: parseInt(variantId),
+                quantity: 1
+              }]
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Reset button state
+            this.classList.remove('loading');
+            this.querySelector('.button-text').textContent = originalText;
+            
+            if (data.status && data.status !== 200) {
+              console.error('Error adding product to cart:', data);
+              alert('{{ "sections.airsyncx_hero.error_adding_to_cart" | t }}');
+              return;
+            }
+            
+            // Handle post-add-to-cart action based on settings
+            {% if section.settings.after_add_to_cart_action == 'go_to_cart' %}
+              window.location.href = window.routes.cart_url || '/cart';
+            {% else %}
+              // Show success message and stay on page
+              const successMessage = '{{ section.settings.success_message | default: 'sections.airsyncx_hero.product_added_successfully' | t }}';
+              alert(successMessage);
+            {% endif %}
+          })
+          .catch(error => {
+            console.error('Error adding product to cart:', error);
+            this.classList.remove('loading');
+            this.querySelector('.button-text').textContent = originalText;
+            alert('{{ "sections.airsyncx_hero.error_adding_to_cart" | t }}');
+          });
+        } else if (actionType === 'scroll_to_section') {
+          event.preventDefault();
+          const target = this.dataset.scrollTarget;
+          const targetElement = document.querySelector(target);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            console.warn(`Scroll target element not found: ${target}`);
+          }
+        } else if (actionType === 'open_popup') {
+          event.preventDefault();
+          const target = this.dataset.popupTarget;
+          const popupElement = document.querySelector(target);
+          if (popupElement) {
+            popupElement.classList.add('is-active');
+            popupElement.addEventListener('click', (e) => {
+              if (e.target === popupElement) {
+                popupElement.classList.remove('is-active');
+              }
+            });
+          } else {
+            console.warn(`Popup target element not found: ${target}`);
+          }
+        }
+      });
+    }
+  });
+</script>
+
+<!-- AOS Animation Library - Lazy Loaded -->
+<script>
+  // Lazy load AOS library when section comes into view
+  let aosLoaded = false;
+  const aboutSection = document.querySelector('.airsyncx-about');
+  
+  const loadAOS = () => {
+    if (aosLoaded) return;
+    aosLoaded = true;
+    
+    // Load AOS CSS
+    const aosCSS = document.createElement('link');
+    aosCSS.rel = 'stylesheet';
+    aosCSS.href = 'https://unpkg.com/aos@next/dist/aos.css';
+    document.head.appendChild(aosCSS);
+    
+    // Load AOS JS
+    const aosScript = document.createElement('script');
+    aosScript.src = 'https://unpkg.com/aos@next/dist/aos.js';
+    aosScript.onload = () => {
+      AOS.init({
+        once: true,
+        disable: 'phone'
+      });
+    };
+    document.body.appendChild(aosScript);
+  };
+  
+  // Intersection Observer to load AOS when section is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadAOS();
+        observer.disconnect();
+      }
+    });
+  }, { rootMargin: '200px' });
+  
+  if (aboutSection) {
+    observer.observe(aboutSection);
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // Intersection Observer for Parallax effects - apply only to background elements
+    const bgCircles = document.querySelectorAll('.bg-circle');
+    
+    window.addEventListener('mousemove', function(e) {
+      let x = e.clientX / window.innerWidth;
+      let y = e.clientY / window.innerHeight;
+      
+      bgCircles.forEach((circle, index) => {
+        const factor = index + 1;
+        circle.style.transform = `translate(${x * 25 * factor}px, ${y * 25 * factor}px)`;
+      });
+    });
+    
+    // Advanced Timeline Scroll Animation
+    const timelineContainer = document.querySelector('.timeline-container');
+    const timelineLine = document.querySelector('.timeline-line');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    if (timelineContainer && timelineLine && timelineItems.length > 0) {
+             // Timeline progress on scroll
+       function updateTimelineProgress() {
+         const containerRect = timelineContainer.getBoundingClientRect();
+         const windowHeight = window.innerHeight;
+         
+         // Calculate timeline line progress
+         let lineProgress = 0;
+         if (containerRect.top < windowHeight && containerRect.bottom > 0) {
+           const visibleHeight = Math.min(windowHeight, containerRect.bottom) - Math.max(0, containerRect.top);
+           lineProgress = Math.max(0, Math.min(100, (visibleHeight / containerRect.height) * 100));
+         }
+         
+         // Update timeline line
+         timelineLine.style.setProperty('--timeline-progress', `${lineProgress}%`);
+         
+         // Activate items based on their individual position
+         timelineItems.forEach((item, index) => {
+           const itemRect = item.getBoundingClientRect();
+           const itemCenter = itemRect.top + (itemRect.height / 2);
+           const triggerPoint = windowHeight * 0.7; // Trigger when item is 70% down the screen
+           
+           if (itemCenter < triggerPoint) {
+             item.classList.add('timeline-visible');
+             item.querySelector('.feature-icon-circle').classList.add('active');
+           } else {
+             item.classList.remove('timeline-visible');
+             item.querySelector('.feature-icon-circle').classList.remove('active');
+           }
+         });
+       }
+      
+      // Reset timeline on load
+      timelineLine.style.setProperty('--timeline-progress', '0%');
+      timelineItems.forEach(item => {
+        item.classList.remove('timeline-visible');
+        item.querySelector('.feature-icon-circle').classList.remove('active');
+      });
+      
+      // Initial call and scroll listener
+      updateTimelineProgress();
+      
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateTimelineProgress();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      // Intersection Observer as fallback
+      const itemObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('timeline-in-view');
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+      
+      timelineItems.forEach(item => {
+        itemObserver.observe(item);
+      });
+      
+      // CTA Glow Effect on Scroll
+      const ctaSection = document.querySelector('.about-cta');
+      if (ctaSection) {
+        const ctaObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('cta-glow-active');
+              
+              // Add stagger effect to buttons
+              const buttons = entry.target.querySelectorAll('.hero-button-primary, .hero-button-secondary');
+              buttons.forEach((button, index) => {
+                setTimeout(() => {
+                  button.classList.add('glow-effect-active');
+                }, index * 300);
+              });
+            } else {
+              entry.target.classList.remove('cta-glow-active');
+              const buttons = entry.target.querySelectorAll('.hero-button-primary, .hero-button-secondary');
+              buttons.forEach(button => {
+                button.classList.remove('glow-effect-active');
+              });
+            }
+          });
+        }, {
+          threshold: 0.3,
+          rootMargin: '0px 0px -100px 0px'
+        });
+        
+        ctaObserver.observe(ctaSection);
+      }
+    }
+    
+    // Fix for video playback issues on iOS devices
+    const videoElements = document.querySelectorAll('.device-video');
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    
+    videoElements.forEach(video => {
+      // Add a click handler to properly play/pause the video
+      video.addEventListener('click', function(e) {
+        // Only handle clicks on the video element itself, not controls
+        if (e.target === video) {
+          if (video.paused) {
+            // Promise helps handle iOS autoplay restrictions
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+              playPromise.then(_ => {
+                // Playback started successfully
+              })
+              .catch(error => {
+                // Auto-play was prevented, show a UI element to let the user start playback
+                console.log("Playback prevented by browser:", error);
+              });
+            }
+          } else {
+            video.pause();
+          }
+        }
+      });
+      
+      // For iOS devices, add special handling for the play button
+      if (iOS) {
+        const playButtons = video.querySelectorAll('.vjs-big-play-button, [class*="play-button"]');
+        playButtons.forEach(button => {
+          button.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          }, true);
+        });
+        
+        // Fix iOS issue with controls not working properly
+        video.addEventListener('loadedmetadata', function() {
+          // Force controls to be visible and interactive
+          video.controls = true;
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .airsyncx-about * {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* RTL text alignment support */
+  [dir="rtl"] .airsyncx-about .about-content {
+    text-align: right;
+  }
+  
+  [dir="ltr"] .airsyncx-about .about-content {
+    text-align: left;
+  }
+  
+  .airsyncx-about {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 120px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.05) 0%, rgba(56, 210, 210, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    right: -100px;
+    opacity: 0.5;
+  }
+  
+  .bg-circle-2 {
+    width: 600px;
+    height: 600px;
+    bottom: -300px;
+    left: -200px;
+    opacity: 0.3;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+    direction: inherit;
+  }
+  
+  .about-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .section-eyebrow {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 25px;
+    opacity: 1;
+  }
+  
+  .about-title {
+    font-size: 5.5rem;
+    font-weight: 800;
+    margin-bottom: 45px;
+    color: #ffffff;
+    position: relative;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+    display: inline-block;
+    font-weight: 900;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #38d2d2;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .about-content:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  /* RTL support for highlight animation */
+  [dir="rtl"] .highlight::after {
+    transform-origin: left;
+  }
+  
+  [dir="rtl"] .about-content:hover .highlight::after {
+    transform-origin: right;
+  }
+  
+  .title-question {
+    color: #38d2d2;
+    display: inline-block;
+    opacity: 0.8;
+    animation: pulse-opacity 3s infinite;
+  }
+  
+  .about-description {
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 45px;
+    position: relative;
+    letter-spacing: 0.2px;
+    max-width: 95%;
+  }
+  
+  .about-description::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 60px;
+    height: 3px;
+    background-color: rgba(56, 210, 210, 0.5);
+  }
+  
+  /* RTL support for description accent line */
+  [dir="rtl"] .about-description::after {
+    right: auto;
+    left: 0;
+  }
+  
+  /* Timeline Container */
+  .timeline-container {
+    position: relative;
+    padding: 40px 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  /* Timeline Line - Base */
+  .timeline-line {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba(56, 210, 210, 0.3);
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(56, 210, 210, 0.2);
+  }
+  
+  /* Timeline Line - Animated Progress */
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--timeline-progress, 0%);
+    background: linear-gradient(to bottom, 
+      #38d2d2 0%, 
+      #2a9d9d 50%, 
+      #38d2d2 100%);
+    border-radius: 2px;
+    transition: height 0.3s ease-out;
+    box-shadow: 0 0 20px rgba(56, 210, 210, 0.8), 
+                0 0 40px rgba(56, 210, 210, 0.4);
+  }
+  
+  /* RTL Timeline Line Position */
+  [dir="rtl"] .timeline-line {
+    left: auto;
+    right: 25px;
+  }
+  
+  /* Timeline Items */
+  .timeline-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Timeline Marker */
+  .timeline-marker {
+    position: relative;
+    z-index: 10;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  [dir="rtl"] .timeline-marker {
+    margin-right: 0;
+    margin-left: 25px;
+  }
+  
+  /* Timeline Content */
+  .timeline-content {
+    flex: 1;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  [dir="rtl"] .timeline-content::before {
+    left: auto;
+    right: -8px;
+    border-right: none;
+    border-left: 8px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .timeline-content:hover {
+    background: rgba(56, 210, 210, 0.1);
+    border-color: rgba(56, 210, 210, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(56, 210, 210, 0.2);
+  }
+  
+  /* Timeline Icon Circle - Default State (Inactive) */
+  .feature-icon-circle {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    min-height: 54px;
+    background: rgba(80, 80, 100, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    opacity: 0.6;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+  }
+  
+  /* Force perfect circle in all states */
+  .feature-icon-circle,
+  .feature-icon-circle.active,
+  .feature-icon-circle:hover {
+    border-radius: 50% !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+  
+  /* Timeline Icon Circle - Active State (Lit Up) */
+  .feature-icon-circle.active {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, #38d2d2 0%, #2a9d9d 50%, #38d2d2 100%);
+    box-shadow: 0 0 20px rgba(56, 210, 210, 0.8), 
+                0 0 40px rgba(56, 210, 210, 0.5),
+                0 0 60px rgba(56, 210, 210, 0.2),
+                inset 0 0 12px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+    opacity: 1;
+    border-radius: 50%;
+  }
+  
+  /* Shimmer Effect for Active Icons */
+  .feature-icon-circle.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Hover Effects */
+  .timeline-item:hover .feature-icon-circle {
+    transform: scale(1.1);
+    border-radius: 50%;
+  }
+  
+  .timeline-item:hover .feature-icon-circle.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(56, 210, 210, 0.9), 
+                0 0 60px rgba(56, 210, 210, 0.5);
+    border-radius: 50%;
+  }
+  
+  /* SVG Icon States */
+  .feature-icon-circle svg {
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+    transition: all 0.4s ease;
+    opacity: 0.5;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    flex-shrink: 0;
+    display: block;
+  }
+  
+  .feature-icon-circle.active svg {
+    opacity: 1;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+    transform: scale(1.05);
+  }
+  
+  .feature-icon-circle svg path {
+    transition: stroke 0.4s ease;
+    stroke: rgba(255, 255, 255, 0.6);
+  }
+  
+  .feature-icon-circle.active svg path {
+    stroke: #ffffff;
+    stroke-width: 2.5;
+  }
+  
+  /* Timeline Content Text */
+  .timeline-content span {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    transition: all 0.5s ease;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    display: block;
+  }
+  
+  /* Active Timeline Content */
+  .timeline-visible .timeline-content span {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(56, 210, 210, 0.2);
+  }
+  
+  /* Hover Effects */
+  .timeline-item:hover .timeline-content span {
+    color: #38d2d2;
+    text-shadow: 0 0 15px rgba(56, 210, 210, 0.4);
+  }
+  
+  /* Timeline Animations */
+  
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  /* CTA Glow Animations */
+  @keyframes cta-glow-pulse {
+    0%, 100% {
+      box-shadow: 0 8px 25px rgba(56, 210, 210, 0.3), 
+                  0 0 40px rgba(56, 210, 210, 0.2),
+                  0 0 60px rgba(56, 210, 210, 0.1);
+      transform: scale(1);
+    }
+    25% {
+      box-shadow: 0 8px 25px rgba(56, 210, 210, 0.5), 
+                  0 0 40px rgba(56, 210, 210, 0.35),
+                  0 0 60px rgba(56, 210, 210, 0.2);
+      transform: scale(1.005);
+    }
+    50% {
+      box-shadow: 0 8px 25px rgba(56, 210, 210, 0.6), 
+                  0 0 40px rgba(56, 210, 210, 0.4),
+                  0 0 60px rgba(56, 210, 210, 0.25);
+      transform: scale(1.01);
+    }
+    75% {
+      box-shadow: 0 8px 25px rgba(56, 210, 210, 0.5), 
+                  0 0 40px rgba(56, 210, 210, 0.35),
+                  0 0 60px rgba(56, 210, 210, 0.2);
+      transform: scale(1.005);
+    }
+  }
+  
+    @keyframes cta-glow-pulse-intense {
+    0%, 100% {
+      box-shadow: 0 15px 45px rgba(56, 210, 210, 0.5), 
+                  0 0 60px rgba(56, 210, 210, 0.3),
+                  0 0 100px rgba(56, 210, 210, 0.15);
+      transform: scale(1);
+    }
+    20% {
+      box-shadow: 0 15px 45px rgba(56, 210, 210, 0.7), 
+                  0 0 60px rgba(56, 210, 210, 0.5),
+                  0 0 100px rgba(56, 210, 210, 0.25);
+      transform: scale(1.008);
+    }
+    40% {
+      box-shadow: 0 15px 45px rgba(56, 210, 210, 0.8), 
+                  0 0 60px rgba(56, 210, 210, 0.6),
+                  0 0 100px rgba(56, 210, 210, 0.3);
+      transform: scale(1.015);
+    }
+    60% {
+      box-shadow: 0 15px 45px rgba(56, 210, 210, 0.8), 
+                  0 0 60px rgba(56, 210, 210, 0.6),
+                  0 0 100px rgba(56, 210, 210, 0.3);
+      transform: scale(1.015);
+    }
+    80% {
+      box-shadow: 0 15px 45px rgba(56, 210, 210, 0.7), 
+                  0 0 60px rgba(56, 210, 210, 0.5),
+                  0 0 100px rgba(56, 210, 210, 0.25);
+      transform: scale(1.008);
+    }
+  }
+   
+     @keyframes cta-section-glow {
+    0%, 100% {
+      background-size: 300% 300%;
+      background-position: 0% 50%;
+      opacity: 0.4;
+    }
+    25% {
+      background-size: 300% 300%;
+      background-position: 50% 25%;
+      opacity: 0.6;
+    }
+    50% {
+      background-size: 300% 300%;
+      background-position: 100% 50%;
+      opacity: 0.7;
+    }
+    75% {
+      background-size: 300% 300%;
+      background-position: 50% 75%;
+      opacity: 0.6;
+    }
+  }
+   
+   @keyframes cta-glow-border {
+    0%, 100% {
+      border-color: rgba(56, 210, 210, 0.5);
+      box-shadow: 0 0 20px rgba(56, 210, 210, 0.15),
+                  inset 0 0 20px rgba(56, 210, 210, 0.03);
+      transform: scale(1);
+    }
+    25% {
+      border-color: rgba(56, 210, 210, 0.7);
+      box-shadow: 0 0 20px rgba(56, 210, 210, 0.25),
+                  inset 0 0 20px rgba(56, 210, 210, 0.08);
+      transform: scale(1.003);
+    }
+    50% {
+      border-color: rgba(56, 210, 210, 0.8);
+      box-shadow: 0 0 20px rgba(56, 210, 210, 0.3),
+                  inset 0 0 20px rgba(56, 210, 210, 0.1);
+      transform: scale(1.005);
+    }
+    75% {
+      border-color: rgba(56, 210, 210, 0.7);
+      box-shadow: 0 0 20px rgba(56, 210, 210, 0.25),
+                  inset 0 0 20px rgba(56, 210, 210, 0.08);
+      transform: scale(1.003);
+    }
+  }
+  
+  @keyframes cta-glow-border-intense {
+    0%, 100% {
+      border-color: rgba(56, 210, 210, 0.7);
+      box-shadow: 0 0 30px rgba(56, 210, 210, 0.25),
+                  0 5px 20px rgba(56, 210, 210, 0.15),
+                  inset 0 0 25px rgba(56, 210, 210, 0.08);
+      transform: scale(1);
+    }
+    30% {
+      border-color: rgba(56, 210, 210, 0.9);
+      box-shadow: 0 0 30px rgba(56, 210, 210, 0.4),
+                  0 5px 20px rgba(56, 210, 210, 0.3),
+                  inset 0 0 25px rgba(56, 210, 210, 0.15);
+      transform: scale(1.005);
+    }
+    50% {
+      border-color: #38d2d2;
+      box-shadow: 0 0 30px rgba(56, 210, 210, 0.5),
+                  0 5px 20px rgba(56, 210, 210, 0.4),
+                  inset 0 0 25px rgba(56, 210, 210, 0.2);
+      transform: scale(1.008);
+    }
+    70% {
+      border-color: rgba(56, 210, 210, 0.9);
+      box-shadow: 0 0 30px rgba(56, 210, 210, 0.4),
+                  0 5px 20px rgba(56, 210, 210, 0.3),
+                  inset 0 0 25px rgba(56, 210, 210, 0.15);
+      transform: scale(1.005);
+    }
+  }
+  
+  @keyframes pulse-glow-timeline {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(56, 210, 210, 0.6), 0 0 40px rgba(56, 210, 210, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(56, 210, 210, 0.8), 0 0 60px rgba(56, 210, 210, 0.5);
+    }
+  }
+  
+  /* Timeline Item States */
+  .timeline-item {
+    opacity: 0.7;
+    transform: translateY(10px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  /* Timeline Item - Visible State */
+  .timeline-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Timeline Item - In View State */
+  .timeline-in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Enhanced Hover Effects */
+  .timeline-item:hover .timeline-content {
+    transform: translateY(-3px);
+    background: rgba(56, 210, 210, 0.15);
+    border-color: rgba(56, 210, 210, 0.5);
+  }
+  
+  /* CTA Section Styles - Using Hero Button Styles */
+  .about-cta {
+    display: flex !important;
+    gap: 24px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1000 !important;
+    max-width: 100%;
+    overflow: visible;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    visibility: visible !important;
+    opacity: 1 !important;
+    isolation: isolate;
+    transform: translateZ(0);
+  }
+  
+  /* CTA Section Glow Effect */
+  .about-cta.cta-glow-active {
+    background: radial-gradient(circle at center, rgba(56, 210, 210, 0.05) 0%, transparent 70%);
+    position: relative;
+  }
+  
+  .about-cta.cta-glow-active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      rgba(56, 210, 210, 0.3) 0%, 
+      rgba(56, 210, 210, 0.1) 25%, 
+      rgba(56, 210, 210, 0.3) 50%, 
+      rgba(56, 210, 210, 0.1) 75%, 
+      rgba(56, 210, 210, 0.3) 100%);
+    border-radius: 22px;
+    z-index: -1;
+    animation: cta-section-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    opacity: 0.7;
+  }
+  
+  /* Base Button Styles */
+  .about-cta .hero-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: visible;
+    width: 260px;
+    min-width: 260px;
+    max-width: min(260px, 45vw);
+    font-weight: 700;
+    margin: 0;
+    height: 60px;
+    letter-spacing: 0.3px;
+    z-index: 1001 !important;
+    font-family: 'Assistant', sans-serif;
+    line-height: 1.4;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer !important;
+    background: rgba(0, 0, 0, 0.3);
+    visibility: visible !important;
+    opacity: 1 !important;
+    isolation: isolate;
+    pointer-events: auto !important;
+  }
+  
+  /* Button Content Container */
+  .about-cta .button-content {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1002 !important;
+    width: 100%;
+    height: 100%;
+    padding: 0 24px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+  
+  .about-cta .button-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  .about-cta .button-icon {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+  
+  /* PRIMARY BUTTON - Optimized */
+  .about-cta .hero-button-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4500 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+    border: 2px solid rgba(255, 107, 53, 0.7);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+  }
+  
+  .about-cta .hero-button-primary .button-text {
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+
+  .about-cta .hero-button-primary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.6);
+  }
+  
+  .about-cta .hero-button-primary:hover .button-icon {
+    transform: scale(1.05);
+  }
+  
+  .about-cta .hero-button-primary:active {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.5);
+  }
+  
+  /* SECONDARY BUTTON - Elegant Glass Effect */
+  .about-cta .hero-button-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .about-cta .hero-button-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 2;
+  }
+  
+  .about-cta .hero-button-secondary::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 6px;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    filter: blur(3px);
+    opacity: 0.4;
+    transition: all 0.4s ease;
+    z-index: 0;
+  }
+  
+  .about-cta .hero-button-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+      0 12px 30px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .about-cta .hero-button-secondary:hover::before {
+    opacity: 1;
+  }
+  
+  .about-cta .hero-button-secondary:hover::after {
+    opacity: 0.7;
+    width: 80%;
+    height: 8px;
+  }
+  
+  .about-cta .hero-button-secondary:hover .button-icon {
+    transform: scale(1.1);
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .about-cta .hero-button-secondary:active {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+      0 6px 15px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Loading State */
+  .about-cta .hero-button.loading {
+    opacity: 0.7;
+    cursor: wait;
+    pointer-events: none;
+  }
+  
+  .about-cta .hero-button.loading .button-content {
+    opacity: 0.6;
+  }
+
+  /* Responsive Button Styles */
+  @media (max-width: 991px) {
+    .about-cta {
+      gap: 20px;
+    }
+    
+    .about-cta .hero-button {
+      width: 240px;
+      min-width: 240px;
+      max-width: min(240px, 45vw);
+      height: 56px;
+    }
+    
+    .about-cta .hero-button-primary .button-text {
+      font-size: 1.3rem;
+    }
+    
+    .about-cta .button-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-cta {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .about-cta .hero-button {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      height: 54px;
+    }
+    
+    .about-cta .button-content {
+      padding: 0 20px;
+    }
+    
+    .about-cta .button-text {
+      font-size: 1.1rem;
+    }
+    
+    .about-cta .hero-button-primary .button-text {
+      font-size: 1.3rem;
+    }
+    
+    .about-cta .button-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  .about-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+  }
+  
+  .device-wrapper {
+    position: relative;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  
+  .device-wrapper:hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+  
+  .device-highlight {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, rgba(56, 210, 210, 0) 0%, rgba(56, 210, 210, 0.3) 100%);
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+  }
+  
+  .device-wrapper:hover .device-highlight {
+    opacity: 1;
+  }
+  
+  .device-img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 210, 210, 0.3);
+    transition: all 0.5s ease;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 210, 210, 0.3);
+    z-index: 10;
+    pointer-events: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  .video-container::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    background: linear-gradient(45deg, #38d2d2, transparent, #38d2d2, transparent);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.5;
+    animation: rotate 4s linear infinite;
+  }
+  
+  .video-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 210, 210, 0.5);
+  }
+  
+  /* Video Fallback Image */
+  .video-fallback-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .video-fallback-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+  }
+  
+  .device-video {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 15;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-direction: column;
+  }
+  
+  .video-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .play-button-large {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+    position: relative;
+    animation: pulse-glow 2s infinite ease-in-out;
+  }
+  
+  .play-button-large::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.2);
+    z-index: -1;
+    animation: pulse-expand 2s infinite ease-in-out;
+  }
+  
+  .video-overlay:hover .play-button-large {
+    transform: scale(1);
+    background-color: rgba(56, 210, 210, 0.6);
+    box-shadow: 0 0 25px rgba(56, 210, 210, 0.7);
+  }
+  
+  .video-text-prompt {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 15px;
+    opacity: 0.9;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    display: block;
+  }
+  
+  .video-overlay:hover .video-text-prompt {
+    opacity: 1;
+    transform: translateY(-2px);
+    color: #38d2d2;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(56, 210, 210, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(56, 210, 210, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(56, 210, 210, 0.5);
+    }
+  }
+  
+  @keyframes pulse-expand {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+  
+  .device-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    z-index: 10;
+    pointer-events: auto;
+    position: relative;
+  }
+  
+  /* Ensure controls are clickable */
+  .device-video::-webkit-media-controls {
+    z-index: 20;
+    pointer-events: auto;
+  }
+  
+  .glow-effect {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(56, 210, 210, 0.2) 0%, rgba(56, 210, 210, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 5s infinite ease-in-out;
+    filter: blur(20px);
+  }
+  
+  .tech-circles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .tech-circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(56, 210, 210, 0.15);
+    border: 1px solid rgba(56, 210, 210, 0.3);
+  }
+  
+  .tech-circle-1 {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    right: -20px;
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .tech-circle-2 {
+    width: 25px;
+    height: 25px;
+    bottom: 30%;
+    right: 10%;
+    animation: float 8s infinite ease-in-out 1s;
+  }
+  
+  .tech-circle-3 {
+    width: 15px;
+    height: 15px;
+    top: 60%;
+    left: 5%;
+    animation: float 7s infinite ease-in-out 0.5s;
+  }
+  
+  /* Video Button Styles */
+  .tech-video-button {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(56, 210, 210, 0.2);
+    border: 1px solid rgba(56, 210, 210, 0.4);
+    border-radius: 30px;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 15px rgba(56, 210, 210, 0.2);
+  }
+  
+  .tech-video-button:hover {
+    background: rgba(56, 210, 210, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(56, 210, 210, 0.4);
+  }
+  
+  .video-icon {
+    background: rgba(56, 210, 210, 0.8);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    transition: all 0.3s ease;
+  }
+  
+  .video-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .tech-video-button:hover .video-icon {
+    transform: scale(1.2);
+    background: rgb(56, 210, 210);
+  }
+  
+  .video-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+  }
+  
+  .tech-video-button:hover .video-text {
+    color: #ffffff;
+  }
+  
+  /* Move video button for RTL/LTR layout */
+  html[dir="rtl"] .tech-video-button {
+    right: auto;
+    left: 10%;
+  }
+  
+  @media (max-width: 768px) {
+    .tech-video-button {
+      bottom: 20px;
+      right: 20px;
+      padding: 8px 12px;
+    }
+    
+    html[dir="rtl"] .tech-video-button {
+      right: auto;
+      left: 20px;
+    }
+    
+    .video-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .video-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+    
+    .video-text {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse-opacity {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .about-container {
+      flex-direction: column-reverse;
+    }
+    
+    .about-content {
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Override RTL/LTR alignment in mobile for center alignment */
+    [dir="rtl"] .about-content,
+    [dir="ltr"] .about-content {
+      text-align: center;
+    }
+    
+    .about-image {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .about-feature {
+      justify-content: center;
+    }
+    
+    .about-feature:hover {
+      transform: translateY(-5px);
+    }
+    
+    .about-cta {
+      justify-content: center;
+      margin-top: 35px;
+    }
+    
+    .about-cta-primary {
+      font-size: 1.7rem;
+      padding: 16px 30px;
+    }
+    
+    .about-cta-secondary {
+      font-size: 1.5rem;
+      padding: 14px 25px;
+    }
+    
+    .about-title {
+      font-size: 4.5rem;
+    }
+    
+    .about-description {
+      font-size: 2rem;
+      max-width: 100%;
+    }
+    
+    .about-description::after {
+      right: 50%;
+      transform: translateX(50%);
+    }
+    
+    /* RTL support for mobile description accent line */
+    [dir="rtl"] .about-description::after {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+    }
+    
+    .section-eyebrow {
+      text-align: center;
+    }
+    
+    .about-feature span {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Mobile specific styles to show title above video */
+  @media (max-width: 767px) {
+    .about-container {
+      flex-direction: column;
+    }
+    
+    .mobile-order-1 {
+      order: 1 !important;
+    }
+    
+    .mobile-order-2 {
+      order: 2 !important;
+    }
+    
+    .about-content {
+      margin-bottom: 30px;
+      text-align: center !important;
+    }
+    
+    .about-image {
+      margin-bottom: 0;
+    }
+    
+    .section-eyebrow {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .about-title {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    
+    .about-description {
+      text-align: center;
+    }
+    
+    /* Mobile Timeline Styles */
+    .timeline-container {
+      max-width: 100%;
+      padding: 30px 20px;
+    }
+    
+    .timeline-line {
+      left: 44px;
+      width: 3px;
+    }
+    
+    [dir="rtl"] .timeline-line {
+      right: 44px;
+      left: auto;
+    }
+    
+    .timeline-item {
+      margin-bottom: 30px;
+    }
+    
+    .timeline-marker {
+      margin-right: 20px;
+    }
+    
+    [dir="rtl"] .timeline-marker {
+      margin-left: 20px;
+      margin-right: 0;
+    }
+    
+    .feature-icon-circle {
+      width: 48px !important;
+      height: 48px !important;
+      min-width: 48px;
+      min-height: 48px;
+      border-radius: 50% !important;
+      box-sizing: border-box;
+      aspect-ratio: 1/1;
+    }
+    
+    /* Mobile perfect circle override */
+    .feature-icon-circle,
+    .feature-icon-circle.active,
+    .feature-icon-circle:hover {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+    }
+    
+    .feature-icon-circle.active {
+      transform: scale(1.03) !important;
+    }
+    
+    .timeline-item:hover .feature-icon-circle.active {
+      transform: scale(1.08) !important;
+    }
+    
+    .feature-icon-circle svg {
+      width: 22px;
+      height: 22px;
+    }
+    
+    .timeline-content {
+      padding: 18px 20px;
+      border-radius: 12px;
+    }
+    
+    .timeline-content span {
+      font-size: 1.6rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .timeline-visible .timeline-content span {
+      color: #ffffff;
+    }
+    
+    .timeline-content::before {
+      top: 15px;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 6px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    [dir="rtl"] .timeline-content::before {
+      border-right: none;
+      border-left: 6px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Override RTL/LTR alignment in mobile for center alignment */
+    [dir="rtl"] .about-content,
+    [dir="ltr"] .about-content {
+      text-align: center !important;
+    }
+    
+    [dir="rtl"] .section-eyebrow,
+    [dir="ltr"] .section-eyebrow,
+    [dir="rtl"] .about-title,
+    [dir="ltr"] .about-title,
+    [dir="rtl"] .about-description,
+    [dir="ltr"] .about-description {
+      text-align: center !important;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .airsyncx-about {
+      padding: 80px 0;
+    }
+    
+    .about-title {
+      font-size: 3.8rem;
+    }
+    
+    .about-description {
+      font-size: 1.8rem;
+      line-height: 1.5;
+    }
+    
+    .about-feature span {
+      font-size: 1.6rem;
+    }
+    
+    .about-cta {
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .about-cta-primary {
+      font-size: 1.6rem;
+      padding: 15px 28px;
+      width: 100%;
+      justify-content: center;
+      max-width: 280px;
+    }
+    
+    .about-cta-secondary {
+      font-size: 1.4rem;
+      padding: 13px 23px;
+      width: 100%;
+      justify-content: center;
+      max-width: 280px;
+    }
+  }
+  
+  @keyframes rotate {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "AirSyncX About",
+  "tag": "section",
+  "class": "airsyncx-about-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "תוכן ראשי"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "טקסט כותרת עליונה",
+      "default": "טכנולוגיה פורצת דרך"
+    },
+    {
+      "type": "text",
+      "id": "title_part1",
+      "label": "חלק ראשון של הכותרת",
+      "default": "מה זה "
+    },
+    {
+      "type": "text",
+      "id": "title_part2",
+      "label": "חלק שני של הכותרת (מודגש)",
+      "default": "AirSyncX"
+    },
+    {
+      "type": "text",
+      "id": "title_part3",
+      "label": "חלק שלישי של הכותרת",
+      "default": "?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "תיאור",
+      "default": "AirSyncX הוא מתאם חכם וקומפקטי שמתחבר ליציאת ה-USB ברכב שלך והופך את CarPlay לאלחוטי - בפחות מ-10 שניות מרגע ההפעלה."
+    },
+    {
+      "type": "header",
+      "content": "הגדרות סרטונים"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "תמונת פוסטר לסרטון",
+      "info": "התמונה שתוצג לפני השמעת הסרטון"
+    },
+    {
+      "type": "url",
+      "id": "hebrew_video_url",
+      "label": "קישור לסרטון בעברית"
+    },
+    {
+      "type": "url",
+      "id": "english_video_url",
+      "label": "קישור לסרטון באנגלית"
+    },
+    {
+      "type": "text",
+      "id": "video_play_text",
+      "label": "טקסט כפתור הפעלת סרטון",
+      "default": "לחץ לצפייה"
+    },
+    {
+      "type": "text",
+      "id": "video_not_supported_text",
+      "label": "הודעה עבור דפדפנים שאינם תומכים בסרטון",
+      "default": "הדפדפן שלך אינו תומך בהשמעת וידאו"
+    },
+    {
+      "type": "text",
+      "id": "video_alt_text",
+      "label": "טקסט חלופי לתמונת הווידאו",
+      "default": "AirSyncX Video"
+    },
+    {
+      "type": "header",
+      "content": "הגדרות כפתורי פעולה"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "הצג כפתורי פעולה",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_text",
+      "label": "טקסט כפתור ראשי",
+      "default": "הזמן עכשיו"
+    },
+    {
+      "type": "product",
+      "id": "cta_product",
+      "label": "מוצר להוספה לסל",
+      "info": "בחר את המוצר שיתווסף לסל בלחיצה על הכפתור הראשי"
+    },
+    {
+      "type": "select",
+      "id": "primary_cta_action_type",
+      "label": "סוג פעולה לכפתור ראשי",
+      "options": [
+        {
+          "value": "add_to_cart",
+          "label": "הוספה לסל"
+        },
+        {
+          "value": "redirect",
+          "label": "הפניה לקישור"
+        },
+        {
+          "value": "scroll_to_section",
+          "label": "גלול למקטע"
+        },
+        {
+          "value": "open_popup",
+          "label": "פתח חלון קופץ"
+        }
+      ],
+      "default": "add_to_cart",
+      "info": "בחר את סוג הפעולה עבור הכפתור הראשי."
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_link",
+      "label": "קישור כפתור ראשי",
+      "info": "יופעל רק אם נבחרה פעולת 'הפניה לקישור'"
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_scroll_target",
+      "label": "מזהה מקטע לגלילה",
+      "info": "הכנס את מזהה המקטע (ID) אליו יש לגלול (לדוגמה, 'my-section-id')."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_popup_target",
+      "label": "מזהה חלון קופץ",
+      "info": "הכנס את מזהה החלון הקופץ (ID) אותו יש לפתוח (לדוגמה, 'my-popup-id')."
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "טקסט כפתור משני",
+      "default": "למד עוד"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "קישור כפתור משני"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "תכונה",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "טקסט תכונה",
+          "default": "תואם לכל רכב עם CarPlay קווי"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX About",
+      "settings": {
+        "eyebrow_text": "טכנולוגיה פורצת דרך",
+        "title_part1": "מה זה ",
+        "title_part2": "AirSyncX",
+        "title_part3": "?",
+        "description": "AirSyncX הוא מתאם חכם וקומפקטי שמתחבר ליציאת ה-USB ברכב שלך והופך את CarPlay לאלחוטי - בפחות מ-10 שניות מרגע ההפעלה.",
+        "show_cta": true,
+        "primary_cta_text": "הזמן עכשיו",
+        "secondary_cta_text": "למד עוד",
+        "video_play_text": "לחץ לצפייה",
+        "video_alt_text": "AirSyncX Demo Video"
+      },
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "תואם לכל רכב עם CarPlay קווי"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "חיבור Bluetooth מהיר ואמין"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "התקנה עצמית פשוטה"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_text": "עדכוני תוכנה אוטומטיים"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

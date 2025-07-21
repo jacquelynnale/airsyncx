@@ -1,0 +1,1106 @@
+{% comment %}
+  Custom Contact Page Section
+  Designed to match the provided image with dark background, RTL layout
+{% endcomment %}
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<div class="airsyncx-contact-page" id="ContactSection">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="animated-gradient"></div>
+    <div class="particles-container">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+    </div>
+    <div class="digital-lines">
+      <div class="digital-line line-1"></div>
+      <div class="digital-line line-2"></div>
+    </div>
+  </div>
+
+  <div class="page-width">
+    <div class="contact-header" data-aos="fade-up" data-aos-duration="1000">
+      <div class="section-eyebrow">יצירת קשר</div>
+      <h1 class="contact-heading">צור <span class="highlight">קשר</span></h1>
+      <p class="contact-subheading">{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="contact-main-content">
+      <div class="contact-form-container" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="contact-form-title"><span class="white-text">שלחו לנו</span> <span class="highlight">הודעה</span></h3>
+        {%- form 'contact', id: 'ContactForm', class: 'contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="form-status form-status-list form-status--success" tabindex="-1" autofocus>
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-success" viewBox="0 0 13 13">
+                <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z" fill="currentColor" stroke="currentColor" stroke-width="0.7"/>
+                <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white" stroke-width="0.7"/>
+                <path d="M5.53271 8.66357L3.74354 6.56123" stroke="white" stroke-width="0.7"/>
+              </svg>
+              <span>{{ 'templates.contact.form.post_success' | t }}</span>
+            </div>
+          {%- endif -%}
+
+          <div class="contact-fields">
+            <div class="field">
+              <input class="field__input" type="text" id="ContactForm-name" name="contact[name]" value="{% if form.name %}{{ form.name }}{% endif %}" placeholder="שם">
+              <label class="field__label" for="ContactForm-name">שם</label>
+            </div>
+            <div class="field">
+              <input class="field__input" type="email" id="ContactForm-email" name="contact[email]" autocomplete="email" value="{% if form.email %}{{ form.email }}{% endif %}" placeholder="דוא״ל" required>
+              <label class="field__label" for="ContactForm-email">דוא״ל</label>
+            </div>
+            <div class="field">
+              <input class="field__input" type="tel" id="ContactForm-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% endif %}" placeholder="טלפון">
+              <label class="field__label" for="ContactForm-phone">טלפון</label>
+            </div>
+            <div class="field">
+              <textarea rows="5" class="text-area field__input" id="ContactForm-body" name="contact[body]" placeholder="הודעה">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+              <label class="form__label field__label" for="ContactForm-body">הודעה</label>
+            </div>
+          </div>
+
+          <div class="contact-form-actions">
+            <button type="submit" class="hero-button hero-button-primary">
+              <span class="button-text">שלח הודעה</span>
+              <span class="button-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </button>
+          </div>
+        {%- endform -%}
+      </div>
+
+      <div class="contact-info-container" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="contact-info-title"><span class="white-text">פרטי</span> <span class="highlight">יצירת קשר</span></h3>
+        
+        <div class="contact-info-items">
+          <div class="contact-info-item">
+            <div class="contact-info-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <p>{{ section.settings.phone_number }}</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-info-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <p>{{ section.settings.email }}</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-info-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <p>{{ section.settings.address }}</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-info-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <p>{{ section.settings.hours }}</p>
+              <p>{{ section.settings.hours_detail }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-social-media">
+          <h3 class="social-media-title">עקבו אחרינו</h3>
+          <div class="social-media-icons">
+            {% if section.settings.facebook_url != blank %}
+              <a href="{{ section.settings.facebook_url }}" class="social-icon" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+            {% endif %}
+            
+            {% if section.settings.twitter_url != blank %}
+              <a href="{{ section.settings.twitter_url }}" class="social-icon" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+            {% endif %}
+            
+            {% if section.settings.instagram_url != blank %}
+              <a href="{{ section.settings.instagram_url }}" class="social-icon" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            {% endif %}
+            
+            {% if section.settings.youtube_url != blank %}
+              <a href="{{ section.settings.youtube_url }}" class="social-icon" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="map-container" data-aos="fade-up" data-aos-delay="400">
+    <div class="page-width">
+      {% if section.settings.map_url != blank %}
+        <div class="google-map">
+          <iframe src="{{ section.settings.map_url }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      {% else %}
+        <div class="map-placeholder">
+          <div class="placeholder-content">
+            <p>{{ 'contact.map.address' | t }}</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  
+  <div class="faq-section" data-aos="fade-up" data-aos-delay="400">
+    <div class="page-width">
+      <div class="faq-header">
+        <a href="{{ section.settings.faq_link | default: '#' }}" class="back-link">למענה מהיר</a>
+        <h2 class="faq-heading">שאלות <span class="highlight">נפוצות</span> נפוצות</h2>
+        <p class="faq-subheading">התשובות לכל השאלות הנפוצות על המתאם האלחוטי של AirSyncX</p>
+      </div>
+      
+      <div class="faq-container">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq_item' %}
+            <div class="faq-item" {{ block.shopify_attributes }}>
+              <div class="faq-question">
+                <div class="faq-toggle-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon-plus">
+                    <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="faq-question-text">{{ block.settings.question }}</span>
+              </div>
+              <div class="faq-answer">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="cta-background">
+    <div class="page-width">
+      <div class="cta-container" data-aos="fade-up">
+        <div class="cta-content">
+          <h3 class="cta-title"><span class="white-text">רוצים</span> <span class="highlight">לשמוע עוד?</span></h3>
+          <p class="cta-text">{{ section.settings.cta_text }}</p>
+          
+          <div class="cta-buttons">
+            <a href="{{ section.settings.cta_button_link }}" class="hero-button hero-button-primary">
+              <span class="button-text">{{ section.settings.cta_button_text }}</span>
+              <span class="button-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --page-background: #000000;
+  }
+  
+  body {
+    background-color: var(--page-background);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .airsyncx-contact-page {
+    background-color: var(--page-background);
+    color: #ffffff;
+    position: relative;
+    font-family: 'Assistant', sans-serif;
+    overflow: hidden;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Animated Background */
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: var(--page-background);
+    overflow: hidden;
+  }
+  
+  /* Background Elements */
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+  
+  .bg-circle-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #38d2d2 0%, rgba(56, 210, 210, 0) 70%);
+    top: -200px;
+    right: -200px;
+    animation: pulse 8s infinite alternate;
+  }
+  
+  .bg-circle-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #38d2d2 0%, rgba(56, 210, 210, 0) 70%);
+    bottom: -100px;
+    left: -100px;
+    animation: pulse 6s infinite alternate-reverse;
+  }
+  
+  .animated-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(56, 210, 210, 0.05) 0%, rgba(0, 0, 0, 0) 50%, rgba(56, 210, 210, 0.05) 100%);
+    animation: moveGradient 15s ease infinite;
+  }
+  
+  .particle {
+    position: absolute;
+    background-color: rgba(56, 210, 210, 0.5);
+    border-radius: 50%;
+  }
+  
+  .particle-1 {
+    width: 8px;
+    height: 8px;
+    top: 20%;
+    right: 10%;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .particle-2 {
+    width: 12px;
+    height: 12px;
+    top: 60%;
+    right: 30%;
+    animation: float 10s ease-in-out infinite 1s;
+  }
+  
+  .particle-3 {
+    width: 6px;
+    height: 6px;
+    top: 35%;
+    right: 70%;
+    animation: float 7s ease-in-out infinite 2s;
+  }
+  
+  .digital-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(56, 210, 210, 0) 0%, rgba(56, 210, 210, 0.5) 50%, rgba(56, 210, 210, 0) 100%);
+    animation: scanLine 10s linear infinite;
+  }
+  
+  .line-1 {
+    width: 60%;
+    top: 30%;
+    right: 20%;
+    animation-delay: 0s;
+  }
+  
+  .line-2 {
+    width: 40%;
+    top: 70%;
+    right: 10%;
+    animation-delay: 5s;
+  }
+  
+  /* Header Styling */
+  .contact-header {
+    text-align: center;
+    padding: 5rem 0 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .section-eyebrow {
+    color: #38d2d2;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .contact-subheading {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  
+  /* Main Content */
+  .contact-form-title,
+  .contact-info-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .field__input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background-color: rgba(28, 28, 28, 0.8);
+    border: 1px solid rgba(56, 210, 210, 0.2);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-family: 'Assistant', sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #38d2d2;
+    color: #000000;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .contact-info-text p {
+    margin: 0;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  
+  .social-media-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(28, 28, 28, 0.8);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(56, 210, 210, 0.2);
+  }
+  
+  /* FAQ Section Styles */
+  .back-link {
+    display: inline-block;
+    color: #38d2d2;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 400;
+  }
+  
+  .faq-subheading {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  
+  .faq-question {
+    padding: 2rem 2.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    margin-left: 1.5rem;
+    color: #38d2d2;
+  }
+  
+  .faq-toggle-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .faq-answer {
+    display: none;
+    padding: 0 2.5rem 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  
+  /* Animations */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.15;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0.05;
+    }
+  }
+  
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+  
+  @keyframes scanLine {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 767px) {
+    .contact-heading {
+      font-size: 2.5rem;
+    }
+    
+    .faq-heading {
+      font-size: 2.5rem;
+    }
+    
+    .contact-main-content {
+      flex-direction: column;
+    }
+    
+    .contact-form-title,
+    .contact-info-title {
+      font-size: 1.75rem;
+    }
+    
+    .hero-button {
+      width: 100%;
+    }
+  }
+  
+  .contact-heading {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+  }
+
+  .contact-main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .contact-form-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding: 2.5rem;
+    border-radius: 12px;
+    flex: 1 1 400px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .contact-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .field {
+    position: relative;
+  }
+  
+  .field__input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.2rem;
+  }
+  
+  .field__input:focus {
+    outline: none;
+    border-color: #38d2d2;
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.3);
+  }
+  
+  .field__label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+  }
+  
+  textarea.field__input {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  .contact-form-actions {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .hero-button:hover {
+    background-color: #2ab8b8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.3);
+  }
+  
+  .hero-button-primary {
+    background-color: #38d2d2;
+    color: #000000;
+  }
+  
+  .hero-button-primary:hover {
+    background-color: #2ab8b8;
+  }
+  
+  .button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.4rem;
+  }
+  
+  /* Info Container */
+  .contact-info-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding: 2.5rem;
+    border-radius: 12px;
+    flex: 1 1 300px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .contact-info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+  
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  
+  .contact-info-icon-container {
+    background-color: rgba(56, 210, 210, 0.2);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-info-item:hover .contact-info-icon-container {
+    background-color: rgba(56, 210, 210, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(56, 210, 210, 0.3);
+  }
+  
+  .contact-info-icon {
+    width: 28px;
+    height: 28px;
+    color: #38d2d2;
+  }
+  
+  /* Social Media */
+  .contact-social-media {
+    margin-top: 3rem;
+  }
+  
+  .social-media-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icon:hover {
+    background-color: #38d2d2;
+    color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.3);
+  }
+  
+  /* Map */
+  .map-container {
+    margin-bottom: 6rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .google-map {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  .map-placeholder {
+    background-color: rgba(17, 17, 17, 0.6);
+    height: 500px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 210, 210, 0.1);
+  }
+  
+  /* FAQ Section Styles */
+  .faq-section {
+    margin-bottom: 6rem;
+    position: relative;
+    z-index: 1;
+    padding: 5rem 0;
+  }
+  
+  .faq-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .back-link:hover {
+    opacity: 0.8;
+  }
+  
+  .faq-heading {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    background-color: rgba(17, 17, 17, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    border-color: rgba(56, 210, 210, 0.2);
+  }
+  
+  .faq-question-text {
+    flex: 1;
+    color: #ffffff;
+    font-weight: 500;
+  }
+  
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+  
+  .faq-item.active .icon-plus {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .white-text {
+    color: #ffffff;
+  }
+  
+  /* CTA Container */
+  .cta-background {
+    background-color: var(--page-background);
+    padding-bottom: 0;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-container {
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 16px;
+    padding: 3.5rem;
+    margin: 6rem 0 0 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(56, 210, 210, 0.15);
+    overflow: hidden;
+  }
+  
+  .cta-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(56, 210, 210, 0.15), transparent 60%);
+    z-index: -1;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .cta-text {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .cta-container {
+      padding: 2.5rem 1.5rem;
+      margin: 4rem 0;
+    }
+    
+    .cta-title {
+      font-size: 3rem;
+    }
+    
+    .cta-text {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true
+    });
+    
+    // FAQ Toggle Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Contact Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "אנו כאן כדי לענות על כל שאלה או בקשה שיש לכם"
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "03-1234567"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@airsyncx.co.il"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "רח' המלאכה 5, תל אביב"
+    },
+    {
+      "type": "text",
+      "id": "hours",
+      "label": "Business Hours",
+      "default": "א'-ה' 9:00-18:00"
+    },
+    {
+      "type": "text",
+      "id": "hours_detail",
+      "label": "Business Hours Detail",
+      "default": "ו' 9:00-14:00"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "header",
+      "content": "Map"
+    },
+    {
+      "type": "text",
+      "id": "map_url",
+      "label": "Google Maps Embed URL",
+      "info": "Get your embed URL from Google Maps"
+    },
+    {
+      "type": "header",
+      "content": "CTA Section"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "הזמינו עכשיו ותהנו מחווית נהיגה חכמה יותר"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button Text",
+      "default": "קנה עכשיו"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "url",
+      "id": "faq_link",
+      "label": "FAQ Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "מהו זמן המשלוח הצפוי?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>זמן האספקה הרגיל שלנו הוא 3-5 ימי עסקים בתוך ישראל. משלוחים בינלאומיים עשויים להימשך בין 7-14 ימי עסקים בהתאם למיקום.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Contact Page",
+      "blocks": [
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

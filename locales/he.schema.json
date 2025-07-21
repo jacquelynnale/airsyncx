@@ -1,0 +1,394 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "settings_schema": {
+    "colors": {
+      "name": "צבעים",
+      "settings": {
+        "colors_solid_button_labels": {
+          "label": "טקסט כפתור מלא",
+          "info": "משמש כצבע טקסט ברקעים צבעוניים."
+        },
+        "colors_accent_1": {
+          "label": "דגש 1",
+          "info": "משמש כרקע לכפתורים מלאים."
+        },
+        "colors_accent_2": {
+          "label": "דגש 2"
+        },
+        "colors_text": {
+          "label": "טקסט",
+          "info": "משמש כצבע טקסט על רקעים בהירים."
+        },
+        "colors_outline_button_labels": {
+          "label": "כפתור מתאר",
+          "info": "משמש גם לקישורים טקסט."
+        },
+        "colors_background_1": {
+          "label": "רקע 1"
+        },
+        "colors_background_2": {
+          "label": "רקע 2"
+        }
+      }
+    },
+    "typography": {
+      "name": "טיפוגרפיה",
+      "settings": {
+        "type_header_font": {
+          "label": "גופן כותרת",
+          "info": "בחירת גופן שונה יכולה להשפיע על מהירות האתר שלך. [למד עוד על גופני מערכת.](https://help.shopify.com/manual/online-store/os/store-speed/improving-speed#fonts)"
+        },
+        "header_scale": {
+          "label": "גודל כותרת"
+        },
+        "type_body_font": {
+          "label": "גופן טקסט",
+          "info": "בחירת גופן שונה יכולה להשפיע על מהירות האתר שלך. [למד עוד על גופני מערכת.](https://help.shopify.com/manual/online-store/os/store-speed/improving-speed#fonts)"
+        },
+        "body_scale": {
+          "label": "גודל טקסט"
+        }
+      }
+    },
+    "styles": {
+      "name": "סגנונות",
+      "settings": {
+        "accent_icons": {
+          "options__1": {
+            "label": "דגש 1"
+          },
+          "options__2": {
+            "label": "דגש 2"
+          },
+          "options__3": {
+            "label": "כפתור מתאר"
+          },
+          "label": "צבע אייקון"
+        }
+      }
+    },
+    "social-media": {
+      "name": "מדיה חברתית",
+      "settings": {
+        "social_twitter_link": {
+          "label": "טוויטר",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "פייסבוק",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "פינטרסט",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "אינסטגרם",
+          "info": "http://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "טיקטוק",
+          "info": "https://tiktok.com/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "טאמבלר",
+          "info": "https://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "סנאפצ'אט",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "יוטיוב",
+          "info": "https://www.youtube.com/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "וימאו",
+          "info": "https://vimeo.com/shopify"
+        },
+        "header": {
+          "content": "חשבונות מדיה חברתית"
+        }
+      }
+    },
+    "currency_format": {
+      "name": "פורמט מטבע",
+      "settings": {
+        "content": "קודי מטבע",
+        "currency_code_enabled": {
+          "label": "הצג קודי מטבע"
+        },
+        "paragraph": "מחירים בעגלה ובקופה תמיד מראים קודי מטבע. לדוגמה: 1.00 USD."
+      }
+    },
+    "favicon": {
+      "name": "פאביקון",
+      "settings": {
+        "favicon": {
+          "label": "תמונת פאביקון",
+          "info": "יוקטן ל-32 × 32 פיקסלים"
+        }
+      }
+    },
+    "cart": {
+      "name": "עגלה",
+      "settings": {
+        "cart_type": {
+          "label": "סוג עגלה",
+          "drawer": {
+            "label": "מגירה"
+          },
+          "page": {
+            "label": "דף"
+          },
+          "notification": {
+            "label": "התראת פופ-אפ"
+          }
+        },
+        "show_cart_note": {
+          "label": "אפשר הערה לעגלה"
+        },
+        "cart_drawer": {
+          "content": "מגירת עגלה"
+        },
+        "collection_image_enable": {
+          "label": "הצג תמונת אוסף",
+          "info": "בעמוד העגלה בלבד"
+        }
+      }
+    },
+    "animations": {
+      "name": "אנימציות",
+      "settings": {
+        "animations_type": {
+          "options__1": {
+            "label": "אוטומטי"
+          },
+          "options__2": {
+            "label": "ללא"
+          },
+          "label": "סוג אנימציות"
+        }
+      }
+    },
+    "accessibility": {
+      "name": "נגישות",
+      "settings": {
+        "predictive_search_enabled": {
+          "label": "השתמש בחיפוש לפי הקלדה"
+        },
+        "predictive_search_show_vendor": {
+          "label": "הצג ספק (חיפוש לפי הקלדה)"
+        },
+        "predictive_search_show_price": {
+          "label": "הצג מחיר (חיפוש לפי הקלדה)"
+        }
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "name": "כותרת",
+      "settings": {
+        "logo_width": {
+          "unit": "px",
+          "label": "רוחב לוגו"
+        },
+        "desktop_content_position": {
+          "options__1": {
+            "label": "שמאל"
+          },
+          "options__2": {
+            "label": "מרכז"
+          },
+          "options__3": {
+            "label": "ימין"
+          },
+          "label": "מיקום תוכן בדסקטופ"
+        },
+        "mobile_content_alignment": {
+          "options__1": {
+            "label": "שמאל"
+          },
+          "options__2": {
+            "label": "מרכז"
+          },
+          "options__3": {
+            "label": "ימין"
+          },
+          "label": "יישור תוכן בנייד"
+        },
+        "logo_position": {
+          "options__1": {
+            "label": "מעל תפריט"
+          },
+          "options__2": {
+            "label": "מרכז"
+          },
+          "options__3": {
+            "label": "ימין"
+          },
+          "options__4": {
+            "label": "שמאל"
+          },
+          "label": "מיקום לוגו בדסקטופ"
+        },
+        "show_line_separator": {
+          "label": "הצג קו מפריד"
+        },
+        "enable_sticky_header": {
+          "label": "אפשר כותרת דביקה"
+        },
+        "show_locale_selector": {
+          "label": "הצג בוחר מיקום"
+        },
+        "show_currency_selector": {
+          "label": "הצג בוחר מטבע"
+        },
+        "header__4": {
+          "content": "חשבון"
+        },
+        "show_account_link": {
+          "label": "הצג קישור לדף החשבון",
+          "info": "מוצג רק אם העגלות מופעלות."
+        }
+      }
+    },
+    "announcement-bar": {
+      "name": "שורת הכרזה",
+      "blocks": {
+        "announcement": {
+          "name": "הכרזה",
+          "settings": {
+            "text": {
+              "label": "טקסט"
+            },
+            "text_alignment": {
+              "options__1": {
+                "label": "שמאל"
+              },
+              "options__2": {
+                "label": "מרכז"
+              },
+              "options__3": {
+                "label": "ימין"
+              },
+              "label": "יישור טקסט"
+            },
+            "color_scheme": {
+              "label": "סכמת צבע"
+            },
+            "link": {
+              "label": "קישור"
+            }
+          }
+        }
+      },
+      "settings": {
+        "full_width": {
+          "label": "הצג ברוחב מלא"
+        }
+      }
+    },
+    "footer": {
+      "name": "תחתית",
+      "blocks": {
+        "link_list": {
+          "name": "תפריט",
+          "settings": {
+            "heading": {
+              "label": "כותרת",
+              "info": "נדרשת כותרת להצגת התפריט"
+            },
+            "menu": {
+              "label": "תפריט"
+            }
+          }
+        },
+        "text": {
+          "name": "טקסט",
+          "settings": {
+            "heading": {
+              "label": "כותרת"
+            },
+            "subtext": {
+              "label": "טקסט משנה"
+            }
+          }
+        },
+        "image": {
+          "name": "תמונה",
+          "settings": {
+            "image_width": {
+              "label": "רוחב תמונה"
+            },
+            "alignment": {
+              "label": "יישור"
+            }
+          }
+        }
+      },
+      "settings": {
+        "newsletter_enable": {
+          "label": "הצג הרשמה לניוזלטר"
+        },
+        "newsletter_heading": {
+          "label": "כותרת"
+        },
+        "header__1": {
+          "content": "הרשמה לדיוור אלקטרוני",
+          "info": "מנויים מתווספים אוטומטית לרשימת \"מקבלי שיווק\" שלך. [למד עוד](https://help.shopify.com/manual/customers/manage-customers)"
+        },
+        "header__2": {
+          "content": "אייקונים של מדיה חברתית",
+          "info": "כדי להציג את חשבונות המדיה החברתית שלך, קשר אותם ב[הגדרות התבנית](/editor?context=theme&category=social%20media)."
+        },
+        "show_social": {
+          "label": "הצג אייקונים של מדיה חברתית"
+        },
+        "header__3": {
+          "content": "בוחר מדינה/אזור"
+        },
+        "header__4": {
+          "info": "כדי להוסיף מדינה/אזור, עבור ל[הגדרות השוק שלך.](/admin/settings/markets)"
+        },
+        "enable_country_selector": {
+          "label": "אפשר בוחר מדינה/אזור"
+        },
+        "header__5": {
+          "content": "בוחר שפה"
+        },
+        "header__6": {
+          "info": "כדי להוסיף שפה, עבור ל[הגדרות השפה שלך.](/admin/settings/languages)"
+        },
+        "enable_language_selector": {
+          "label": "אפשר בוחר שפה"
+        },
+        "header__7": {
+          "content": "אמצעי תשלום"
+        },
+        "payment_enable": {
+          "label": "הצג אייקוני תשלום"
+        },
+        "margin_top": {
+          "label": "מרווח עליון"
+        },
+        "header__8": {
+          "content": "קישורי מדיניות",
+          "info": "להוספת מדיניות החנות, עבור ל[הגדרות המדיניות](/admin/settings/legal)."
+        },
+        "show_policy": {
+          "label": "הצג קישורי מדיניות"
+        }
+      }
+    }
+  }
+} 

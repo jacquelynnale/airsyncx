@@ -1,0 +1,1128 @@
+<!-- AirSyncX Compatibility Checker -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<style>
+  /* AirSyncX Compatibility Checker Styles */
+  .airsyncx-about-page {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Assistant', sans-serif;
+    margin-top: 60px; /* Fixed top margin to account for header height */
+    z-index: 1; /* Ensure proper stacking context */
+  }
+  
+  .animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .animated-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, #38d2d2, transparent);
+    animation: circuit-animation 8s infinite linear;
+    opacity: 0.5;
+  }
+  
+  .animated-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, #38d2d2, transparent);
+    animation: circuit-animation 8s infinite linear;
+    opacity: 0.5;
+  }
+  
+  .animated-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, #38d2d2, transparent);
+    animation: circuit-animation 8s infinite linear;
+    opacity: 0.5;
+  }
+  
+  @keyframes circuit-animation {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  /* Content Styles */
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    color: #38d2d2;
+    line-height: 1.2;
+    text-shadow: 0 0 20px rgba(56, 210, 210, 0.4);
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: #38d2d2;
+    box-shadow: 0 0 10px #38d2d2;
+  }
+  
+  .about-subheading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  /* Compatibility Checker Form */
+  .compatibility-form-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: right;
+  }
+  
+  .compatibility-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #38d2d2;
+  }
+  
+  .form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-align: right;
+    direction: rtl;
+  }
+  
+  .form-group select:focus {
+    outline: none;
+    border-color: rgba(56, 210, 210, 0.8);
+    box-shadow: 0 0 10px rgba(56, 210, 210, 0.2);
+  }
+  
+  .form-group select option {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .hero-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #38d2d2;
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 210, 210, 0.4);
+  }
+  
+  .hero-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+  }
+  
+  .hero-button:hover::before {
+    left: 100%;
+  }
+  
+  /* Results Styles */
+  .compatibility-result {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .compatibility-result.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .result-compatible {
+    background-color: rgba(39, 174, 96, 0.1);
+    border: 1px solid rgba(39, 174, 96, 0.3);
+  }
+  
+  .result-incompatible {
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+  }
+  
+  .result-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .result-icon.compatible {
+    color: #27AE60;
+  }
+  
+  .result-icon.incompatible {
+    color: #E74C3C;
+  }
+  
+  .result-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .result-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #38d2d2;
+    color: #000000;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .result-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 210, 210, 0.4);
+  }
+  
+  /* Info Section Styles */
+  .compatibility-info {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .info-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    color: #38d2d2;
+    line-height: 1.2;
+    text-shadow: 0 0 20px rgba(56, 210, 210, 0.4);
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: #38d2d2;
+    box-shadow: 0 0 10px #38d2d2;
+  }
+  
+  .info-content {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* CTA Container Styles */
+  .cta-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .cta-content {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    color: #38d2d2;
+    line-height: 1.2;
+    text-shadow: 0 0 20px rgba(56, 210, 210, 0.4);
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: #38d2d2;
+    box-shadow: 0 0 10px #38d2d2;
+  }
+  
+  .cta-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-buttons {
+    margin-top: 1rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .about-heading {
+      font-size: 2.5rem;
+    }
+    
+    .about-subheading {
+      font-size: 1.2rem;
+    }
+    
+    .compatibility-form-container {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-heading {
+      font-size: 2rem;
+    }
+    
+    .about-subheading {
+      font-size: 1rem;
+    }
+    
+    .compatibility-form-container {
+      padding: 1rem;
+    }
+  }
+  
+  /* Additional Styles to match About Us page */
+  .airsyncx-compatibility-page {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .white-text {
+    color: #ffffff;
+  }
+  
+  .page-width {
+    padding: 0 20px;
+  }
+  
+  /* Particle Animation */
+  .particle {
+    position: absolute;
+    background-color: #38d2d2;
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-30px) translateX(15px);
+    }
+    50% {
+      transform: translateY(-15px) translateX(-15px);
+    }
+    75% {
+      transform: translateY(30px) translateX(10px);
+    }
+  }
+  
+  /* Hero Button Styles */
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 32px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 200px;
+  }
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* PRIMARY BUTTON - Call to Action */
+  .hero-button-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4500 100%);
+    color: #ffffff;
+    box-shadow: 
+      0 12px 35px rgba(255, 107, 53, 0.5),
+      0 6px 18px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 107, 53, 0.7);
+    transform: scale(1.05);
+    transition: all 0.4s ease;
+  }
+
+  /* Background Effect for Primary Button */
+  .button-background-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+
+  .hero-button-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff8c5a 0%, #ff6b35 50%, #f7931e 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 2;
+  }
+
+  .hero-button-primary::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 12px;
+    background: linear-gradient(90deg, rgba(255,107,53,0) 0%, rgba(255,107,53,0.9) 50%, rgba(255,107,53,0) 100%);
+    border-radius: 50%;
+    filter: blur(6px);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+    z-index: 0;
+  }
+
+  .hero-button-primary:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 
+      0 20px 50px rgba(255, 107, 53, 0.7),
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    animation: none;
+  }
+
+  .hero-button-primary:hover::before {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover::after {
+    opacity: 1;
+    width: 95%;
+    height: 16px;
+    filter: blur(8px);
+  }
+
+  .hero-button-primary:hover .button-background-effect {
+    opacity: 1;
+  }
+
+  .hero-button-primary:hover .button-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .hero-button-primary:active {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 
+      0 8px 20px rgba(255, 107, 53, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Form Styles Enhancement */
+  .form-group label {
+    color: #38d2d2;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .form-group select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 12px 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .form-group select:focus {
+    outline: none;
+    border-color: #38d2d2;
+    box-shadow: 0 0 10px rgba(56, 210, 210, 0.3);
+  }
+  
+  /* Result Styles Enhancement */
+  .compatibility-result {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 600px;
+    text-align: center;
+    transition: all 0.5s ease;
+  }
+  
+  .result-compatible {
+    border-color: rgba(39, 174, 96, 0.5);
+  }
+  
+  .result-incompatible {
+    border-color: rgba(231, 76, 60, 0.5);
+  }
+  
+  .result-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .result-button {
+    background-color: #38d2d2;
+    color: #000000;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+  
+  .result-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 210, 210, 0.4);
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .about-heading {
+      font-size: 2.5rem;
+    }
+    
+    .compatibility-form-container {
+      padding: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .about-heading {
+      font-size: 2rem;
+    }
+    
+    .about-subheading {
+      font-size: 1rem;
+    }
+    
+    .compatibility-result {
+      padding: 20px;
+    }
+    
+    .result-icon {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<div class="airsyncx-about-page airsyncx-compatibility-page">
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="animated-particles"></div>
+    <div class="animated-lines"></div>
+    <div class="animated-gradient"></div>
+  </div>
+  
+  <!-- Compatibility header -->
+  <div class="page-width">
+    <div class="about-header" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="about-heading">בדיקת <span class="highlight">תאימות</span></h1>
+      <p class="about-subheading">{{ section.settings.subtitle | default: "גלה אם AirSyncX תואם לרכב שלך" }}</p>
+    </div>
+
+    <!-- Compatibility Form Container -->
+    <div class="compatibility-form-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="compatibility-form">
+        <div class="form-group">
+          <label for="carBrand">בחר יצרן רכב</label>
+          <select id="carBrand">
+            <option value="">בחר יצרן...</option>
+            <option value="toyota">טויוטה</option>
+            <option value="honda">הונדה</option>
+            <option value="hyundai">יונדאי</option>
+            <option value="kia">קיה</option>
+            <option value="mazda">מאזדה</option>
+            <option value="nissan">ניסאן</option>
+            <option value="subaru">סובארו</option>
+            <option value="mitsubishi">מיצובישי</option>
+            <option value="suzuki">סוזוקי</option>
+            <option value="bmw">ב.מ.וו</option>
+            <option value="mercedes">מרצדס</option>
+            <option value="audi">אאודי</option>
+            <option value="volkswagen">פולקסווגן</option>
+            <option value="skoda">סקודה</option>
+            <option value="seat">סיאט</option>
+            <option value="peugeot">פיג'ו</option>
+            <option value="citroen">סיטרואן</option>
+            <option value="renault">רנו</option>
+            <option value="ford">פורד</option>
+            <option value="chevrolet">שברולט</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="carModel">בחר דגם רכב</label>
+          <select id="carModel" disabled>
+            <option value="">תחילה בחר יצרן...</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="carYear">בחר שנת ייצור</label>
+          <select id="carYear" disabled>
+            <option value="">תחילה בחר דגם...</option>
+          </select>
+        </div>
+        
+        <button type="button" id="checkButton" class="hero-button hero-button-primary" disabled>
+          <span class="button-text">בדוק תאימות</span>
+          <span class="button-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Results Container -->
+    <div id="compatibilityResult" class="compatibility-result" data-aos="fade-up" data-aos-delay="400">
+      <!-- Will be filled by JavaScript -->
+    </div>
+    
+    <!-- Info Section -->
+    <div class="compatibility-info" data-aos="fade-up" data-aos-delay="500">
+      <h2 class="info-heading">מידע <span class="highlight">נוסף</span></h2>
+      <div class="info-content">
+        <p>AirSyncX תואם למרבית הרכבים המצוידים ב-CarPlay קווי. בדיקת התאימות שלנו מספקת מידע מדויק על התאמת המוצר לרכב שלך.</p>
+        <p>אם הרכב שלך אינו מופיע ברשימה או שיש לך שאלות נוספות, אל תהסס ליצור קשר עם צוות התמיכה שלנו.</p>
+      </div>
+    </div>
+    
+    <!-- CTA Container -->
+    <div class="cta-container" data-aos="fade-up" data-aos-delay="600">
+      <div class="cta-content">
+        <h3 class="cta-title"><span class="white-text">מוכן</span> <span class="highlight">לשדרג?</span></h3>
+        <p class="cta-text">הפוך את חווית הנהיגה שלך לחלקה יותר עם CarPlay אלחוטי</p>
+        
+        <div class="cta-buttons">
+          <button 
+            type="button" 
+            class="hero-button hero-button-primary"
+            data-product-id="{% if section.settings.cta_product != blank %}{{ section.settings.cta_product.id }}{% endif %}"
+            data-variant-id="{% if section.settings.cta_product != blank %}{{ section.settings.cta_product.selected_or_first_available_variant.id }}{% endif %}"
+            data-action="{{ section.settings.cta_action | default: 'add_to_cart' }}"
+            data-redirect-url="{{ section.settings.cta_link }}"
+          >
+            <div class="button-background-effect"></div>
+            <div class="button-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="button-text">{{ section.settings.cta_text | default: 'הזמן עכשיו' }}</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 1000
+    });
+    
+    // Create and animate particles
+    const particlesContainer = document.querySelector('.animated-particles');
+    if (particlesContainer) {
+      for (let i = 0; i < 50; i++) {
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        let posX = Math.random() * 100;
+        let posY = Math.random() * 100;
+        
+        // Random size
+        let size = Math.random() * 5 + 1;
+        
+        // Random opacity
+        let opacity = Math.random() * 0.5 + 0.1;
+        
+        // Random animation delay
+        let delay = Math.random() * 5;
+        
+        // Apply styles
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.opacity = opacity;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    // Define car models and years data
+    const carData = {
+      toyota: {
+        models: ['קורולה', 'קאמרי', 'יאריס', 'ראב 4', 'לנד קרוזר', 'פריוס'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      honda: {
+        models: ['סיוויק', 'אקורד', 'ג׳אז', 'CR-V', 'HR-V'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      hyundai: {
+        models: ['i10', 'i20', 'i30', 'אלנטרה', 'סונטה', 'טוסון', 'סנטה פה'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      kia: {
+        models: ['פיקנטו', 'ריו', 'סיד', 'ספורטאג׳', 'סורנטו', 'נירו'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      mazda: {
+        models: ['2', '3', '6', 'CX-3', 'CX-30', 'CX-5', 'MX-5'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      nissan: {
+        models: ['מיקרה', 'ג׳וק', 'קשקאי', 'אקס-טרייל', 'ליף'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      subaru: {
+        models: ['אימפרזה', 'פורסטר', 'אאוטבק', 'XV'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      mitsubishi: {
+        models: ['ספייס סטאר', 'ASX', 'אאוטלנדר', 'פאג׳רו'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      suzuki: {
+        models: ['סוויפט', 'בלנו', 'איגניס', 'ויטארה', 'קרוס', 'ג׳ימני'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      bmw: {
+        models: ['סדרה 1', 'סדרה 2', 'סדרה 3', 'סדרה 4', 'סדרה 5', 'סדרה 7', 'X1', 'X3', 'X5', 'X6'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      mercedes: {
+        models: ['A קלאס', 'B קלאס', 'C קלאס', 'E קלאס', 'S קלאס', 'GLA', 'GLC', 'GLE', 'GLS'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      audi: {
+        models: ['A1', 'A3', 'A4', 'A5', 'A6', 'A8', 'Q3', 'Q5', 'Q7'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      volkswagen: {
+        models: ['פולו', 'גולף', 'ג׳טה', 'פאסאט', 'טיגואן', 'טוארג'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      skoda: {
+        models: ['פאביה', 'ראפיד', 'אוקטביה', 'סופרב', 'קאמיק', 'קארוק', 'קודיאק'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      seat: {
+        models: ['איביזה', 'לאון', 'ארונה', 'אטקה', 'טאראקו'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      peugeot: {
+        models: ['108', '208', '308', '3008', '5008', '508'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      citroen: {
+        models: ['C1', 'C3', 'C4', 'C5', 'C5 איירקרוס', 'ברלינגו'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      renault: {
+        models: ['קליאו', 'קפצ׳ור', 'מגאן', 'קדג׳אר', 'טליסמן'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      ford: {
+        models: ['פיאסטה', 'פוקוס', 'מונדיאו', 'קוגה', 'אקספלורר'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      },
+      chevrolet: {
+        models: ['ספארק', 'קרוז', 'מאליבו', 'טראקס', 'טרוורס'],
+        years: Array.from({length: 11}, (_, i) => 2014 + i)
+      }
+    };
+    
+    // Get DOM elements
+    const carBrandSelect = document.getElementById('carBrand');
+    const carModelSelect = document.getElementById('carModel');
+    const carYearSelect = document.getElementById('carYear');
+    const checkButton = document.getElementById('checkButton');
+    const compatibilityResult = document.getElementById('compatibilityResult');
+    
+    // Update models dropdown when brand is selected
+    carBrandSelect.addEventListener('change', function() {
+      const selectedBrand = this.value;
+      
+      // Clear previous options
+      carModelSelect.innerHTML = '';
+      carYearSelect.innerHTML = '';
+      carYearSelect.disabled = true;
+      checkButton.disabled = true;
+      
+      if (selectedBrand) {
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'בחר דגם...';
+        carModelSelect.appendChild(defaultOption);
+        
+        // Add model options for selected brand
+        carData[selectedBrand].models.forEach(model => {
+          const option = document.createElement('option');
+          option.value = model;
+          option.textContent = model;
+          carModelSelect.appendChild(option);
+        });
+        
+        // Enable model select
+        carModelSelect.disabled = false;
+      } else {
+        // Add default option when no brand selected
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'תחילה בחר יצרן...';
+        carModelSelect.appendChild(defaultOption);
+        
+        // Disable model select
+        carModelSelect.disabled = true;
+      }
+    });
+    
+    // Update years dropdown when model is selected
+    carModelSelect.addEventListener('change', function() {
+      const selectedModel = this.value;
+      const selectedBrand = carBrandSelect.value;
+      
+      // Clear previous options
+      carYearSelect.innerHTML = '';
+      checkButton.disabled = true;
+      
+      if (selectedModel) {
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'בחר שנת ייצור...';
+        carYearSelect.appendChild(defaultOption);
+        
+        // Add year options for selected brand
+        carData[selectedBrand].years.forEach(year => {
+          const option = document.createElement('option');
+          option.value = year;
+          option.textContent = year;
+          carYearSelect.appendChild(option);
+        });
+        
+        // Enable year select
+        carYearSelect.disabled = false;
+      } else {
+        // Add default option when no model selected
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'תחילה בחר דגם...';
+        carYearSelect.appendChild(defaultOption);
+        
+        // Disable year select
+        carYearSelect.disabled = true;
+      }
+    });
+    
+    // Enable check button when year is selected
+    carYearSelect.addEventListener('change', function() {
+      checkButton.disabled = !this.value;
+    });
+    
+    // Check compatibility when button is clicked
+    checkButton.addEventListener('click', function() {
+      const selectedBrand = carBrandSelect.value;
+      const selectedModel = carModelSelect.value;
+      const selectedYear = carYearSelect.value;
+      
+      // Check compatibility (simplified logic for demo - adjust with real compatibility data)
+      const isCompatible = parseInt(selectedYear) >= 2016; // Compatible with cars from 2016 and newer
+      
+      // Prepare result content
+      let resultHTML = '';
+      
+      if (isCompatible) {
+        resultHTML = `
+          <div class="result-icon compatible">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>הרכב שלך תואם ל-AirSyncX!</h3>
+          <p class="result-text">
+            ה-${selectedBrand} ${selectedModel} משנת ${selectedYear} תואם לחלוטין למתאם AirSyncX, 
+            ותוכל להנות מ-CarPlay אלחוטי ברכב שלך.
+          </p>
+          <a href="/products/airsyncx" class="hero-button hero-button-primary">
+            <div class="button-background-effect"></div>
+            <div class="button-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="button-text">הזמן עכשיו</span>
+            </div>
+          </a>
+        `;
+        compatibilityResult.className = 'compatibility-result result-compatible active';
+      } else {
+        resultHTML = `
+          <div class="result-icon incompatible">
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <h3>הרכב שלך לא תואם ל-AirSyncX</h3>
+          <p class="result-text">
+            לצערנו, ה-${selectedBrand} ${selectedModel} משנת ${selectedYear} אינו תואם למתאם AirSyncX. 
+            אנו ממליצים לבדוק את המדריך המלא לתאימות או ליצור קשר לקבלת מידע נוסף.
+          </p>
+          <a href="/pages/contact" class="result-button">צור קשר</a>
+        `;
+        compatibilityResult.className = 'compatibility-result result-incompatible active';
+      }
+      
+      compatibilityResult.innerHTML = resultHTML;
+      
+      // Scroll to result
+      setTimeout(() => {
+        compatibilityResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "בדיקת תאימות",
+  "tag": "section",
+  "class": "section-compatibility-checker",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "כותרת",
+      "default": "בדיקת תאימות"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "כותרת משנה",
+      "default": "גלה אם AirSyncX תואם לרכב שלך"
+    },
+    {
+      "type": "header",
+      "content": "הגדרות כפתור CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "טקסט כפתור",
+      "default": "הזמן עכשיו"
+    },
+    {
+      "type": "product",
+      "id": "cta_product",
+      "label": "מוצר להוספה לסל",
+      "info": "בחר את המוצר שיתווסף לסל בלחיצה על הכפתור"
+    },
+    {
+      "type": "select",
+      "id": "cta_action",
+      "label": "פעולת הכפתור",
+      "options": [
+        {
+          "value": "add_to_cart",
+          "label": "הוספה לסל"
+        },
+        {
+          "value": "redirect",
+          "label": "הפניה לקישור"
+        }
+      ],
+      "default": "add_to_cart"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "קישור כפתור",
+      "info": "יופעל רק אם נבחרה פעולת 'הפניה לקישור'"
+    }
+  ],
+  "presets": [
+    {
+      "name": "בדיקת תאימות",
+      "category": "AirSyncX"
+    }
+  ]
+}
+{% endschema %}

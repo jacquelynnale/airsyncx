@@ -1,0 +1,765 @@
+<!-- AirSyncX Quick Compatibility Check -->
+<!-- Google Fonts - Assistant -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+<div class="quick-compatibility-section">
+  <div class="background-elements">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-lines"></div>
+  </div>
+  
+  <div class="page-width">
+    <div class="section-header" data-aos="fade-up">
+      <div class="section-eyebrow">{{ 'sections.airsyncx_quick_compatibility.eyebrow' | t }}</div>
+      <h2 class="section-title"><span style="color: #fff;">{{ 'sections.airsyncx_quick_compatibility.title_part1' | t }}</span> <span class="highlight">{{ 'sections.airsyncx_quick_compatibility.title_part2' | t }}</span></h2>
+      <p class="section-description">{{ section.settings.description }}</p>
+      <div class="compatibility-note">
+        <i class="fas fa-info-circle"></i> {{ 'sections.airsyncx_quick_compatibility.compatibility_note' | t }}
+      </div>
+    </div>
+    
+    <div class="compatibility-checker-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="compatibility-form-mini">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quickCarBrand">{{ 'sections.airsyncx_quick_compatibility.car_brand_label' | t }}</label>
+            <select id="quickCarBrand">
+              <option value="">{{ 'sections.airsyncx_quick_compatibility.select_brand' | t }}</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="quickCarModel">{{ 'sections.airsyncx_quick_compatibility.car_model_label' | t }}</label>
+            <select id="quickCarModel" disabled>
+              <option value="">{{ 'sections.airsyncx_quick_compatibility.select_brand_first' | t }}</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="quickCarYear">{{ 'sections.airsyncx_quick_compatibility.car_year_label' | t }}</label>
+            <select id="quickCarYear" disabled>
+              <option value="">{{ 'sections.airsyncx_quick_compatibility.select_model_first' | t }}</option>
+            </select>
+          </div>
+          
+          <div class="form-group form-button-group">
+            <button type="button" id="quickCheckButton" class="quick-check-button" disabled>
+              {{ 'sections.airsyncx_quick_compatibility.check_button' | t }}
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="quickCompatibilityResult" class="quick-compatibility-result">
+        <!-- Will be filled by JavaScript -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .quick-compatibility-section {
+    padding: 120px 0;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    font-family: 'Assistant', sans-serif;
+    direction: {% if request.locale.iso_code == 'he' %}rtl{% else %}ltr{% endif %};
+    overflow: hidden;
+  }
+  
+  .quick-compatibility-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(56, 210, 210, 0) 0%, rgba(56, 210, 210, 0.5) 50%, rgba(56, 210, 210, 0) 100%);
+  }
+  
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(25, 25, 25, 0.05) 0%, rgba(15, 15, 15, 0) 70%);
+  }
+  
+  .bg-circle-1 {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    right: -200px;
+    opacity: 0.4;
+  }
+  
+  .bg-circle-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -250px;
+    left: -150px;
+    opacity: 0.3;
+  }
+  
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(56, 210, 210, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(56, 210, 210, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+  }
+  
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .section-eyebrow {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #38d2d2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+  }
+  
+  .highlight {
+    color: #38d2d2;
+    position: relative;
+  }
+  
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #38d2d2;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .section-header:hover .highlight::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .section-description {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .compatibility-note {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 20px;
+    background-color: rgba(56, 210, 210, 0.1);
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .compatibility-note i {
+    color: #38d2d2;
+    font-size: 1.3rem;
+  }
+  
+  .compatibility-checker-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .compatibility-form-mini {
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+  }
+  
+  .form-group {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .form-button-group {
+    flex: 0 0 auto;
+    align-self: flex-end;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #38d2d2;
+  }
+  
+  .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(56, 210, 210, 0.3);
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Assistant', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group select:focus {
+    outline: none;
+    border-color: #38d2d2;
+    box-shadow: 0 0 10px rgba(56, 210, 210, 0.3);
+  }
+  
+  .form-group select option {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .quick-check-button {
+    background-color: #38d2d2;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Assistant', sans-serif;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .quick-check-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 210, 210, 0.4);
+  }
+  
+  .quick-check-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .quick-compatibility-result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+  }
+  
+  .quick-compatibility-result.compatible {
+    display: flex;
+    background-color: rgba(39, 174, 96, 0.1);
+    border: 1px solid rgba(39, 174, 96, 0.3);
+  }
+  
+  .quick-compatibility-result.incompatible {
+    display: flex;
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+  }
+  
+  .result-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  
+  .result-icon.compatible {
+    color: #27AE60;
+  }
+  
+  .result-icon.incompatible {
+    color: #E74C3C;
+  }
+  
+  .result-content {
+    text-align: center;
+  }
+  
+  .result-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  
+  .result-details {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .result-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+  
+  .result-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .simple-purchase-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #38d2d2;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .simple-purchase-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .simple-purchase-button svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .primary-cta {
+    display: none;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .quick-compatibility-section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      font-size: 4rem;
+    }
+    
+    .compatibility-checker-container {
+      padding: 20px;
+    }
+    
+    .form-row {
+      flex-direction: column;
+    }
+    
+    .form-group {
+      width: 100%;
+    }
+    
+    .form-button-group {
+      margin-top: 10px;
+      width: 100%;
+    }
+    
+    .quick-check-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Define car models and years data
+    const carData = {
+      toyota: {
+        models: {% if request.locale.iso_code == 'he' %}['קורולה', 'קאמרי', 'יאריס', 'ראב 4', 'לנד קרוזר', 'פריוס', 'C-HR', 'אוונסיס', 'הילקס', 'פרודו', 'וורסו', 'אייגו']{% else %}['Corolla', 'Camry', 'Yaris', 'RAV4', 'Land Cruiser', 'Prius', 'C-HR', 'Avensis', 'Hilux', 'Prado', 'Verso', 'Aygo']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      honda: {
+        models: {% if request.locale.iso_code == 'he' %}['סיוויק', 'אקורד', 'ג׳אז', 'CR-V', 'HR-V', 'סיטי', 'CR-Z', 'אינסייט', 'פיילוט', 'אודיסיאה', 'לג׳נד']{% else %}['Civic', 'Accord', 'Jazz', 'CR-V', 'HR-V', 'City', 'CR-Z', 'Insight', 'Pilot', 'Odyssey', 'Legend']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      hyundai: {
+        models: {% if request.locale.iso_code == 'he' %}['i10', 'i20', 'i30', 'i40', 'אלנטרה', 'סונטה', 'טוסון', 'סנטה פה', 'קונה', 'איוניק', 'ולוסטר', 'גנסיס', 'אקסנט', 'H1']{% else %}['i10', 'i20', 'i30', 'i40', 'Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Kona', 'Ioniq', 'Veloster', 'Genesis', 'Accent', 'H1']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      kia: {
+        models: {% if request.locale.iso_code == 'he' %}['פיקנטו', 'ריו', 'סיד', 'ספורטאג׳', 'סורנטו', 'אופטימה', 'סטוניק', 'נירו', 'סלטוס', 'קרניבל', 'סטינגר', 'K5', 'סול']{% else %}['Picanto', 'Rio', 'Ceed', 'Sportage', 'Sorento', 'Optima', 'Stonic', 'Niro', 'Seltos', 'Carnival', 'Stinger', 'K5', 'Soul']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      mazda: {
+        models: {% if request.locale.iso_code == 'he' %}['2', '3', '6', 'CX-3', 'CX-30', 'CX-5', 'CX-9', 'MX-5', 'BT-50', 'MX-30']{% else %}['Mazda2', 'Mazda3', 'Mazda6', 'CX-3', 'CX-30', 'CX-5', 'CX-9', 'MX-5', 'BT-50', 'MX-30']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      bmw: {
+        models: {% if request.locale.iso_code == 'he' %}['סדרה 1', 'סדרה 2', 'סדרה 3', 'סדרה 4', 'סדרה 5', 'סדרה 6', 'סדרה 7', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4', 'i3', 'i4', 'i8', 'iX']{% else %}['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4', 'i3', 'i4', 'i8', 'iX']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      mercedes: {
+        models: {% if request.locale.iso_code == 'he' %}['A קלאס', 'B קלאס', 'C קלאס', 'E קלאס', 'S קלאס', 'CLA', 'CLS', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'G קלאס', 'EQA', 'EQB', 'EQC', 'EQS', 'V קלאס']{% else %}['A-Class', 'B-Class', 'C-Class', 'E-Class', 'S-Class', 'CLA', 'CLS', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'G-Class', 'EQA', 'EQB', 'EQC', 'EQS', 'V-Class']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      audi: {
+        models: {% if request.locale.iso_code == 'he' %}['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'TT', 'R8', 'e-tron', 'E-Tron GT']{% else %}['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'TT', 'R8', 'e-tron', 'E-Tron GT']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      volkswagen: {
+        models: {% if request.locale.iso_code == 'he' %}['פולו', 'גולף', 'פאסאט', 'ארטאון', 'טיגואן', 'טוארג', 'T-רוק', 'T-קרוס', 'ID.3', 'ID.4', 'ID.5', 'ג׳טה', 'שירוקו', 'אפ!', 'קאדי', 'טרנספורטר']{% else %}['Polo', 'Golf', 'Passat', 'Arteon', 'Tiguan', 'Touareg', 'T-Roc', 'T-Cross', 'ID.3', 'ID.4', 'ID.5', 'Jetta', 'Scirocco', 'Up!', 'Caddy', 'Transporter']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      skoda: {
+        models: {% if request.locale.iso_code == 'he' %}['פאביה', 'אוקטביה', 'סופרב', 'קודיאק', 'קארוק', 'קאמיק', 'סקאלה', 'אניאק', 'רפיד']{% else %}['Fabia', 'Octavia', 'Superb', 'Kodiaq', 'Karoq', 'Kamiq', 'Scala', 'Enyaq', 'Rapid']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      ford: {
+        models: {% if request.locale.iso_code == 'he' %}['פיאסטה', 'פוקוס', 'מונדיאו', 'פומה', 'קוגה', 'אקספלורר', 'מוסטנג', 'אקוספורט', 'אדג׳', 'רנג׳ר', 'טרנזיט', 'F150']{% else %}['Fiesta', 'Focus', 'Mondeo', 'Puma', 'Kuga', 'Explorer', 'Mustang', 'EcoSport', 'Edge', 'Ranger', 'Transit', 'F-150']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      chevrolet: {
+        models: {% if request.locale.iso_code == 'he' %}['ספארק', 'אבאו', 'קרוז', 'מאליבו', 'אימפלה', 'קמארו', 'קורבט', 'טראקס', 'אקווינוקס', 'בלייזר', 'טראברס', 'טאהו', 'סילברדו']{% else %}['Spark', 'Aveo', 'Cruze', 'Malibu', 'Impala', 'Camaro', 'Corvette', 'Trax', 'Equinox', 'Blazer', 'Traverse', 'Tahoe', 'Silverado']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      nissan: {
+        models: {% if request.locale.iso_code == 'he' %}['מיקרה', 'ג׳וק', 'קשקאי', 'אקס-טרייל', 'פטרול', 'נאוארה', 'ליף', 'אלטימה', 'מקסימה', 'GT-R', '370Z', 'מורנו']{% else %}['Micra', 'Juke', 'Qashqai', 'X-Trail', 'Patrol', 'Navara', 'Leaf', 'Altima', 'Maxima', 'GT-R', '370Z', 'Murano']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      mitsubishi: {
+        models: {% if request.locale.iso_code == 'he' %}['ספייס סטאר', 'ASX', 'אאוטלנדר', 'פאג׳רו', 'L200', 'אקליפס קרוס', 'לנסר']{% else %}['Space Star', 'ASX', 'Outlander', 'Pajero', 'L200', 'Eclipse Cross', 'Lancer']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      subaru: {
+        models: {% if request.locale.iso_code == 'he' %}['אימפרזה', 'XV', 'פורסטר', 'אאוטבק', 'לגאסי', 'WRX', 'BRZ', 'אסנט']{% else %}['Impreza', 'XV', 'Forester', 'Outback', 'Legacy', 'WRX', 'BRZ', 'Ascent']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      lexus: {
+        models: {% if request.locale.iso_code == 'he' %}['CT', 'IS', 'ES', 'GS', 'LS', 'UX', 'NX', 'RX', 'GX', 'LX', 'RC', 'LC']{% else %}['CT', 'IS', 'ES', 'GS', 'LS', 'UX', 'NX', 'RX', 'GX', 'LX', 'RC', 'LC']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      volvo: {
+        models: {% if request.locale.iso_code == 'he' %}['S60', 'S90', 'V40', 'V60', 'V90', 'XC40', 'XC60', 'XC90', 'C40']{% else %}['S60', 'S90', 'V40', 'V60', 'V90', 'XC40', 'XC60', 'XC90', 'C40']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      peugeot: {
+        models: {% if request.locale.iso_code == 'he' %}['108', '208', '308', '508', '2008', '3008', '5008', 'ריפטר', 'טרוולר', 'פרטנר']{% else %}['108', '208', '308', '508', '2008', '3008', '5008', 'Rifter', 'Traveller', 'Partner']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      renault: {
+        models: {% if request.locale.iso_code == 'he' %}['קליאו', 'מגאן', 'קדג׳אר', 'קולאוס', 'קפצ׳ור', 'סניק', 'טליסמן', 'זואי', 'טוויזי', 'קנגו']{% else %}['Clio', 'Megane', 'Kadjar', 'Koleos', 'Captur', 'Scenic', 'Talisman', 'Zoe', 'Twizy', 'Kangoo']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      citroen: {
+        models: {% if request.locale.iso_code == 'he' %}['C1', 'C3', 'C4', 'C5', 'C3 איירקרוס', 'C4 קאקטוס', 'C5 איירקרוס', 'ברלינגו']{% else %}['C1', 'C3', 'C4', 'C5', 'C3 Aircross', 'C4 Cactus', 'C5 Aircross', 'Berlingo']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      suzuki: {
+        models: {% if request.locale.iso_code == 'he' %}['אלטו', 'סוויפט', 'בלנו', 'איגניס', 'ויטארה', 'SX4', 'ג׳ימני', 'קרוסאובר']{% else %}['Alto', 'Swift', 'Baleno', 'Ignis', 'Vitara', 'SX4', 'Jimny', 'S-Cross']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      },
+      seat: {
+        models: {% if request.locale.iso_code == 'he' %}['איביזה', 'לאון', 'אטקה', 'ארונה', 'טראקו', 'מיי', 'טולדו', 'אלהמברה']{% else %}['Ibiza', 'Leon', 'Ateca', 'Arona', 'Tarraco', 'Mii', 'Toledo', 'Alhambra']{% endif %},
+        years: Array.from({length: 9}, (_, i) => 2017 + i)
+      }
+    };
+    
+    // Get DOM elements
+    const carBrandSelect = document.getElementById('quickCarBrand');
+    const carModelSelect = document.getElementById('quickCarModel');
+    const carYearSelect = document.getElementById('quickCarYear');
+    const checkButton = document.getElementById('quickCheckButton');
+    const compatibilityResult = document.getElementById('quickCompatibilityResult');
+    
+    // Clear existing options and add new ones
+    while (carBrandSelect.options.length > 1) {
+      carBrandSelect.remove(1);
+    }
+    
+    // Add all car brands to the dropdown
+    Object.keys(carData).sort().forEach(brand => {
+      const option = document.createElement('option');
+      option.value = brand;
+      
+      // Map English brand names to Hebrew
+      const brandNames = {
+        {% if request.locale.iso_code == 'he' %}
+        toyota: 'טויוטה',
+        honda: 'הונדה',
+        hyundai: 'יונדאי',
+        kia: 'קיה',
+        mazda: 'מאזדה',
+        bmw: 'ב.מ.וו',
+        mercedes: 'מרצדס',
+        audi: 'אאודי',
+        volkswagen: 'פולקסווגן',
+        skoda: 'סקודה',
+        ford: 'פורד',
+        chevrolet: 'שברולט',
+        nissan: 'ניסאן',
+        mitsubishi: 'מיצובישי',
+        subaru: 'סובארו',
+        lexus: 'לקסוס',
+        volvo: 'וולוו',
+        peugeot: 'פג׳ו',
+        renault: 'רנו',
+        citroen: 'סיטרואן',
+        suzuki: 'סוזוקי',
+        seat: 'סיאט'
+        {% else %}
+        toyota: 'Toyota',
+        honda: 'Honda',
+        hyundai: 'Hyundai',
+        kia: 'Kia',
+        mazda: 'Mazda',
+        bmw: 'BMW',
+        mercedes: 'Mercedes-Benz',
+        audi: 'Audi',
+        volkswagen: 'Volkswagen',
+        skoda: 'Skoda',
+        ford: 'Ford',
+        chevrolet: 'Chevrolet',
+        nissan: 'Nissan',
+        mitsubishi: 'Mitsubishi',
+        subaru: 'Subaru',
+        lexus: 'Lexus',
+        volvo: 'Volvo',
+        peugeot: 'Peugeot',
+        renault: 'Renault',
+        citroen: 'Citroën',
+        suzuki: 'Suzuki',
+        seat: 'SEAT'
+        {% endif %}
+      };
+      
+      option.textContent = brandNames[brand] || brand;
+      carBrandSelect.appendChild(option);
+    });
+    
+    // Update models dropdown when brand is selected
+    carBrandSelect.addEventListener('change', function() {
+      const selectedBrand = this.value;
+      
+      // Clear previous options
+      carModelSelect.innerHTML = '';
+      carYearSelect.innerHTML = '';
+      carYearSelect.disabled = true;
+      checkButton.disabled = true;
+      compatibilityResult.className = 'quick-compatibility-result';
+      
+      if (selectedBrand) {
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = {% if request.locale.iso_code == 'he' %}'בחר דגם...'{% else %}'Select model...'{% endif %};
+        carModelSelect.appendChild(defaultOption);
+        
+        // Add model options for selected brand
+        carData[selectedBrand].models.forEach(model => {
+          const option = document.createElement('option');
+          option.value = model;
+          option.textContent = model;
+          carModelSelect.appendChild(option);
+        });
+        
+        // Enable model select
+        carModelSelect.disabled = false;
+      } else {
+        // Add default option when no brand selected
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = {% if request.locale.iso_code == 'he' %}'תחילה בחר יצרן...'{% else %}'Select brand first...'{% endif %};
+        carModelSelect.appendChild(defaultOption);
+        
+        // Disable model select
+        carModelSelect.disabled = true;
+      }
+    });
+    
+    // Update years dropdown when model is selected
+    carModelSelect.addEventListener('change', function() {
+      const selectedModel = this.value;
+      const selectedBrand = carBrandSelect.value;
+      
+      // Clear previous options
+      carYearSelect.innerHTML = '';
+      checkButton.disabled = true;
+      compatibilityResult.className = 'quick-compatibility-result';
+      
+      if (selectedModel) {
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = {% if request.locale.iso_code == 'he' %}'בחר שנה...'{% else %}'Select year...'{% endif %};
+        carYearSelect.appendChild(defaultOption);
+        
+        // Add year options for selected brand
+        carData[selectedBrand].years.forEach(year => {
+          const option = document.createElement('option');
+          option.value = year;
+          option.textContent = year;
+          carYearSelect.appendChild(option);
+        });
+        
+        // Enable year select
+        carYearSelect.disabled = false;
+      } else {
+        // Add default option when no model selected
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = {% if request.locale.iso_code == 'he' %}'תחילה בחר דגם...'{% else %}'Select model first...'{% endif %};
+        carYearSelect.appendChild(defaultOption);
+        
+        // Disable year select
+        carYearSelect.disabled = true;
+      }
+    });
+    
+    // Enable check button when year is selected
+    carYearSelect.addEventListener('change', function() {
+      checkButton.disabled = !this.value;
+      compatibilityResult.className = 'quick-compatibility-result';
+    });
+    
+    // Check compatibility when button is clicked
+    checkButton.addEventListener('click', function() {
+      const selectedBrand = carBrandSelect.value;
+      const selectedModel = carModelSelect.value;
+      const selectedYear = parseInt(carYearSelect.value);
+      
+      // Check compatibility (simplified logic - all cars are compatible)
+      const isCompatible = true;
+      
+      // Prepare result content
+      let resultHTML = '';
+      
+      if (isCompatible) {
+        resultHTML = `
+          <div class="result-icon compatible">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="result-content">
+            <h3 class="result-title">{% if request.locale.iso_code == 'he' %}מעולה! ה-${selectedModel} שלך תואם לחלוטין!{% else %}Great! Your ${selectedModel} is fully compatible!{% endif %}</h3>
+            <p class="result-details">{% if request.locale.iso_code == 'he' %}השתחרר מהכבלים והפוך את חווית ה-CarPlay שלך לאלחוטית עוד היום!{% else %}Cut the cables and make your CarPlay experience wireless today!{% endif %}</p>
+            <div class="result-actions">
+              <a href="/products/airsyncx" class="simple-purchase-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span>{% if request.locale.iso_code == 'he' %}קנה עכשיו{% else %}Buy Now{% endif %}</span>
+              </a>
+            </div>
+          </div>
+        `;
+        compatibilityResult.className = 'quick-compatibility-result compatible';
+      } else {
+        resultHTML = `
+          <div class="result-icon incompatible">
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <span>{% if request.locale.iso_code == 'he' %}לצערנו, ה-${selectedModel} משנת ${selectedYear} אינו תואם. <a href="/pages/contact" class="result-cta">צור קשר</a> למידע נוסף.{% else %}Unfortunately, the ${selectedModel} from ${selectedYear} is not compatible. <a href="/pages/contact" class="result-cta">Contact us</a> for more information.{% endif %}</span>
+        `;
+        compatibilityResult.className = 'quick-compatibility-result incompatible';
+      }
+      
+      compatibilityResult.innerHTML = resultHTML;
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.airsyncx_quick_compatibility.name",
+  "tag": "section",
+  "class": "airsyncx-quick-compatibility-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.airsyncx_quick_compatibility.settings.title.label",
+      "default": "Quick Compatibility Check"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:sections.airsyncx_quick_compatibility.settings.description.label",
+      "default": "Easily check if your car is compatible with AirSyncX"
+    }
+  ],
+  "presets": [
+    {
+      "name": "AirSyncX Quick Compatibility",
+      "settings": {
+        "title": "Quick Compatibility Check",
+        "description": "Easily check if your car is compatible with AirSyncX"
+      }
+    }
+  ]
+}
+{% endschema %}
