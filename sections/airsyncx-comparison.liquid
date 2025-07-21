@@ -1666,200 +1666,44 @@
     }
   }
   
-  /* Responsive Design */
+  /* Proportional scaling for mobile - maintains exact desktop layout */
   @media (max-width: 1200px) {
     .advanced-comparison-container {
-      max-width: 100%;
-      margin: 0 20px 60px;
+      transform: scale(0.9);
+      transform-origin: center top;
+      margin: 0 auto 60px;
     }
   }
   
   @media (max-width: 768px) {
     .advanced-comparison-container {
-      margin: 0 15px 40px;
-    }
-    
-    .comparison-table-wrapper {
-      border-radius: 15px;
-    }
-    
-    .comparison-header-row {
-      grid-template-columns: minmax(180px, 1.5fr) 1fr 1fr;
-      gap: 0;
-    }
-    
-    .feature-header {
-      padding: 20px 15px;
-      font-size: 1.3rem;
-    }
-    
-    .competitor-header {
-      padding: 20px 10px;
-      gap: 8px;
-    }
-    
-    .competitor-header span {
-      font-size: 1.1rem;
-      text-align: center;
-    }
-    
-    .competitor-icon {
-      width: 30px;
-      height: 30px;
-    }
-    
-    .premium-badge {
-      font-size: 0.9rem;
-      padding: 2px 8px;
-    }
-    
-    .comparison-row {
-      grid-template-columns: minmax(180px, 1.5fr) 1fr 1fr;
-    }
-    
-    .feature-cell {
-      padding: 15px 15px;
-      gap: 10px;
-      font-size: 1.1rem;
-    }
-    
-    .feature-icon {
-      width: 25px;
-      height: 25px;
-    }
-    
-    .competitor-cell {
-      padding: 15px 8px;
-      gap: 5px;
-    }
-    
-    .value {
-      font-size: 1.2rem;
-    }
-    
-    .quality-indicator {
-      font-size: 0.9rem;
-      padding: 2px 6px;
+      transform: scale(0.8);
+      transform-origin: center top;
+      margin: 0 auto 40px;
     }
   }
   
   @media (max-width: 576px) {
     .advanced-comparison-container {
-      margin: 0 10px 30px;
-    }
-    
-    .comparison-header-row {
-      grid-template-columns: minmax(150px, 1fr) 1fr 1fr;
-    }
-    
-    .feature-header {
-      padding: 15px 10px;
-      font-size: 1.1rem;
-    }
-    
-    .competitor-header {
-      padding: 15px 5px;
-    }
-    
-    .competitor-header span {
-      font-size: 0.95rem;
-      line-height: 1.2;
-    }
-    
-    .comparison-row {
-      grid-template-columns: minmax(150px, 1fr) 1fr 1fr;
-    }
-    
-    .feature-cell {
-      padding: 12px 10px;
-      font-size: 1rem;
-      flex-direction: column;
-      text-align: center;
-      gap: 5px;
-    }
-    
-    .feature-icon {
-      width: 20px;
-      height: 20px;
-    }
-    
-    .competitor-cell {
-      padding: 12px 5px;
-    }
-    
-    .value {
-      font-size: 1rem;
-    }
-    
-    .quality-indicator {
-      font-size: 0.8rem;
-      padding: 2px 4px;
-    }
-    
-    .premium-badge {
-      font-size: 0.75rem;
-      padding: 1px 5px;
+      transform: scale(0.7);
+      transform-origin: center top;
+      margin: 0 auto 30px;
     }
   }
   
   @media (max-width: 480px) {
-    /* Maintain table layout for very small screens */
     .advanced-comparison-container {
-      margin: 0 5px 30px;
+      transform: scale(0.6);
+      transform-origin: center top;
+      margin: 0 auto 20px;
     }
-    
-    .comparison-header-row {
-      grid-template-columns: minmax(120px, 1fr) 1fr 1fr;
-    }
-    
-    .feature-header {
-      padding: 12px 8px;
-      font-size: 1rem;
-    }
-    
-    .competitor-header {
-      padding: 12px 4px;
-      gap: 4px;
-    }
-    
-    .competitor-header span {
-      font-size: 0.85rem;
-      line-height: 1.1;
-    }
-    
-    .comparison-row {
-      grid-template-columns: minmax(120px, 1fr) 1fr 1fr;
-    }
-    
-    .feature-cell {
-      padding: 10px 8px;
-      font-size: 0.9rem;
-      flex-direction: column;
-      text-align: center;
-      gap: 4px;
-    }
-    
-    .feature-icon {
-      width: 18px;
-      height: 18px;
-    }
-    
-    .competitor-cell {
-      padding: 10px 4px;
-    }
-    
-    .value {
-      font-size: 0.9rem;
-    }
-    
-    .quality-indicator {
-      font-size: 0.7rem;
-      padding: 1px 3px;
-    }
-    
-    .premium-badge {
-      font-size: 0.65rem;
-      padding: 1px 4px;
+  }
+  
+  @media (max-width: 360px) {
+    .advanced-comparison-container {
+      transform: scale(0.55);
+      transform-origin: center top;
+      margin: 0 auto 15px;
     }
   }
   `;
