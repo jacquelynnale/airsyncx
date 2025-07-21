@@ -1803,28 +1803,63 @@
   }
   
   @media (max-width: 480px) {
-    /* Stack vertically for very small screens */
-    .comparison-header-row,
-    .comparison-row {
-      display: block;
+    /* Maintain table layout for very small screens */
+    .advanced-comparison-container {
+      margin: 0 5px 30px;
     }
     
-    .feature-cell,
-    .competitor-cell {
-      border-left: none;
-      border-bottom: 1px solid rgba(56, 210, 210, 0.1);
+    .comparison-header-row {
+      grid-template-columns: minmax(120px, 1fr) 1fr 1fr;
+    }
+    
+    .feature-header {
+      padding: 12px 8px;
+      font-size: 1rem;
     }
     
     .competitor-header {
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 15px;
+      padding: 12px 4px;
+      gap: 4px;
+    }
+    
+    .competitor-header span {
+      font-size: 0.85rem;
+      line-height: 1.1;
+    }
+    
+    .comparison-row {
+      grid-template-columns: minmax(120px, 1fr) 1fr 1fr;
     }
     
     .feature-cell {
-      flex-direction: row;
-      justify-content: flex-start;
-      text-align: left;
+      padding: 10px 8px;
+      font-size: 0.9rem;
+      flex-direction: column;
+      text-align: center;
+      gap: 4px;
+    }
+    
+    .feature-icon {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .competitor-cell {
+      padding: 10px 4px;
+    }
+    
+    .value {
+      font-size: 0.9rem;
+    }
+    
+    .quality-indicator {
+      font-size: 0.7rem;
+      padding: 1px 3px;
+    }
+    
+    .premium-badge {
+      font-size: 0.65rem;
+      padding: 1px 4px;
     }
   }
   `;
